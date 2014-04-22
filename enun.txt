@@ -1,0 +1,304 @@
+
+                        REPRODUCCIÓN EN EL LABORATORIO
+
+Los científicos de un laboratorio de investigación biológica desean llevar a
+cabo una serie de experimentos para estudiar el ciclo de vida de una especie de
+organismos celulares sencillos.
+
+Un organismo está formado por un cierto número de células, procedentes de la
+bipartición (o fisión) de una célula original.  Cada célula tendrá un
+identificador entero mayor que 0. Las células de un mismo organismo no pueden
+tener identificadores repetidos. Durante el resto del enunciado iremos viendo
+otras características relevantes de las células.
+
+La morfología de tales organismos puede representarse mediante árboles
+binarios.  Por ejemplo el árbol
+
+
+                                 7 
+                              /     \
+                           1           3
+                         /   \       /   \ 
+                        2     5     4     6
+                       / \   / \   / \   / \
+                     17  10 8  13 11 14 9  12
+
+
+representa un organismo cuya célula 7 es la original, la 1 y la 3 son el
+resultado de la bipartición de ésta (podemos decir que son sus "hijas" o que la
+7 es la "madre" de estas), la 2 y la 5 son las hijas de la 1, etc.
+
+Consideramos que cada célula puede fisionarse, como máximo, una vez en su vida.
+
+Por otra parte, puede ocurrir el proceso inverso, que un organismo pierda
+células progresivamente. Si se queda sin ninguna, diremos que ha muerto.
+
+Por último, los organismos pueden reproducirse de manera sexual, es decir,
+pueden aparecer organismos nuevos a partir de parejas de organismos ya
+existentes.
+
+Un experimento típico se organiza de la siguiente manera.  Se dispone de una
+población inicial de N organismos, numerados correlativamente desde 1 en
+adelante (N es un natural mayor o igual que 2).  Según avanza el experimento,
+dicha población va evolucionando mediante los procesos que acabamos de exponer.
+A continuación, mostramos en detalle dichos procesos.
+
+
+REPRODUCCIÓN SEXUAL
+-------------------
+
+Durante el experimento se pueden producir rondas de emparejamientos, en cada
+una de las cuales cada organismo vivo elige un candidato vivo (o es elegido
+como tal) para reproducirse.  Nunca se repiten los emparejamientos a lo largo
+de las sucesivas rondas y cuando un organismo ya no tenga candidatos sin
+repetir simplemente deja de reproducirse. En cada ronda, tienen prioridad de
+elección los organismos de menor identificador y cada organismo elige al de
+menor identificador que aún no se haya reproducido con él.
+
+Por ejemplo, supongamos que los 6 organismos vivos con menores identificadores
+en una determinada ronda son, en orden, x1..x6. Si los siguientes
+emparejamientos ya han ocurrido:
+
+- x1 se ha reproducido ya con x2 y x3,
+
+- x2 ya se han reproducido ya con x4 
+
+- x3 ya se han reproducido ya con x5
+
+entonces los nuevos emparejamientos serán: x1-x4, x2-x3 y x5-x6.
+
+
+Dados dos organismos compatibles (más adelante diremos en qué consiste esta
+propiedad), supondremos que su reproducción dará lugar a un nuevo organismo,
+que también podrá crecer, decrecer y reproducirse. El identificador del nuevo
+organismo será el primero que no haya sido usado con anterioridad. Según el
+ejemplo anterior, si antes de la ronda el máximo de los identificadores
+asignados era xM, entonces los nuevos organismos serán respectivamente xM+1,
+xM+2 y xM+3.
+
+De cara a la reproducción, cada célula de un organismo puede ser activa o
+pasiva (obviamente esto es otra información relevante para una célula).  Las
+células nacidas de una fisión heredan esta propiedad de sus madres.
+
+Por otra parte, definimos la "intersección" de dos organismos x1 y x2 como una
+estructura formada por una célula en cada posición donde hubiera células tanto
+en x1 como en x2. También definimos que x1 y x2 son "compatibles" si el número
+de células de su intersección es mayor o igual que int((tam(x1) + tam(x2))/4).
+
+Por último, decimos que el organismo resultante de la reproducción de dos
+organismos compatibles x1 y x2 (nos referiremos a él como el "hijo" de estos)
+será el formado por una estructura igual a la intersección de x1 y x2, más un
+clon de cada una de las células activas de ambos que no estén en la
+intersección (cada clon ha de quedar en la misma posición en el nuevo organismo
+que su original), más el mínimo numero de células pasivas necesarias para que
+dichas células activas conserven su posición sin quedar desconectadas.
+
+Las células del nuevo organismo heredan la propiedad de ser activas o pasivas
+mediante las siguientes reglas:
+
+- las que proceden de una intersección: serán pasivas si las dos células
+  originales en las posiciones correspondientes son pasivas; en caso contrario
+  (es decir, si alguna es activa) serán activas
+
+- las que no proceden de una intersección: serán activas si proceden de
+  células activas de los organismos originales; el resto serán pasivas (como
+  ya hemos dicho)
+
+
+Los identificadores de las nuevas células procedentes de la reproducción de dos
+organismos x1 y x2, con x1<x2, se asignan con arreglo a los siguientes
+criterios:
+
+- las que procedan de una intersección heredarán el id de las correspondientes
+  en x1;
+
+- del resto, las que procedan de x1 también heredarán su id; 
+
+- las que procedan de x2 tomarán, con la prioridad marcada por su recorrido en
+  preorden, valores correlativos a partir del valor siguiente al máximo de los
+  identificadores de las células de x1
+
+
+Ejemplo: si tenemos dos organismos compatibles x1 y x2 
+
+
+        x1:             3                   x2:        4          
+                    /       \                      /       \    
+                   6         4                    7         5   
+                 /   \      / \                           /   \           
+                2     8    7  13                         6     9          
+                     / \                                / \  
+                   17   12                             1   10
+
+
+(comprobad que int((tam(x1) + tam(x2))/4) = 4; tam(intersección) = 5), donde
+las células activas de x1 son 3 y 12 y las de x2 son 7, 9 y 10, su hijo será
+
+                        3                 
+                    /       \       
+                   6         4       
+                    \       / \
+                     8     7   13
+                      \     \
+                       12    18
+
+Justificación:
+
+- las células 3, 6, 4, 7 y 13 proceden de la intersección (3, 6, y 13 son
+  activas; 4 y 7 son pasivas),
+
+- la célula 12 es activa y procede de la 12 de x1 (activa que no está en la
+  intersección),
+
+- la célula 8 es pasiva, procede de x1 y es necesaria para que 12 no quede
+  desconectada
+
+- la célula 18 es activa y procede de la 10 de x2 (activa que no está en la
+  intersección); 18 es el siguiente al máximo de los identificadores de célula
+  en x1 (17)
+
+
+CRECIMIENTO DE UN ORGANISMO
+---------------------------
+
+Durante el experimento, un organismo puede sufrir un "estirón" (por condiciones
+ambientales, de alimentación, etc. que no necesitamos conocer para esta
+práctica).  Cada estirón viene dado por la fisión de todas las células del
+organismo que no se hayan fisionado hasta el momento del estirón. Respecto a la
+población inicial, supondremos que las células que tienen hijas ya se han
+fisionado y el resto no.
+
+Cada célula nueva procedente de una fisión tomará como identificador el valor
+siguiente al máximo de los identificadores de las células del organismo
+correspondiente. Si varias células de un mismo organismo nacen en el mismo
+estirón, la asignación de identificadores se realiza ordenadamente de izquierda
+a derecha según su posición en el árbol.
+
+Por ejemplo, el estirón del siguiente organismo 
+
+                            3
+                           /      
+                         6        
+
+da lugar a 
+
+                            3
+                          /      
+                         6         
+                       /   \    
+                      7     8   
+
+
+
+DECRECIMIENTO Y MUERTE DE UN ORGANISMO
+--------------------------------------
+
+Durante el experimento, un organismo puede sufrir un "recorte" (también por
+condiciones ambientales, de alimentación, etc.) . Cada recorte viene dado por
+la pérdida de todas las células del organismo que no tengan ninguna hija.
+
+Como cada célula solo se puede fisionar una vez como máximo, el proceso de
+decrecimiento de un organismo es irreversible.  Decimos que un organismo muere
+si pierde su célula original.
+
+Nótese que ésta la única forma que permite disminuir el número de organismos
+del experimento. De la misma forma, la reproducción sexual es la única manera
+que permite aumentar el número de organismos del experimento.
+
+
+De cara a futuros crecimientos o decrecimientos, trataremos a los organismos
+obtenidos mediante reproducción sexual como a los de la población inicial del
+experimento, independientemente de la historia de sus progenitores. Es decir,
+un organismo "recién nacido" podrá crecer hasta que sufra su primer recorte.
+También supondremos que aquellas de sus células que tengan hijas ya se han
+fisionado y el resto no, etc.
+
+
+RANKING
+-------
+
+Como resumen del experimento, se ha de poder obtener en todo momento un ranking
+de los organismos que hayan existido (vivos o muertos) basado en la
+reproducción de los mismos. El ranking estará ordenado decrecientemente por el
+número de hijos producidos; en caso de empate, aparecerá primero el organismo
+de identificador más pequeño.
+
+
+FIN DEL EXPERIMENTO
+-------------------
+
+El experimento termina si se cumple alguna de las siguientes condiciones: 
+
+- se mueren todos los organismos 
+
+- la población "histórica" (contando organismos vivos y muertos) llega a un
+  cierto valor máximo fijado de antemano; si esto ocurre durante una ronda de
+  reproducción, ésta no se completa
+
+- los supervisores del experimento lo finalizan manualmente
+
+
+SE PIDE
+-------
+
+Diseñar un programa modular razonablemente eficiente para gestionar
+experimentos como los descritos.
+
+En primer lugar, debe leer los valores enteros N (población inicial del
+experimento, mayor que 1) y M (máximo permitido de población histórica, mayor
+que N).
+
+Seguidamente leerá los N organismos iniciales. Cada organismo ha de tener al
+menos una célula (es decir, ha de estar vivo).
+
+Después tendrá que ir procesando las diversas tareas que se le pidan. Éstas
+podrán ser las siguientes:
+
+1) Aplicar un estirón a un subconjunto de organismos. Se proporciona una
+   secuencia de enteros no repetidos entre 1 y M.  Los organismos que estén
+   vivos (y no hayan empezado a sufrir recortes) en el momento de realizar la
+   tarea, cuyos identificadores estén en la secuencia, sufrirán el
+   correspondiente estirón.
+
+2) Aplicar un recorte a un subconjunto de organismos. Se proporciona una
+   secuencia de enteros no repetidos entre 1 y M.  Los organismos que estén
+   vivos en el momento de realizar la tarea, cuyos identificadores estén en la
+   secuencia, sufrirán el correspondiente recorte.
+
+3) Aplicar una ronda de reproducción a todos los organismos. Actualizar el
+   ranking consecuentemente. Escribir el número de hijos nacidos en la ronda.
+
+4) Obtener el ranking de reproducción de los organismos. Para cada organismo,
+   vivo o muerto, que haya existido hasta el momento de la consulta se ha de
+   obtener un listado de sus emparejamientos que hayan producido hijos.  Cada
+   emparejamiento estará representado por el identificador de su compañero y el
+   del hijo. El listado vendrá ordenado por el identificador de los hijos.
+
+5) Consultar el estado de un subconjunto de organismos. Se proporciona una
+   secuencia de enteros no repetidos entre 1 y M.  Se escribirá la estructura
+   celular de los organismos que estén vivos en el momento de realizar la tarea
+   cuyos identificadores estén en la secuencia.
+
+Tras el fin del proceso, se ha de indicar la causa (ver sección "FIN DEL
+EXPERIMENTO"). Si ha sido porque la población ha llegado a M organismos (máximo
+permitido), se han de realizar dos consultas adicionales:
+
+- Obtener el ranking
+
+- Consultar el estado de los organismos nacidos en la última ronda de
+  reproducción (atención: ésta ha podido ser incompleta)
+  
+
+La forma de comunicarnos con el programa para que realice dichas tareas será
+parecida a la del caso de estudio "Cubeta" que aparece en la sesión 8 de
+laboratorio. Podéis diseñar un esquema provisional que ya refinaréis cuando
+conozcáis el juego de pruebas público.
+
+En días sucesivos se completarán los detalles que se hayan podido pasar por
+alto en este enunciado y se publicarán las aclaraciones oportunas.
+
+La sintaxis *exacta* de los datos y resultados, acompañada del juego de pruebas
+público, se conocerá tres semanas antes del día de entrega de la práctica.
+Hasta entonces no podréis implementar de forma definitiva las operaciones de
+lectura y escritura necesarias para los tipos que utilicéis, aunque sí podréis
+especificarlas.

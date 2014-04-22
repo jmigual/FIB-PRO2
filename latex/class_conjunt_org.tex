@@ -1,0 +1,432 @@
+\hypertarget{class_conjunt_org}{\section{Referència de la Classe Conjunt\-Org}
+\label{class_conjunt_org}\index{Conjunt\-Org@{Conjunt\-Org}}
+}
+
+
+És un conjunt d'organismes.  
+
+
+\subsection*{Mètodes públics}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_conjunt_org_a573205d24e669356dc44462a6ef95d71}{Conjunt\-Org} (int M)
+\begin{DoxyCompactList}\small\item\em Constructora per defecte. \end{DoxyCompactList}\item 
+\hyperlink{class_conjunt_org_a4a0c1fe0378f0564295dcaa5e7d9bde2}{Conjunt\-Org} (const \hyperlink{class_conjunt_org}{Conjunt\-Org} \&C)
+\begin{DoxyCompactList}\small\item\em Constructora per còpia. \end{DoxyCompactList}\item 
+\hyperlink{class_conjunt_org_a547e57b6f00347fa89695c33e9dd7743}{$\sim$\-Conjunt\-Org} ()
+\begin{DoxyCompactList}\small\item\em Destructora per defecte. \end{DoxyCompactList}\item 
+void \hyperlink{class_conjunt_org_a02ff5962eff2674c76bd9218d7718695}{afegir\-\_\-organisme} (const \hyperlink{class_organisme}{Organisme} \&o)
+\begin{DoxyCompactList}\small\item\em Modificadora per afegir un organisme al conjunt. \end{DoxyCompactList}\item 
+void \hyperlink{class_conjunt_org_aef0a16451029a98453380acf35830738}{estirar} (stack$<$ int $>$ \&P)
+\begin{DoxyCompactList}\small\item\em Modificadora per estirar un subconjunt d'organismes. \end{DoxyCompactList}\item 
+void \hyperlink{class_conjunt_org_ad7bb405521b503d4f814385906043b29}{retallar} (stack$<$ int $>$ \&P)
+\begin{DoxyCompactList}\small\item\em Modificadora per retallar un subconjunt d'organismes. \end{DoxyCompactList}\item 
+bool \hyperlink{class_conjunt_org_aebaf39d27e44ef884ce4dfa4f7778754}{reproduir} ()
+\begin{DoxyCompactList}\small\item\em Modificadora que fa una ronda de reproducció dels organismes. \end{DoxyCompactList}\item 
+int \hyperlink{class_conjunt_org_adbce2716cb543fa4d513c6d2a21b4fe1}{consultar\-\_\-tamany} () const 
+\begin{DoxyCompactList}\small\item\em Consultora que retorna el nombre d'organismes del conjunt. \end{DoxyCompactList}\item 
+bool \hyperlink{class_conjunt_org_aa250202ccc4d06ead8b11c9b26c2f28d}{morts} () const 
+\begin{DoxyCompactList}\small\item\em Consultora que ens diu si els organismes estan morts. \end{DoxyCompactList}\item 
+void \hyperlink{class_conjunt_org_ad5e4d411aa4bd0287411d20c6d79d08e}{ranking} () const 
+\begin{DoxyCompactList}\small\item\em Imprimeix el rànking dels organismes. \end{DoxyCompactList}\item 
+void \hyperlink{class_conjunt_org_a70a707c8a9c7249e972470a41feebc36}{estat} (stack$<$ int $>$ \&P) const 
+\begin{DoxyCompactList}\small\item\em Imprimeix l'estat d'un subconjunt d'organismes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \hyperlink{class_organisme}{Organisme} $>$ \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V}
+\begin{DoxyCompactList}\small\item\em Vector on es guardaran tots els organismes. \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{struct_organ_rank}{Organ\-Rank} $>$ \hyperlink{class_conjunt_org_ae566806533e21f56caf27480d342c460}{Rank}
+\begin{DoxyCompactList}\small\item\em Vector que utilitzarem per generar i guardar el rànking. \end{DoxyCompactList}\item 
+vector$<$ stack$<$ \hyperlink{struct_par_fill}{Par\-Fill} $>$ $>$ \hyperlink{class_conjunt_org_a254051054023bf3ecbbe96c82cfe46a2}{Rel}
+\begin{DoxyCompactList}\small\item\em Vector per saber quins fills ha tingut cada organisme i amb qui els ha tingut. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ bool $>$ $>$ \hyperlink{class_conjunt_org_a9782fdb4c89e8dd61762453de8f77fcb}{Aparellat}
+\begin{DoxyCompactList}\small\item\em Matriu que ens dirà quins organismes s'han aparellat i amb qui ho han fet. \end{DoxyCompactList}\item 
+int \hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany}
+\begin{DoxyCompactList}\small\item\em Variable que ens dona el número de organismes que hi ha al vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripció Detallada}
+És un conjunt d'organismes. 
+
+Definició a la línia 44 del fitxer Conjunt\-Org.\-hpp.
+
+
+
+\subsection{Documentació del Constructor i el Destructor}
+\hypertarget{class_conjunt_org_a573205d24e669356dc44462a6ef95d71}{\index{Conjunt\-Org@{Conjunt\-Org}!Conjunt\-Org@{Conjunt\-Org}}
+\index{Conjunt\-Org@{Conjunt\-Org}!ConjuntOrg@{Conjunt\-Org}}
+\subsubsection[{Conjunt\-Org}]{\setlength{\rightskip}{0pt plus 5cm}Conjunt\-Org\-::\-Conjunt\-Org (
+\begin{DoxyParamCaption}
+\item[{int}]{M}
+\end{DoxyParamCaption}
+)}}\label{class_conjunt_org_a573205d24e669356dc44462a6ef95d71}
+
+
+Constructora per defecte. 
+
+S'executa automàticament al declarar un conjunt
+
+\begin{DoxyPrecond}{Precondició}
+M ha de ser un nombre enter més gran que '0' 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+El resultat és un conjunt d'organismes de tamany M però buit 
+\end{DoxyPostcond}
+
+
+Definició a la línia 7 del fitxer Conjunt\-Org.\-cpp.
+
+
+\begin{DoxyCode}
+7                             \{
+8   \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V} = vector<Organisme> (M);
+9     \hyperlink{class_conjunt_org_ae566806533e21f56caf27480d342c460}{Rank} = vector<OrganRank> (M);
+10     \hyperlink{class_conjunt_org_a254051054023bf3ecbbe96c82cfe46a2}{Rel} = vector< stack<ParFill> > (M);
+11   \hyperlink{class_conjunt_org_a9782fdb4c89e8dd61762453de8f77fcb}{Aparellat} = vector< vector<bool> > (M, vector<bool> (M));  
+12   \hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany} = 0;
+13 \}
+\end{DoxyCode}
+\hypertarget{class_conjunt_org_a4a0c1fe0378f0564295dcaa5e7d9bde2}{\index{Conjunt\-Org@{Conjunt\-Org}!Conjunt\-Org@{Conjunt\-Org}}
+\index{Conjunt\-Org@{Conjunt\-Org}!ConjuntOrg@{Conjunt\-Org}}
+\subsubsection[{Conjunt\-Org}]{\setlength{\rightskip}{0pt plus 5cm}Conjunt\-Org\-::\-Conjunt\-Org (
+\begin{DoxyParamCaption}
+\item[{const {\bf Conjunt\-Org} \&}]{C}
+\end{DoxyParamCaption}
+)}}\label{class_conjunt_org_a4a0c1fe0378f0564295dcaa5e7d9bde2}
+
+
+Constructora per còpia. 
+
+\begin{DoxyPrecond}{Precondició}
+Cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+El paràmetre implícit passa a ser igual al afegit a la funció 
+\end{DoxyPostcond}
+
+
+Definició a la línia 15 del fitxer Conjunt\-Org.\-cpp.
+
+
+\begin{DoxyCode}
+16 \{
+17   \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V} = c.V;
+18   \hyperlink{class_conjunt_org_ae566806533e21f56caf27480d342c460}{Rank} = c.Rank;
+19     \hyperlink{class_conjunt_org_a254051054023bf3ecbbe96c82cfe46a2}{Rel} = c.Rel;
+20     \hyperlink{class_conjunt_org_a9782fdb4c89e8dd61762453de8f77fcb}{Aparellat} = c.Aparellat;
+21   \hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany} = c.tamany;
+22 \}
+\end{DoxyCode}
+\hypertarget{class_conjunt_org_a547e57b6f00347fa89695c33e9dd7743}{\index{Conjunt\-Org@{Conjunt\-Org}!$\sim$\-Conjunt\-Org@{$\sim$\-Conjunt\-Org}}
+\index{$\sim$\-Conjunt\-Org@{$\sim$\-Conjunt\-Org}!ConjuntOrg@{Conjunt\-Org}}
+\subsubsection[{$\sim$\-Conjunt\-Org}]{\setlength{\rightskip}{0pt plus 5cm}Conjunt\-Org\-::$\sim$\-Conjunt\-Org (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_conjunt_org_a547e57b6f00347fa89695c33e9dd7743}
+
+
+Destructora per defecte. 
+
+Esborra automàticament l'objecte al sortir d'un àmbit de visibilitat 
+
+Definició a la línia 24 del fitxer Conjunt\-Org.\-cpp.
+
+
+\begin{DoxyCode}
+24 \{\}
+\end{DoxyCode}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{class_conjunt_org_a02ff5962eff2674c76bd9218d7718695}{\index{Conjunt\-Org@{Conjunt\-Org}!afegir\-\_\-organisme@{afegir\-\_\-organisme}}
+\index{afegir\-\_\-organisme@{afegir\-\_\-organisme}!ConjuntOrg@{Conjunt\-Org}}
+\subsubsection[{afegir\-\_\-organisme}]{\setlength{\rightskip}{0pt plus 5cm}void Conjunt\-Org\-::afegir\-\_\-organisme (
+\begin{DoxyParamCaption}
+\item[{const {\bf Organisme} \&}]{o}
+\end{DoxyParamCaption}
+)}}\label{class_conjunt_org_a02ff5962eff2674c76bd9218d7718695}
+
+
+Modificadora per afegir un organisme al conjunt. 
+
+\begin{DoxyPrecond}{Precondició}
+El conjunt no està ple 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+L'organisme 'o' ha estat afegit al conjunt 
+\end{DoxyPostcond}
+
+
+Definició a la línia 26 del fitxer Conjunt\-Org.\-cpp.
+
+
+\begin{DoxyCode}
+27 \{
+28   \textcolor{keywordflow}{if} (\hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany} == \textcolor{keywordtype}{int}(\hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V}.size())) cout << \textcolor{stringliteral}{"ERROR 1: El conjunt esta ple"} << endl;
+29   \textcolor{keywordflow}{else} \{
+30     \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V}[\hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany}] = o;
+31     ++\hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany};
+32   \}
+33 \}
+\end{DoxyCode}
+\hypertarget{class_conjunt_org_aef0a16451029a98453380acf35830738}{\index{Conjunt\-Org@{Conjunt\-Org}!estirar@{estirar}}
+\index{estirar@{estirar}!ConjuntOrg@{Conjunt\-Org}}
+\subsubsection[{estirar}]{\setlength{\rightskip}{0pt plus 5cm}void Conjunt\-Org\-::estirar (
+\begin{DoxyParamCaption}
+\item[{stack$<$ int $>$ \&}]{P}
+\end{DoxyParamCaption}
+)}}\label{class_conjunt_org_aef0a16451029a98453380acf35830738}
+
+
+Modificadora per estirar un subconjunt d'organismes. 
+
+\begin{DoxyPrecond}{Precondició}
+Es passa una pila amb identificadors d'organismes vàlids 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+Els organismes que tenen l'identificador de la pila han estat estirats 
+\end{DoxyPostcond}
+
+
+Definició a la línia 35 del fitxer Conjunt\-Org.\-cpp.
+
+
+\begin{DoxyCode}
+36 \{
+37   \textcolor{keywordflow}{while} (not P.empty()) \{
+38     \textcolor{keywordtype}{int} x = P.top();
+39     \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V}[x - 1].estirar\_organisme();
+40     P.pop();
+41   \}
+42 \}
+\end{DoxyCode}
+\hypertarget{class_conjunt_org_ad7bb405521b503d4f814385906043b29}{\index{Conjunt\-Org@{Conjunt\-Org}!retallar@{retallar}}
+\index{retallar@{retallar}!ConjuntOrg@{Conjunt\-Org}}
+\subsubsection[{retallar}]{\setlength{\rightskip}{0pt plus 5cm}void Conjunt\-Org\-::retallar (
+\begin{DoxyParamCaption}
+\item[{stack$<$ int $>$ \&}]{P}
+\end{DoxyParamCaption}
+)}}\label{class_conjunt_org_ad7bb405521b503d4f814385906043b29}
+
+
+Modificadora per retallar un subconjunt d'organismes. 
+
+\begin{DoxyPrecond}{Precondició}
+Es passa una pila amb identificadors d'organismes vàlids 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+Els organismes amb l'identificador de la pila han estat retallats 
+\end{DoxyPostcond}
+
+
+Definició a la línia 44 del fitxer Conjunt\-Org.\-cpp.
+
+
+\begin{DoxyCode}
+45 \{
+46   \textcolor{keywordflow}{while}(not P.empty()) \{
+47     \textcolor{keywordtype}{int} x = P.top();
+48     \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V}[x - 1].retallar\_organisme();
+49     P.pop();
+50   \}
+51 \}
+\end{DoxyCode}
+\hypertarget{class_conjunt_org_aebaf39d27e44ef884ce4dfa4f7778754}{\index{Conjunt\-Org@{Conjunt\-Org}!reproduir@{reproduir}}
+\index{reproduir@{reproduir}!ConjuntOrg@{Conjunt\-Org}}
+\subsubsection[{reproduir}]{\setlength{\rightskip}{0pt plus 5cm}bool Conjunt\-Org\-::reproduir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_conjunt_org_aebaf39d27e44ef884ce4dfa4f7778754}
+
+
+Modificadora que fa una ronda de reproducció dels organismes. 
+
+Si la reproducció no s'ha pogut realitzar correctament es retorna un booleà 'false', en cas contrari retorna 'true'
+
+\begin{DoxyPrecond}{Precondició}
+Cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+Tots els organismes que poden s'han reproduit un cop com a màxim a més a més s'imprimeixen els fills nous de la ronda 
+\end{DoxyPostcond}
+
+
+Definició a la línia 53 del fitxer Conjunt\-Org.\-cpp.
+
+
+\begin{DoxyCode}
+54 \{
+55     \textcolor{keywordflow}{return} \textcolor{keyword}{true};    
+56 \}
+\end{DoxyCode}
+\hypertarget{class_conjunt_org_adbce2716cb543fa4d513c6d2a21b4fe1}{\index{Conjunt\-Org@{Conjunt\-Org}!consultar\-\_\-tamany@{consultar\-\_\-tamany}}
+\index{consultar\-\_\-tamany@{consultar\-\_\-tamany}!ConjuntOrg@{Conjunt\-Org}}
+\subsubsection[{consultar\-\_\-tamany}]{\setlength{\rightskip}{0pt plus 5cm}int Conjunt\-Org\-::consultar\-\_\-tamany (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_conjunt_org_adbce2716cb543fa4d513c6d2a21b4fe1}
+
+
+Consultora que retorna el nombre d'organismes del conjunt. 
+
+\begin{DoxyPrecond}{Precondició}
+Cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+Es retorna el nombre d'organismes (vius o morts) que hi ha al conjunt 
+\end{DoxyPostcond}
+
+
+Definició a la línia 58 del fitxer Conjunt\-Org.\-cpp.
+
+
+\begin{DoxyCode}
+59 \{ \textcolor{keywordflow}{return} \hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany}; \}
+\end{DoxyCode}
+\hypertarget{class_conjunt_org_aa250202ccc4d06ead8b11c9b26c2f28d}{\index{Conjunt\-Org@{Conjunt\-Org}!morts@{morts}}
+\index{morts@{morts}!ConjuntOrg@{Conjunt\-Org}}
+\subsubsection[{morts}]{\setlength{\rightskip}{0pt plus 5cm}bool Conjunt\-Org\-::morts (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_conjunt_org_aa250202ccc4d06ead8b11c9b26c2f28d}
+
+
+Consultora que ens diu si els organismes estan morts. 
+
+Si tots els organismes del Conjunt estan morts es retorna {\itshape  true} i en cas contrari es retorna {\itshape false} \begin{DoxyPrecond}{Precondició}
+Cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+Es retorna un booleà amb l'estat dels organismes 
+\end{DoxyPostcond}
+
+
+Definició a la línia 61 del fitxer Conjunt\-Org.\-cpp.
+
+
+\begin{DoxyCode}
+62 \{
+63   \textcolor{keywordtype}{bool} mort = \textcolor{keyword}{true};
+64   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany}; ++i) \textcolor{keywordflow}{if} (not \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V}[i].es\_mort()) mort = \textcolor{keyword}{false};
+65   \textcolor{keywordflow}{return} mort;
+66 \}
+\end{DoxyCode}
+\hypertarget{class_conjunt_org_ad5e4d411aa4bd0287411d20c6d79d08e}{\index{Conjunt\-Org@{Conjunt\-Org}!ranking@{ranking}}
+\index{ranking@{ranking}!ConjuntOrg@{Conjunt\-Org}}
+\subsubsection[{ranking}]{\setlength{\rightskip}{0pt plus 5cm}void Conjunt\-Org\-::ranking (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_conjunt_org_ad5e4d411aa4bd0287411d20c6d79d08e}
+
+
+Imprimeix el rànking dels organismes. 
+
+\begin{DoxyPrecond}{Precondició}
+Cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+S'imprimeix per el canal estàndard de sortida el rànking de la reproducció dels organismes 
+\end{DoxyPostcond}
+
+
+Definició a la línia 68 del fitxer Conjunt\-Org.\-cpp.
+
+
+\begin{DoxyCode}
+69 \{\}
+\end{DoxyCode}
+\hypertarget{class_conjunt_org_a70a707c8a9c7249e972470a41feebc36}{\index{Conjunt\-Org@{Conjunt\-Org}!estat@{estat}}
+\index{estat@{estat}!ConjuntOrg@{Conjunt\-Org}}
+\subsubsection[{estat}]{\setlength{\rightskip}{0pt plus 5cm}void Conjunt\-Org\-::estat (
+\begin{DoxyParamCaption}
+\item[{stack$<$ int $>$ \&}]{P}
+\end{DoxyParamCaption}
+) const}}\label{class_conjunt_org_a70a707c8a9c7249e972470a41feebc36}
+
+
+Imprimeix l'estat d'un subconjunt d'organismes. 
+
+\begin{DoxyPrecond}{Precondició}
+Cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondició}
+S'imprimeix l'estat de cada organisme que es passa a la pila 
+\end{DoxyPostcond}
+
+
+Definició a la línia 71 del fitxer Conjunt\-Org.\-cpp.
+
+
+\begin{DoxyCode}
+72 \{\}
+\end{DoxyCode}
+
+
+\subsection{Documentació de les Dades Membre}
+\hypertarget{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{\index{Conjunt\-Org@{Conjunt\-Org}!V@{V}}
+\index{V@{V}!ConjuntOrg@{Conjunt\-Org}}
+\subsubsection[{V}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Organisme}$>$ Conjunt\-Org\-::\-V\hspace{0.3cm}{\ttfamily [private]}}}\label{class_conjunt_org_adab11e0ac8295072ec682716478a535a}
+
+
+Vector on es guardaran tots els organismes. 
+
+
+
+Definició a la línia 48 del fitxer Conjunt\-Org.\-hpp.
+
+\hypertarget{class_conjunt_org_ae566806533e21f56caf27480d342c460}{\index{Conjunt\-Org@{Conjunt\-Org}!Rank@{Rank}}
+\index{Rank@{Rank}!ConjuntOrg@{Conjunt\-Org}}
+\subsubsection[{Rank}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Organ\-Rank}$>$ Conjunt\-Org\-::\-Rank\hspace{0.3cm}{\ttfamily [private]}}}\label{class_conjunt_org_ae566806533e21f56caf27480d342c460}
+
+
+Vector que utilitzarem per generar i guardar el rànking. 
+
+
+
+Definició a la línia 50 del fitxer Conjunt\-Org.\-hpp.
+
+\hypertarget{class_conjunt_org_a254051054023bf3ecbbe96c82cfe46a2}{\index{Conjunt\-Org@{Conjunt\-Org}!Rel@{Rel}}
+\index{Rel@{Rel}!ConjuntOrg@{Conjunt\-Org}}
+\subsubsection[{Rel}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ stack$<${\bf Par\-Fill}$>$ $>$ Conjunt\-Org\-::\-Rel\hspace{0.3cm}{\ttfamily [private]}}}\label{class_conjunt_org_a254051054023bf3ecbbe96c82cfe46a2}
+
+
+Vector per saber quins fills ha tingut cada organisme i amb qui els ha tingut. 
+
+
+
+Definició a la línia 53 del fitxer Conjunt\-Org.\-hpp.
+
+\hypertarget{class_conjunt_org_a9782fdb4c89e8dd61762453de8f77fcb}{\index{Conjunt\-Org@{Conjunt\-Org}!Aparellat@{Aparellat}}
+\index{Aparellat@{Aparellat}!ConjuntOrg@{Conjunt\-Org}}
+\subsubsection[{Aparellat}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector$<$bool$>$ $>$ Conjunt\-Org\-::\-Aparellat\hspace{0.3cm}{\ttfamily [private]}}}\label{class_conjunt_org_a9782fdb4c89e8dd61762453de8f77fcb}
+
+
+Matriu que ens dirà quins organismes s'han aparellat i amb qui ho han fet. 
+
+
+
+Definició a la línia 56 del fitxer Conjunt\-Org.\-hpp.
+
+\hypertarget{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{\index{Conjunt\-Org@{Conjunt\-Org}!tamany@{tamany}}
+\index{tamany@{tamany}!ConjuntOrg@{Conjunt\-Org}}
+\subsubsection[{tamany}]{\setlength{\rightskip}{0pt plus 5cm}int Conjunt\-Org\-::tamany\hspace{0.3cm}{\ttfamily [private]}}}\label{class_conjunt_org_a468e7686498561628ad731ea196df8b5}
+
+
+Variable que ens dona el número de organismes que hi ha al vector. 
+
+
+
+Definició a la línia 59 del fitxer Conjunt\-Org.\-hpp.
+
+
+
+La documentació d'aquesta classe es va generar a partir dels següents fitxers\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_conjunt_org_8hpp}{Conjunt\-Org.\-hpp}\item 
+\hyperlink{_conjunt_org_8cpp}{Conjunt\-Org.\-cpp}\end{DoxyCompactItemize}

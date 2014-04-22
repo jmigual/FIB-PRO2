@@ -1,0 +1,341 @@
+\hypertarget{class_arbre}{\section{Referència de la Classe Template Arbre$<$ T $>$}
+\label{class_arbre}\index{Arbre$<$ T $>$@{Arbre$<$ T $>$}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_arbre_1_1node__arbre}{node\-\_\-arbre}
+\end{DoxyCompactItemize}
+\subsection*{Mètodes públics}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_arbre_a3f613426983169266297eb841996845e}{Arbre} ()
+\item 
+\hyperlink{class_arbre_a8f8615c19988334f9b77dc51f44acc6d}{Arbre} (const \hyperlink{class_arbre}{Arbre} \&original)
+\item 
+\hyperlink{class_arbre_a13cfb8184d9c43d92584d434243c7b3d}{$\sim$\-Arbre} ()
+\item 
+\hyperlink{class_arbre}{Arbre} \& \hyperlink{class_arbre_a58314b830f6f3ba0e598e352513a87c5}{operator=} (const \hyperlink{class_arbre}{Arbre} \&original)
+\item 
+void \hyperlink{class_arbre_aa74ec0d2b601487b822eb70100330582}{a\-\_\-buit} ()
+\item 
+void \hyperlink{class_arbre_a931d1c91e9fd6cbe72703a7ba7d40415}{swap} (\hyperlink{class_arbre}{Arbre} \&a)
+\item 
+void \hyperlink{class_arbre_a806d45f6f1d3a9dd357563979186f721}{plantar} (const T \&x, \hyperlink{class_arbre}{Arbre} \&a1, \hyperlink{class_arbre}{Arbre} \&a2)
+\item 
+void \hyperlink{class_arbre_aee75355cee7599e132de75781d26a61d}{fills} (\hyperlink{class_arbre}{Arbre} \&fe, \hyperlink{class_arbre}{Arbre} \&fd)
+\item 
+T \hyperlink{class_arbre_aa6e2559ead7dfceda962cff11fb1a15c}{arrel} () const 
+\item 
+bool \hyperlink{class_arbre_a68a51f6689f0b2889e8e1d56266fd620}{es\-\_\-buit} () const 
+\end{DoxyCompactItemize}
+\subsection*{Mètodes Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_arbre_1_1node__arbre}{node\-\_\-arbre} $\ast$ \hyperlink{class_arbre_a8562c3574c0037eae30a6d04050fb517}{copia\-\_\-node\-\_\-arbre} (\hyperlink{struct_arbre_1_1node__arbre}{node\-\_\-arbre} $\ast$m)
+\item 
+void \hyperlink{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{esborra\-\_\-node\-\_\-arbre} (\hyperlink{struct_arbre_1_1node__arbre}{node\-\_\-arbre} $\ast$m)
+\end{DoxyCompactItemize}
+\subsection*{Atributs Privats}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_arbre_1_1node__arbre}{node\-\_\-arbre} $\ast$ \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\-\_\-node}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripció Detallada}
+\subsubsection*{template$<$class T$>$class Arbre$<$ T $>$}
+
+
+
+Definició a la línia 6 del fitxer Arbre.\-hpp.
+
+
+
+\subsection{Documentació del Constructor i el Destructor}
+\hypertarget{class_arbre_a3f613426983169266297eb841996845e}{\index{Arbre@{Arbre}!Arbre@{Arbre}}
+\index{Arbre@{Arbre}!Arbre@{Arbre}}
+\subsubsection[{Arbre}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Arbre}$<$ T $>$\-::{\bf Arbre} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_arbre_a3f613426983169266297eb841996845e}
+
+
+Definició a la línia 55 del fitxer Arbre.\-hpp.
+
+
+\begin{DoxyCode}
+58   \{
+59     \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= NULL;
+60   \}
+\end{DoxyCode}
+\hypertarget{class_arbre_a8f8615c19988334f9b77dc51f44acc6d}{\index{Arbre@{Arbre}!Arbre@{Arbre}}
+\index{Arbre@{Arbre}!Arbre@{Arbre}}
+\subsubsection[{Arbre}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Arbre}$<$ T $>$\-::{\bf Arbre} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Arbre}$<$ T $>$ \&}]{original}
+\end{DoxyParamCaption}
+)}}\label{class_arbre_a8f8615c19988334f9b77dc51f44acc6d}
+
+
+Definició a la línia 62 del fitxer Arbre.\-hpp.
+
+
+\begin{DoxyCode}
+65   \{
+66     \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != &original)     
+67       \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node} = \hyperlink{class_arbre_a8562c3574c0037eae30a6d04050fb517}{copia\_node\_arbre}(original.
+      \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node});
+68   \}
+\end{DoxyCode}
+\hypertarget{class_arbre_a13cfb8184d9c43d92584d434243c7b3d}{\index{Arbre@{Arbre}!$\sim$\-Arbre@{$\sim$\-Arbre}}
+\index{$\sim$\-Arbre@{$\sim$\-Arbre}!Arbre@{Arbre}}
+\subsubsection[{$\sim$\-Arbre}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Arbre}$<$ T $>$\-::$\sim${\bf Arbre} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_arbre_a13cfb8184d9c43d92584d434243c7b3d}
+
+
+Definició a la línia 70 del fitxer Arbre.\-hpp.
+
+
+\begin{DoxyCode}
+70            \{
+71     \hyperlink{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{esborra\_node\_arbre}(\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node});
+72   \}
+\end{DoxyCode}
+
+
+\subsection{Documentació de les Funcions Membre}
+\hypertarget{class_arbre_a8562c3574c0037eae30a6d04050fb517}{\index{Arbre@{Arbre}!copia\-\_\-node\-\_\-arbre@{copia\-\_\-node\-\_\-arbre}}
+\index{copia\-\_\-node\-\_\-arbre@{copia\-\_\-node\-\_\-arbre}!Arbre@{Arbre}}
+\subsubsection[{copia\-\_\-node\-\_\-arbre}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf node\-\_\-arbre}$\ast$ {\bf Arbre}$<$ T $>$\-::copia\-\_\-node\-\_\-arbre (
+\begin{DoxyParamCaption}
+\item[{{\bf node\-\_\-arbre} $\ast$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_arbre_a8562c3574c0037eae30a6d04050fb517}
+
+
+Definició a la línia 20 del fitxer Arbre.\-hpp.
+
+
+\begin{DoxyCode}
+26   \{
+27     node\_arbre* n;
+28     \textcolor{keywordflow}{if} (m==NULL) n=NULL;
+29     \textcolor{keywordflow}{else} \{
+30       n = \textcolor{keyword}{new} node\_arbre;
+31       n->info = m->info;
+32       n->segE = \hyperlink{class_arbre_a8562c3574c0037eae30a6d04050fb517}{copia\_node\_arbre}(m->segE);
+33       n->segD = \hyperlink{class_arbre_a8562c3574c0037eae30a6d04050fb517}{copia\_node\_arbre}(m->segD);
+34     \}
+35     \textcolor{keywordflow}{return} n;
+36   \}
+\end{DoxyCode}
+\hypertarget{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{\index{Arbre@{Arbre}!esborra\-\_\-node\-\_\-arbre@{esborra\-\_\-node\-\_\-arbre}}
+\index{esborra\-\_\-node\-\_\-arbre@{esborra\-\_\-node\-\_\-arbre}!Arbre@{Arbre}}
+\subsubsection[{esborra\-\_\-node\-\_\-arbre}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf Arbre}$<$ T $>$\-::esborra\-\_\-node\-\_\-arbre (
+\begin{DoxyParamCaption}
+\item[{{\bf node\-\_\-arbre} $\ast$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}
+
+
+Definició a la línia 38 del fitxer Arbre.\-hpp.
+
+
+\begin{DoxyCode}
+43   \{
+44     \textcolor{keywordflow}{if} (m != NULL) \{
+45       \hyperlink{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{esborra\_node\_arbre}(m->segE);
+46       \hyperlink{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{esborra\_node\_arbre}(m->segD);
+47       \textcolor{keyword}{delete} m;
+48     \}
+49   \}
+\end{DoxyCode}
+\hypertarget{class_arbre_a58314b830f6f3ba0e598e352513a87c5}{\index{Arbre@{Arbre}!operator=@{operator=}}
+\index{operator=@{operator=}!Arbre@{Arbre}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Arbre}\& {\bf Arbre}$<$ T $>$\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Arbre}$<$ T $>$ \&}]{original}
+\end{DoxyParamCaption}
+)}}\label{class_arbre_a58314b830f6f3ba0e598e352513a87c5}
+
+
+Definició a la línia 74 del fitxer Arbre.\-hpp.
+
+
+\begin{DoxyCode}
+74                                           \{
+75     \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != &original) \{
+76       \hyperlink{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{esborra\_node\_arbre}(\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node});
+77       \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node} = \hyperlink{class_arbre_a8562c3574c0037eae30a6d04050fb517}{copia\_node\_arbre}(original.
+      \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node});
+78     \}
+79     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+80   \}
+\end{DoxyCode}
+\hypertarget{class_arbre_aa74ec0d2b601487b822eb70100330582}{\index{Arbre@{Arbre}!a\-\_\-buit@{a\-\_\-buit}}
+\index{a\-\_\-buit@{a\-\_\-buit}!Arbre@{Arbre}}
+\subsubsection[{a\-\_\-buit}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf Arbre}$<$ T $>$\-::a\-\_\-buit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_arbre_aa74ec0d2b601487b822eb70100330582}
+
+
+Definició a la línia 82 del fitxer Arbre.\-hpp.
+
+
+\begin{DoxyCode}
+85   \{
+86     \hyperlink{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{esborra\_node\_arbre}(\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node});
+87     \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= NULL;
+88   \}  
+\end{DoxyCode}
+\hypertarget{class_arbre_a931d1c91e9fd6cbe72703a7ba7d40415}{\index{Arbre@{Arbre}!swap@{swap}}
+\index{swap@{swap}!Arbre@{Arbre}}
+\subsubsection[{swap}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf Arbre}$<$ T $>$\-::swap (
+\begin{DoxyParamCaption}
+\item[{{\bf Arbre}$<$ T $>$ \&}]{a}
+\end{DoxyParamCaption}
+)}}\label{class_arbre_a931d1c91e9fd6cbe72703a7ba7d40415}
+
+
+Definició a la línia 90 del fitxer Arbre.\-hpp.
+
+
+\begin{DoxyCode}
+93   \{
+94     node\_arbre* aux;
+95     aux = a.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node};
+96     a.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node} = \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node};
+97     \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node} = aux;
+98   \}
+\end{DoxyCode}
+\hypertarget{class_arbre_a806d45f6f1d3a9dd357563979186f721}{\index{Arbre@{Arbre}!plantar@{plantar}}
+\index{plantar@{plantar}!Arbre@{Arbre}}
+\subsubsection[{plantar}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf Arbre}$<$ T $>$\-::plantar (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{x, }
+\item[{{\bf Arbre}$<$ T $>$ \&}]{a1, }
+\item[{{\bf Arbre}$<$ T $>$ \&}]{a2}
+\end{DoxyParamCaption}
+)}}\label{class_arbre_a806d45f6f1d3a9dd357563979186f721}
+
+
+Definició a la línia 100 del fitxer Arbre.\-hpp.
+
+
+\begin{DoxyCode}
+105   \{
+106     \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != &a1 and \textcolor{keyword}{this} != &a2) \{
+107       \textcolor{keywordflow}{if} (\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}==NULL) \{
+108         node\_arbre* aux;
+109         aux= \textcolor{keyword}{new} node\_arbre;
+110         aux->info= x;
+111         aux->segE= a1.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node};
+112         \textcolor{keywordflow}{if} (a1.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node} == a2.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}) aux->\hyperlink{struct_arbre_1_1node__arbre_a9986e206810ba9e519b5b6e590238093}{segD}= 
+      \hyperlink{class_arbre_a8562c3574c0037eae30a6d04050fb517}{copia\_node\_arbre}(a1.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node});
+113         \textcolor{keywordflow}{else}  aux->segD= a2.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node};
+114         \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= aux;
+115         a1.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= NULL;
+116         a2.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= NULL;
+117       \}
+118       \textcolor{keywordflow}{else}
+119         \textcolor{keywordflow}{throw} PRO2Excepcio (\textcolor{stringliteral}{"El p.i. de plantar ha de ser buit a la crida"});
+120     \}
+121     \textcolor{keywordflow}{else}
+122       \textcolor{keywordflow}{throw} PRO2Excepcio (\textcolor{stringliteral}{"El p.i. de plantar no pot coincidir amb els par�metres"});    
+123   \}
+\end{DoxyCode}
+\hypertarget{class_arbre_aee75355cee7599e132de75781d26a61d}{\index{Arbre@{Arbre}!fills@{fills}}
+\index{fills@{fills}!Arbre@{Arbre}}
+\subsubsection[{fills}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf Arbre}$<$ T $>$\-::fills (
+\begin{DoxyParamCaption}
+\item[{{\bf Arbre}$<$ T $>$ \&}]{fe, }
+\item[{{\bf Arbre}$<$ T $>$ \&}]{fd}
+\end{DoxyParamCaption}
+)}}\label{class_arbre_aee75355cee7599e132de75781d26a61d}
+
+
+Definició a la línia 126 del fitxer Arbre.\-hpp.
+
+
+\begin{DoxyCode}
+130   \{
+131     \textcolor{keywordflow}{if} (\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}!=NULL and fe.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}==NULL
+132         and fd.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}==NULL) \{
+133       \textcolor{keywordflow}{if} (&fe != &fd) \{       
+134         node\_arbre* aux;
+135         aux= \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node};
+136         fe.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= aux->\hyperlink{struct_arbre_1_1node__arbre_add2e7f2ee789db9f38a3bf2d2dd36972}{segE};
+137         fd.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= aux->\hyperlink{struct_arbre_1_1node__arbre_a9986e206810ba9e519b5b6e590238093}{segD};
+138         \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= NULL;
+139         \textcolor{keyword}{delete} aux;
+140       \}
+141       \textcolor{keywordflow}{else} 
+142         \textcolor{keywordflow}{throw} PRO2Excepcio 
+143               (\textcolor{stringliteral}{"Els dos par�metres de fills no poden coincidir"});      
+144     \}
+145     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}==NULL)
+146       \textcolor{keywordflow}{throw} PRO2Excepcio (\textcolor{stringliteral}{"Un arbre buit no t� fills"});
+147     \textcolor{keywordflow}{else}   
+148       \textcolor{keywordflow}{throw} PRO2Excepcio 
+149         (\textcolor{stringliteral}{"Els dos par�metres de fills han de ser buits a la crida"});  
+150   \}
+\end{DoxyCode}
+\hypertarget{class_arbre_aa6e2559ead7dfceda962cff11fb1a15c}{\index{Arbre@{Arbre}!arrel@{arrel}}
+\index{arrel@{arrel}!Arbre@{Arbre}}
+\subsubsection[{arrel}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf Arbre}$<$ T $>$\-::arrel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_arbre_aa6e2559ead7dfceda962cff11fb1a15c}
+
+
+Definició a la línia 152 del fitxer Arbre.\-hpp.
+
+
+\begin{DoxyCode}
+155   \{
+156     \textcolor{keywordflow}{if} (\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}!=NULL)
+157       \textcolor{keywordflow}{return} \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}->\hyperlink{struct_arbre_1_1node__arbre_a5a146e5e27a7a6c5f54bc6df864595aa}{info};    
+158     \textcolor{keywordflow}{else}
+159       \textcolor{keywordflow}{throw} PRO2Excepcio (\textcolor{stringliteral}{"Un arbre buit no t� arrel"});
+160   \}
+\end{DoxyCode}
+\hypertarget{class_arbre_a68a51f6689f0b2889e8e1d56266fd620}{\index{Arbre@{Arbre}!es\-\_\-buit@{es\-\_\-buit}}
+\index{es\-\_\-buit@{es\-\_\-buit}!Arbre@{Arbre}}
+\subsubsection[{es\-\_\-buit}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ bool {\bf Arbre}$<$ T $>$\-::es\-\_\-buit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_arbre_a68a51f6689f0b2889e8e1d56266fd620}
+
+
+Definició a la línia 162 del fitxer Arbre.\-hpp.
+
+
+\begin{DoxyCode}
+165   \{
+166     \textcolor{keywordflow}{return} (\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}==NULL);
+167   \}
+\end{DoxyCode}
+
+
+\subsection{Documentació de les Dades Membre}
+\hypertarget{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{\index{Arbre@{Arbre}!primer\-\_\-node@{primer\-\_\-node}}
+\index{primer\-\_\-node@{primer\-\_\-node}!Arbre@{Arbre}}
+\subsubsection[{primer\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf node\-\_\-arbre}$\ast$ {\bf Arbre}$<$ T $>$\-::primer\-\_\-node\hspace{0.3cm}{\ttfamily [private]}}}\label{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}
+
+
+Definició a la línia 16 del fitxer Arbre.\-hpp.
+
+
+
+La documentació d'aquesta classe es va generar a partir del següent fitxer\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_arbre_8hpp}{Arbre.\-hpp}\end{DoxyCompactItemize}
