@@ -33,6 +33,8 @@ class Organisme
 private:
 	/** @brief Arbre on estan guardades totes les cèl·lules de l'organisme */
 	Arbre<Celula> arbre;
+	/** @brief Variable que ens indica si un organisme ha estat retallat */
+	bool retallat;
 	/**	@brief Variable on es guarden el número de fills que ha tingut aquest 
 		organisme per poder-ho utilitzar després pel rànking
 	*/

@@ -5,6 +5,7 @@
 #define CONJUNT_ORG
 
 #include <stack>
+#include <list>
 #include <vector>
 #include "Organisme.hpp"
 /** @struct OrganRank
@@ -50,7 +51,7 @@ private:
 	vector<OrganRank> Rank;
     /** @brief Vector per saber quins fills ha tingut cada organisme i amb qui
         els ha tingut */
-    vector< stack<ParFill> > Rel;
+    vector< list<ParFill> > Rel;
 	/** @brief Matriu que ens dirà quins organismes s'han aparellat i amb qui
 		ho han fet */
 	vector< vector<bool> > Aparellat;

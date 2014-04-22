@@ -7,6 +7,8 @@ Organisme::Organisme()
 {
 	fills = 0;
 	tamany = 0;
+	max_id = 0;
+	mort = false;
 }
 
 Organisme::Organisme(const Organisme &o) 
@@ -14,18 +16,22 @@ Organisme::Organisme(const Organisme &o)
 	fills = o.fills;
 	tamany = o.tamany;
 	arbre = o.arbre;
+	max_id = o.max_id;
+	mort = o.mort;
 }
 
 Organisme::~Organisme() {}
 
 void Organisme::estirar_organisme() 
 {
-	Celula c = arbre.arrel();
-	Arbre<Celula> a1, a2;
-	arbre.fills(a1, a2);
-	estirar_recursiu(a1, max_id, c, tamany);
-	estirar_recursiu(a2, max_id, c, tamany);
-	arbre.plantar(c, a1, a2);
+	if (not retallat) {
+		Celula c = arbre.arrel();
+		Arbre<Celula> a1, a2;
+		arbre.fills(a1, a2);
+		estirar_recursiu(a1, max_id, c, tamany);
+		estirar_recursiu(a2, max_id, c, tamany);
+		arbre.plantar(c, a1, a2);
+	}
 }
 
 void Organisme::estirar_recursiu(Arbre<Celula> &a, int &max_id, Celula c, 
