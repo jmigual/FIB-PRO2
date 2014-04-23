@@ -18,6 +18,6 @@ Organisme.o: Organisme.hpp Organisme.cpp Arbre.hpp
 ConjuntOrg.o: ConjuntOrg.hpp ConjuntOrg.cpp Organisme.hpp
 	g++ $(flags) ConjuntOrg.cpp -I.
 
-clean: *.o *.exe
+clean:
 	rm *.o
 	rm *.exe
