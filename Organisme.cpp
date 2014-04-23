@@ -5,21 +5,11 @@
 
 Organisme::Organisme() 
 {
-	fills = 0;
-	tamany = 0;
-	max_id = 0;
+
+    tamany = 1;
+    max_id = 1;
 	mort = false;
     retallat = false;
-}
-
-Organisme::Organisme(const Organisme &o) 
-{
-	fills = o.fills;
-	tamany = o.tamany;
-	arbre = o.arbre;
-	max_id = o.max_id;
-	mort = o.mort;
-    o.retallat = retallat;
 }
 
 Organisme::~Organisme() {}
@@ -27,16 +17,16 @@ Organisme::~Organisme() {}
 void Organisme::estirar_organisme() 
 {
 	if (not retallat) {
-		Celula c = arbre.arrel();
-		Arbre<Celula> a1, a2;
-		arbre.fills(a1, a2);
+        Celula c = cels.arrel();
+        Arbre<Celula> a1, a2;
+        cels.fills(a1, a2);
 		estirar_recursiu(a1, max_id, c, tamany);
 		estirar_recursiu(a2, max_id, c, tamany);
-		arbre.plantar(c, a1, a2);
+        cels.plantar(c, a1, a2);
 	}
 }
 
-void Organisme::estirar_recursiu(Arbre<Celula> &a, int &max_id, Celula c, 
+void Organisme::estirar_recursiu(Arbre<Celula> &a, int &max_id, Celula c,
 int &tam) 
 {
 	if (a.es_buit()) {
@@ -45,13 +35,13 @@ int &tam)
 			++tam;
 			c.id = max_id;
 			c.dividida = false;
-			Arbre<Celula> a1;
+            Arbre<Celula> a1;
 			a.plantar(c, a1, a1);
 		}
 	}
 	else {
 		Celula c = a.arrel();
-		Arbre<Celula> a1, a2;
+        Arbre<Celula> a1, a2;
 		a.fills(a1, a2);
 		estirar_recursiu(a1, max_id, c, tam);
 		estirar_recursiu(a2, max_id, c, tam);
@@ -64,9 +54,9 @@ void Organisme::retallar_organisme()
 {
 	if (not mort) {
         retallat = true;
-		Celula c = arbre.arrel();
-		Arbre<Celula> a1, a2;
-		arbre.fills(a1, a2);
+        Celula c = cels.arrel();
+        Arbre<Celula> a1, a2;
+        cels.fills(a1, a2);
 		if(a1.es_buit() and a2.es_buit()) {
 			mort = true;
 			tamany = 0;
@@ -74,21 +64,21 @@ void Organisme::retallar_organisme()
 		else {
 			retallar_recursiu(a1, tamany);
 			retallar_recursiu(a2, tamany);
-			arbre.plantar(c, a1, a2);
+            cels.plantar(c, a1, a2);
 		}
 	}
 }
 
-void Organisme::retallar_recursiu(Arbre<Celula> &a, int &tam) 
+void Organisme::retallar_recursiu(Arbre<Celula> &a, int &tam)
 {
 	if(not a.es_buit()) {
-		Arbre<Celula> a1, a2;
+        Arbre<Celula> a1, a2;
 		Celula c = a.arrel();
 		a.fills(a1, a2);
 
 		// Si algun dels dos fills no està buit vol dir que la cèl·lula encara
 		// no s'ha d'eliminar. Si ja no té cap fill no tornem a plantar
-		// l'arbre i haurem eliminat la cèl·lula.
+        // l'arbre i haurem eliminat la cèl·lula.
 		if(not(a1.es_buit() and a2.es_buit())) {
 			retallar_recursiu(a1, tam);
 			retallar_recursiu(a2, tam);
@@ -114,35 +104,29 @@ bool Organisme::compatibles(const Organisme &o) const
 {
 	int comp = (tamany + o.tamany)/4;
 
-	Arbre<Celula> aA = arbre;
-	Arbre<Celula> aB = o.arbre;
+    Arbre<Celula> aA = cels;
+    Arbre<Celula> aB = o.cels;
 	// Variable amb la que es mirarà el tamany de l'intersecció
 	int intersec = intersec_recursiu(aA, aB);
 	return intersec >= comp;
 }
 
-int Organisme::intersec_recursiu(Arbre<Celula> &aA, Arbre<Celula> &aB) 
+int Organisme::intersec_recursiu(Arbre<Celula> &aA, Arbre<Celula> &aB)
 {
 	int res = 0;
 
-	// Evaluem per cada branca de l'arbre, si hi ha una arrel sumem 1
+    // Evaluem per cada branca de l'arbre, si hi ha una arrel sumem 1
 	// com que ho fem recursivament tots els resultats es van sumant fins
 	// a obtenir el resultat de la intersecció
 	if(not(aA.es_buit()) and not(aB.es_buit())) {
 		++res;
-		Arbre<Celula> aA1, aA2, aB1, aB2;
+        Arbre<Celula> aA1, aA2, aB1, aB2;
 		aA.fills(aA1, aA2);
 		aB.fills(aB1, aB2);
 		res += intersec_recursiu(aA1, aB1);
 		res += intersec_recursiu(aA2, aB2);
 	}
 	return res;
-}
-
-Organisme Organisme::reproduir_organisme(const Organisme &o) const 
-{
-	Organisme res;
-    return res;
 }
 
 int Organisme::consultar_tamany() const 

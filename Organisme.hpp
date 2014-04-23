@@ -27,15 +27,10 @@ class Organisme
 private:
 
 	/** @brief Arbre on estan guardades totes les cèl·lules de l'organisme */
-	Arbre<Celula> arbre;
+    Arbre<Celula> cels;
 
 	/** @brief Variable que ens indica si un organisme ha estat retallat */
 	bool retallat;
-
-    /**	@brief Variable on es guarden el número de fills que ha tingut aquest
-     *  organisme per poder-ho utilitzar després pel rànking
-     */
-	int fills;
 
 	/** @brief Variable que indica el tamany de l'organisme */
 	int tamany;
@@ -76,18 +71,9 @@ public:
      *  <p>S'executa automàticament al declarar un organisme</p>
      *
      *  \pre Cert
-     *  \post El resultat és un organisme buit, sense cap cèl·lula,
-     *  l'organisme té identificador '0', número de fills '0' i tamany '0'
+     *  \post El resultat és amb una cèl·lula activa i tamany '0'
      */
 	Organisme();
-
-    /**	@brief Constructora per còpia
-     *  <p>S'executa al declarar un organisme i posant entre () un altre</p>
-     *
-     *  \pre Cert
-     *  \post El paràmetre implícit passa a ser igual a l'organisme afegit
-     */
-	Organisme(const Organisme &o);
 
 	/** @brief Destructora per defecte */
 	~Organisme();
