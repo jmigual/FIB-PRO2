@@ -1,12 +1,13 @@
 /** @file ConjuntOrg.hpp
 	@brief Especificació de la classe ConjuntOrg
 */
-#ifndef CONJUNT_ORG
-#define CONJUNT_ORG
+#ifndef CONJUNTORG_HPP
+#define CONJUNTORG_HPP
 
 #include <list>
 #include <vector>
 #include "Organisme.hpp"
+#include "Ranking.hpp"
 
 /** @class ConjuntOrg
 	@brief És un conjunt d'organismes

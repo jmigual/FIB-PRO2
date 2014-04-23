@@ -94,7 +94,7 @@ Inclou el graf de dependències per a main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#main_8cpp" alt=""/></div>
 <map name="main_8cpp" id="main_8cpp">
-<area shape="rect" id="node4" href="_organisme_8hpp.html" title="Especificació de la classe Organisme." alt="" coords="81,155,201,181"/><area shape="rect" id="node8" href="_conjunt_org_8hpp.html" title="Especificació de la classe ConjuntOrg." alt="" coords="230,80,351,107"/><area shape="rect" id="node5" href="_arbre_8hpp.html" title="Arbre.hpp" alt="" coords="99,229,184,256"/><area shape="rect" id="node6" href="utils_8_p_r_o2.html" title="utils.PRO2" alt="" coords="98,304,184,331"/></map>
+<area shape="rect" id="node3" href="_organisme_8hpp.html" title="Especificació de la classe Organisme." alt="" coords="81,155,201,181"/><area shape="rect" id="node7" href="_conjunt_org_8hpp.html" title="Especificació de la classe ConjuntOrg." alt="" coords="179,80,300,107"/><area shape="rect" id="node10" href="_ranking_8hpp.html" title="Especificació de la classe Ranking." alt="" coords="327,155,427,181"/><area shape="rect" id="node4" href="_arbre_8hpp.html" title="Arbre.hpp" alt="" coords="99,229,184,256"/><area shape="rect" id="node5" href="utils_8_p_r_o2.html" title="utils.PRO2" alt="" coords="98,304,184,331"/></map>
 </div>
 </div>
 <p><a href="main_8cpp_source.html">Veure el codi d'aquest fitxer.</a></p>
@@ -154,13 +154,11 @@ Funcions</h2></td></tr>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Conjunt que ens permetrà guardar tots els organismes existents</span></div>
 <div class="line">  <a class="code" href="class_conjunt_org.html" title="És un conjunt d&#39;organismes.">ConjuntOrg</a> Conj(M);</div>
+<div class="line">    <a class="code" href="class_ranking.html" title="Classe Ranking per poder imprimir el ranking dels organismes.">Ranking</a> Rank(M);</div>
 <div class="line"></div>
-<div class="line">  <span class="comment">// Entrem tots els organismes i els afegim al conjunt d&#39;organismes</span></div>
-<div class="line">  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; N; ++i) {</div>
-<div class="line">    <a class="code" href="class_organisme.html" title="És un conjunt de cèl·lules posades en un arbre.">Organisme</a> o;</div>
-<div class="line">    o.<a class="code" href="class_organisme.html#a056a9402130c7081b608838ba9ef2a30" title="Funció per llegir un organisme.">llegir_organisme</a>();</div>
-<div class="line">    Conj.afegir_organisme(o);</div>
-<div class="line">  }</div>
+<div class="line">    <span class="comment">// Cridem la funicó per llegir un conjunt d&#39;organismes de la classe</span></div>
+<div class="line">    <span class="comment">// ConjuntOrg</span></div>
+<div class="line">    Conj.llegir();</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Variable per seleccionar la opció d&#39;entrada</span></div>
 <div class="line">  <span class="keywordtype">int</span> x;</div>
@@ -175,50 +173,62 @@ Funcions</h2></td></tr>
 <div class="line">    cin &gt;&gt; x;</div>
 <div class="line">  <span class="keywordflow">while</span> (x != <a class="code" href="main_8cpp.html#a41985a541fe6a11a9efbe1c57619c004">MARCA</a> and fi == 0) {</div>
 <div class="line">    <span class="comment">// Opció per estirar un conjunt d&#39;organismes</span></div>
-<div class="line">    <span class="keywordflow">if</span> (x == 1) {</div>
-<div class="line">      stack&lt;int&gt; P;</div>
-<div class="line">      <span class="keywordtype">int</span> a;</div>
-<div class="line">      cin &gt;&gt; a;</div>
+<div class="line">        <span class="keywordflow">if</span> (x == 1) {</div>
+<div class="line">            <span class="keywordtype">int</span> a;</div>
+<div class="line"></div>
+<div class="line">            cin &gt;&gt; a;</div>
 <div class="line">      <span class="keywordflow">while</span>(a != <a class="code" href="main_8cpp.html#a41985a541fe6a11a9efbe1c57619c004">MARCA</a>) {</div>
-<div class="line">        P.push(a);</div>
+<div class="line">                Conj.estirar(a);</div>
 <div class="line">        cin &gt;&gt; a;</div>
-<div class="line">      }</div>
-<div class="line">      Conj.estirar(P);</div>
+<div class="line">            }</div>
 <div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Opció per retallar un conjunt d&#39;organismes</span></div>
-<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x == 2) {</div>
-<div class="line">      stack&lt;int&gt; P;</div>
-<div class="line">      <span class="keywordtype">int</span> a;</div>
-<div class="line">      cin &gt;&gt; a;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x == 2) {</div>
+<div class="line">            <span class="keywordtype">int</span> a;</div>
+<div class="line"></div>
+<div class="line">            cin &gt;&gt; a;</div>
 <div class="line">      <span class="keywordflow">while</span>(a != <a class="code" href="main_8cpp.html#a41985a541fe6a11a9efbe1c57619c004">MARCA</a>) {</div>
-<div class="line">        P.push(a);</div>
+<div class="line">                Conj.retallar(a);</div>
 <div class="line">        cin &gt;&gt; a;</div>
-<div class="line">      }</div>
-<div class="line">      Conj.retallar(P);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">if</span> (Conj.morts()) fi = 1;</div>
 <div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Aplicar una ronda de reproducció a TOTS els organismes, actualitzar</span></div>
 <div class="line">    <span class="comment">// el rànking i imprimir els fills nascuts a la ronda</span></div>
 <div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x == 3) {</div>
-<div class="line">      <span class="keywordflow">if</span> (not Conj.reproduir()) fi = 2;</div>
+<div class="line">            <span class="keywordtype">int</span> fills;</div>
+<div class="line">            <span class="keywordflow">if</span> (not Conj.reproduir(RANKING, fills)) fi = 2;</div>
+<div class="line">            cout &lt;&lt; fills &lt;&lt; endl;</div>
 <div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Obtenir el rànking de reproducció dels organismes </span></div>
 <div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x == 4) {</div>
-<div class="line">      Conj.ranking();</div>
+<div class="line">            Rank.ranking();</div>
 <div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Consultar l&#39;estat d&#39;un subconjunt d&#39;organismes </span></div>
-<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x == 5) {</div>
-<div class="line">      stack&lt;int&gt; P;</div>
-<div class="line">      <span class="keywordtype">int</span> a;</div>
-<div class="line">      cin &gt;&gt; a;</div>
-<div class="line">      <span class="keywordflow">while</span>(a != <a class="code" href="main_8cpp.html#a41985a541fe6a11a9efbe1c57619c004">MARCA</a>) P.push(a);</div>
-<div class="line">      Conj.estat(P);</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x == 5) {</div>
+<div class="line">            <span class="keywordtype">int</span> a;</div>
+<div class="line"></div>
+<div class="line">            cin &gt;&gt; a;</div>
+<div class="line">            <span class="keywordflow">while</span>(a != <a class="code" href="main_8cpp.html#a41985a541fe6a11a9efbe1c57619c004">MARCA</a>) {</div>
+<div class="line">                Conj.estat(a);</div>
+<div class="line">                cin &gt;&gt; a;</div>
+<div class="line">            }</div>
 <div class="line">    }</div>
 <div class="line">        cin &gt;&gt; x;</div>
 <div class="line">  }</div>
+<div class="line"></div>
+<div class="line">    <span class="comment">// Instruccions per a la fi del programa</span></div>
+<div class="line">    <span class="keywordflow">if</span> (fi == 1) {</div>
+<div class="line">        cout &lt;&lt; <span class="stringliteral">&quot;FI: Tots els organismes han mort&quot;</span> &lt;&lt; endl;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (fi == 2) {</div>
+<div class="line">        Rank.ranking();</div>
+<div class="line">        Conj.escriure_ultims(fills);</div>
+<div class="line">    }</div>
 <div class="line">}</div>
 </div><!-- fragment -->
 </div>

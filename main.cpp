@@ -10,7 +10,6 @@
 */
 
 #include <iostream>
-#include <stack>
 #include "Organisme.hpp"
 #include "ConjuntOrg.hpp"
 #include "Ranking.hpp"
@@ -49,8 +48,9 @@ int main()
 	while (x != MARCA and fi == 0) {
 		// Opció per estirar un conjunt d'organismes
         if (x == 1) {
-            int a = readint();
+            int a;
 
+            cin >> a;
 			while(a != MARCA) {
                 Conj.estirar(a);
 				cin >> a;
@@ -59,8 +59,9 @@ int main()
 
 		// Opció per retallar un conjunt d'organismes
         else if (x == 2) {
-            int a = readint();
+            int a;
 
+            cin >> a;
 			while(a != MARCA) {
                 Conj.retallar(a);
 				cin >> a;
@@ -83,8 +84,9 @@ int main()
 
 		// Consultar l'estat d'un subconjunt d'organismes 
         else if (x == 5) {
-            int a = readint();
+            int a;
 
+            cin >> a;
             while(a != MARCA) {
                 Conj.estat(a);
                 cin >> a;

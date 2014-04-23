@@ -19,10 +19,8 @@ void \hyperlink{class_organisme_a41a2ea17f4287dc3d00a45476a602309}{estirar\-\_\-
 \begin{DoxyCompactList}\small\item\em Modificadora que fa créixer l'organisme. \end{DoxyCompactList}\item 
 void \hyperlink{class_organisme_a3db36c1cb9d93f2750fd033b137dc702}{retallar\-\_\-organisme} ()
 \begin{DoxyCompactList}\small\item\em Modificadora que elimina totes les cèl·lules que no tenen cap fill. \end{DoxyCompactList}\item 
-void \hyperlink{class_organisme_a110dc312e8d2d5a4e22042903c52ed57}{afegir\-\_\-fill} ()
-\begin{DoxyCompactList}\small\item\em Modificadora que incrementa el nombre de fills en 1. \end{DoxyCompactList}\item 
 int \hyperlink{class_organisme_a908bceb8c1aa3ec7e5eeb3c5c10f111b}{consultar\-\_\-fills} () const 
-\begin{DoxyCompactList}\small\item\em Consultora que retorna el número de fills que ha tingut l'organisme. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Modificadora que modifica l'organisme implícit per tal que es converteixi en un fill dels altres dos organismes. \end{DoxyCompactList}\item 
 bool \hyperlink{class_organisme_a4706d097ab7348c9161cc8f8a5052418}{compatibles} (const \hyperlink{class_organisme}{Organisme} \&o) const 
 \begin{DoxyCompactList}\small\item\em Consultora que retorna si dos organismes són compatibles o no. \end{DoxyCompactList}\item 
 \hyperlink{class_organisme}{Organisme} \hyperlink{class_organisme_a82d843de079550e169f5d479ec21619f}{reproduir\-\_\-organisme} (const \hyperlink{class_organisme}{Organisme} \&o) const 
@@ -64,7 +62,7 @@ bool \hyperlink{class_organisme_ae20564db8d9ba5b7547750375010ed7b}{mort}
 \subsection{Descripció Detallada}
 És un conjunt de cèl·lules posades en un arbre. 
 
-Definició a la línia 31 del fitxer Organisme.\-hpp.
+Definició a la línia 25 del fitxer Organisme.\-hpp.
 
 
 
@@ -99,6 +97,7 @@ Definició a la línia 6 del fitxer Organisme.\-cpp.
   \hyperlink{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{tamany} = 0;
   \hyperlink{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{max\_id} = 0;
   \hyperlink{class_organisme_ae20564db8d9ba5b7547750375010ed7b}{mort} = \textcolor{keyword}{false};
+    \hyperlink{class_organisme_acf912225a83570cb68542dcc6709023a}{retallat} = \textcolor{keyword}{false};
 \}
 \end{DoxyCode}
 \hypertarget{class_organisme_a185bb1fe4199489f8c36b6ad53bdd562}{\index{Organisme@{Organisme}!Organisme@{Organisme}}
@@ -122,7 +121,7 @@ El paràmetre implícit passa a ser igual a l'organisme afegit
 \end{DoxyPostcond}
 
 
-Definició a la línia 14 del fitxer Organisme.\-cpp.
+Definició a la línia 15 del fitxer Organisme.\-cpp.
 
 
 \begin{DoxyCode}
@@ -132,6 +131,7 @@ Definició a la línia 14 del fitxer Organisme.\-cpp.
   \hyperlink{class_organisme_aa6bc89f1937afd04f86e770c2bde8c69}{arbre} = o.\hyperlink{class_organisme_aa6bc89f1937afd04f86e770c2bde8c69}{arbre};
   \hyperlink{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{max\_id} = o.\hyperlink{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{max\_id};
   \hyperlink{class_organisme_ae20564db8d9ba5b7547750375010ed7b}{mort} = o.\hyperlink{class_organisme_ae20564db8d9ba5b7547750375010ed7b}{mort};
+    o.\hyperlink{class_organisme_acf912225a83570cb68542dcc6709023a}{retallat} = \hyperlink{class_organisme_acf912225a83570cb68542dcc6709023a}{retallat};
 \}
 \end{DoxyCode}
 \hypertarget{class_organisme_a55c9d7cbc9683970ad88455fdc3be7aa}{\index{Organisme@{Organisme}!$\sim$\-Organisme@{$\sim$\-Organisme}}
@@ -147,7 +147,7 @@ Destructora per defecte.
 
 
 
-Definició a la línia 23 del fitxer Organisme.\-cpp.
+Definició a la línia 25 del fitxer Organisme.\-cpp.
 
 
 \begin{DoxyCode}
@@ -178,17 +178,17 @@ Totes les cèl·lules que no s'havien dividit s'han dividit
 \end{DoxyPostcond}
 
 
-Definició a la línia 37 del fitxer Organisme.\-cpp.
+Definició a la línia 39 del fitxer Organisme.\-cpp.
 
 
 \begin{DoxyCode}
 \{
   \textcolor{keywordflow}{if} (a.\hyperlink{class_arbre_a68a51f6689f0b2889e8e1d56266fd620}{es\_buit}()) \{
-    \textcolor{keywordflow}{if} (not c.\hyperlink{struct_celula_ada607a6566845c6511d8fd827d33e8d4}{dividida}) \{
+    \textcolor{keywordflow}{if} (not c.dividida) \{
       ++\hyperlink{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{max\_id};
       ++tam;
       c.\hyperlink{struct_celula_a30cd8be20156f6276eb9cc0b47a1f83a}{id} = \hyperlink{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{max\_id};
-      c.\hyperlink{struct_celula_ada607a6566845c6511d8fd827d33e8d4}{dividida} = \textcolor{keyword}{false};
+      c.dividida = \textcolor{keyword}{false};
       \hyperlink{class_arbre}{Arbre<Celula>} a1;
       a.\hyperlink{class_arbre_a806d45f6f1d3a9dd357563979186f721}{plantar}(c, a1, a1);
     \}
@@ -199,7 +199,7 @@ Definició a la línia 37 del fitxer Organisme.\-cpp.
     a.\hyperlink{class_arbre_aee75355cee7599e132de75781d26a61d}{fills}(a1, a2);
     \hyperlink{class_organisme_a8dbc9127169717373507ddac7a9c7df9}{estirar\_recursiu}(a1, \hyperlink{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{max\_id}, c, tam);
     \hyperlink{class_organisme_a8dbc9127169717373507ddac7a9c7df9}{estirar\_recursiu}(a2, \hyperlink{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{max\_id}, c, tam);
-    c.\hyperlink{struct_celula_ada607a6566845c6511d8fd827d33e8d4}{dividida} = \textcolor{keyword}{true};
+    c.dividida = \textcolor{keyword}{true};
     a.\hyperlink{class_arbre_a806d45f6f1d3a9dd357563979186f721}{plantar}(c, a1, a2);
   \}
 \}
@@ -224,7 +224,7 @@ Totes les cèl·lules que no tenen cap filla han estat eliminades
 \end{DoxyPostcond}
 
 
-Definició a la línia 79 del fitxer Organisme.\-cpp.
+Definició a la línia 82 del fitxer Organisme.\-cpp.
 
 
 \begin{DoxyCode}
@@ -268,7 +268,7 @@ Retorna el nombre d'elements de l'arbre resultant de la intersecció dels dos ar
 \end{DoxyPostcond}
 
 
-Definició a la línia 121 del fitxer Organisme.\-cpp.
+Definició a la línia 124 del fitxer Organisme.\-cpp.
 
 
 \begin{DoxyCode}
@@ -308,7 +308,7 @@ Fisiona totes les cèl·lules de l'organisme que no s'hagin fisionat
 \end{DoxyPostcond}
 
 
-Definició a la línia 25 del fitxer Organisme.\-cpp.
+Definició a la línia 27 del fitxer Organisme.\-cpp.
 
 
 \begin{DoxyCode}
@@ -342,12 +342,13 @@ Totes les cèl·lules que no tenien cap fill han estat eliminades
 \end{DoxyPostcond}
 
 
-Definició a la línia 61 del fitxer Organisme.\-cpp.
+Definició a la línia 63 del fitxer Organisme.\-cpp.
 
 
 \begin{DoxyCode}
 \{
   \textcolor{keywordflow}{if} (not \hyperlink{class_organisme_ae20564db8d9ba5b7547750375010ed7b}{mort}) \{
+        \hyperlink{class_organisme_acf912225a83570cb68542dcc6709023a}{retallat} = \textcolor{keyword}{true};
     \hyperlink{struct_celula}{Celula} c = \hyperlink{class_organisme_aa6bc89f1937afd04f86e770c2bde8c69}{arbre}.\hyperlink{class_arbre_aa6e2559ead7dfceda962cff11fb1a15c}{arrel}();
     \hyperlink{class_arbre}{Arbre<Celula>} a1, a2;
     \hyperlink{class_organisme_aa6bc89f1937afd04f86e770c2bde8c69}{arbre}.\hyperlink{class_arbre_aee75355cee7599e132de75781d26a61d}{fills}(a1, a2);
@@ -363,33 +364,6 @@ Definició a la línia 61 del fitxer Organisme.\-cpp.
   \}
 \}
 \end{DoxyCode}
-\hypertarget{class_organisme_a110dc312e8d2d5a4e22042903c52ed57}{\index{Organisme@{Organisme}!afegir\-\_\-fill@{afegir\-\_\-fill}}
-\index{afegir\-\_\-fill@{afegir\-\_\-fill}!Organisme@{Organisme}}
-\subsubsection[{afegir\-\_\-fill}]{\setlength{\rightskip}{0pt plus 5cm}void Organisme\-::afegir\-\_\-fill (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{class_organisme_a110dc312e8d2d5a4e22042903c52ed57}
-
-
-Modificadora que incrementa el nombre de fills en 1. 
-
-\begin{DoxyPrecond}{Precondició}
-Cert 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondició}
-Els fills del paràmetre implícit s'han incrementat en 1 
-\end{DoxyPostcond}
-
-
-Definició a la línia 100 del fitxer Organisme.\-cpp.
-
-
-\begin{DoxyCode}
-\{
-  ++\hyperlink{class_organisme_a4644da413bb0e38f34566334ebee1c1c}{fills};
-\}
-\end{DoxyCode}
 \hypertarget{class_organisme_a908bceb8c1aa3ec7e5eeb3c5c10f111b}{\index{Organisme@{Organisme}!consultar\-\_\-fills@{consultar\-\_\-fills}}
 \index{consultar\-\_\-fills@{consultar\-\_\-fills}!Organisme@{Organisme}}
 \subsubsection[{consultar\-\_\-fills}]{\setlength{\rightskip}{0pt plus 5cm}int Organisme\-::consultar\-\_\-fills (
@@ -399,9 +373,16 @@ Definició a la línia 100 del fitxer Organisme.\-cpp.
 ) const}}\label{class_organisme_a908bceb8c1aa3ec7e5eeb3c5c10f111b}
 
 
-Consultora que retorna el número de fills que ha tingut l'organisme. 
+Modificadora que modifica l'organisme implícit per tal que es converteixi en un fill dels altres dos organismes. 
 
-\begin{DoxyPrecond}{Precondició}
+\begin{DoxyVerb}\pre 'o1' i 'o2' han de ser dos organismes que no estiguin morts i
+han de ser compatibles entre ells
+\post L'organisme implícit ha passat a ser un organisme que és fill
+de 'o1' i 'o2'
+\end{DoxyVerb}
+ void reproduir\-\_\-organisme(const Organisme \&o1, const Organisme \&o2) const;
+
+/$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ C\-O\-N\-S\-U\-L\-T\-O\-R\-E\-S $\ast$\-Consultora que retorna el número de fills que ha tingut l'organisme \begin{DoxyPrecond}{Precondició}
 Cert 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondició}
@@ -409,7 +390,7 @@ Retorna un int amb el número de fills que ha tingut l'organisme
 \end{DoxyPostcond}
 
 
-Definició a la línia 105 del fitxer Organisme.\-cpp.
+Definició a la línia 108 del fitxer Organisme.\-cpp.
 
 
 \begin{DoxyCode}
@@ -436,7 +417,7 @@ Retorna un booleà que és 'true' si són compatibles i 'false' si no ho són
 \end{DoxyPostcond}
 
 
-Definició a la línia 110 del fitxer Organisme.\-cpp.
+Definició a la línia 113 del fitxer Organisme.\-cpp.
 
 
 \begin{DoxyCode}
@@ -469,7 +450,7 @@ Retorna un organisme fill del paràmetre implícit i l'organisme passat a la fun
 \end{DoxyPostcond}
 
 
-Definició a la línia 139 del fitxer Organisme.\-cpp.
+Definició a la línia 142 del fitxer Organisme.\-cpp.
 
 
 \begin{DoxyCode}
@@ -497,7 +478,7 @@ Retorna un int amb el tamany de l'organisme
 \end{DoxyPostcond}
 
 
-Definició a la línia 145 del fitxer Organisme.\-cpp.
+Definició a la línia 148 del fitxer Organisme.\-cpp.
 
 
 \begin{DoxyCode}
@@ -524,7 +505,7 @@ Retorna un booleà que és 'true' si el paràmetre implícit és mort
 \end{DoxyPostcond}
 
 
-Definició a la línia 150 del fitxer Organisme.\-cpp.
+Definició a la línia 153 del fitxer Organisme.\-cpp.
 
 
 \begin{DoxyCode}
@@ -578,7 +559,7 @@ Escriu l'arbre que forma l'organisme, no s'escriu si les cèl·lules són active
 
 
 
-Definició a la línia 35 del fitxer Organisme.\-hpp.
+Definició a la línia 29 del fitxer Organisme.\-hpp.
 
 \hypertarget{class_organisme_acf912225a83570cb68542dcc6709023a}{\index{Organisme@{Organisme}!retallat@{retallat}}
 \index{retallat@{retallat}!Organisme@{Organisme}}
@@ -589,7 +570,7 @@ Variable que ens indica si un organisme ha estat retallat.
 
 
 
-Definició a la línia 37 del fitxer Organisme.\-hpp.
+Definició a la línia 31 del fitxer Organisme.\-hpp.
 
 \hypertarget{class_organisme_a4644da413bb0e38f34566334ebee1c1c}{\index{Organisme@{Organisme}!fills@{fills}}
 \index{fills@{fills}!Organisme@{Organisme}}
@@ -600,7 +581,7 @@ Variable on es guarden el número de fills que ha tingut aquest organisme per po
 
 
 
-Definició a la línia 41 del fitxer Organisme.\-hpp.
+Definició a la línia 35 del fitxer Organisme.\-hpp.
 
 \hypertarget{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{\index{Organisme@{Organisme}!tamany@{tamany}}
 \index{tamany@{tamany}!Organisme@{Organisme}}
@@ -611,7 +592,7 @@ Variable que indica el tamany de l'organisme.
 
 
 
-Definició a la línia 43 del fitxer Organisme.\-hpp.
+Definició a la línia 37 del fitxer Organisme.\-hpp.
 
 \hypertarget{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{\index{Organisme@{Organisme}!max\-\_\-id@{max\-\_\-id}}
 \index{max\-\_\-id@{max\-\_\-id}!Organisme@{Organisme}}
@@ -622,7 +603,7 @@ Identificador màxim de les cèl·lules de l'organisme.
 
 
 
-Definició a la línia 45 del fitxer Organisme.\-hpp.
+Definició a la línia 39 del fitxer Organisme.\-hpp.
 
 \hypertarget{class_organisme_ae20564db8d9ba5b7547750375010ed7b}{\index{Organisme@{Organisme}!mort@{mort}}
 \index{mort@{mort}!Organisme@{Organisme}}
@@ -633,7 +614,7 @@ Variable que ens diu si un organisme és viu o mort.
 
 
 
-Definició a la línia 47 del fitxer Organisme.\-hpp.
+Definició a la línia 41 del fitxer Organisme.\-hpp.
 
 
 

@@ -69,13 +69,11 @@ Definició a la línia 22 del fitxer main.\-cpp.
 
   \textcolor{comment}{// Conjunt que ens permetrà guardar tots els organismes existents}
   \hyperlink{class_conjunt_org}{ConjuntOrg} Conj(M);
+    \hyperlink{class_ranking}{Ranking} Rank(M);
 
-  \textcolor{comment}{// Entrem tots els organismes i els afegim al conjunt d'organismes}
-  \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < N; ++i) \{
-    \hyperlink{class_organisme}{Organisme} o;
-    o.\hyperlink{class_organisme_a056a9402130c7081b608838ba9ef2a30}{llegir\_organisme}();
-    Conj.afegir\_organisme(o);
-  \}
+    \textcolor{comment}{// Cridem la funicó per llegir un conjunt d'organismes de la classe}
+    \textcolor{comment}{// ConjuntOrg}
+    Conj.llegir();
 
   \textcolor{comment}{// Variable per seleccionar la opció d'entrada}
   \textcolor{keywordtype}{int} x;
@@ -90,49 +88,61 @@ Definició a la línia 22 del fitxer main.\-cpp.
     cin >> x;
   \textcolor{keywordflow}{while} (x != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA} and fi == 0) \{
     \textcolor{comment}{// Opció per estirar un conjunt d'organismes}
-    \textcolor{keywordflow}{if} (x == 1) \{
-      stack<int> P;
-      \textcolor{keywordtype}{int} a;
-      cin >> a;
+        \textcolor{keywordflow}{if} (x == 1) \{
+            \textcolor{keywordtype}{int} a;
+
+            cin >> a;
       \textcolor{keywordflow}{while}(a != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA}) \{
-        P.push(a);
+                Conj.estirar(a);
         cin >> a;
-      \}
-      Conj.estirar(P);
+            \}
     \}
 
     \textcolor{comment}{// Opció per retallar un conjunt d'organismes}
-    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 2) \{
-      stack<int> P;
-      \textcolor{keywordtype}{int} a;
-      cin >> a;
+        \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 2) \{
+            \textcolor{keywordtype}{int} a;
+
+            cin >> a;
       \textcolor{keywordflow}{while}(a != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA}) \{
-        P.push(a);
+                Conj.retallar(a);
         cin >> a;
-      \}
-      Conj.retallar(P);
+            \}
+            \textcolor{keywordflow}{if} (Conj.morts()) fi = 1;
     \}
 
     \textcolor{comment}{// Aplicar una ronda de reproducció a TOTS els organismes, actualitzar}
     \textcolor{comment}{// el rànking i imprimir els fills nascuts a la ronda}
     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 3) \{
-      \textcolor{keywordflow}{if} (not Conj.reproduir()) fi = 2;
+            \textcolor{keywordtype}{int} fills;
+            \textcolor{keywordflow}{if} (not Conj.reproduir(RANKING, fills)) fi = 2;
+            cout << fills << endl;
     \}
 
     \textcolor{comment}{// Obtenir el rànking de reproducció dels organismes }
     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 4) \{
-      Conj.ranking();
+            Rank.ranking();
     \}
 
     \textcolor{comment}{// Consultar l'estat d'un subconjunt d'organismes }
-    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 5) \{
-      stack<int> P;
-      \textcolor{keywordtype}{int} a;
-      cin >> a;
-      \textcolor{keywordflow}{while}(a != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA}) P.push(a);
-      Conj.estat(P);
+        \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 5) \{
+            \textcolor{keywordtype}{int} a;
+
+            cin >> a;
+            \textcolor{keywordflow}{while}(a != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA}) \{
+                Conj.estat(a);
+                cin >> a;
+            \}
     \}
         cin >> x;
   \}
+
+    \textcolor{comment}{// Instruccions per a la fi del programa}
+    \textcolor{keywordflow}{if} (fi == 1) \{
+        cout << \textcolor{stringliteral}{"FI: Tots els organismes han mort"} << endl;
+    \}
+    \textcolor{keywordflow}{if} (fi == 2) \{
+        Rank.ranking();
+        Conj.escriure\_ultims(fills);
+    \}
 \}
 \end{DoxyCode}
