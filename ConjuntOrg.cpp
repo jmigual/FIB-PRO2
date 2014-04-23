@@ -10,8 +10,6 @@
 
 ConjuntOrg::ConjuntOrg(int M) {
 	V = vector<Organisme> (M);
-    Rank = vector<OrganRank> (M);
-    Rel = vector< list<ParFill> > (M);
 	Aparellat = vector< vector<bool> > (M, vector<bool> (M));  
 	tamany = 0;
 }
@@ -19,8 +17,6 @@ ConjuntOrg::ConjuntOrg(int M) {
 ConjuntOrg::ConjuntOrg(const ConjuntOrg &c) 
 {
 	V = c.V;
-	Rank = c.Rank;
-    Rel = c.Rel;
     Aparellat = c.Aparellat;
 	tamany = c.tamany;
 }
@@ -30,15 +26,6 @@ ConjuntOrg::~ConjuntOrg() {}
 /***********************
  *    MODIFICADORES    *
  ***********************/
-
-void ConjuntOrg::afegir_organisme(const Organisme &o) 
-{
-	if (tamany == int(V.size())) cout << "ERROR 1: El conjunt esta ple" << endl;
-	else {
-		V[tamany] = o;
-		++tamany;
-	}
-}
 
 void ConjuntOrg::estirar(int p)
 {
@@ -73,10 +60,7 @@ bool ConjuntOrg::morts() const
  *    ENTRADA / SORTIDA    *
  ***************************/
 
-void ConjuntOrg::ranking() const 
-{}
-
 void ConjuntOrg::estat(int p) const
 {
-    V[i - 1].escriure_organisme();
+    V[p - 1].escriure_organisme();
 }

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['rank',['Rank',['../class_conjunt_org.html#ae566806533e21f56caf27480d342c460',1,'ConjuntOrg']]],
-  ['rel',['Rel',['../class_conjunt_org.html#a254051054023bf3ecbbe96c82cfe46a2',1,'ConjuntOrg']]],
+  ['rank',['Rank',['../class_ranking.html#a23ba29c13cb5ac32d3fc97252f20afde',1,'Ranking']]],
+  ['rel',['Rel',['../class_ranking.html#a714b5b8881dccd99dad7e58b81ce7769',1,'Ranking']]],
   ['retallat',['retallat',['../class_organisme.html#acf912225a83570cb68542dcc6709023a',1,'Organisme']]]
 ];

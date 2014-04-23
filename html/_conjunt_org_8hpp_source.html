@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
 <title>Pràctica PRO2 Reproducció al Laboratori: Fitxer de Codi ConjuntOrg.hpp</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -30,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Generat per Doxygen 1.8.2 -->
+<!-- Generat per Doxygen 1.8.6 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </script>
@@ -89,63 +90,81 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_organisme_8hpp.html" title="Especificació de la classe Organisme.">Organisme.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ranking_8hpp.html" title="Especificació de la classe Ranking.">Ranking.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_organisme_8hpp.html">Organisme.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ranking_8hpp.html">Ranking.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="class_conjunt_org.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_conjunt_org.html" title="És un conjunt d&#39;organismes.">ConjuntOrg</a> </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_conjunt_org.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_conjunt_org.html">ConjuntOrg</a> </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="class_conjunt_org.html#adab11e0ac8295072ec682716478a535a">   19</a></span>&#160;  vector&lt;Organisme&gt; <a class="code" href="class_conjunt_org.html#adab11e0ac8295072ec682716478a535a" title="Vector on es guardaran tots els organismes.">V</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_conjunt_org.html#adab11e0ac8295072ec682716478a535a">   19</a></span>&#160;  vector&lt;Organisme&gt; <a class="code" href="class_conjunt_org.html#adab11e0ac8295072ec682716478a535a">V</a>;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="class_conjunt_org.html#a9782fdb4c89e8dd61762453de8f77fcb">   23</a></span>&#160;  vector&lt; vector&lt;bool&gt; &gt; <a class="code" href="class_conjunt_org.html#a9782fdb4c89e8dd61762453de8f77fcb" title="Matriu que ens dirà quins organismes s&#39;han aparellat i amb qui ho han fet.">Aparellat</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_conjunt_org.html#a9782fdb4c89e8dd61762453de8f77fcb">   23</a></span>&#160;  vector&lt; vector&lt;bool&gt; &gt; <a class="code" href="class_conjunt_org.html#a9782fdb4c89e8dd61762453de8f77fcb">Aparellat</a>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="class_conjunt_org.html#a468e7686498561628ad731ea196df8b5">   27</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_conjunt_org.html#a468e7686498561628ad731ea196df8b5" title="Variable que ens dona el número de organismes que hi ha al vector.">tamany</a>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">/***********************</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">     *    CONSTRUCTORES    *</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">     ***********************/</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="class_conjunt_org.html#a573205d24e669356dc44462a6ef95d71" title="Constructora per defecte.">ConjuntOrg</a>(<span class="keywordtype">int</span> M);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="class_conjunt_org.html#a573205d24e669356dc44462a6ef95d71" title="Constructora per defecte.">ConjuntOrg</a>(<span class="keyword">const</span> <a class="code" href="class_conjunt_org.html" title="És un conjunt d&#39;organismes.">ConjuntOrg</a> &amp;C);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="class_conjunt_org.html#a547e57b6f00347fa89695c33e9dd7743" title="Destructora per defecte.">~ConjuntOrg</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">/***********************</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">     *    MODIFICADORES    *</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">     ***********************/</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_conjunt_org.html#aed52193459bacdfe3db143809beb5a0f" title="Modificadora per estirar un subconjunt d&#39;organismes.">estirar</a>(<span class="keywordtype">int</span> p);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_conjunt_org.html#a2ed57a61b109254526a28b6ec1944d2f" title="Modificadora per retallar un subconjunt d&#39;organismes.">retallar</a>(<span class="keywordtype">int</span> p);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_conjunt_org.html#a5487cfb897f2a594d150f41774b53547" title="Modificadora que fa una ronda de reproducció dels organismes.">reproduir</a>(<a class="code" href="class_ranking.html" title="Classe Ranking per poder imprimir el ranking dels organismes.">Ranking</a> &amp;rank, <span class="keywordtype">int</span> &amp;fills);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">/*********************</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">     *    CONSULTORES    *</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">     *********************/</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_conjunt_org.html#adbce2716cb543fa4d513c6d2a21b4fe1" title="Consultora que retorna el nombre d&#39;organismes del conjunt.">consultar_tamany</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_conjunt_org.html#aa250202ccc4d06ead8b11c9b26c2f28d" title="Consultora que ens diu si els organismes estan morts.">morts</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">/***************************</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">     *    ENTRADA / SORTIDA    *</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">     ***************************/</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_conjunt_org.html#aa933556b09efa171f23abed943fe78a7" title="Llegeix un conjunt d&#39;organismes.">llegir</a>();</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_conjunt_org.html#a0c57d7702a556a7e9fe1a819414845a7" title="Imprimeix l&#39;estat d&#39;un subconjunt d&#39;organismes.">estat</a>(<span class="keywordtype">int</span> p) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;};</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_conjunt_org.html#a468e7686498561628ad731ea196df8b5">   27</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_conjunt_org.html#a468e7686498561628ad731ea196df8b5">tamany</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">/***********************</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">     *    CONSTRUCTORES    *</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">     ***********************/</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="class_conjunt_org.html#a573205d24e669356dc44462a6ef95d71">ConjuntOrg</a>(<span class="keywordtype">int</span> M);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="class_conjunt_org.html#a573205d24e669356dc44462a6ef95d71">ConjuntOrg</a>(<span class="keyword">const</span> <a class="code" href="class_conjunt_org.html">ConjuntOrg</a> &amp;C);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="class_conjunt_org.html#a547e57b6f00347fa89695c33e9dd7743">~ConjuntOrg</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">/***********************</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">     *    MODIFICADORES    *</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">     ***********************/</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_conjunt_org.html#aed52193459bacdfe3db143809beb5a0f">estirar</a>(<span class="keywordtype">int</span> p);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_conjunt_org.html#a2ed57a61b109254526a28b6ec1944d2f">retallar</a>(<span class="keywordtype">int</span> p);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_conjunt_org.html#a5487cfb897f2a594d150f41774b53547">reproduir</a>(<a class="code" href="class_ranking.html">Ranking</a> &amp;rank, <span class="keywordtype">int</span> &amp;fills);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">/*********************</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">     *    CONSULTORES    *</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">     *********************/</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_conjunt_org.html#adbce2716cb543fa4d513c6d2a21b4fe1">consultar_tamany</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_conjunt_org.html#aa250202ccc4d06ead8b11c9b26c2f28d">morts</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">/***************************</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">     *    ENTRADA / SORTIDA    *</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">     ***************************/</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_conjunt_org.html#ae14165ea78d2707b8c80d1ccf7c2cf41">escriure_ultims</a>(<span class="keywordtype">int</span> n);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_conjunt_org.html#aa933556b09efa171f23abed943fe78a7">llegir</a>();</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_conjunt_org.html#a0c57d7702a556a7e9fe1a819414845a7">estat</a>(<span class="keywordtype">int</span> p) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;};</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor"></span></div>
+<div class="ttc" id="_organisme_8hpp_html"><div class="ttname"><a href="_organisme_8hpp.html">Organisme.hpp</a></div><div class="ttdoc">Especificació de la classe Organisme. </div></div>
+<div class="ttc" id="class_conjunt_org_html_aa250202ccc4d06ead8b11c9b26c2f28d"><div class="ttname"><a href="class_conjunt_org.html#aa250202ccc4d06ead8b11c9b26c2f28d">ConjuntOrg::morts</a></div><div class="ttdeci">bool morts() const </div><div class="ttdoc">Consultora que ens diu si els organismes estan morts. </div><div class="ttdef"><b>Definition:</b> <a href="_conjunt_org_8cpp_source.html#l00052">ConjuntOrg.cpp:52</a></div></div>
+<div class="ttc" id="class_conjunt_org_html_ae14165ea78d2707b8c80d1ccf7c2cf41"><div class="ttname"><a href="class_conjunt_org.html#ae14165ea78d2707b8c80d1ccf7c2cf41">ConjuntOrg::escriure_ultims</a></div><div class="ttdeci">void escriure_ultims(int n)</div><div class="ttdoc">Escriu els últims &#39;n&#39; elements del conjutn. </div></div>
+<div class="ttc" id="class_conjunt_org_html_a547e57b6f00347fa89695c33e9dd7743"><div class="ttname"><a href="class_conjunt_org.html#a547e57b6f00347fa89695c33e9dd7743">ConjuntOrg::~ConjuntOrg</a></div><div class="ttdeci">~ConjuntOrg()</div><div class="ttdoc">Destructora per defecte. </div><div class="ttdef"><b>Definition:</b> <a href="_conjunt_org_8cpp_source.html#l00024">ConjuntOrg.cpp:24</a></div></div>
+<div class="ttc" id="class_conjunt_org_html_a468e7686498561628ad731ea196df8b5"><div class="ttname"><a href="class_conjunt_org.html#a468e7686498561628ad731ea196df8b5">ConjuntOrg::tamany</a></div><div class="ttdeci">int tamany</div><div class="ttdoc">Variable que ens dona el número de organismes que hi ha al vector. </div><div class="ttdef"><b>Definition:</b> <a href="_conjunt_org_8hpp_source.html#l00027">ConjuntOrg.hpp:27</a></div></div>
+<div class="ttc" id="class_conjunt_org_html_adbce2716cb543fa4d513c6d2a21b4fe1"><div class="ttname"><a href="class_conjunt_org.html#adbce2716cb543fa4d513c6d2a21b4fe1">ConjuntOrg::consultar_tamany</a></div><div class="ttdeci">int consultar_tamany() const </div><div class="ttdoc">Consultora que retorna el nombre d&#39;organismes del conjunt. </div><div class="ttdef"><b>Definition:</b> <a href="_conjunt_org_8cpp_source.html#l00049">ConjuntOrg.cpp:49</a></div></div>
+<div class="ttc" id="class_conjunt_org_html"><div class="ttname"><a href="class_conjunt_org.html">ConjuntOrg</a></div><div class="ttdoc">És un conjunt d&#39;organismes. </div><div class="ttdef"><b>Definition:</b> <a href="_conjunt_org_8hpp_source.html#l00015">ConjuntOrg.hpp:15</a></div></div>
+<div class="ttc" id="class_ranking_html"><div class="ttname"><a href="class_ranking.html">Ranking</a></div><div class="ttdoc">Classe Ranking per poder imprimir el ranking dels organismes. </div><div class="ttdef"><b>Definition:</b> <a href="_ranking_8hpp_source.html#l00015">Ranking.hpp:15</a></div></div>
+<div class="ttc" id="_ranking_8hpp_html"><div class="ttname"><a href="_ranking_8hpp.html">Ranking.hpp</a></div><div class="ttdoc">Especificació de la classe Ranking. </div></div>
+<div class="ttc" id="class_conjunt_org_html_aed52193459bacdfe3db143809beb5a0f"><div class="ttname"><a href="class_conjunt_org.html#aed52193459bacdfe3db143809beb5a0f">ConjuntOrg::estirar</a></div><div class="ttdeci">void estirar(int p)</div><div class="ttdoc">Modificadora per estirar un subconjunt d&#39;organismes. </div><div class="ttdef"><b>Definition:</b> <a href="_conjunt_org_8cpp_source.html#l00030">ConjuntOrg.cpp:30</a></div></div>
+<div class="ttc" id="class_conjunt_org_html_a2ed57a61b109254526a28b6ec1944d2f"><div class="ttname"><a href="class_conjunt_org.html#a2ed57a61b109254526a28b6ec1944d2f">ConjuntOrg::retallar</a></div><div class="ttdeci">void retallar(int p)</div><div class="ttdoc">Modificadora per retallar un subconjunt d&#39;organismes. </div><div class="ttdef"><b>Definition:</b> <a href="_conjunt_org_8cpp_source.html#l00035">ConjuntOrg.cpp:35</a></div></div>
+<div class="ttc" id="class_conjunt_org_html_a9782fdb4c89e8dd61762453de8f77fcb"><div class="ttname"><a href="class_conjunt_org.html#a9782fdb4c89e8dd61762453de8f77fcb">ConjuntOrg::Aparellat</a></div><div class="ttdeci">vector&lt; vector&lt; bool &gt; &gt; Aparellat</div><div class="ttdoc">Matriu que ens dirà quins organismes s&#39;han aparellat i amb qui ho han fet. </div><div class="ttdef"><b>Definition:</b> <a href="_conjunt_org_8hpp_source.html#l00023">ConjuntOrg.hpp:23</a></div></div>
+<div class="ttc" id="class_conjunt_org_html_a5487cfb897f2a594d150f41774b53547"><div class="ttname"><a href="class_conjunt_org.html#a5487cfb897f2a594d150f41774b53547">ConjuntOrg::reproduir</a></div><div class="ttdeci">bool reproduir(Ranking &amp;rank, int &amp;fills)</div><div class="ttdoc">Modificadora que fa una ronda de reproducció dels organismes. </div><div class="ttdef"><b>Definition:</b> <a href="_conjunt_org_8cpp_source.html#l00040">ConjuntOrg.cpp:40</a></div></div>
+<div class="ttc" id="class_conjunt_org_html_aa933556b09efa171f23abed943fe78a7"><div class="ttname"><a href="class_conjunt_org.html#aa933556b09efa171f23abed943fe78a7">ConjuntOrg::llegir</a></div><div class="ttdeci">void llegir()</div><div class="ttdoc">Llegeix un conjunt d&#39;organismes. </div></div>
+<div class="ttc" id="class_conjunt_org_html_a573205d24e669356dc44462a6ef95d71"><div class="ttname"><a href="class_conjunt_org.html#a573205d24e669356dc44462a6ef95d71">ConjuntOrg::ConjuntOrg</a></div><div class="ttdeci">ConjuntOrg(int M)</div><div class="ttdoc">Constructora per defecte. </div><div class="ttdef"><b>Definition:</b> <a href="_conjunt_org_8cpp_source.html#l00011">ConjuntOrg.cpp:11</a></div></div>
+<div class="ttc" id="class_conjunt_org_html_adab11e0ac8295072ec682716478a535a"><div class="ttname"><a href="class_conjunt_org.html#adab11e0ac8295072ec682716478a535a">ConjuntOrg::V</a></div><div class="ttdeci">vector&lt; Organisme &gt; V</div><div class="ttdoc">Vector on es guardaran tots els organismes. </div><div class="ttdef"><b>Definition:</b> <a href="_conjunt_org_8hpp_source.html#l00019">ConjuntOrg.hpp:19</a></div></div>
+<div class="ttc" id="class_conjunt_org_html_a0c57d7702a556a7e9fe1a819414845a7"><div class="ttname"><a href="class_conjunt_org.html#a0c57d7702a556a7e9fe1a819414845a7">ConjuntOrg::estat</a></div><div class="ttdeci">void estat(int p) const </div><div class="ttdoc">Imprimeix l&#39;estat d&#39;un subconjunt d&#39;organismes. </div><div class="ttdef"><b>Definition:</b> <a href="_conjunt_org_8cpp_source.html#l00063">ConjuntOrg.cpp:63</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generat per &#160;<a href="http://www.doxygen.org/index.html">
+Generat a Dc Abr 23 2014 23:06:50 per a Pràctica PRO2 Reproducció al Laboratori per &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.2
+</a> 1.8.6
 </small></address>
 </body>
 </html>

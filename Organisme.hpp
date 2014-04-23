@@ -41,25 +41,25 @@ private:
 	/**	@brief Variable que ens diu si un organisme és viu o mort */
 	bool mort;
 
-	/**	@brief Funció recursiva per estirar un organisme
-		\pre 'c' és una cèl·lula vàlida i max_id està inicialitzat
-		\post Totes les cèl·lules que no s'havien dividit s'han dividit
-	*/
+    /**	@brief Funció recursiva per estirar un organisme
+     *  \pre 'c' és una cèl·lula vàlida, max_id està inicialitzat i no
+     *  \post Totes les cèl·lules que no s'havien dividit s'han dividit
+	 */
 	static void estirar_recursiu(Arbre<Celula> &a, int &max_id, Celula c,
     int &tamany);
 
 	/** @brief Funció per retallar l'arbre d'un organisme
-		\pre Cert
-		\post Totes les cèl·lules que no tenen cap filla han estat eliminades
-	*/
+	 *  \pre L'organisme no està mort
+	 *  \post Totes les cèl·lules que no tenen cap filla han estat eliminades
+	 */
 	static void retallar_recursiu(Arbre<Celula> &a, int &tamany);
 
 	/** @brief Funció per calcular el tamany de la intersecció de dos arbres
-		de manera recursiva
-		\pre Cert
-		\post Retorna el nombre d'elements de l'arbre resultant de la
-		intersecció dels dos arbres 'a1' i 'a2'
-	*/
+	 *  de manera recursiva
+	 *  \pre Cert
+	 *  \post Retorna el nombre d'elements de l'arbre resultant de la
+	 *  intersecció dels dos arbres 'a1' i 'a2'
+	 */
 	static int intersec_recursiu(Arbre<Celula> &a1, Arbre<Celula> &a2);
 
 public: 
@@ -109,13 +109,6 @@ public:
     /*********************
      *    CONSULTORES    *
      *********************/
-
-    /** @brief Consultora que retorna el número de fills que ha tingut
-     *  l'organisme
-     *  \pre Cert
-     *  \post Retorna un int amb el número de fills que ha tingut l'organisme
-     */
-	int consultar_fills() const;
 
     /** @brief Consultora que retorna si dos organismes són compatibles o no
      *  \pre Cert

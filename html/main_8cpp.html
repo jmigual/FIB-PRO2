@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
 <title>Pràctica PRO2 Reproducció al Laboratori: Referència del Fitxer main.cpp</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -30,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Generat per Doxygen 1.8.2 -->
+<!-- Generat per Doxygen 1.8.6 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </script>
@@ -94,7 +95,7 @@ Inclou el graf de dependències per a main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#main_8cpp" alt=""/></div>
 <map name="main_8cpp" id="main_8cpp">
-<area shape="rect" id="node3" href="_organisme_8hpp.html" title="Especificació de la classe Organisme." alt="" coords="81,155,201,181"/><area shape="rect" id="node7" href="_conjunt_org_8hpp.html" title="Especificació de la classe ConjuntOrg." alt="" coords="179,80,300,107"/><area shape="rect" id="node10" href="_ranking_8hpp.html" title="Especificació de la classe Ranking." alt="" coords="327,155,427,181"/><area shape="rect" id="node4" href="_arbre_8hpp.html" title="Arbre.hpp" alt="" coords="99,229,184,256"/><area shape="rect" id="node5" href="utils_8_p_r_o2.html" title="utils.PRO2" alt="" coords="98,304,184,331"/></map>
+<area shape="rect" id="node3" href="_organisme_8hpp.html" title="Especificació de la classe Organisme. " alt="" coords="79,155,188,181"/><area shape="rect" id="node7" href="_conjunt_org_8hpp.html" title="Especificació de la classe ConjuntOrg. " alt="" coords="171,80,283,107"/><area shape="rect" id="node10" href="_ranking_8hpp.html" title="Especificació de la classe Ranking. " alt="" coords="314,155,406,181"/><area shape="rect" id="node4" href="_arbre_8hpp.html" title="Arbre.hpp" alt="" coords="94,229,173,256"/><area shape="rect" id="node5" href="utils_8_p_r_o2.html" title="utils.PRO2" alt="" coords="96,304,176,331"/></map>
 </div>
 </div>
 <p><a href="main_8cpp_source.html">Veure el codi d'aquest fitxer.</a></p>
@@ -107,7 +108,7 @@ Definicions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funcions</h2></td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
-<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Programa principal de la <em>Pràctica de PRO2</em>.  <a href="#ae66f6b31b5ad750f1fe042a706a4e3d4"></a><br/></td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Programa principal de la <em>Pràctica de PRO2</em>.  <a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">Més...</a><br/></td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripció Detallada</h2>
@@ -146,99 +147,105 @@ Funcions</h2></td></tr>
 <p>Programa principal de la <em>Pràctica de PRO2</em>. </p>
 
 <p>Definició a la línia <a class="el" href="main_8cpp_source.html#l00022">22</a> del fitxer <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
-<div class="fragment"><div class="line">{</div>
-<div class="line">  <span class="comment">// M És el màxim històric permés</span></div>
-<div class="line">  <span class="comment">// N És el nombre d&#39;organismes inicials</span></div>
-<div class="line">  <span class="keywordtype">int</span> N, M;</div>
-<div class="line">  cin &gt;&gt; N &gt;&gt; M;</div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// Conjunt que ens permetrà guardar tots els organismes existents</span></div>
-<div class="line">  <a class="code" href="class_conjunt_org.html" title="És un conjunt d&#39;organismes.">ConjuntOrg</a> Conj(M);</div>
-<div class="line">    <a class="code" href="class_ranking.html" title="Classe Ranking per poder imprimir el ranking dels organismes.">Ranking</a> Rank(M);</div>
-<div class="line"></div>
-<div class="line">    <span class="comment">// Cridem la funicó per llegir un conjunt d&#39;organismes de la classe</span></div>
-<div class="line">    <span class="comment">// ConjuntOrg</span></div>
-<div class="line">    Conj.llegir();</div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// Variable per seleccionar la opció d&#39;entrada</span></div>
-<div class="line">  <span class="keywordtype">int</span> x;</div>
-<div class="line"></div>
-<div class="line">  <span class="comment">/*  Variable de tipus int que quan sigui diferent de &#39;0&#39; farà</span></div>
-<div class="line"><span class="comment">    acabar l&#39;experiment, un número diferent de 0 indicarà el motiu pel</span></div>
-<div class="line"><span class="comment">    qual s&#39;acaba l&#39;experiment:</span></div>
-<div class="line"><span class="comment">    - 1 =&gt; Tots els organismes han mort</span></div>
-<div class="line"><span class="comment">    - 2 =&gt; S&#39;ha arribat al límit d&#39;organismes</span></div>
-<div class="line"><span class="comment">    - 3 =&gt; S&#39;ha donat per finalitzat l&#39;experiment manualment  */</span></div>
-<div class="line">  <span class="keywordtype">int</span> fi = 0;</div>
-<div class="line">    cin &gt;&gt; x;</div>
-<div class="line">  <span class="keywordflow">while</span> (x != <a class="code" href="main_8cpp.html#a41985a541fe6a11a9efbe1c57619c004">MARCA</a> and fi == 0) {</div>
-<div class="line">    <span class="comment">// Opció per estirar un conjunt d&#39;organismes</span></div>
-<div class="line">        <span class="keywordflow">if</span> (x == 1) {</div>
-<div class="line">            <span class="keywordtype">int</span> a;</div>
-<div class="line"></div>
-<div class="line">            cin &gt;&gt; a;</div>
-<div class="line">      <span class="keywordflow">while</span>(a != <a class="code" href="main_8cpp.html#a41985a541fe6a11a9efbe1c57619c004">MARCA</a>) {</div>
-<div class="line">                Conj.estirar(a);</div>
-<div class="line">        cin &gt;&gt; a;</div>
-<div class="line">            }</div>
-<div class="line">    }</div>
-<div class="line"></div>
-<div class="line">    <span class="comment">// Opció per retallar un conjunt d&#39;organismes</span></div>
-<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x == 2) {</div>
-<div class="line">            <span class="keywordtype">int</span> a;</div>
-<div class="line"></div>
-<div class="line">            cin &gt;&gt; a;</div>
-<div class="line">      <span class="keywordflow">while</span>(a != <a class="code" href="main_8cpp.html#a41985a541fe6a11a9efbe1c57619c004">MARCA</a>) {</div>
-<div class="line">                Conj.retallar(a);</div>
-<div class="line">        cin &gt;&gt; a;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">if</span> (Conj.morts()) fi = 1;</div>
-<div class="line">    }</div>
-<div class="line"></div>
-<div class="line">    <span class="comment">// Aplicar una ronda de reproducció a TOTS els organismes, actualitzar</span></div>
-<div class="line">    <span class="comment">// el rànking i imprimir els fills nascuts a la ronda</span></div>
-<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x == 3) {</div>
-<div class="line">            <span class="keywordtype">int</span> fills;</div>
-<div class="line">            <span class="keywordflow">if</span> (not Conj.reproduir(RANKING, fills)) fi = 2;</div>
-<div class="line">            cout &lt;&lt; fills &lt;&lt; endl;</div>
-<div class="line">    }</div>
-<div class="line"></div>
-<div class="line">    <span class="comment">// Obtenir el rànking de reproducció dels organismes </span></div>
-<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x == 4) {</div>
-<div class="line">            Rank.ranking();</div>
-<div class="line">    }</div>
-<div class="line"></div>
-<div class="line">    <span class="comment">// Consultar l&#39;estat d&#39;un subconjunt d&#39;organismes </span></div>
-<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x == 5) {</div>
-<div class="line">            <span class="keywordtype">int</span> a;</div>
-<div class="line"></div>
-<div class="line">            cin &gt;&gt; a;</div>
-<div class="line">            <span class="keywordflow">while</span>(a != <a class="code" href="main_8cpp.html#a41985a541fe6a11a9efbe1c57619c004">MARCA</a>) {</div>
-<div class="line">                Conj.estat(a);</div>
-<div class="line">                cin &gt;&gt; a;</div>
-<div class="line">            }</div>
-<div class="line">    }</div>
-<div class="line">        cin &gt;&gt; x;</div>
-<div class="line">  }</div>
-<div class="line"></div>
-<div class="line">    <span class="comment">// Instruccions per a la fi del programa</span></div>
-<div class="line">    <span class="keywordflow">if</span> (fi == 1) {</div>
-<div class="line">        cout &lt;&lt; <span class="stringliteral">&quot;FI: Tots els organismes han mort&quot;</span> &lt;&lt; endl;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">if</span> (fi == 2) {</div>
-<div class="line">        Rank.ranking();</div>
-<div class="line">        Conj.escriure_ultims(fills);</div>
-<div class="line">    }</div>
-<div class="line">}</div>
+<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="comment">// M És el màxim històric permés</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="comment">// N És el nombre d&#39;organismes inicials</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">int</span> N, M;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  cin &gt;&gt; N &gt;&gt; M;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="comment">// Conjunt que ens permetrà guardar tots els organismes existents</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <a class="code" href="class_conjunt_org.html">ConjuntOrg</a> Conj(M);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_ranking.html">Ranking</a> Rank(M);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// Cridem la funicó per llegir un conjunt d&#39;organismes de la classe</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">// ConjuntOrg</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    Conj.llegir();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="comment">// Variable per seleccionar la opció d&#39;entrada</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">int</span> x;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="comment">/*  Variable de tipus int que quan sigui diferent de &#39;0&#39; farà</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">    acabar l&#39;experiment, un número diferent de 0 indicarà el motiu pel</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">    qual s&#39;acaba l&#39;experiment:</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">    - 1 =&gt; Tots els organismes han mort</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">    - 2 =&gt; S&#39;ha arribat al límit d&#39;organismes</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">    - 3 =&gt; S&#39;ha donat per finalitzat l&#39;experiment manualment  */</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">int</span> fi = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    cin &gt;&gt; x;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordflow">while</span> (x != <a class="code" href="main_8cpp.html#a41985a541fe6a11a9efbe1c57619c004">MARCA</a> and fi == 0) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// Opció per estirar un conjunt d&#39;organismes</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">if</span> (x == 1) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordtype">int</span> a;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            cin &gt;&gt; a;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keywordflow">while</span>(a != <a class="code" href="main_8cpp.html#a41985a541fe6a11a9efbe1c57619c004">MARCA</a>) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                Conj.estirar(a);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        cin &gt;&gt; a;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">// Opció per retallar un conjunt d&#39;organismes</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x == 2) {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordtype">int</span> a;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            cin &gt;&gt; a;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="keywordflow">while</span>(a != <a class="code" href="main_8cpp.html#a41985a541fe6a11a9efbe1c57619c004">MARCA</a>) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                Conj.retallar(a);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        cin &gt;&gt; a;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">if</span> (Conj.morts()) fi = 1;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">// Aplicar una ronda de reproducció a TOTS els organismes, actualitzar</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">// el rànking i imprimir els fills nascuts a la ronda</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x == 3) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordtype">int</span> fills;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">if</span> (not Conj.reproduir(Rank, fills)) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;              fi = 2;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;              x = fills;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            cout &lt;&lt; fills &lt;&lt; endl;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">// Obtenir el rànking de reproducció dels organismes </span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x == 4) {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            Rank.ranking();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">// Consultar l&#39;estat d&#39;un subconjunt d&#39;organismes </span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x == 5) {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordtype">int</span> a;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            cin &gt;&gt; a;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">while</span>(a != <a class="code" href="main_8cpp.html#a41985a541fe6a11a9efbe1c57619c004">MARCA</a>) {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                Conj.estat(a);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                cin &gt;&gt; a;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        cin &gt;&gt; x;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">// Instruccions per a la fi del programa</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">if</span> (fi == 1) {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;FI: Tots els organismes han mort&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (fi == 2) {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        Rank.ranking();</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        Conj.escriure_ultims(x);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
+<div class="ttc" id="class_conjunt_org_html"><div class="ttname"><a href="class_conjunt_org.html">ConjuntOrg</a></div><div class="ttdoc">És un conjunt d&#39;organismes. </div><div class="ttdef"><b>Definition:</b> <a href="_conjunt_org_8hpp_source.html#l00015">ConjuntOrg.hpp:15</a></div></div>
+<div class="ttc" id="main_8cpp_html_a41985a541fe6a11a9efbe1c57619c004"><div class="ttname"><a href="main_8cpp.html#a41985a541fe6a11a9efbe1c57619c004">MARCA</a></div><div class="ttdeci">#define MARCA</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00018">main.cpp:18</a></div></div>
+<div class="ttc" id="class_ranking_html"><div class="ttname"><a href="class_ranking.html">Ranking</a></div><div class="ttdoc">Classe Ranking per poder imprimir el ranking dels organismes. </div><div class="ttdef"><b>Definition:</b> <a href="_ranking_8hpp_source.html#l00015">Ranking.hpp:15</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generat per &#160;<a href="http://www.doxygen.org/index.html">
+Generat a Dc Abr 23 2014 23:06:51 per a Pràctica PRO2 Reproducció al Laboratori per &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.2
+</a> 1.8.6
 </small></address>
 </body>
 </html>

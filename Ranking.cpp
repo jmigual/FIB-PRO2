@@ -21,7 +21,7 @@ Ranking::Ranking(int M)
 void Ranking::afegir_fill(int pare1, int pare2, int fill)
 {
     ParFill aux;
-    iterator::list<ParFill> it;
+    list<ParFill>::iterator it;
 
     aux.parella = pare1;
     aux.fill = fill;

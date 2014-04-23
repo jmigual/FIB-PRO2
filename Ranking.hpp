@@ -6,6 +6,7 @@
 
 #include <list>
 #include <vector>
+#include "utils.PRO2"
 
 
 /** @class Ranking
@@ -15,7 +16,7 @@ class Ranking {
 private:
 
     /** @struct OrganRank
-     *  @brief Tipus de dades per poder fer el r√†nking
+     *  @brief Tipus de dades per poder fer el r√ nking
      */
     struct OrganRank
     {
@@ -46,9 +47,8 @@ private:
          */
         int fill;
     };
-
-
-    /** @brief Vector que utilitzarem per generar i guardar el r√†nking */
+    
+    /** @brief Vector que utilitzarem per generar i guardar el r√ nking */
     vector<OrganRank> Rank;
 
     /** @brief Vector per saber quins fills ha tingut cada organisme i amb qui
@@ -73,7 +73,7 @@ public:
      ***********************/
 
     /** @brief Modificadora que afegeix els pares de un organisme per poder
-     *  fer el r√†nking
+     *  fer el r√ nking
      *  \pre Cert
      *  \post S'han afegit l'ID dels pares i dels fills al Ranking
      */
@@ -83,9 +83,9 @@ public:
      *    ENTRADA / SORTIDA    *
      ***************************/
 
-    /** @brief Funci√≥ que imprimeix el r√†nking
+    /** @brief Funci√≥ que imprimeix el r√ nking
      *  \pre Hi ha com a m√≠nim un organisme
-     *  \post Pel can√†l est√†ndard de sortida s'ha impr√®s el r√†nking de
+     *  \post Pel can√ l est√ ndard de sortida s'ha impr√®s el r√ nking de
      *  reproducci√≥ dels organismes
      */
     void ranking() const;

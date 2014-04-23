@@ -25,6 +25,7 @@ private:
 	/** @brief Variable que ens dona el número de organismes que hi ha al
 		vector */
 	int tamany;
+    
 public:
     /***********************
      *    CONSTRUCTORES    *

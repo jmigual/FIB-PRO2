@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['id',['id',['../struct_organ_rank.html#a4c2294bdeab2be3ce7e6142687a0542c',1,'OrganRank::id()'],['../struct_celula.html#a30cd8be20156f6276eb9cc0b47a1f83a',1,'Celula::id()']]],
-  ['info',['info',['../struct_arbre_1_1node__arbre.html#a5a146e5e27a7a6c5f54bc6df864595aa',1,'Arbre::node_arbre']]],
-  ['intersec_5frecursiu',['intersec_recursiu',['../class_organisme.html#add0b533b80fa284326cef38f1de3420b',1,'Organisme']]]
+  ['llegir',['llegir',['../class_conjunt_org.html#aa933556b09efa171f23abed943fe78a7',1,'ConjuntOrg']]],
+  ['llegir_5forganisme',['llegir_organisme',['../class_organisme.html#a056a9402130c7081b608838ba9ef2a30',1,'Organisme']]]
 ];

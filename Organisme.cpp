@@ -43,25 +43,19 @@ void Organisme::estirar_organisme()
 void Organisme::estirar_recursiu(Arbre<Celula> &a, int &max_id, Celula c,
 int &tam) 
 {
-	if (a.es_buit()) {
-		if (not c.dividida) {
-			++max_id;
-			++tam;
-			c.id = max_id;
-			c.dividida = false;
-            Arbre<Celula> a1;
-			a.plantar(c, a1, a1);
-		}
-	}
-	else {
-		Celula c = a.arrel();
-        Arbre<Celula> a1, a2;
-		a.fills(a1, a2);
-		estirar_recursiu(a1, max_id, c, tam);
-		estirar_recursiu(a2, max_id, c, tam);
-		c.dividida = true;
-		a.plantar(c, a1, a2);
-	}
+    Arbre<Celula> a1, a2;
+    if (a.es_buit()) {
+        ++max_id;
+        ++tam;
+        a.plantar(c, a1, a2);
+    }
+    else {
+        c = a.arrel();
+        a.fills(a1, a2);
+        estirar_recursiu(a1, max_id, c, tam);
+        estirar_recursiu(a2, max_id, c, tam);
+        a.plantar(c, a1, a2);
+    }
 }
 
 void Organisme::retallar_organisme() 
@@ -112,11 +106,6 @@ void Organisme::reproduir_organisme(const Organisme &o1, const Organisme &o2)
  *    CONSULTORES    *
  *********************/
 
-int Organisme::consultar_fills() const 
-{
-	return fills;
-}
-
 bool Organisme::compatibles(const Organisme &o) const 
 {
 	int comp = (tamany + o.tamany)/4;
@@ -163,5 +152,5 @@ bool Organisme::es_mort() const
 void Organisme::llegir_organisme()
 {}
 
-void Organisme::escriure_organisme()
+void Organisme::escriure_organisme() const
 {}

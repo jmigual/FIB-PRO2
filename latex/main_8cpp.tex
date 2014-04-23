@@ -6,7 +6,8 @@
 Programa principal per a la pràctica.  
 
 
-Inclou el graf de dependències per a main.\-cpp\-:\nopagebreak
+Inclou el graf de dependències per a main.\-cpp\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -60,88 +61,91 @@ Definició a la línia 22 del fitxer main.\-cpp.
 
 
 \begin{DoxyCode}
-\{
-  \textcolor{comment}{// M És el màxim històric permés}
-  \textcolor{comment}{// N És el nombre d'organismes inicials}
-  \textcolor{keywordtype}{int} N, M;
-  cin >> N >> M;
-
-  \textcolor{comment}{// Conjunt que ens permetrà guardar tots els organismes existents}
-  \hyperlink{class_conjunt_org}{ConjuntOrg} Conj(M);
-    \hyperlink{class_ranking}{Ranking} Rank(M);
-
-    \textcolor{comment}{// Cridem la funicó per llegir un conjunt d'organismes de la classe}
-    \textcolor{comment}{// ConjuntOrg}
-    Conj.llegir();
-
-  \textcolor{comment}{// Variable per seleccionar la opció d'entrada}
-  \textcolor{keywordtype}{int} x;
-
-  \textcolor{comment}{/*  Variable de tipus int que quan sigui diferent de '0' farà}
-\textcolor{comment}{    acabar l'experiment, un número diferent de 0 indicarà el motiu pel}
-\textcolor{comment}{    qual s'acaba l'experiment:}
-\textcolor{comment}{    - 1 => Tots els organismes han mort}
-\textcolor{comment}{    - 2 => S'ha arribat al límit d'organismes}
-\textcolor{comment}{    - 3 => S'ha donat per finalitzat l'experiment manualment  */}
-  \textcolor{keywordtype}{int} fi = 0;
-    cin >> x;
-  \textcolor{keywordflow}{while} (x != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA} and fi == 0) \{
-    \textcolor{comment}{// Opció per estirar un conjunt d'organismes}
-        \textcolor{keywordflow}{if} (x == 1) \{
-            \textcolor{keywordtype}{int} a;
-
-            cin >> a;
-      \textcolor{keywordflow}{while}(a != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA}) \{
-                Conj.estirar(a);
-        cin >> a;
-            \}
-    \}
-
-    \textcolor{comment}{// Opció per retallar un conjunt d'organismes}
-        \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 2) \{
-            \textcolor{keywordtype}{int} a;
-
-            cin >> a;
-      \textcolor{keywordflow}{while}(a != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA}) \{
-                Conj.retallar(a);
-        cin >> a;
-            \}
-            \textcolor{keywordflow}{if} (Conj.morts()) fi = 1;
-    \}
-
-    \textcolor{comment}{// Aplicar una ronda de reproducció a TOTS els organismes, actualitzar}
-    \textcolor{comment}{// el rànking i imprimir els fills nascuts a la ronda}
-    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 3) \{
-            \textcolor{keywordtype}{int} fills;
-            \textcolor{keywordflow}{if} (not Conj.reproduir(RANKING, fills)) fi = 2;
-            cout << fills << endl;
-    \}
-
-    \textcolor{comment}{// Obtenir el rànking de reproducció dels organismes }
-    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 4) \{
-            Rank.ranking();
-    \}
-
-    \textcolor{comment}{// Consultar l'estat d'un subconjunt d'organismes }
-        \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 5) \{
-            \textcolor{keywordtype}{int} a;
-
-            cin >> a;
-            \textcolor{keywordflow}{while}(a != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA}) \{
-                Conj.estat(a);
-                cin >> a;
-            \}
-    \}
-        cin >> x;
-  \}
-
-    \textcolor{comment}{// Instruccions per a la fi del programa}
-    \textcolor{keywordflow}{if} (fi == 1) \{
-        cout << \textcolor{stringliteral}{"FI: Tots els organismes han mort"} << endl;
-    \}
-    \textcolor{keywordflow}{if} (fi == 2) \{
-        Rank.ranking();
-        Conj.escriure\_ultims(fills);
-    \}
-\}
+23 \{
+24   \textcolor{comment}{// M És el màxim històric permés}
+25   \textcolor{comment}{// N És el nombre d'organismes inicials}
+26   \textcolor{keywordtype}{int} N, M;
+27   cin >> N >> M;
+28 
+29   \textcolor{comment}{// Conjunt que ens permetrà guardar tots els organismes existents}
+30   \hyperlink{class_conjunt_org}{ConjuntOrg} Conj(M);
+31     \hyperlink{class_ranking}{Ranking} Rank(M);
+32 
+33     \textcolor{comment}{// Cridem la funicó per llegir un conjunt d'organismes de la classe}
+34     \textcolor{comment}{// ConjuntOrg}
+35     Conj.llegir();
+36 
+37   \textcolor{comment}{// Variable per seleccionar la opció d'entrada}
+38   \textcolor{keywordtype}{int} x;
+39 
+40   \textcolor{comment}{/*  Variable de tipus int que quan sigui diferent de '0' farà}
+41 \textcolor{comment}{    acabar l'experiment, un número diferent de 0 indicarà el motiu pel}
+42 \textcolor{comment}{    qual s'acaba l'experiment:}
+43 \textcolor{comment}{    - 1 => Tots els organismes han mort}
+44 \textcolor{comment}{    - 2 => S'ha arribat al límit d'organismes}
+45 \textcolor{comment}{    - 3 => S'ha donat per finalitzat l'experiment manualment  */}
+46   \textcolor{keywordtype}{int} fi = 0;
+47     cin >> x;
+48   \textcolor{keywordflow}{while} (x != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA} and fi == 0) \{
+49     \textcolor{comment}{// Opció per estirar un conjunt d'organismes}
+50         \textcolor{keywordflow}{if} (x == 1) \{
+51             \textcolor{keywordtype}{int} a;
+52 
+53             cin >> a;
+54       \textcolor{keywordflow}{while}(a != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA}) \{
+55                 Conj.estirar(a);
+56         cin >> a;
+57             \}
+58     \}
+59 
+60     \textcolor{comment}{// Opció per retallar un conjunt d'organismes}
+61         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 2) \{
+62             \textcolor{keywordtype}{int} a;
+63 
+64             cin >> a;
+65       \textcolor{keywordflow}{while}(a != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA}) \{
+66                 Conj.retallar(a);
+67         cin >> a;
+68             \}
+69             \textcolor{keywordflow}{if} (Conj.morts()) fi = 1;
+70     \}
+71 
+72     \textcolor{comment}{// Aplicar una ronda de reproducció a TOTS els organismes, actualitzar}
+73     \textcolor{comment}{// el rànking i imprimir els fills nascuts a la ronda}
+74     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 3) \{
+75             \textcolor{keywordtype}{int} fills;
+76             \textcolor{keywordflow}{if} (not Conj.reproduir(Rank, fills)) \{
+77               fi = 2;
+78               x = fills;
+79             \}
+80             cout << fills << endl;
+81     \}
+82 
+83     \textcolor{comment}{// Obtenir el rànking de reproducció dels organismes }
+84     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 4) \{
+85             Rank.ranking();
+86     \}
+87 
+88     \textcolor{comment}{// Consultar l'estat d'un subconjunt d'organismes }
+89         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 5) \{
+90             \textcolor{keywordtype}{int} a;
+91 
+92             cin >> a;
+93             \textcolor{keywordflow}{while}(a != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA}) \{
+94                 Conj.estat(a);
+95                 cin >> a;
+96             \}
+97     \}
+98         cin >> x;
+99   \}
+100 
+101     \textcolor{comment}{// Instruccions per a la fi del programa}
+102     \textcolor{keywordflow}{if} (fi == 1) \{
+103         cout << \textcolor{stringliteral}{"FI: Tots els organismes han mort"} << endl;
+104     \}
+105     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (fi == 2) \{
+106         Rank.ranking();
+107         Conj.escriure\_ultims(x);
+108     \}
+109 \}
 \end{DoxyCode}
