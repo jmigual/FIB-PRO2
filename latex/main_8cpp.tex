@@ -6,17 +6,18 @@
 Programa principal per a la pràctica.  
 
 
-Inclou el graf de dependències per a main.\-cpp\-:\nopagebreak
+Inclou el graf de dependències per a main.\-cpp\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=322pt]{main_8cpp__incl}
+\includegraphics[width=350pt]{main_8cpp__incl}
 \end{center}
 \end{figure}
 \subsection*{Definicions}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{M\-A\-R\-C\-A}~0
+\#define \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{M\-A\-R\-C\-A}~-\/1
 \end{DoxyCompactItemize}
 \subsection*{Funcions}
 \begin{DoxyCompactItemize}
@@ -35,7 +36,7 @@ Definició al fitxer \hyperlink{main_8cpp_source}{main.\-cpp}.
 \subsection{Documentació de les Definicions}
 \hypertarget{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{\index{main.\-cpp@{main.\-cpp}!M\-A\-R\-C\-A@{M\-A\-R\-C\-A}}
 \index{M\-A\-R\-C\-A@{M\-A\-R\-C\-A}!main.cpp@{main.\-cpp}}
-\subsubsection[{M\-A\-R\-C\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-R\-C\-A~0}}\label{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}
+\subsubsection[{M\-A\-R\-C\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-R\-C\-A~-\/1}}\label{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}
 
 
 Definició a la línia 18 del fitxer main.\-cpp.
@@ -60,78 +61,78 @@ Definició a la línia 22 del fitxer main.\-cpp.
 
 
 \begin{DoxyCode}
-23 \{
-24   \textcolor{comment}{// M És el màxim històric permés}
-25   \textcolor{comment}{// N És el nombre d'organismes inicials}
-26   \textcolor{keywordtype}{int} N, M;
-27   cin >> N >> M;
-28 
-29   \textcolor{comment}{// Conjunt que ens permetrà guardar tots els organismes existents}
-30   \hyperlink{class_conjunt_org}{ConjuntOrg} Conj(M);
-31 
-32   \textcolor{comment}{// Entrem tots els organismes i els afegim al conjunt d'organismes}
-33   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < N; ++i) \{
-34     \hyperlink{class_organisme}{Organisme} o;
-35     o.\hyperlink{class_organisme_a056a9402130c7081b608838ba9ef2a30}{llegir\_organisme}();
-36     Conj.afegir\_organisme(o);
-37   \}
-38 
-39   \textcolor{comment}{// Variable per seleccionar la opció d'entrada}
-40   \textcolor{keywordtype}{int} x;
-41 
-42   \textcolor{comment}{/*  Variable de tipus int que quan sigui diferent de '0' farà}
-43 \textcolor{comment}{    acabar l'experiment, un número diferent de 0 indicarà el motiu pel}
-44 \textcolor{comment}{    qual s'acaba l'experiment:}
-45 \textcolor{comment}{    - 1 => Tots els organismes han mort}
-46 \textcolor{comment}{    - 2 => S'ha arribat al límit d'organismes}
-47 \textcolor{comment}{    - 3 => S'ha donat per finalitzat l'experiment manualment  */}
-48   \textcolor{keywordtype}{int} fi = 0;
-49     cin >> x;
-50   \textcolor{keywordflow}{while} (x != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA} and fi == 0) \{
-51     \textcolor{comment}{// Opció per estirar un conjunt d'organismes}
-52     \textcolor{keywordflow}{if} (x == 1) \{
-53       stack<int> P;
-54       \textcolor{keywordtype}{int} a;
-55       cin >> a;
-56       \textcolor{keywordflow}{while}(a != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA}) \{
-57         P.push(a);
-58         cin >> a;
-59       \}
-60       Conj.estirar(P);
-61     \}
-62 
-63     \textcolor{comment}{// Opció per retallar un conjunt d'organismes}
-64     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 2) \{
-65       stack<int> P;
-66       \textcolor{keywordtype}{int} a;
-67       cin >> a;
-68       \textcolor{keywordflow}{while}(a != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA}) \{
-69         P.push(a);
-70         cin >> a;
-71       \}
-72       Conj.retallar(P);
-73     \}
-74 
-75     \textcolor{comment}{// Aplicar una ronda de reproducció a TOTS els organismes, actualitzar}
-76     \textcolor{comment}{// el rànking i imprimir els fills nascuts a la ronda}
-77     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 3) \{
-78       \textcolor{keywordflow}{if} (not Conj.reproduir()) fi = 2;
-79     \}
-80 
-81     \textcolor{comment}{// Obtenir el rànking de reproducció dels organismes }
-82     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 4) \{
-83       Conj.ranking();
-84     \}
-85 
-86     \textcolor{comment}{// Consultar l'estat d'un subconjunt d'organismes }
-87     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 5) \{
-88       stack<int> P;
-89       \textcolor{keywordtype}{int} a;
-90       cin >> a;
-91       \textcolor{keywordflow}{while}(a != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA}) P.push(a);
-92       Conj.estat(P);
-93     \}
-94         cin >> x;
-95   \}
-96 \}
+\{
+  \textcolor{comment}{// M És el màxim històric permés}
+  \textcolor{comment}{// N És el nombre d'organismes inicials}
+  \textcolor{keywordtype}{int} N, M;
+  cin >> N >> M;
+
+  \textcolor{comment}{// Conjunt que ens permetrà guardar tots els organismes existents}
+  \hyperlink{class_conjunt_org}{ConjuntOrg} Conj(M);
+
+  \textcolor{comment}{// Entrem tots els organismes i els afegim al conjunt d'organismes}
+  \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < N; ++i) \{
+    \hyperlink{class_organisme}{Organisme} o;
+    o.\hyperlink{class_organisme_a056a9402130c7081b608838ba9ef2a30}{llegir\_organisme}();
+    Conj.afegir\_organisme(o);
+  \}
+
+  \textcolor{comment}{// Variable per seleccionar la opció d'entrada}
+  \textcolor{keywordtype}{int} x;
+
+  \textcolor{comment}{/*  Variable de tipus int que quan sigui diferent de '0' farà}
+\textcolor{comment}{    acabar l'experiment, un número diferent de 0 indicarà el motiu pel}
+\textcolor{comment}{    qual s'acaba l'experiment:}
+\textcolor{comment}{    - 1 => Tots els organismes han mort}
+\textcolor{comment}{    - 2 => S'ha arribat al límit d'organismes}
+\textcolor{comment}{    - 3 => S'ha donat per finalitzat l'experiment manualment  */}
+  \textcolor{keywordtype}{int} fi = 0;
+    cin >> x;
+  \textcolor{keywordflow}{while} (x != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA} and fi == 0) \{
+    \textcolor{comment}{// Opció per estirar un conjunt d'organismes}
+    \textcolor{keywordflow}{if} (x == 1) \{
+      stack<int> P;
+      \textcolor{keywordtype}{int} a;
+      cin >> a;
+      \textcolor{keywordflow}{while}(a != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA}) \{
+        P.push(a);
+        cin >> a;
+      \}
+      Conj.estirar(P);
+    \}
+
+    \textcolor{comment}{// Opció per retallar un conjunt d'organismes}
+    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 2) \{
+      stack<int> P;
+      \textcolor{keywordtype}{int} a;
+      cin >> a;
+      \textcolor{keywordflow}{while}(a != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA}) \{
+        P.push(a);
+        cin >> a;
+      \}
+      Conj.retallar(P);
+    \}
+
+    \textcolor{comment}{// Aplicar una ronda de reproducció a TOTS els organismes, actualitzar}
+    \textcolor{comment}{// el rànking i imprimir els fills nascuts a la ronda}
+    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 3) \{
+      \textcolor{keywordflow}{if} (not Conj.reproduir()) fi = 2;
+    \}
+
+    \textcolor{comment}{// Obtenir el rànking de reproducció dels organismes }
+    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 4) \{
+      Conj.ranking();
+    \}
+
+    \textcolor{comment}{// Consultar l'estat d'un subconjunt d'organismes }
+    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 5) \{
+      stack<int> P;
+      \textcolor{keywordtype}{int} a;
+      cin >> a;
+      \textcolor{keywordflow}{while}(a != \hyperlink{main_8cpp_a41985a541fe6a11a9efbe1c57619c004}{MARCA}) P.push(a);
+      Conj.estat(P);
+    \}
+        cin >> x;
+  \}
+\}
 \end{DoxyCode}

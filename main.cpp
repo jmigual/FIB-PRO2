@@ -13,9 +13,10 @@
 #include <stack>
 #include "Organisme.hpp"
 #include "ConjuntOrg.hpp"
+#include "Ranking.hpp"
 using namespace std;
 
-#define MARCA 0
+#define MARCA -1
 
 /**	@brief Programa principal de la <em>Pràctica de PRO2</em>.
 */
@@ -28,13 +29,11 @@ int main()
 
 	// Conjunt que ens permetrà guardar tots els organismes existents
 	ConjuntOrg Conj(M);
+    Ranking Rank(M);
 
-	// Entrem tots els organismes i els afegim al conjunt d'organismes
-	for (int i = 0; i < N; ++i) {
-		Organisme o;
-		o.llegir_organisme();
-		Conj.afegir_organisme(o);
-	}
+    // Cridem la funicó per llegir un conjunt d'organismes de la classe
+    // ConjuntOrg
+    Conj.llegir();
 
 	// Variable per seleccionar la opció d'entrada
 	int x;
@@ -49,48 +48,57 @@ int main()
     cin >> x;
 	while (x != MARCA and fi == 0) {
 		// Opció per estirar un conjunt d'organismes
-		if (x == 1) {
-			stack<int> P;
-			int a;
-			cin >> a;
+        if (x == 1) {
+            int a = readint();
+
 			while(a != MARCA) {
-				P.push(a);
+                Conj.estirar(a);
 				cin >> a;
-			}
-			Conj.estirar(P);
+            }
 		}
 
 		// Opció per retallar un conjunt d'organismes
-		else if (x == 2) {
-			stack<int> P;
-			int a;
-			cin >> a;
+        else if (x == 2) {
+            int a = readint();
+
 			while(a != MARCA) {
-				P.push(a);
+                Conj.retallar(a);
 				cin >> a;
-			}
-			Conj.retallar(P);
+            }
+            if (Conj.morts()) fi = 1;
 		}
 
 		// Aplicar una ronda de reproducció a TOTS els organismes, actualitzar
 		// el rànking i imprimir els fills nascuts a la ronda
 		else if (x == 3) {
-			if (not Conj.reproduir()) fi = 2;
+            int fills;
+            if (not Conj.reproduir(RANKING, fills)) fi = 2;
+            cout << fills << endl;
 		}
 
 		// Obtenir el rànking de reproducció dels organismes 
 		else if (x == 4) {
-			Conj.ranking();
+            Rank.ranking();
 		}
 
 		// Consultar l'estat d'un subconjunt d'organismes 
-		else if (x == 5) {
-			stack<int> P;
-			int a;
-			cin >> a;
-			while(a != MARCA) P.push(a);
-			Conj.estat(P);
+        else if (x == 5) {
+            int a = readint();
+
+            while(a != MARCA) {
+                Conj.estat(a);
+                cin >> a;
+            }
 		}
         cin >> x;
 	}
+
+    // Instruccions per a la fi del programa
+    if (fi == 1) {
+        cout << "FI: Tots els organismes han mort" << endl;
+    }
+    if (fi == 2) {
+        Rank.ranking();
+        Conj.escriure_ultims(fills);
+    }
 }

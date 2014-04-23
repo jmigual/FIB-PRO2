@@ -4,5 +4,6 @@ var searchData=
   ['pare',['pare',['../struct_par_fill.html#a6bf4c0e229d9894e9f1988d017e20f2c',1,'ParFill']]],
   ['parfill',['ParFill',['../struct_par_fill.html',1,'']]],
   ['plantar',['plantar',['../class_arbre.html#a806d45f6f1d3a9dd357563979186f721',1,'Arbre']]],
-  ['primer_5fnode',['primer_node',['../class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297',1,'Arbre']]]
+  ['primer_5fnode',['primer_node',['../class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297',1,'Arbre']]],
+  ['pro2excepcio',['PRO2Excepcio',['../class_p_r_o2_excepcio.html',1,'PRO2Excepcio'],['../class_p_r_o2_excepcio.html#ac86c0800bbe57a3376f18a3ad6ea3c02',1,'PRO2Excepcio::PRO2Excepcio()']]]
 ];

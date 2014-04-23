@@ -97,6 +97,7 @@ INPUT                  = "."
 INPUT_ENCODING         = utf-8
 FILE_PATTERNS          = *.hpp \
                          *.cpp \
+                         *.PRO2 \
 RECURSIVE              = YES
 EXCLUDE                = *~
 EXCLUDE_SYMLINKS       = NO

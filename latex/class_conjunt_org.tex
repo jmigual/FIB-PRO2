@@ -38,7 +38,7 @@ vector$<$ \hyperlink{class_organisme}{Organisme} $>$ \hyperlink{class_conjunt_or
 \begin{DoxyCompactList}\small\item\em Vector on es guardaran tots els organismes. \end{DoxyCompactList}\item 
 vector$<$ \hyperlink{struct_organ_rank}{Organ\-Rank} $>$ \hyperlink{class_conjunt_org_ae566806533e21f56caf27480d342c460}{Rank}
 \begin{DoxyCompactList}\small\item\em Vector que utilitzarem per generar i guardar el rànking. \end{DoxyCompactList}\item 
-vector$<$ stack$<$ \hyperlink{struct_par_fill}{Par\-Fill} $>$ $>$ \hyperlink{class_conjunt_org_a254051054023bf3ecbbe96c82cfe46a2}{Rel}
+vector$<$ list$<$ \hyperlink{struct_par_fill}{Par\-Fill} $>$ $>$ \hyperlink{class_conjunt_org_a0c5cd7bac2272f4672a08ca5b2ea3f93}{Rel}
 \begin{DoxyCompactList}\small\item\em Vector per saber quins fills ha tingut cada organisme i amb qui els ha tingut. \end{DoxyCompactList}\item 
 vector$<$ vector$<$ bool $>$ $>$ \hyperlink{class_conjunt_org_a9782fdb4c89e8dd61762453de8f77fcb}{Aparellat}
 \begin{DoxyCompactList}\small\item\em Matriu que ens dirà quins organismes s'han aparellat i amb qui ho han fet. \end{DoxyCompactList}\item 
@@ -49,7 +49,7 @@ int \hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany}
 \subsection{Descripció Detallada}
 És un conjunt d'organismes. 
 
-Definició a la línia 44 del fitxer Conjunt\-Org.\-hpp.
+Definició a la línia 45 del fitxer Conjunt\-Org.\-hpp.
 
 
 
@@ -79,13 +79,13 @@ Definició a la línia 7 del fitxer Conjunt\-Org.\-cpp.
 
 
 \begin{DoxyCode}
-7                             \{
-8   \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V} = vector<Organisme> (M);
-9     \hyperlink{class_conjunt_org_ae566806533e21f56caf27480d342c460}{Rank} = vector<OrganRank> (M);
-10     \hyperlink{class_conjunt_org_a254051054023bf3ecbbe96c82cfe46a2}{Rel} = vector< stack<ParFill> > (M);
-11   \hyperlink{class_conjunt_org_a9782fdb4c89e8dd61762453de8f77fcb}{Aparellat} = vector< vector<bool> > (M, vector<bool> (M));  
-12   \hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany} = 0;
-13 \}
+                            \{
+  \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V} = vector<Organisme> (M);
+    \hyperlink{class_conjunt_org_ae566806533e21f56caf27480d342c460}{Rank} = vector<OrganRank> (M);
+    \hyperlink{class_conjunt_org_a0c5cd7bac2272f4672a08ca5b2ea3f93}{Rel} = vector< stack<ParFill> > (M);
+  \hyperlink{class_conjunt_org_a9782fdb4c89e8dd61762453de8f77fcb}{Aparellat} = vector< vector<bool> > (M, vector<bool> (M));  
+  \hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany} = 0;
+\}
 \end{DoxyCode}
 \hypertarget{class_conjunt_org_a4a0c1fe0378f0564295dcaa5e7d9bde2}{\index{Conjunt\-Org@{Conjunt\-Org}!Conjunt\-Org@{Conjunt\-Org}}
 \index{Conjunt\-Org@{Conjunt\-Org}!ConjuntOrg@{Conjunt\-Org}}
@@ -110,13 +110,13 @@ Definició a la línia 15 del fitxer Conjunt\-Org.\-cpp.
 
 
 \begin{DoxyCode}
-16 \{
-17   \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V} = c.V;
-18   \hyperlink{class_conjunt_org_ae566806533e21f56caf27480d342c460}{Rank} = c.Rank;
-19     \hyperlink{class_conjunt_org_a254051054023bf3ecbbe96c82cfe46a2}{Rel} = c.Rel;
-20     \hyperlink{class_conjunt_org_a9782fdb4c89e8dd61762453de8f77fcb}{Aparellat} = c.Aparellat;
-21   \hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany} = c.tamany;
-22 \}
+\{
+  \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V} = c.V;
+  \hyperlink{class_conjunt_org_ae566806533e21f56caf27480d342c460}{Rank} = c.Rank;
+    \hyperlink{class_conjunt_org_a0c5cd7bac2272f4672a08ca5b2ea3f93}{Rel} = c.Rel;
+    \hyperlink{class_conjunt_org_a9782fdb4c89e8dd61762453de8f77fcb}{Aparellat} = c.Aparellat;
+  \hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany} = c.tamany;
+\}
 \end{DoxyCode}
 \hypertarget{class_conjunt_org_a547e57b6f00347fa89695c33e9dd7743}{\index{Conjunt\-Org@{Conjunt\-Org}!$\sim$\-Conjunt\-Org@{$\sim$\-Conjunt\-Org}}
 \index{$\sim$\-Conjunt\-Org@{$\sim$\-Conjunt\-Org}!ConjuntOrg@{Conjunt\-Org}}
@@ -135,7 +135,7 @@ Definició a la línia 24 del fitxer Conjunt\-Org.\-cpp.
 
 
 \begin{DoxyCode}
-24 \{\}
+\{\}
 \end{DoxyCode}
 
 
@@ -163,13 +163,14 @@ Definició a la línia 26 del fitxer Conjunt\-Org.\-cpp.
 
 
 \begin{DoxyCode}
-27 \{
-28   \textcolor{keywordflow}{if} (\hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany} == \textcolor{keywordtype}{int}(\hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V}.size())) cout << \textcolor{stringliteral}{"ERROR 1: El conjunt esta ple"} << endl;
-29   \textcolor{keywordflow}{else} \{
-30     \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V}[\hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany}] = o;
-31     ++\hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany};
-32   \}
-33 \}
+\{
+  \textcolor{keywordflow}{if} (\hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany} == \textcolor{keywordtype}{int}(\hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V}.size())) cout << \textcolor{stringliteral}{"ERROR 1: El conjunt esta ple"} <<
+       endl;
+  \textcolor{keywordflow}{else} \{
+    \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V}[\hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany}] = o;
+    ++\hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany};
+  \}
+\}
 \end{DoxyCode}
 \hypertarget{class_conjunt_org_aef0a16451029a98453380acf35830738}{\index{Conjunt\-Org@{Conjunt\-Org}!estirar@{estirar}}
 \index{estirar@{estirar}!ConjuntOrg@{Conjunt\-Org}}
@@ -194,13 +195,13 @@ Definició a la línia 35 del fitxer Conjunt\-Org.\-cpp.
 
 
 \begin{DoxyCode}
-36 \{
-37   \textcolor{keywordflow}{while} (not P.empty()) \{
-38     \textcolor{keywordtype}{int} x = P.top();
-39     \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V}[x - 1].estirar\_organisme();
-40     P.pop();
-41   \}
-42 \}
+\{
+  \textcolor{keywordflow}{while} (not P.empty()) \{
+    \textcolor{keywordtype}{int} x = P.top();
+    \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V}[x - 1].estirar\_organisme();
+    P.pop();
+  \}
+\}
 \end{DoxyCode}
 \hypertarget{class_conjunt_org_ad7bb405521b503d4f814385906043b29}{\index{Conjunt\-Org@{Conjunt\-Org}!retallar@{retallar}}
 \index{retallar@{retallar}!ConjuntOrg@{Conjunt\-Org}}
@@ -225,13 +226,13 @@ Definició a la línia 44 del fitxer Conjunt\-Org.\-cpp.
 
 
 \begin{DoxyCode}
-45 \{
-46   \textcolor{keywordflow}{while}(not P.empty()) \{
-47     \textcolor{keywordtype}{int} x = P.top();
-48     \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V}[x - 1].retallar\_organisme();
-49     P.pop();
-50   \}
-51 \}
+\{
+  \textcolor{keywordflow}{while}(not P.empty()) \{
+    \textcolor{keywordtype}{int} x = P.top();
+    \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V}[x - 1].retallar\_organisme();
+    P.pop();
+  \}
+\}
 \end{DoxyCode}
 \hypertarget{class_conjunt_org_aebaf39d27e44ef884ce4dfa4f7778754}{\index{Conjunt\-Org@{Conjunt\-Org}!reproduir@{reproduir}}
 \index{reproduir@{reproduir}!ConjuntOrg@{Conjunt\-Org}}
@@ -258,9 +259,9 @@ Definició a la línia 53 del fitxer Conjunt\-Org.\-cpp.
 
 
 \begin{DoxyCode}
-54 \{
-55     \textcolor{keywordflow}{return} \textcolor{keyword}{true};    
-56 \}
+\{
+    \textcolor{keywordflow}{return} \textcolor{keyword}{true};    
+\}
 \end{DoxyCode}
 \hypertarget{class_conjunt_org_adbce2716cb543fa4d513c6d2a21b4fe1}{\index{Conjunt\-Org@{Conjunt\-Org}!consultar\-\_\-tamany@{consultar\-\_\-tamany}}
 \index{consultar\-\_\-tamany@{consultar\-\_\-tamany}!ConjuntOrg@{Conjunt\-Org}}
@@ -285,7 +286,7 @@ Definició a la línia 58 del fitxer Conjunt\-Org.\-cpp.
 
 
 \begin{DoxyCode}
-59 \{ \textcolor{keywordflow}{return} \hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany}; \}
+\{ \textcolor{keywordflow}{return} \hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany}; \}
 \end{DoxyCode}
 \hypertarget{class_conjunt_org_aa250202ccc4d06ead8b11c9b26c2f28d}{\index{Conjunt\-Org@{Conjunt\-Org}!morts@{morts}}
 \index{morts@{morts}!ConjuntOrg@{Conjunt\-Org}}
@@ -310,11 +311,11 @@ Definició a la línia 61 del fitxer Conjunt\-Org.\-cpp.
 
 
 \begin{DoxyCode}
-62 \{
-63   \textcolor{keywordtype}{bool} mort = \textcolor{keyword}{true};
-64   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany}; ++i) \textcolor{keywordflow}{if} (not \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V}[i].es\_mort()) mort = \textcolor{keyword}{false};
-65   \textcolor{keywordflow}{return} mort;
-66 \}
+\{
+  \textcolor{keywordtype}{bool} mort = \textcolor{keyword}{true};
+  \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{tamany}; ++i) \textcolor{keywordflow}{if} (not \hyperlink{class_conjunt_org_adab11e0ac8295072ec682716478a535a}{V}[i].es\_mort()) mort = \textcolor{keyword}{false};
+  \textcolor{keywordflow}{return} mort;
+\}
 \end{DoxyCode}
 \hypertarget{class_conjunt_org_ad5e4d411aa4bd0287411d20c6d79d08e}{\index{Conjunt\-Org@{Conjunt\-Org}!ranking@{ranking}}
 \index{ranking@{ranking}!ConjuntOrg@{Conjunt\-Org}}
@@ -339,7 +340,7 @@ Definició a la línia 68 del fitxer Conjunt\-Org.\-cpp.
 
 
 \begin{DoxyCode}
-69 \{\}
+\{\}
 \end{DoxyCode}
 \hypertarget{class_conjunt_org_a70a707c8a9c7249e972470a41feebc36}{\index{Conjunt\-Org@{Conjunt\-Org}!estat@{estat}}
 \index{estat@{estat}!ConjuntOrg@{Conjunt\-Org}}
@@ -364,7 +365,7 @@ Definició a la línia 71 del fitxer Conjunt\-Org.\-cpp.
 
 
 \begin{DoxyCode}
-72 \{\}
+\{\}
 \end{DoxyCode}
 
 
@@ -378,7 +379,7 @@ Vector on es guardaran tots els organismes.
 
 
 
-Definició a la línia 48 del fitxer Conjunt\-Org.\-hpp.
+Definició a la línia 49 del fitxer Conjunt\-Org.\-hpp.
 
 \hypertarget{class_conjunt_org_ae566806533e21f56caf27480d342c460}{\index{Conjunt\-Org@{Conjunt\-Org}!Rank@{Rank}}
 \index{Rank@{Rank}!ConjuntOrg@{Conjunt\-Org}}
@@ -389,18 +390,18 @@ Vector que utilitzarem per generar i guardar el rànking.
 
 
 
-Definició a la línia 50 del fitxer Conjunt\-Org.\-hpp.
+Definició a la línia 51 del fitxer Conjunt\-Org.\-hpp.
 
-\hypertarget{class_conjunt_org_a254051054023bf3ecbbe96c82cfe46a2}{\index{Conjunt\-Org@{Conjunt\-Org}!Rel@{Rel}}
+\hypertarget{class_conjunt_org_a0c5cd7bac2272f4672a08ca5b2ea3f93}{\index{Conjunt\-Org@{Conjunt\-Org}!Rel@{Rel}}
 \index{Rel@{Rel}!ConjuntOrg@{Conjunt\-Org}}
-\subsubsection[{Rel}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ stack$<${\bf Par\-Fill}$>$ $>$ Conjunt\-Org\-::\-Rel\hspace{0.3cm}{\ttfamily [private]}}}\label{class_conjunt_org_a254051054023bf3ecbbe96c82cfe46a2}
+\subsubsection[{Rel}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ list$<${\bf Par\-Fill}$>$ $>$ Conjunt\-Org\-::\-Rel\hspace{0.3cm}{\ttfamily [private]}}}\label{class_conjunt_org_a0c5cd7bac2272f4672a08ca5b2ea3f93}
 
 
 Vector per saber quins fills ha tingut cada organisme i amb qui els ha tingut. 
 
 
 
-Definició a la línia 53 del fitxer Conjunt\-Org.\-hpp.
+Definició a la línia 54 del fitxer Conjunt\-Org.\-hpp.
 
 \hypertarget{class_conjunt_org_a9782fdb4c89e8dd61762453de8f77fcb}{\index{Conjunt\-Org@{Conjunt\-Org}!Aparellat@{Aparellat}}
 \index{Aparellat@{Aparellat}!ConjuntOrg@{Conjunt\-Org}}
@@ -411,7 +412,7 @@ Matriu que ens dirà quins organismes s'han aparellat i amb qui ho han fet.
 
 
 
-Definició a la línia 56 del fitxer Conjunt\-Org.\-hpp.
+Definició a la línia 57 del fitxer Conjunt\-Org.\-hpp.
 
 \hypertarget{class_conjunt_org_a468e7686498561628ad731ea196df8b5}{\index{Conjunt\-Org@{Conjunt\-Org}!tamany@{tamany}}
 \index{tamany@{tamany}!ConjuntOrg@{Conjunt\-Org}}
@@ -422,7 +423,7 @@ Variable que ens dona el número de organismes que hi ha al vector.
 
 
 
-Definició a la línia 59 del fitxer Conjunt\-Org.\-hpp.
+Definició a la línia 60 del fitxer Conjunt\-Org.\-hpp.
 
 
 

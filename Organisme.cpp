@@ -9,6 +9,7 @@ Organisme::Organisme()
 	tamany = 0;
 	max_id = 0;
 	mort = false;
+    retallat = false;
 }
 
 Organisme::Organisme(const Organisme &o) 
@@ -18,6 +19,7 @@ Organisme::Organisme(const Organisme &o)
 	arbre = o.arbre;
 	max_id = o.max_id;
 	mort = o.mort;
+    o.retallat = retallat;
 }
 
 Organisme::~Organisme() {}
@@ -61,6 +63,7 @@ int &tam)
 void Organisme::retallar_organisme() 
 {
 	if (not mort) {
+        retallat = true;
 		Celula c = arbre.arrel();
 		Arbre<Celula> a1, a2;
 		arbre.fills(a1, a2);

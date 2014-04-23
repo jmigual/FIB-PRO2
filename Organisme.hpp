@@ -12,17 +12,11 @@
 struct Celula 
 {
 	/** @var id
-		@brief És el número que identifica la cèl·lula 
-	*/
+		@brief És el número que identifica la cèl·lula 	*/
 	int id; 
 	/** @var activa
-		@brief Booleà que indica si la cèl·lula és activa o no 
-	*/
+		@brief Booleà que indica si la cèl·lula és activa o no 	*/
 	bool activa; 
-	/**	@var dividida
-		@brief Booleà que ens diu si la cèl·lula s'ha dividit abans o no
-	*/
-	bool dividida;
 };
 
 /**	@class Organisme
@@ -65,9 +59,9 @@ private:
 	static int intersec_recursiu(Arbre<Celula> &a1, Arbre<Celula> &a2);
 
 public: 
-	/**********************
-	*    CONSTRUCTORES    *
-	**********************/
+    /***********************
+     *    CONSTRUCTORES    *
+     ***********************/
 
 	/**	@brief Constructora per defecte
 		<p>S'executa automàticament al declarar un organisme</p>
@@ -88,9 +82,9 @@ public:
 	/** @brief Destructora per defecte */
 	~Organisme();
 
-	/**********************
-	*    MODIFICADORES    *
-	**********************/
+    /***********************
+     *    MODIFICADORES    *
+     ***********************/
 
 	/**	@brief Modificadora que fa créixer l'organisme
 		\pre L'organisme ha de tenir una cèl·lula o més
@@ -109,11 +103,11 @@ public:
 		\pre Cert
 		\post Els fills del paràmetre implícit s'han incrementat en 1
 	*/
-	void afegir_fill();
+    // FORA void afegir_fill();
 
-	/********************
-	*    CONSULTORES    *
-	********************/
+    /*********************
+     *    CONSULTORES    *
+     *********************/
 
 	/** @brief Consultora que retorna el número de fills que ha tingut
 		l'organisme
@@ -147,9 +141,9 @@ public:
 	bool es_mort() const;
 
 
-	/**************************
-	*    ENTRADA / SORTIDA    *
-	**************************/
+    /***************************
+     *    ENTRADA / SORTIDA    *
+     ***************************/
 	/**	@brief Funció per llegir un organisme
 		\pre Cert
 		\post El paràmetre implícit ha passat a ser tal i com se li han donat

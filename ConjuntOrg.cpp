@@ -7,7 +7,7 @@
 ConjuntOrg::ConjuntOrg(int M) {
 	V = vector<Organisme> (M);
     Rank = vector<OrganRank> (M);
-    Rel = vector< stack<ParFill> > (M);
+    Rel = vector< list<ParFill> > (M);
 	Aparellat = vector< vector<bool> > (M, vector<bool> (M));  
 	tamany = 0;
 }
@@ -32,25 +32,17 @@ void ConjuntOrg::afegir_organisme(const Organisme &o)
 	}
 }
 
-void ConjuntOrg::estirar(stack<int> &P) 
+void ConjuntOrg::estirar(int p)
 {
-	while (not P.empty()) {
-		int x = P.top();
-		V[x - 1].estirar_organisme();
-		P.pop();
-	}
+    V[p - 1].estirar_organisme();
 }
 
-void ConjuntOrg::retallar(stack<int> &P) 
+void ConjuntOrg::retallar(int p)
 {
-	while(not P.empty()) {
-		int x = P.top();
-		V[x - 1].retallar_organisme();
-		P.pop();
-	}
+    V[p - 1].retallar_organisme();
 }
 
-bool ConjuntOrg::reproduir() 
+bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
 {
     return true;    
 }
@@ -68,5 +60,7 @@ bool ConjuntOrg::morts() const
 void ConjuntOrg::ranking() const 
 {}
 
-void ConjuntOrg::estat(stack<int> &P) const
-{}
+void ConjuntOrg::estat(int p) const
+{
+    V[i - 1].escriure_organisme();
+}
