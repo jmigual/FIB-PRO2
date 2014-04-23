@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['celula',['Celula',['../struct_celula.html',1,'']]],
+  ['cels',['cels',['../class_organisme.html#af983d9bfbaf3caf00aaaf26436aab8ff',1,'Organisme']]],
+  ['celula',['Celula',['../struct_organisme_1_1_celula.html',1,'Organisme']]],
   ['compatibles',['compatibles',['../class_organisme.html#a4706d097ab7348c9161cc8f8a5052418',1,'Organisme']]],
   ['conjuntorg',['ConjuntOrg',['../class_conjunt_org.html',1,'ConjuntOrg'],['../class_conjunt_org.html#a573205d24e669356dc44462a6ef95d71',1,'ConjuntOrg::ConjuntOrg(int M)'],['../class_conjunt_org.html#a4a0c1fe0378f0564295dcaa5e7d9bde2',1,'ConjuntOrg::ConjuntOrg(const ConjuntOrg &amp;C)']]],
   ['conjuntorg_2ecpp',['ConjuntOrg.cpp',['../_conjunt_org_8cpp.html',1,'']]],

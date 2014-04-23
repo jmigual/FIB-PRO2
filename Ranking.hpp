@@ -8,48 +8,45 @@
 #include <vector>
 
 
-/** @struct OrganRank
-    @brief Tipus de dades per poder fer el rànking
-*/
-struct OrganRank
-{
-    /** @var id
-        @brief Identificador de l'organisme
-    */
-    int id;
-
-    /** @var fills
-        @brief Número de fills que ha tingut l'organisme
-    */
-    int fills;
-};
-
-/**********************************************************/
-
-/** @struct ParFill
-    @brief Estructura per poder saber quins fills ha tingut un organisme i amb
-    qui els ha tingut
-*/
-struct ParFill
-{
-    /** @var parella
-     *  @brief Retorna l'identificador del pare
-     */
-    int parella;
-
-    /** @var fill
-     *  @brief Retorna l'identificador del fill
-     */
-    int fill;
-};
-
-/**********************************************************/
-
 /** @class Ranking
  *  @brief Classe Ranking per poder imprimir el ranking dels organismes
  */
 class Ranking {
 private:
+
+    /** @struct OrganRank
+     *  @brief Tipus de dades per poder fer el rànking
+     */
+    struct OrganRank
+    {
+        /** @var id
+         *  @brief Identificador de l'organisme
+         */
+        int id;
+
+        /** @var fills
+         *  @brief Número de fills que ha tingut l'organisme
+         */
+        int fills;
+    };
+
+    /** @struct ParFill
+     *  @brief Estructura per poder saber quins fills ha tingut un organisme i
+     *  amb qui els ha tingut
+     */
+    struct ParFill
+    {
+        /** @var parella
+         *  @brief Retorna l'identificador del pare
+         */
+        int parella;
+
+        /** @var fill
+         *  @brief Retorna l'identificador del fill
+         */
+        int fill;
+    };
+
 
     /** @brief Vector que utilitzarem per generar i guardar el rànking */
     vector<OrganRank> Rank;
@@ -80,7 +77,7 @@ public:
      *  \pre Cert
      *  \post S'han afegit l'ID dels pares i dels fills al Ranking
      */
-    void afegir_fill(int pare1, int pare1, int fill);
+    void afegir_fill(int pare1, int pare2, int fill);
 
     /***************************
      *    ENTRADA / SORTIDA    *

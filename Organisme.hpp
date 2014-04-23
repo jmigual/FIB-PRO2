@@ -6,25 +6,25 @@
 
 #include "Arbre.hpp"
 
-/**	@struct Celula 
-	@brief Element bàsic de cada organisme
-*/
-struct Celula 
-{
-	/** @var id
-		@brief És el número que identifica la cèl·lula 	*/
-	int id; 
-	/** @var activa
-		@brief Booleà que indica si la cèl·lula és activa o no 	*/
-	bool activa; 
-};
-
 /**	@class Organisme
 	@brief És un conjunt de cèl·lules posades en un arbre
 */
 class Organisme 
-{
+{    
 private:
+
+    /**	@struct Celula
+        @brief Element bàsic de cada organisme
+    */
+    struct Celula
+    {
+        /** @var id
+            @brief És el número que identifica la cèl·lula 	*/
+        int id;
+        /** @var activa
+            @brief Booleà que indica si la cèl·lula és activa o no 	*/
+        bool activa;
+    };
 
 	/** @brief Arbre on estan guardades totes les cèl·lules de l'organisme */
     Arbre<Celula> cels;
@@ -102,7 +102,8 @@ public:
      *  han de ser compatibles entre ells
      *  \post L'organisme implícit ha passat a ser un organisme que és fill
      *  de 'o1' i 'o2'
-    void reproduir_organisme(const Organisme &o1, const Organisme &o2) const;
+     */
+    void reproduir_organisme(const Organisme &o1, const Organisme &o2);
 
 
     /*********************
@@ -122,16 +123,6 @@ public:
      *  no ho són
      */
 	bool compatibles(const Organisme &o) const;
-
-    /** @brief Consultora que retorna el fill que tindrien dos organismes si
-     *  es reproduissin
-     *  \pre Tant el paràmetre implícit com l'organisme de la funció han de
-     *  ser compatibles
-     *  \post Retorna un organisme fill del paràmetre implícit i l'organisme
-     *  passat a la funció
-     */
-
-	Organisme reproduir_organisme(const Organisme &o) const;
 
     /** @brief Consultora que retorna el tamany de l'organisme
      *  \pre Cert

@@ -2,8 +2,8 @@
 	@mainpage Pràctica de PRO2: Reproducció al laboratori
 	En aquesta pràctica de PRO2 s'utilitza el disseny modular per a la
 	interacció amb organismes de manera que puguin créixer, decréixer, 
-	reproduir-se i morir especificat per l'usuari del programa. S'utilitza la
-	classe <em>Organisme</em> i <em>ConjuntOrg</em>. També 
+    reproduir-se i morir especificat per l'usuari del programa. S'utilitza les
+    classes <em>Organisme</em>, <em>ConjuntOrg</em> i <em>Ranking</em>.
 */
 /**	@file main.cpp
 	@brief Programa principal per a la pràctica

@@ -3,16 +3,30 @@
 */
 #include "Organisme.hpp"
 
+/***********************
+ *    CONSTRUCTORES    *
+ ***********************/
+
 Organisme::Organisme() 
 {
-
+    Arbre<Celula> a1, a2;
+    Celula c;
+    c.id = 1;
+    c.activa = true;
     tamany = 1;
     max_id = 1;
 	mort = false;
     retallat = false;
+
+    cels.plantar(c, a1, a2);
 }
 
 Organisme::~Organisme() {}
+
+
+/***********************
+ *    MODIFICADORES    *
+ ***********************/
 
 void Organisme::estirar_organisme() 
 {
@@ -90,10 +104,13 @@ void Organisme::retallar_recursiu(Arbre<Celula> &a, int &tam)
 	}
 }
 
-void Organisme::afegir_fill() 
-{
-	++fills;
-}
+void Organisme::reproduir_organisme(const Organisme &o1, const Organisme &o2)
+{}
+
+
+/*********************
+ *    CONSULTORES    *
+ *********************/
 
 int Organisme::consultar_fills() const 
 {
@@ -138,3 +155,13 @@ bool Organisme::es_mort() const
 { 
 	return mort; 
 }
+
+/***************************
+ *    ENTRADA / SORTIDA    *
+ ***************************/
+
+void Organisme::llegir_organisme()
+{}
+
+void Organisme::escriure_organisme()
+{}
