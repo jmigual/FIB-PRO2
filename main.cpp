@@ -73,7 +73,10 @@ int main()
 		// el rànking i imprimir els fills nascuts a la ronda
 		else if (x == 3) {
             int fills;
-            if (not Conj.reproduir(RANKING, fills)) fi = 2;
+            if (not Conj.reproduir(Rank, fills)) {
+            	fi = 2;
+            	x = fills;
+            }
             cout << fills << endl;
 		}
 
@@ -99,8 +102,8 @@ int main()
     if (fi == 1) {
         cout << "FI: Tots els organismes han mort" << endl;
     }
-    if (fi == 2) {
+    else if (fi == 2) {
         Rank.ranking();
-        Conj.escriure_ultims(fills);
+        Conj.escriure_ultims(x);
     }
 }

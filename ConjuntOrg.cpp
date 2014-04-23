@@ -4,6 +4,10 @@
 #include "ConjuntOrg.hpp"
 #include <algorithm>
 
+/***********************
+ *    CONSTRUCTORES    *
+ ***********************/
+
 ConjuntOrg::ConjuntOrg(int M) {
 	V = vector<Organisme> (M);
     Rank = vector<OrganRank> (M);
@@ -22,6 +26,10 @@ ConjuntOrg::ConjuntOrg(const ConjuntOrg &c)
 }
 
 ConjuntOrg::~ConjuntOrg() {}
+
+/***********************
+ *    MODIFICADORES    *
+ ***********************/
 
 void ConjuntOrg::afegir_organisme(const Organisme &o) 
 {
@@ -47,6 +55,10 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
     return true;    
 }
 
+/*********************
+ *    CONSULTORES    *
+ *********************/
+
 int ConjuntOrg::consultar_tamany() const
 { return tamany; }
 
@@ -56,6 +68,10 @@ bool ConjuntOrg::morts() const
 	for (int i = 0; i < tamany; ++i) if (not V[i].es_mort()) mort = false;
 	return mort;
 }
+
+/***************************
+ *    ENTRADA / SORTIDA    *
+ ***************************/
 
 void ConjuntOrg::ranking() const 
 {}

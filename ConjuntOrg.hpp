@@ -97,7 +97,12 @@ public:
     /***************************
      *    ENTRADA / SORTIDA    *
      ***************************/
-
+    /** @brief Escriu els últims 'n' elements del conjutn
+    	\pre Hi ha com a mínim 'n' elemnts
+    	\post Pel canal estàndard de sortida s'escriuen els 'n' últims
+    	elements
+    */
+    void escriure_ultims(int n);
     /** @brief Llegeix un conjunt d'organismes
         \pre Cert
         \post Es llegeixen els organismes inicials del conjunt
