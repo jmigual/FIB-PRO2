@@ -51,8 +51,13 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
             int j = 0;
             while (j < tamany and not candidat)
             {
-                
+                if (not Aparellat[i][j]) candidat = true;
+                else ++j;
             }
+            if (candidat and V[i].compatibles(V[j]) {
+				Organisme o;
+				o.reproduir_organisme(V[i], V[j])
+            
         }
     }
     return true;
