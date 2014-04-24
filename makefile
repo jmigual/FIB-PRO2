@@ -5,7 +5,7 @@ flags = -c -Wall -Wextra -D_GLIBCXX_DEBUG
 
 #Lincat final 
 main.exe: main.o Organisme.o ConjuntOrg.o Ranking.o
-	g++ -o main.exe main.o Organisme.o ConjuntOrg.o
+	g++ -o main.exe main.o Organisme.o ConjuntOrg.o Ranking.o
 
 #Programa principal
 main.o: main.cpp Arbre.hpp Organisme.hpp ConjuntOrg.hpp
