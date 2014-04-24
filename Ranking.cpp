@@ -33,3 +33,9 @@ void Ranking::afegir_fill(int pare1, int pare2, int fill)
     Rel[pare2 - 1].insert(it, aux);
 }
 
+/***************************
+ *    ENTRADA / SORTIDA    *
+ ***************************/
+
+void Ranking::ranking() const
+{}

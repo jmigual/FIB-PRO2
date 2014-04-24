@@ -12,6 +12,9 @@ ConjuntOrg::ConjuntOrg(int M) {
 	V = vector<Organisme> (M);
 	Aparellat = vector< vector<bool> > (M, vector<bool> (M));  
 	tamany = 0;
+
+    //Posem true a la diagonal per tal que no s'aparelli mai am si mateix
+    for (int i = 0; i < M; ++i) Aparellat[i][i] = true;
 }
 
 ConjuntOrg::ConjuntOrg(const ConjuntOrg &c) 
@@ -39,7 +42,20 @@ void ConjuntOrg::retallar(int p)
 
 bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
 {
-    return true;    
+    vector<bool> Escollit(tamany, false);
+    for (int i = 0; i < tamany; ++i)
+    {
+        if (not Escollit[i]) 
+        {
+            bool candidat = false;
+            int j = 0;
+            while (j < tamany and not candidat)
+            {
+                
+            }
+        }
+    }
+    return true;
 }
 
 /*********************
@@ -59,6 +75,14 @@ bool ConjuntOrg::morts() const
 /***************************
  *    ENTRADA / SORTIDA    *
  ***************************/
+
+void ConjuntOrg::escriure_ultims(int n)
+{
+
+}
+
+void ConjuntOrg::llegir()
+{}
 
 void ConjuntOrg::estat(int p) const
 {
