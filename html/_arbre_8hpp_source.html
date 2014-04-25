@@ -101,14 +101,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297">   16</a></span>&#160;  node_arbre* <a class="code" href="class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297">primer_node</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="comment">// especificaciÛ operacions privades</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="comment">// especificaci√≥ operacions privades</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_arbre.html#a8562c3574c0037eae30a6d04050fb517">   20</a></span>&#160;  node_arbre* <a class="code" href="class_arbre.html#a8562c3574c0037eae30a6d04050fb517">copia_node_arbre</a>(node_arbre* m)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">/* Pre: cert */</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">/* Post: el resultat Ès NULL si m Ès NULL; </span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">/* Post: el resultat √©s NULL si m √©s NULL; </span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">       en cas contrari, el resultat apunta al node arrel </span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">       d&#39;una jerarquia de nodes que Ès una cÚpia de la </span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">       jerarquia de nodes que tÈ el node apuntat per m com a arrel */</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">       d&#39;una jerarquia de nodes que √©s una c√≤pia de la </span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">       jerarquia de nodes que t√© el node apuntat per m com a arrel */</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  {</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    node_arbre* n;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">if</span> (m==NULL) n=NULL;</div>
@@ -123,9 +123,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_arbre.html#ab97c98d266a5b8973fe2519c14cf362a">   38</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_arbre.html#ab97c98d266a5b8973fe2519c14cf362a">esborra_node_arbre</a>(node_arbre* m)</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">/* Pre: cert */</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">/* Post no fa res si m Ès NULL; en cas contrari, </span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">/* Post no fa res si m √©s NULL; en cas contrari, </span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">       allibera espai de tots els nodes de la </span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">       jerarquia que tÈ el node apuntat per m com a arrel */</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">       jerarquia que t√© el node apuntat per m com a arrel */</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  {</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span> (m != NULL) {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <a class="code" href="class_arbre.html#ab97c98d266a5b8973fe2519c14cf362a">esborra_node_arbre</a>(m-&gt;segE);</div>
@@ -136,18 +136,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="comment">// especificaciÛ operacions p˙bliques</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="comment">// especificaci√≥ operacions p√∫bliques</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_arbre.html#a3f613426983169266297eb841996845e">   55</a></span>&#160;  <a class="code" href="class_arbre.html#a3f613426983169266297eb841996845e">Arbre</a>()</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">/* Pre: cert */</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">/* Post: el p.i. Ès un arbre buit */</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">/* Post: el p.i. √©s un arbre buit */</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  {</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297">primer_node</a>= NULL;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_arbre.html#a8f8615c19988334f9b77dc51f44acc6d">   62</a></span>&#160;  <a class="code" href="class_arbre.html#a8f8615c19988334f9b77dc51f44acc6d">Arbre</a>(<span class="keyword">const</span> <a class="code" href="class_arbre.html">Arbre</a>&amp; original)</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">/* Pre: cert */</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">/* Post: el p.i. Ès una cÚpia d&#39;original */</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">/* Post: el p.i. √©s una c√≤pia d&#39;original */</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  {</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;original)     </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <a class="code" href="class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297">primer_node</a> = <a class="code" href="class_arbre.html#a8562c3574c0037eae30a6d04050fb517">copia_node_arbre</a>(original.<a class="code" href="class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297">primer_node</a>);</div>
@@ -167,7 +167,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
 <div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_arbre.html#aa74ec0d2b601487b822eb70100330582">   82</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_arbre.html#aa74ec0d2b601487b822eb70100330582">a_buit</a>()</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">/* Pre: cert */</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">/* Post: el p.i. Ès un arbre buit */</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">/* Post: el p.i. √©s un arbre buit */</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  {</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="class_arbre.html#ab97c98d266a5b8973fe2519c14cf362a">esborra_node_arbre</a>(<a class="code" href="class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297">primer_node</a>);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297">primer_node</a>= NULL;</div>
@@ -184,10 +184,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  }</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
 <div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="class_arbre.html#a806d45f6f1d3a9dd357563979186f721">  100</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_arbre.html#a806d45f6f1d3a9dd357563979186f721">plantar</a>(<span class="keyword">const</span> T &amp;x, <a class="code" href="class_arbre.html">Arbre</a> &amp;a1, <a class="code" href="class_arbre.html">Arbre</a> &amp;a2)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">/* Pre: el p.i. Ès buit, a1=A1, a2=A2 */</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">/* Post: el p.i. tÈ x com a arrel, A1 com a fill esquerre i A2 com a </span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">       fill dret; a1 i a2 sÛn buits; si A1 i A2 sÛn el mateix objecte, el</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">       fill dret n&#39;Ès una cÚpia */</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">/* Pre: el p.i. √©s buit, a1=A1, a2=A2 */</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">/* Post: el p.i. t√© x com a arrel, A1 com a fill esquerre i A2 com a </span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">       fill dret; a1 i a2 s√≥n buits; si A1 i A2 s√≥n el mateix objecte, el</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">       fill dret n&#39;√©s una c√≤pia */</span></div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  {</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;a1 and <span class="keyword">this</span> != &amp;a2) {</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297">primer_node</a>==NULL) {</div>
@@ -205,14 +205,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="class_p_r_o2_excepcio.html">PRO2Excepcio</a> (<span class="stringliteral">&quot;El p.i. de plantar ha de ser buit a la crida&quot;</span>);</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      <span class="keywordflow">throw</span> <a class="code" href="class_p_r_o2_excepcio.html">PRO2Excepcio</a> (<span class="stringliteral">&quot;El p.i. de plantar no pot coincidir amb els par‡metres&quot;</span>);    </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      <span class="keywordflow">throw</span> <a class="code" href="class_p_r_o2_excepcio.html">PRO2Excepcio</a> (<span class="stringliteral">&quot;El p.i. de plantar no pot coincidir amb els par√†metres&quot;</span>);    </div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  }</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="class_arbre.html#aee75355cee7599e132de75781d26a61d">  126</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_arbre.html#aee75355cee7599e132de75781d26a61d">fills</a> (<a class="code" href="class_arbre.html">Arbre</a> &amp;fe, <a class="code" href="class_arbre.html">Arbre</a> &amp;fd)</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="comment">/* Pre: el p.i. no Ès buit i li diem A, fe i fd sÛn buits */</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="comment">/* Post: fe Ès el fill esquerre d&#39;A, fd Ès el fill dret d&#39;A,</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">       el p.i. Ès buit */</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="comment">/* Pre: el p.i. no √©s buit i li diem A, fe i fd s√≥n buits */</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="comment">/* Post: fe √©s el fill esquerre d&#39;A, fd √©s el fill dret d&#39;A,</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">       el p.i. √©s buit */</span></div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  {</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297">primer_node</a>!=NULL and fe.<a class="code" href="class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297">primer_node</a>==NULL</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        and fd.<a class="code" href="class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297">primer_node</a>==NULL) {</div>
@@ -226,28 +226,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      }</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;      <span class="keywordflow">else</span> </div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="class_p_r_o2_excepcio.html">PRO2Excepcio</a> </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;              (<span class="stringliteral">&quot;Els dos par‡metres de fills no poden coincidir&quot;</span>);      </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;              (<span class="stringliteral">&quot;Els dos par√†metres de fills no poden coincidir&quot;</span>);      </div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    }</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297">primer_node</a>==NULL)</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      <span class="keywordflow">throw</span> <a class="code" href="class_p_r_o2_excepcio.html">PRO2Excepcio</a> (<span class="stringliteral">&quot;Un arbre buit no tÈ fills&quot;</span>);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      <span class="keywordflow">throw</span> <a class="code" href="class_p_r_o2_excepcio.html">PRO2Excepcio</a> (<span class="stringliteral">&quot;Un arbre buit no t√© fills&quot;</span>);</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordflow">else</span>   </div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      <span class="keywordflow">throw</span> <a class="code" href="class_p_r_o2_excepcio.html">PRO2Excepcio</a> </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        (<span class="stringliteral">&quot;Els dos par‡metres de fills han de ser buits a la crida&quot;</span>);  </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        (<span class="stringliteral">&quot;Els dos par√†metres de fills han de ser buits a la crida&quot;</span>);  </div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  }</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
 <div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="class_arbre.html#aa6e2559ead7dfceda962cff11fb1a15c">  152</a></span>&#160;  T <a class="code" href="class_arbre.html#aa6e2559ead7dfceda962cff11fb1a15c">arrel</a>() const</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="comment">/* Pre: el p.i. no Ès buit */</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="comment">/* Post: el resultat Ès l&#39;arrel del p.i. */</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="comment">/* Pre: el p.i. no √©s buit */</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="comment">/* Post: el resultat √©s l&#39;arrel del p.i. */</span></div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  {</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297">primer_node</a>!=NULL)</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297">primer_node</a>-&gt;<a class="code" href="struct_arbre_1_1node__arbre.html#a5a146e5e27a7a6c5f54bc6df864595aa">info</a>;    </div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="keywordflow">throw</span> <a class="code" href="class_p_r_o2_excepcio.html">PRO2Excepcio</a> (<span class="stringliteral">&quot;Un arbre buit no tÈ arrel&quot;</span>);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="keywordflow">throw</span> <a class="code" href="class_p_r_o2_excepcio.html">PRO2Excepcio</a> (<span class="stringliteral">&quot;Un arbre buit no t√© arrel&quot;</span>);</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  }</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
 <div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="class_arbre.html#a68a51f6689f0b2889e8e1d56266fd620">  162</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_arbre.html#a68a51f6689f0b2889e8e1d56266fd620">es_buit</a>() const </div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="comment">/* Pre: cert */</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="comment">/* Post: el resultat indica si el p.i. Ès un arbre buit */</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="comment">/* Post: el resultat indica si el p.i. √©s un arbre buit */</span></div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  {</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="class_arbre.html#a62818cdde6c1912a7c9a15db3b93d297">primer_node</a>==NULL);</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  }</div>
@@ -278,7 +278,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generat a Dc Abr 23 2014 23:06:50 per a Pr√†ctica PRO2 Reproducci√≥ al Laboratori per &#160;<a href="http://www.doxygen.org/index.html">
+Generat a Dv Abr 25 2014 15:25:31 per a Pr√†ctica PRO2 Reproducci√≥ al Laboratori per &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

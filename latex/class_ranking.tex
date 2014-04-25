@@ -10,7 +10,7 @@ Classe \hyperlink{class_ranking}{Ranking} per poder imprimir el ranking dels org
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{struct_ranking_1_1_organ_rank}{Organ\-Rank}
-\begin{DoxyCompactList}\small\item\em Tipus de dades per poder fer el r� nking. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Tipus de dades per poder fer el rÃ nking. \end{DoxyCompactList}\item 
 struct \hyperlink{struct_ranking_1_1_par_fill}{Par\-Fill}
 \begin{DoxyCompactList}\small\item\em Estructura per poder saber quins fills ha tingut un organisme i amb qui els ha tingut. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Mètodes públics}
@@ -19,14 +19,14 @@ struct \hyperlink{struct_ranking_1_1_par_fill}{Par\-Fill}
 \hyperlink{class_ranking_af700e3f1e24eb35173adff4fbcac7c68}{Ranking} (int M)
 \begin{DoxyCompactList}\small\item\em Constructora per defecte. \end{DoxyCompactList}\item 
 void \hyperlink{class_ranking_a15715ea90e6caf702490fd329bf5ec70}{afegir\-\_\-fill} (int pare1, int pare2, int fill)
-\begin{DoxyCompactList}\small\item\em Modificadora que afegeix els pares de un organisme per poder fer el r� nking. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Modificadora que afegeix els pares de un organisme per poder fer el rÃ nking. \end{DoxyCompactList}\item 
 void \hyperlink{class_ranking_a2cb68818448b64432f2da6c7f3cfb446}{ranking} () const 
-\begin{DoxyCompactList}\small\item\em Funció que imprimeix el r� nking. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em FunciÃ³ que imprimeix el rÃ nking. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Atributs Privats}
 \begin{DoxyCompactItemize}
 \item 
 vector$<$ \hyperlink{struct_ranking_1_1_organ_rank}{Organ\-Rank} $>$ \hyperlink{class_ranking_a23ba29c13cb5ac32d3fc97252f20afde}{Rank}
-\begin{DoxyCompactList}\small\item\em Vector que utilitzarem per generar i guardar el r� nking. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Vector que utilitzarem per generar i guardar el rÃ nking. \end{DoxyCompactList}\item 
 vector$<$ list$<$ \hyperlink{struct_ranking_1_1_par_fill}{Par\-Fill} $>$ $>$ \hyperlink{class_ranking_a714b5b8881dccd99dad7e58b81ce7769}{Rel}
 \begin{DoxyCompactList}\small\item\em Vector per saber quins fills ha tingut cada organisme i amb qui els ha tingut. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -81,7 +81,7 @@ Definició a la línia 11 del fitxer Ranking.\-cpp.
 )}}\label{class_ranking_a15715ea90e6caf702490fd329bf5ec70}
 
 
-Modificadora que afegeix els pares de un organisme per poder fer el r� nking. 
+Modificadora que afegeix els pares de un organisme per poder fer el rÃ nking. 
 
 \begin{DoxyPrecond}{Precondició}
 Cert 
@@ -97,7 +97,7 @@ Definició a la línia 21 del fitxer Ranking.\-cpp.
 \begin{DoxyCode}
 22 \{
 23     ParFill aux;
-24     iterator::list<ParFill> it;
+24     list<ParFill>::iterator it;
 25 
 26     aux.parella = pare1;
 27     aux.fill = fill;
@@ -118,14 +118,22 @@ Definició a la línia 21 del fitxer Ranking.\-cpp.
 ) const}}\label{class_ranking_a2cb68818448b64432f2da6c7f3cfb446}
 
 
-Funció que imprimeix el r� nking. 
+FunciÃ³ que imprimeix el rÃ nking. 
 
 \begin{DoxyPrecond}{Precondició}
-Hi ha com a mínim un organisme 
+Hi ha com a mÃ­nim un organisme 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondició}
-Pel can� l est� ndard de sortida s'ha imprès el r� nking de reproducció dels organismes 
+Pel canÃ l estÃ ndard de sortida s'ha imprÃ¨s el rÃ nking de reproducciÃ³ dels organismes 
 \end{DoxyPostcond}
+
+
+Definició a la línia 40 del fitxer Ranking.\-cpp.
+
+
+\begin{DoxyCode}
+41 \{\}
+\end{DoxyCode}
 
 
 \subsection{Documentació de les Dades Membre}
@@ -134,7 +142,7 @@ Pel can� l est� ndard de sortida s'ha imprès el r� nking de reproducció dels o
 \subsubsection[{Rank}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Organ\-Rank}$>$ Ranking\-::\-Rank\hspace{0.3cm}{\ttfamily [private]}}}\label{class_ranking_a23ba29c13cb5ac32d3fc97252f20afde}
 
 
-Vector que utilitzarem per generar i guardar el r� nking. 
+Vector que utilitzarem per generar i guardar el rÃ nking. 
 
 
 
