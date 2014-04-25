@@ -42,8 +42,19 @@ void ConjuntOrg::retallar(int p)
 
 bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
 {
+    // Vector que és true si un organisme ha estat escollit per tal d'evitar
+    // posar a reproduir dos organismes i que un d'ells ja s'estigui
+    // aparellant en aquesta ronda
     vector<bool> Escollit(tamany, false);
-    for (int i = 0; i < tamany; ++i)
+    
+    // Posem a '0' la variable fills per si de cas té algun altre valor
+    fills = 0;
+    
+    // Variable que ens servirà per saber si la reproducció s'ha pogut fer
+    // correctament, en cas contrari la variable serà 'false'
+    bool hi_cap = true;
+    
+    for (int i = 0; i < tamany and hi_cap; ++i)
     {
         if (not Escollit[i]) 
         {
@@ -54,13 +65,28 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
                 if (not Aparellat[i][j]) candidat = true;
                 else ++j;
             }
-            if (candidat and V[i].compatibles(V[j]) {
-				Organisme o;
-				o.reproduir_organisme(V[i], V[j])
-            
+            if (candidat)
+            {
+                Escollit[i] = Escollit[j] = true;
+                Aparellat[i][j] = Aparellat[j][i] = true;
+                
+                if(V[i].compatibles(V[j])) 
+                {
+                    Organisme o;
+                    o.reproduir_organisme(V[i], V[j]);
+                    if (tamany < V.size()) 
+                    {
+                        Rank.afegir_fill(i, j, tamany);
+                        V[tamany] = o;
+                        ++tamany;
+                        ++fills;
+                    }
+                    else hi_cap = false;
+                }
+            }            
         }
     }
-    return true;
+    return hi_cap;
 }
 
 /*********************
@@ -83,7 +109,10 @@ bool ConjuntOrg::morts() const
 
 void ConjuntOrg::escriure_ultims(int n)
 {
-
+    for (int i = tamany - 1; i < tamany + n - 1; ++i)
+    {
+        V[i].escriure_organisme();
+    }
 }
 
 void ConjuntOrg::llegir()
