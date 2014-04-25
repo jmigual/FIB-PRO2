@@ -1,5 +1,5 @@
 /**	@file Ranking.hpp
- *  @brief EspecificaciÃ³ de la classe Ranking
+ *  @brief Especificació de la classe Ranking
  */
 #ifndef RANKING_HPP
 #define RANKING_HPP
@@ -16,7 +16,7 @@ class Ranking {
 private:
 
     /** @struct OrganRank
-     *  @brief Tipus de dades per poder fer el rÃ nking
+     *  @brief Tipus de dades per poder fer el rànking
      */
     struct OrganRank
     {
@@ -26,7 +26,7 @@ private:
         int id;
 
         /** @var fills
-         *  @brief NÃºmero de fills que ha tingut l'organisme
+         *  @brief Número de fills que ha tingut l'organisme
          */
         int fills;
     };
@@ -48,13 +48,18 @@ private:
         int fill;
     };
     
-    /** @brief Vector que utilitzarem per generar i guardar el rÃ nking */
+    /** @brief Vector que utilitzarem per generar i guardar el rànking */
     vector<OrganRank> Rank;
 
     /** @brief Vector per saber quins fills ha tingut cada organisme i amb qui
      *  els ha tingut
      */
     vector< list<ParFill> > Rel;
+    
+    /** @brief Variable que utilitzarem per saber el nombre d'elements vàlids
+     *  que hi ha als vectors
+     */
+    int tamany;
 
 public:
 
@@ -73,7 +78,7 @@ public:
      ***********************/
 
     /** @brief Modificadora que afegeix els pares de un organisme per poder
-     *  fer el rÃ nking
+     *  fer el rànking
      *  \pre Cert
      *  \post S'han afegit l'ID dels pares i dels fills al Ranking
      */
@@ -83,10 +88,10 @@ public:
      *    ENTRADA / SORTIDA    *
      ***************************/
 
-    /** @brief FunciÃ³ que imprimeix el rÃ nking
-     *  \pre Hi ha com a mÃ­nim un organisme
-     *  \post Pel canÃ l estÃ ndard de sortida s'ha imprÃ¨s el rÃ nking de
-     *  reproducciÃ³ dels organismes
+    /** @brief Funció que imprimeix el rànking
+     *  \pre Hi ha com a mínim un organisme
+     *  \post Pel canal estàndard de sortida s'ha imprés el rànking de
+     *  reproducció dels organismes
      */
     void ranking() const;
 };

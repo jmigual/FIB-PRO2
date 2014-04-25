@@ -11,6 +11,22 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "Ranking.hpp",
+			"settings":
+			{
+				"buffer_size": 2331,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Joan/Google Drive/Educació/Universitat/1B/Pro2/Laboratori/sesion7/list.doc",
+			"settings":
+			{
+				"buffer_size": 2976,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -159,8 +175,65 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Ranking.hpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2331,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": -0.0,
+						"translation.y": 552.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/Joan/Google Drive/Educació/Universitat/1B/Pro2/Laboratori/sesion7/list.doc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2976,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 514.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
