@@ -1,5 +1,5 @@
 /**	@file Ranking.hpp
- *  @brief Especificació de la classe Ranking
+ *  @brief EspecificaciÃ³ de la classe Ranking
  */
 #ifndef RANKING_HPP
 #define RANKING_HPP
@@ -16,7 +16,7 @@ class Ranking {
 private:
 
     /** @struct OrganRank
-     *  @brief Tipus de dades per poder fer el r� nking
+     *  @brief Tipus de dades per poder fer el rÃ nking
      */
     struct OrganRank
     {
@@ -26,7 +26,7 @@ private:
         int id;
 
         /** @var fills
-         *  @brief Número de fills que ha tingut l'organisme
+         *  @brief NÃºmero de fills que ha tingut l'organisme
          */
         int fills;
     };
@@ -48,7 +48,7 @@ private:
         int fill;
     };
     
-    /** @brief Vector que utilitzarem per generar i guardar el r� nking */
+    /** @brief Vector que utilitzarem per generar i guardar el rÃ nking */
     vector<OrganRank> Rank;
 
     /** @brief Vector per saber quins fills ha tingut cada organisme i amb qui
@@ -73,7 +73,7 @@ public:
      ***********************/
 
     /** @brief Modificadora que afegeix els pares de un organisme per poder
-     *  fer el r� nking
+     *  fer el rÃ nking
      *  \pre Cert
      *  \post S'han afegit l'ID dels pares i dels fills al Ranking
      */
@@ -83,10 +83,10 @@ public:
      *    ENTRADA / SORTIDA    *
      ***************************/
 
-    /** @brief Funció que imprimeix el r� nking
-     *  \pre Hi ha com a mínim un organisme
-     *  \post Pel can� l est� ndard de sortida s'ha imprès el r� nking de
-     *  reproducció dels organismes
+    /** @brief FunciÃ³ que imprimeix el rÃ nking
+     *  \pre Hi ha com a mÃ­nim un organisme
+     *  \post Pel canÃ l estÃ ndard de sortida s'ha imprÃ¨s el rÃ nking de
+     *  reproducciÃ³ dels organismes
      */
     void ranking() const;
 };

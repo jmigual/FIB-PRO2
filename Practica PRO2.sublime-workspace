@@ -11,14 +11,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/C/Users/Joan/Documents/Programes/Punts.cpp",
-			"settings":
-			{
-				"buffer_size": 658,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -51,14 +43,15 @@
 	"file_history":
 	[
 		"/C/Users/Joan/Documents/Repository/PRO2/Practica/Organisme.hpp",
-		"/C/Users/Joan/Documents/Programes/Punts.cpp",
 		"/C/Users/Joan/Documents/Repository/PRO2/Practica/Organisme.cpp",
-		"/C/Users/Joan/Documents/uTorrent/Baixades/Call.of.Duty.Modern.Warface.3.WII-SUSHi/Call.of.Duty.nfo",
+		"/C/Users/Joan/Documents/Repository/PRO2/Practica/Arbre.hpp",
 		"/C/Users/Joan/Documents/Repository/PRO2/Practica/ConjuntOrg.cpp",
 		"/C/Users/Joan/Documents/Repository/PRO2/Practica/ConjuntOrg.hpp",
+		"/C/Users/Joan/Documents/Repository/PRO2/Practica/main.cpp",
+		"/C/Users/Joan/Documents/Programes/Punts.cpp",
+		"/C/Users/Joan/Documents/uTorrent/Baixades/Call.of.Duty.Modern.Warface.3.WII-SUSHi/Call.of.Duty.nfo",
 		"/C/Users/Joan/Documents/Repository/PRO2/Practica/makefile",
 		"/C/Users/Joan/Google Drive/Educació/Universitat/1B/Pro2/Laboratori/sesion7/7.1.4.cpp",
-		"/C/Users/Joan/Documents/Repository/PRO2/Practica/main.cpp",
 		"/C/Users/Joan/Google Drive/Educació/Universitat/1B/Pro2/Laboratori/sesion7/7.2.1.cpp",
 		"/C/Users/Joan/Google Drive/Educació/Universitat/1B/Pro2/Laboratori/sesion7/list.doc",
 		"/C/Program Files/Kerbal Space Program/settings.cfg",
@@ -166,37 +159,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/C/Users/Joan/Documents/Programes/Punts.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 658,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								154,
-								154
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],

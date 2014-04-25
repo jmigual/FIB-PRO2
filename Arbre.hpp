@@ -15,14 +15,14 @@ private:
 
   node_arbre* primer_node;
 
-  // especificació operacions privades
+  // especificaciÃ³ operacions privades
 
   node_arbre* copia_node_arbre(node_arbre* m)
     /* Pre: cert */
-    /* Post: el resultat és NULL si m és NULL; 
+    /* Post: el resultat Ã©s NULL si m Ã©s NULL; 
        en cas contrari, el resultat apunta al node arrel 
-       d'una jerarquia de nodes que és una còpia de la 
-       jerarquia de nodes que té el node apuntat per m com a arrel */
+       d'una jerarquia de nodes que Ã©s una cÃ²pia de la 
+       jerarquia de nodes que tÃ© el node apuntat per m com a arrel */
   {
     node_arbre* n;
     if (m==NULL) n=NULL;
@@ -37,9 +37,9 @@ private:
 
   void esborra_node_arbre(node_arbre* m)
     /* Pre: cert */
-    /* Post no fa res si m és NULL; en cas contrari, 
+    /* Post no fa res si m Ã©s NULL; en cas contrari, 
        allibera espai de tots els nodes de la 
-       jerarquia que té el node apuntat per m com a arrel */
+       jerarquia que tÃ© el node apuntat per m com a arrel */
   {
     if (m != NULL) {
       esborra_node_arbre(m->segE);
@@ -50,18 +50,18 @@ private:
 
 public:
 
-  // especificació operacions públiques
+  // especificaciÃ³ operacions pÃºbliques
 
   Arbre()
     /* Pre: cert */
-    /* Post: el p.i. és un arbre buit */
+    /* Post: el p.i. Ã©s un arbre buit */
   {
     primer_node= NULL;
   }
 
   Arbre(const Arbre& original)
     /* Pre: cert */
-    /* Post: el p.i. és una còpia d'original */
+    /* Post: el p.i. Ã©s una cÃ²pia d'original */
   {
     if (this != &original)     
       primer_node = copia_node_arbre(original.primer_node);
@@ -81,7 +81,7 @@ public:
 
   void a_buit()
     /* Pre: cert */
-    /* Post: el p.i. és un arbre buit */
+    /* Post: el p.i. Ã©s un arbre buit */
   {
     esborra_node_arbre(primer_node);
     primer_node= NULL;
@@ -98,10 +98,10 @@ public:
   }
 
   void plantar(const T &x, Arbre &a1, Arbre &a2)
-    /* Pre: el p.i. és buit, a1=A1, a2=A2 */
-    /* Post: el p.i. té x com a arrel, A1 com a fill esquerre i A2 com a 
-       fill dret; a1 i a2 són buits; si A1 i A2 són el mateix objecte, el
-       fill dret n'és una còpia */
+    /* Pre: el p.i. Ã©s buit, a1=A1, a2=A2 */
+    /* Post: el p.i. tÃ© x com a arrel, A1 com a fill esquerre i A2 com a 
+       fill dret; a1 i a2 sÃ³n buits; si A1 i A2 sÃ³n el mateix objecte, el
+       fill dret n'Ã©s una cÃ²pia */
   {
     if (this != &a1 and this != &a2) {
       if (primer_node==NULL) {
@@ -119,14 +119,14 @@ public:
         throw PRO2Excepcio ("El p.i. de plantar ha de ser buit a la crida");
     }
     else
-      throw PRO2Excepcio ("El p.i. de plantar no pot coincidir amb els paràmetres");    
+      throw PRO2Excepcio ("El p.i. de plantar no pot coincidir amb els parÃ metres");    
   }
 
 
   void fills (Arbre &fe, Arbre &fd)
-    /* Pre: el p.i. no és buit i li diem A, fe i fd són buits */
-    /* Post: fe és el fill esquerre d'A, fd és el fill dret d'A,
-       el p.i. és buit */
+    /* Pre: el p.i. no Ã©s buit i li diem A, fe i fd sÃ³n buits */
+    /* Post: fe Ã©s el fill esquerre d'A, fd Ã©s el fill dret d'A,
+       el p.i. Ã©s buit */
   {
     if (primer_node!=NULL and fe.primer_node==NULL
         and fd.primer_node==NULL) {
@@ -140,28 +140,28 @@ public:
       }
       else 
         throw PRO2Excepcio 
-              ("Els dos paràmetres de fills no poden coincidir");      
+              ("Els dos parÃ metres de fills no poden coincidir");      
     }
     else if (primer_node==NULL)
-      throw PRO2Excepcio ("Un arbre buit no té fills");
+      throw PRO2Excepcio ("Un arbre buit no tÃ© fills");
     else   
       throw PRO2Excepcio 
-        ("Els dos paràmetres de fills han de ser buits a la crida");  
+        ("Els dos parÃ metres de fills han de ser buits a la crida");  
   }
 
   T arrel() const
-    /* Pre: el p.i. no és buit */
-    /* Post: el resultat és l'arrel del p.i. */
+    /* Pre: el p.i. no Ã©s buit */
+    /* Post: el resultat Ã©s l'arrel del p.i. */
   {
     if (primer_node!=NULL)
       return primer_node->info;    
     else
-      throw PRO2Excepcio ("Un arbre buit no té arrel");
+      throw PRO2Excepcio ("Un arbre buit no tÃ© arrel");
   }
 
   bool es_buit() const 
     /* Pre: cert */
-    /* Post: el resultat indica si el p.i. és un arbre buit */
+    /* Post: el resultat indica si el p.i. Ã©s un arbre buit */
   {
     return (primer_node==NULL);
   }

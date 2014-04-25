@@ -42,16 +42,16 @@ void ConjuntOrg::retallar(int p)
 
 bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
 {
-    // Vector que Ès true si un organisme ha estat escollit per tal d'evitar
+    // Vector que √©s true si un organisme ha estat escollit per tal d'evitar
     // posar a reproduir dos organismes i que un d'ells ja s'estigui
     // aparellant en aquesta ronda
     vector<bool> Escollit(tamany, false);
     
-    // Posem a '0' la variable fills per si de cas tÈ algun altre valor
+    // Posem a '0' la variable fills per si de cas t√© algun altre valor
     fills = 0;
     
-    // Variable que ens servir‡ per saber si la reproducciÛ s'ha pogut fer
-    // correctament, en cas contrari la variable ser‡ 'false'
+    // Variable que ens servir√† per saber si la reproducci√≥ s'ha pogut fer
+    // correctament, en cas contrari la variable ser√† 'false'
     bool hi_cap = true;
     
     for (int i = 0; i < tamany and hi_cap; ++i)
