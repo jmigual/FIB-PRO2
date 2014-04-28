@@ -4,7 +4,6 @@
 #ifndef CONJUNTORG_HPP
 #define CONJUNTORG_HPP
 
-#include <list>
 #include <vector>
 #include "Organisme.hpp"
 #include "Ranking.hpp"

@@ -10,7 +10,7 @@ Classe \hyperlink{class_ranking}{Ranking} per poder imprimir el ranking dels org
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{struct_ranking_1_1_organ_rank}{Organ\-Rank}
-\begin{DoxyCompactList}\small\item\em Tipus de dades per poder fer el rÃ nking. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Estructura que conté l'identificador d'un organisme i el nombre de fills que ha tingut. \end{DoxyCompactList}\item 
 struct \hyperlink{struct_ranking_1_1_par_fill}{Par\-Fill}
 \begin{DoxyCompactList}\small\item\em Estructura per poder saber quins fills ha tingut un organisme i amb qui els ha tingut. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Mètodes públics}
@@ -19,22 +19,24 @@ struct \hyperlink{struct_ranking_1_1_par_fill}{Par\-Fill}
 \hyperlink{class_ranking_af700e3f1e24eb35173adff4fbcac7c68}{Ranking} (int M)
 \begin{DoxyCompactList}\small\item\em Constructora per defecte. \end{DoxyCompactList}\item 
 void \hyperlink{class_ranking_a15715ea90e6caf702490fd329bf5ec70}{afegir\-\_\-fill} (int pare1, int pare2, int fill)
-\begin{DoxyCompactList}\small\item\em Modificadora que afegeix els pares de un organisme per poder fer el rÃ nking. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Modificadora que afegeix els pares de un organisme per poder fer el rànking. \end{DoxyCompactList}\item 
 void \hyperlink{class_ranking_a2cb68818448b64432f2da6c7f3cfb446}{ranking} () const 
-\begin{DoxyCompactList}\small\item\em FunciÃ³ que imprimeix el rÃ nking. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Funció que imprimeix el rànking. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Atributs Privats}
 \begin{DoxyCompactItemize}
 \item 
 vector$<$ \hyperlink{struct_ranking_1_1_organ_rank}{Organ\-Rank} $>$ \hyperlink{class_ranking_a23ba29c13cb5ac32d3fc97252f20afde}{Rank}
-\begin{DoxyCompactList}\small\item\em Vector que utilitzarem per generar i guardar el rÃ nking. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Vector que utilitzarem per generar i guardar el rànking. \end{DoxyCompactList}\item 
 vector$<$ list$<$ \hyperlink{struct_ranking_1_1_par_fill}{Par\-Fill} $>$ $>$ \hyperlink{class_ranking_a714b5b8881dccd99dad7e58b81ce7769}{Rel}
-\begin{DoxyCompactList}\small\item\em Vector per saber quins fills ha tingut cada organisme i amb qui els ha tingut. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Vector per saber quins fills ha tingut cada organisme i amb qui els ha tingut. \end{DoxyCompactList}\item 
+int \hyperlink{class_ranking_a3001b3854a474fc12c0fc31e0baea946}{tamany}
+\begin{DoxyCompactList}\small\item\em Variable que utilitzarem per saber el nombre d'elements vàlids que hi ha als vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
 Classe \hyperlink{class_ranking}{Ranking} per poder imprimir el ranking dels organismes. 
 
-Definició a la línia 15 del fitxer Ranking.\-hpp.
+Definició a la línia 14 del fitxer Ranking.\-hpp.
 
 
 
@@ -54,19 +56,8 @@ Constructora per defecte.
 Cert 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondició}
-Es crea un ranking de tamany 'M' 
+Es crea un rànking de tamany 'M' 
 \end{DoxyPostcond}
-
-
-Definició a la línia 11 del fitxer Ranking.\-cpp.
-
-
-\begin{DoxyCode}
-12 \{
-13     \hyperlink{class_ranking_a23ba29c13cb5ac32d3fc97252f20afde}{Rank} = vector<OrganRank> (M);
-14     \hyperlink{class_ranking_a714b5b8881dccd99dad7e58b81ce7769}{Rel} = vector< list<ParFill> > (M);
-15 \}
-\end{DoxyCode}
 
 
 \subsection{Documentació de les Funcions Membre}
@@ -81,34 +72,14 @@ Definició a la línia 11 del fitxer Ranking.\-cpp.
 )}}\label{class_ranking_a15715ea90e6caf702490fd329bf5ec70}
 
 
-Modificadora que afegeix els pares de un organisme per poder fer el rÃ nking. 
+Modificadora que afegeix els pares de un organisme per poder fer el rànking. 
 
 \begin{DoxyPrecond}{Precondició}
 Cert 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondició}
-S'han afegit l'I\-D dels pares i dels fills al \hyperlink{class_ranking}{Ranking} 
+S'han afegit l'I\-D dels pares i del fill que han tingut al P.\-I. 
 \end{DoxyPostcond}
-
-
-Definició a la línia 21 del fitxer Ranking.\-cpp.
-
-
-\begin{DoxyCode}
-22 \{
-23     ParFill aux;
-24     list<ParFill>::iterator it;
-25 
-26     aux.parella = pare1;
-27     aux.fill = fill;
-28     it = \hyperlink{class_ranking_a714b5b8881dccd99dad7e58b81ce7769}{Rel}[pare1 - 1].end();
-29     \hyperlink{class_ranking_a714b5b8881dccd99dad7e58b81ce7769}{Rel}[pare1 - 1].insert(it, aux);
-30 
-31     aux.parella = pare2;
-32     it = \hyperlink{class_ranking_a714b5b8881dccd99dad7e58b81ce7769}{Rel}[pare2 - 1].end();
-33     \hyperlink{class_ranking_a714b5b8881dccd99dad7e58b81ce7769}{Rel}[pare2 - 1].insert(it, aux);
-34 \}
-\end{DoxyCode}
 \hypertarget{class_ranking_a2cb68818448b64432f2da6c7f3cfb446}{\index{Ranking@{Ranking}!ranking@{ranking}}
 \index{ranking@{ranking}!Ranking@{Ranking}}
 \subsubsection[{ranking}]{\setlength{\rightskip}{0pt plus 5cm}void Ranking\-::ranking (
@@ -118,22 +89,14 @@ Definició a la línia 21 del fitxer Ranking.\-cpp.
 ) const}}\label{class_ranking_a2cb68818448b64432f2da6c7f3cfb446}
 
 
-FunciÃ³ que imprimeix el rÃ nking. 
+Funció que imprimeix el rànking. 
 
 \begin{DoxyPrecond}{Precondició}
-Hi ha com a mÃ­nim un organisme 
+S'ha cridat la funció 'afegir\-\_\-fill' del P.\-I. com a mínim un cop 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondició}
-Pel canÃ l estÃ ndard de sortida s'ha imprÃ¨s el rÃ nking de reproducciÃ³ dels organismes 
+Pel canal estàndard de sortida s'ha imprés el rànking de reproducció dels organismes 
 \end{DoxyPostcond}
-
-
-Definició a la línia 40 del fitxer Ranking.\-cpp.
-
-
-\begin{DoxyCode}
-41 \{\}
-\end{DoxyCode}
 
 
 \subsection{Documentació de les Dades Membre}
@@ -142,7 +105,7 @@ Definició a la línia 40 del fitxer Ranking.\-cpp.
 \subsubsection[{Rank}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Organ\-Rank}$>$ Ranking\-::\-Rank\hspace{0.3cm}{\ttfamily [private]}}}\label{class_ranking_a23ba29c13cb5ac32d3fc97252f20afde}
 
 
-Vector que utilitzarem per generar i guardar el rÃ nking. 
+Vector que utilitzarem per generar i guardar el rànking. 
 
 
 
@@ -159,9 +122,19 @@ Vector per saber quins fills ha tingut cada organisme i amb qui els ha tingut.
 
 Definició a la línia 57 del fitxer Ranking.\-hpp.
 
+\hypertarget{class_ranking_a3001b3854a474fc12c0fc31e0baea946}{\index{Ranking@{Ranking}!tamany@{tamany}}
+\index{tamany@{tamany}!Ranking@{Ranking}}
+\subsubsection[{tamany}]{\setlength{\rightskip}{0pt plus 5cm}int Ranking\-::tamany\hspace{0.3cm}{\ttfamily [private]}}}\label{class_ranking_a3001b3854a474fc12c0fc31e0baea946}
 
 
-La documentació d'aquesta classe es va generar a partir dels següents fitxers\-:\begin{DoxyCompactItemize}
+Variable que utilitzarem per saber el nombre d'elements vàlids que hi ha als vectors. 
+
+
+
+Definició a la línia 62 del fitxer Ranking.\-hpp.
+
+
+
+La documentació d'aquesta classe es va generar a partir del següent fitxer\-:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{_ranking_8hpp}{Ranking.\-hpp}\item 
-\hyperlink{_ranking_8cpp}{Ranking.\-cpp}\end{DoxyCompactItemize}
+\hyperlink{_ranking_8hpp}{Ranking.\-hpp}\end{DoxyCompactItemize}

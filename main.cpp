@@ -15,6 +15,9 @@
 #include "Ranking.hpp"
 using namespace std;
 
+/** @brief Marca que utilitzarem per saber quan s'acaba la introducció de 
+ *  dades, de moment utilitzem '-1' perquè no sabem exàctament com serà
+ */
 #define MARCA -1
 
 /**	@brief Programa principal de la <em>Pràctica de PRO2</em>.

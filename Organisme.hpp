@@ -14,23 +14,29 @@ class Organisme
 private:
 
     /**	@struct Celula
-        @brief Element bàsic de cada organisme
-    */
+     *  @brief Element bàsic de cada organisme té un identificador i un estat
+     *  (activa o passiva).       
+     */
     struct Celula
     {
         /** @var id
-            @brief És el número que identifica la cèl·lula 	*/
+         *  @brief És el número que identifica la cèl·lula 	
+         */
         int id;
         /** @var activa
-            @brief Booleà que indica si la cèl·lula és activa o no 	*/
+         *  @brief Booleà que indica si la cèl·lula és activa o no ('true' si 
+         *  és activa i 'false' si no ho és
+         */
         bool activa;
     };
 
 	/** @brief Arbre on estan guardades totes les cèl·lules de l'organisme */
     Arbre<Celula> cels;
 
-	/** @brief Variable que ens indica si un organisme ha estat retallat */
-	bool retallat;
+	/** @brief Variable que ens indica si un organisme ha estat retallat
+	 *  'true' si s'ha retallat 'false' si no s'ha fet.
+	 */
+    bool retallat;
 
 	/** @brief Variable que indica el tamany de l'organisme */
 	int tamany;
@@ -38,7 +44,9 @@ private:
 	/**	@brief Identificador màxim de les cèl·lules de l'organisme */
 	int max_id;
 
-	/**	@brief Variable que ens diu si un organisme és viu o mort */
+	/**	@brief Variable que ens diu si un organisme és viu o mort ('true' si
+	 *  està viu 'false' si no ho està.
+     */
 	bool mort;
 
     /**	@brief Funció recursiva per estirar un organisme

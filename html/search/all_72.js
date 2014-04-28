@@ -10,9 +10,9 @@ var searchData=
   ['readstring',['readstring',['../utils_8_p_r_o2.html#a0785c313e983db73f256ae0ccf34591c',1,'utils.PRO2']]],
   ['rel',['Rel',['../class_ranking.html#a714b5b8881dccd99dad7e58b81ce7769',1,'Ranking']]],
   ['reproduir',['reproduir',['../class_conjunt_org.html#a5487cfb897f2a594d150f41774b53547',1,'ConjuntOrg']]],
-  ['reproduir_5forganisme',['reproduir_organisme',['../class_organisme.html#a82d843de079550e169f5d479ec21619f',1,'Organisme']]],
+  ['reproduir_5forganisme',['reproduir_organisme',['../class_organisme.html#ad2f37457376d9686751e69d45607731b',1,'Organisme']]],
   ['retallar',['retallar',['../class_conjunt_org.html#a2ed57a61b109254526a28b6ec1944d2f',1,'ConjuntOrg']]],
   ['retallar_5forganisme',['retallar_organisme',['../class_organisme.html#a3db36c1cb9d93f2750fd033b137dc702',1,'Organisme']]],
-  ['retallar_5frecursiu',['retallar_recursiu',['../class_organisme.html#ae6b5820dd264a10c31c052e1870c4e8a',1,'Organisme']]],
+  ['retallar_5frecursiu',['retallar_recursiu',['../class_organisme.html#a8207d029746a3dd457ae7d08d392ad71',1,'Organisme']]],
   ['retallat',['retallat',['../class_organisme.html#acf912225a83570cb68542dcc6709023a',1,'Organisme']]]
 ];

@@ -6,7 +6,6 @@
 
 #include <list>
 #include <vector>
-#include "utils.PRO2"
 
 
 /** @class Ranking
@@ -16,7 +15,8 @@ class Ranking {
 private:
 
     /** @struct OrganRank
-     *  @brief Tipus de dades per poder fer el rànking
+     *  @brief Estructura que conté l'identificador d'un organisme i el
+     *  nombre de fills que ha tingut
      */
     struct OrganRank
     {
@@ -26,7 +26,7 @@ private:
         int id;
 
         /** @var fills
-         *  @brief Número de fills que ha tingut l'organisme
+         *  @brief Nombre de fills que ha tingut l'organisme
          */
         int fills;
     };
@@ -69,7 +69,7 @@ public:
 
     /** @brief Constructora per defecte
      *  \pre Cert
-     *  \post Es crea un ranking de tamany 'M'
+     *  \post Es crea un rànking de tamany 'M'
      */
     Ranking(int M);
 
@@ -80,7 +80,7 @@ public:
     /** @brief Modificadora que afegeix els pares de un organisme per poder
      *  fer el rànking
      *  \pre Cert
-     *  \post S'han afegit l'ID dels pares i dels fills al Ranking
+     *  \post S'han afegit l'ID dels pares i del fill que han tingut al P.I.
      */
     void afegir_fill(int pare1, int pare2, int fill);
 
@@ -89,7 +89,7 @@ public:
      ***************************/
 
     /** @brief Funció que imprimeix el rànking
-     *  \pre Hi ha com a mínim un organisme
+     *  \pre S'ha cridat la funció 'afegir_fill' del P.I. com a mínim un cop
      *  \post Pel canal estàndard de sortida s'ha imprés el rànking de
      *  reproducció dels organismes
      */

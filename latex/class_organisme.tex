@@ -10,7 +10,7 @@
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{struct_organisme_1_1_celula}{Celula}
-\begin{DoxyCompactList}\small\item\em Element bàsic de cada organisme. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Element bàsic de cada organisme té un identificador i un estat (activa o passiva). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Mètodes públics}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,11 +37,11 @@ void \hyperlink{class_organisme_ab359a3109ec7ff96018bbe08d97043cf}{escriure\-\_\
 \subsection*{Mètodes Privats Estàtics}
 \begin{DoxyCompactItemize}
 \item 
-static void \hyperlink{class_organisme_a8dbc9127169717373507ddac7a9c7df9}{estirar\-\_\-recursiu} (\hyperlink{class_arbre}{Arbre}$<$ \hyperlink{struct_organisme_1_1_celula}{Celula} $>$ \&a, int \&\hyperlink{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{max\-\_\-id}, \hyperlink{struct_organisme_1_1_celula}{Celula} c, int \&\hyperlink{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{tamany})
+static void \hyperlink{class_organisme_a63f10d6ff8fd50dae3273b5ed81fcb6c}{estirar\-\_\-recursiu} (\hyperlink{class_arbre}{Arbre}$<$ \hyperlink{struct_organisme_1_1_celula}{Celula} $>$ \&a, int \&\hyperlink{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{max\-\_\-id}, \hyperlink{struct_organisme_1_1_celula}{Celula} c, int \&\hyperlink{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{tamany})
 \begin{DoxyCompactList}\small\item\em Funció recursiva per estirar un organisme. \end{DoxyCompactList}\item 
-static void \hyperlink{class_organisme_ae6b5820dd264a10c31c052e1870c4e8a}{retallar\-\_\-recursiu} (\hyperlink{class_arbre}{Arbre}$<$ \hyperlink{struct_organisme_1_1_celula}{Celula} $>$ \&a, int \&\hyperlink{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{tamany})
+static void \hyperlink{class_organisme_a8207d029746a3dd457ae7d08d392ad71}{retallar\-\_\-recursiu} (\hyperlink{class_arbre}{Arbre}$<$ \hyperlink{struct_organisme_1_1_celula}{Celula} $>$ \&a, int \&\hyperlink{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{tamany})
 \begin{DoxyCompactList}\small\item\em Funció per retallar l'arbre d'un organisme. \end{DoxyCompactList}\item 
-static int \hyperlink{class_organisme_add0b533b80fa284326cef38f1de3420b}{intersec\-\_\-recursiu} (\hyperlink{class_arbre}{Arbre}$<$ \hyperlink{struct_organisme_1_1_celula}{Celula} $>$ \&a1, \hyperlink{class_arbre}{Arbre}$<$ \hyperlink{struct_organisme_1_1_celula}{Celula} $>$ \&a2)
+static int \hyperlink{class_organisme_a2de37bf3c73820ecdb25f2e0cb8339d7}{intersec\-\_\-recursiu} (\hyperlink{class_arbre}{Arbre}$<$ \hyperlink{struct_organisme_1_1_celula}{Celula} $>$ \&a1, \hyperlink{class_arbre}{Arbre}$<$ \hyperlink{struct_organisme_1_1_celula}{Celula} $>$ \&a2)
 \begin{DoxyCompactList}\small\item\em Funció per calcular el tamany de la intersecció de dos arbres de manera recursiva. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Atributs Privats}
 \begin{DoxyCompactItemize}
@@ -49,13 +49,13 @@ static int \hyperlink{class_organisme_add0b533b80fa284326cef38f1de3420b}{interse
 \hyperlink{class_arbre}{Arbre}$<$ \hyperlink{struct_organisme_1_1_celula}{Celula} $>$ \hyperlink{class_organisme_af983d9bfbaf3caf00aaaf26436aab8ff}{cels}
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_arbre}{Arbre} on estan guardades totes les cèl·lules de l'organisme. \end{DoxyCompactList}\item 
 bool \hyperlink{class_organisme_acf912225a83570cb68542dcc6709023a}{retallat}
-\begin{DoxyCompactList}\small\item\em Variable que ens indica si un organisme ha estat retallat. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Variable que ens indica si un organisme ha estat retallat 'true' si s'ha retallat 'false' si no s'ha fet. \end{DoxyCompactList}\item 
 int \hyperlink{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{tamany}
 \begin{DoxyCompactList}\small\item\em Variable que indica el tamany de l'organisme. \end{DoxyCompactList}\item 
 int \hyperlink{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{max\-\_\-id}
 \begin{DoxyCompactList}\small\item\em Identificador màxim de les cèl·lules de l'organisme. \end{DoxyCompactList}\item 
 bool \hyperlink{class_organisme_ae20564db8d9ba5b7547750375010ed7b}{mort}
-\begin{DoxyCompactList}\small\item\em Variable que ens diu si un organisme és viu o mort. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Variable que ens diu si un organisme és viu o mort ('true' si està viu 'false' si no ho està. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripció Detallada}
@@ -85,25 +85,6 @@ Cert
 \begin{DoxyPostcond}{Postcondició}
 El resultat és amb una cèl·lula activa i tamany '0' 
 \end{DoxyPostcond}
-
-
-Definició a la línia 10 del fitxer Organisme.\-cpp.
-
-
-\begin{DoxyCode}
-11 \{
-12     \hyperlink{class_arbre}{Arbre<Celula>} a1, a2;
-13     Celula c;
-14     c.id = 1;
-15     c.activa = \textcolor{keyword}{true};
-16     \hyperlink{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{tamany} = 1;
-17     \hyperlink{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{max\_id} = 1;
-18   \hyperlink{class_organisme_ae20564db8d9ba5b7547750375010ed7b}{mort} = \textcolor{keyword}{false};
-19     \hyperlink{class_organisme_acf912225a83570cb68542dcc6709023a}{retallat} = \textcolor{keyword}{false};
-20 
-21     \hyperlink{class_organisme_af983d9bfbaf3caf00aaaf26436aab8ff}{cels}.plantar(c, a1, a2);
-22 \}
-\end{DoxyCode}
 \hypertarget{class_organisme_a55c9d7cbc9683970ad88455fdc3be7aa}{\index{Organisme@{Organisme}!$\sim$\-Organisme@{$\sim$\-Organisme}}
 \index{$\sim$\-Organisme@{$\sim$\-Organisme}!Organisme@{Organisme}}
 \subsubsection[{$\sim$\-Organisme}]{\setlength{\rightskip}{0pt plus 5cm}Organisme\-::$\sim$\-Organisme (
@@ -117,25 +98,17 @@ Destructora per defecte.
 
 
 
-Definició a la línia 24 del fitxer Organisme.\-cpp.
-
-
-\begin{DoxyCode}
-24 \{\}
-\end{DoxyCode}
-
-
 \subsection{Documentació de les Funcions Membre}
-\hypertarget{class_organisme_a8dbc9127169717373507ddac7a9c7df9}{\index{Organisme@{Organisme}!estirar\-\_\-recursiu@{estirar\-\_\-recursiu}}
+\hypertarget{class_organisme_a63f10d6ff8fd50dae3273b5ed81fcb6c}{\index{Organisme@{Organisme}!estirar\-\_\-recursiu@{estirar\-\_\-recursiu}}
 \index{estirar\-\_\-recursiu@{estirar\-\_\-recursiu}!Organisme@{Organisme}}
-\subsubsection[{estirar\-\_\-recursiu}]{\setlength{\rightskip}{0pt plus 5cm}void Organisme\-::estirar\-\_\-recursiu (
+\subsubsection[{estirar\-\_\-recursiu}]{\setlength{\rightskip}{0pt plus 5cm}static void Organisme\-::estirar\-\_\-recursiu (
 \begin{DoxyParamCaption}
 \item[{{\bf Arbre}$<$ {\bf Celula} $>$ \&}]{a, }
 \item[{int \&}]{max\-\_\-id, }
 \item[{{\bf Celula}}]{c, }
 \item[{int \&}]{tamany}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_organisme_a8dbc9127169717373507ddac7a9c7df9}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_organisme_a63f10d6ff8fd50dae3273b5ed81fcb6c}
 
 
 Funció recursiva per estirar un organisme. 
@@ -146,36 +119,14 @@ Funció recursiva per estirar un organisme.
 \begin{DoxyPostcond}{Postcondició}
 Totes les cèl·lules que no s'havien dividit s'han dividit 
 \end{DoxyPostcond}
-
-
-Definició a la línia 43 del fitxer Organisme.\-cpp.
-
-
-\begin{DoxyCode}
-45 \{
-46     \hyperlink{class_arbre}{Arbre<Celula>} a1, a2;
-47     \textcolor{keywordflow}{if} (a.\hyperlink{class_arbre_a68a51f6689f0b2889e8e1d56266fd620}{es\_buit}()) \{
-48         ++\hyperlink{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{max\_id};
-49         ++tam;
-50         a.\hyperlink{class_arbre_a806d45f6f1d3a9dd357563979186f721}{plantar}(c, a1, a2);
-51     \}
-52     \textcolor{keywordflow}{else} \{
-53         c = a.\hyperlink{class_arbre_aa6e2559ead7dfceda962cff11fb1a15c}{arrel}();
-54         a.\hyperlink{class_arbre_aee75355cee7599e132de75781d26a61d}{fills}(a1, a2);
-55         \hyperlink{class_organisme_a8dbc9127169717373507ddac7a9c7df9}{estirar\_recursiu}(a1, \hyperlink{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{max\_id}, c, tam);
-56         \hyperlink{class_organisme_a8dbc9127169717373507ddac7a9c7df9}{estirar\_recursiu}(a2, \hyperlink{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{max\_id}, c, tam);
-57         a.\hyperlink{class_arbre_a806d45f6f1d3a9dd357563979186f721}{plantar}(c, a1, a2);
-58     \}
-59 \}
-\end{DoxyCode}
-\hypertarget{class_organisme_ae6b5820dd264a10c31c052e1870c4e8a}{\index{Organisme@{Organisme}!retallar\-\_\-recursiu@{retallar\-\_\-recursiu}}
+\hypertarget{class_organisme_a8207d029746a3dd457ae7d08d392ad71}{\index{Organisme@{Organisme}!retallar\-\_\-recursiu@{retallar\-\_\-recursiu}}
 \index{retallar\-\_\-recursiu@{retallar\-\_\-recursiu}!Organisme@{Organisme}}
-\subsubsection[{retallar\-\_\-recursiu}]{\setlength{\rightskip}{0pt plus 5cm}void Organisme\-::retallar\-\_\-recursiu (
+\subsubsection[{retallar\-\_\-recursiu}]{\setlength{\rightskip}{0pt plus 5cm}static void Organisme\-::retallar\-\_\-recursiu (
 \begin{DoxyParamCaption}
 \item[{{\bf Arbre}$<$ {\bf Celula} $>$ \&}]{a, }
 \item[{int \&}]{tamany}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_organisme_ae6b5820dd264a10c31c052e1870c4e8a}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_organisme_a8207d029746a3dd457ae7d08d392ad71}
 
 
 Funció per retallar l'arbre d'un organisme. 
@@ -186,40 +137,14 @@ L'organisme no està mort
 \begin{DoxyPostcond}{Postcondició}
 Totes les cèl·lules que no tenen cap filla han estat eliminades 
 \end{DoxyPostcond}
-
-
-Definició a la línia 80 del fitxer Organisme.\-cpp.
-
-
-\begin{DoxyCode}
-81 \{
-82   \textcolor{keywordflow}{if}(not a.\hyperlink{class_arbre_a68a51f6689f0b2889e8e1d56266fd620}{es\_buit}()) \{
-83         \hyperlink{class_arbre}{Arbre<Celula>} a1, a2;
-84     Celula c = a.\hyperlink{class_arbre_aa6e2559ead7dfceda962cff11fb1a15c}{arrel}();
-85     a.\hyperlink{class_arbre_aee75355cee7599e132de75781d26a61d}{fills}(a1, a2);
-86 
-87     \textcolor{comment}{// Si algun dels dos fills no està buit vol dir que la cèl·lula encara}
-88     \textcolor{comment}{// no s'ha d'eliminar. Si ja no té cap fill no tornem a plantar}
-89         \textcolor{comment}{// l'arbre i haurem eliminat la cèl·lula.}
-90     \textcolor{keywordflow}{if}(not(a1.\hyperlink{class_arbre_a68a51f6689f0b2889e8e1d56266fd620}{es\_buit}() and a2.\hyperlink{class_arbre_a68a51f6689f0b2889e8e1d56266fd620}{es\_buit}())) \{
-91       \hyperlink{class_organisme_ae6b5820dd264a10c31c052e1870c4e8a}{retallar\_recursiu}(a1, tam);
-92       \hyperlink{class_organisme_ae6b5820dd264a10c31c052e1870c4e8a}{retallar\_recursiu}(a2, tam);
-93       a.\hyperlink{class_arbre_a806d45f6f1d3a9dd357563979186f721}{plantar}(c, a1, a2);
-94     \}
-95     \textcolor{keywordflow}{else} \{
-96       --tam;
-97     \}
-98   \}
-99 \}
-\end{DoxyCode}
-\hypertarget{class_organisme_add0b533b80fa284326cef38f1de3420b}{\index{Organisme@{Organisme}!intersec\-\_\-recursiu@{intersec\-\_\-recursiu}}
+\hypertarget{class_organisme_a2de37bf3c73820ecdb25f2e0cb8339d7}{\index{Organisme@{Organisme}!intersec\-\_\-recursiu@{intersec\-\_\-recursiu}}
 \index{intersec\-\_\-recursiu@{intersec\-\_\-recursiu}!Organisme@{Organisme}}
-\subsubsection[{intersec\-\_\-recursiu}]{\setlength{\rightskip}{0pt plus 5cm}int Organisme\-::intersec\-\_\-recursiu (
+\subsubsection[{intersec\-\_\-recursiu}]{\setlength{\rightskip}{0pt plus 5cm}static int Organisme\-::intersec\-\_\-recursiu (
 \begin{DoxyParamCaption}
 \item[{{\bf Arbre}$<$ {\bf Celula} $>$ \&}]{a1, }
 \item[{{\bf Arbre}$<$ {\bf Celula} $>$ \&}]{a2}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_organisme_add0b533b80fa284326cef38f1de3420b}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_organisme_a2de37bf3c73820ecdb25f2e0cb8339d7}
 
 
 Funció per calcular el tamany de la intersecció de dos arbres de manera recursiva. 
@@ -230,29 +155,6 @@ Cert
 \begin{DoxyPostcond}{Postcondició}
 Retorna el nombre d'elements de l'arbre resultant de la intersecció dels dos arbres 'a1' i 'a2' 
 \end{DoxyPostcond}
-
-
-Definició a la línia 120 del fitxer Organisme.\-cpp.
-
-
-\begin{DoxyCode}
-121 \{
-122   \textcolor{keywordtype}{int} res = 0;
-123 
-124     \textcolor{comment}{// Evaluem per cada branca de l'arbre, si hi ha una arrel sumem 1}
-125   \textcolor{comment}{// com que ho fem recursivament tots els resultats es van sumant fins}
-126   \textcolor{comment}{// a obtenir el resultat de la intersecció}
-127   \textcolor{keywordflow}{if}(not(aA.es\_buit()) and not(aB.es\_buit())) \{
-128     ++res;
-129         \hyperlink{class_arbre}{Arbre<Celula>} aA1, aA2, aB1, aB2;
-130     aA.\hyperlink{class_arbre_aee75355cee7599e132de75781d26a61d}{fills}(aA1, aA2);
-131     aB.fills(aB1, aB2);
-132     res += \hyperlink{class_organisme_add0b533b80fa284326cef38f1de3420b}{intersec\_recursiu}(aA1, aB1);
-133     res += \hyperlink{class_organisme_add0b533b80fa284326cef38f1de3420b}{intersec\_recursiu}(aA2, aB2);
-134   \}
-135   \textcolor{keywordflow}{return} res;
-136 \}
-\end{DoxyCode}
 \hypertarget{class_organisme_a41a2ea17f4287dc3d00a45476a602309}{\index{Organisme@{Organisme}!estirar\-\_\-organisme@{estirar\-\_\-organisme}}
 \index{estirar\-\_\-organisme@{estirar\-\_\-organisme}!Organisme@{Organisme}}
 \subsubsection[{estirar\-\_\-organisme}]{\setlength{\rightskip}{0pt plus 5cm}void Organisme\-::estirar\-\_\-organisme (
@@ -270,23 +172,6 @@ L'organisme ha de tenir una cèl·lula o més
 \begin{DoxyPostcond}{Postcondició}
 Fisiona totes les cèl·lules de l'organisme que no s'hagin fisionat 
 \end{DoxyPostcond}
-
-
-Definició a la línia 31 del fitxer Organisme.\-cpp.
-
-
-\begin{DoxyCode}
-32 \{
-33   \textcolor{keywordflow}{if} (not \hyperlink{class_organisme_acf912225a83570cb68542dcc6709023a}{retallat}) \{
-34         Celula c = \hyperlink{class_organisme_af983d9bfbaf3caf00aaaf26436aab8ff}{cels}.arrel();
-35         \hyperlink{class_arbre}{Arbre<Celula>} a1, a2;
-36         \hyperlink{class_organisme_af983d9bfbaf3caf00aaaf26436aab8ff}{cels}.fills(a1, a2);
-37     \hyperlink{class_organisme_a8dbc9127169717373507ddac7a9c7df9}{estirar\_recursiu}(a1, \hyperlink{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{max\_id}, c, \hyperlink{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{tamany});
-38     \hyperlink{class_organisme_a8dbc9127169717373507ddac7a9c7df9}{estirar\_recursiu}(a2, \hyperlink{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{max\_id}, c, \hyperlink{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{tamany});
-39         \hyperlink{class_organisme_af983d9bfbaf3caf00aaaf26436aab8ff}{cels}.plantar(c, a1, a2);
-40   \}
-41 \}
-\end{DoxyCode}
 \hypertarget{class_organisme_a3db36c1cb9d93f2750fd033b137dc702}{\index{Organisme@{Organisme}!retallar\-\_\-organisme@{retallar\-\_\-organisme}}
 \index{retallar\-\_\-organisme@{retallar\-\_\-organisme}!Organisme@{Organisme}}
 \subsubsection[{retallar\-\_\-organisme}]{\setlength{\rightskip}{0pt plus 5cm}void Organisme\-::retallar\-\_\-organisme (
@@ -304,30 +189,6 @@ L'organisme ha de tenir una cèl·lula o més
 \begin{DoxyPostcond}{Postcondició}
 Totes les cèl·lules que no tenien cap fill han estat eliminades 
 \end{DoxyPostcond}
-
-
-Definició a la línia 61 del fitxer Organisme.\-cpp.
-
-
-\begin{DoxyCode}
-62 \{
-63   \textcolor{keywordflow}{if} (not \hyperlink{class_organisme_ae20564db8d9ba5b7547750375010ed7b}{mort}) \{
-64         \hyperlink{class_organisme_acf912225a83570cb68542dcc6709023a}{retallat} = \textcolor{keyword}{true};
-65         Celula c = \hyperlink{class_organisme_af983d9bfbaf3caf00aaaf26436aab8ff}{cels}.arrel();
-66         \hyperlink{class_arbre}{Arbre<Celula>} a1, a2;
-67         \hyperlink{class_organisme_af983d9bfbaf3caf00aaaf26436aab8ff}{cels}.fills(a1, a2);
-68     \textcolor{keywordflow}{if}(a1.\hyperlink{class_arbre_a68a51f6689f0b2889e8e1d56266fd620}{es\_buit}() and a2.\hyperlink{class_arbre_a68a51f6689f0b2889e8e1d56266fd620}{es\_buit}()) \{
-69       mort = \textcolor{keyword}{true};
-70       \hyperlink{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{tamany} = 0;
-71     \}
-72     \textcolor{keywordflow}{else} \{
-73       \hyperlink{class_organisme_ae6b5820dd264a10c31c052e1870c4e8a}{retallar\_recursiu}(a1, \hyperlink{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{tamany});
-74       \hyperlink{class_organisme_ae6b5820dd264a10c31c052e1870c4e8a}{retallar\_recursiu}(a2, \hyperlink{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{tamany});
-75             \hyperlink{class_organisme_af983d9bfbaf3caf00aaaf26436aab8ff}{cels}.plantar(c, a1, a2);
-76     \}
-77   \}
-78 \}
-\end{DoxyCode}
 \hypertarget{class_organisme_ad2f37457376d9686751e69d45607731b}{\index{Organisme@{Organisme}!reproduir\-\_\-organisme@{reproduir\-\_\-organisme}}
 \index{reproduir\-\_\-organisme@{reproduir\-\_\-organisme}!Organisme@{Organisme}}
 \subsubsection[{reproduir\-\_\-organisme}]{\setlength{\rightskip}{0pt plus 5cm}void Organisme\-::reproduir\-\_\-organisme (
@@ -346,14 +207,6 @@ Modificadora que modifica l'organisme implícit per tal que es converteixi en un
 \begin{DoxyPostcond}{Postcondició}
 L'organisme implícit ha passat a ser un organisme que és fill de 'o1' i 'o2' 
 \end{DoxyPostcond}
-
-
-Definició a la línia 101 del fitxer Organisme.\-cpp.
-
-
-\begin{DoxyCode}
-102 \{\}
-\end{DoxyCode}
 \hypertarget{class_organisme_a4706d097ab7348c9161cc8f8a5052418}{\index{Organisme@{Organisme}!compatibles@{compatibles}}
 \index{compatibles@{compatibles}!Organisme@{Organisme}}
 \subsubsection[{compatibles}]{\setlength{\rightskip}{0pt plus 5cm}bool Organisme\-::compatibles (
@@ -371,22 +224,6 @@ Cert
 \begin{DoxyPostcond}{Postcondició}
 Retorna un booleà que és 'true' si són compatibles i 'false' si no ho són 
 \end{DoxyPostcond}
-
-
-Definició a la línia 109 del fitxer Organisme.\-cpp.
-
-
-\begin{DoxyCode}
-110 \{
-111   \textcolor{keywordtype}{int} comp = (\hyperlink{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{tamany} + o.\hyperlink{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{tamany})/4;
-112 
-113     \hyperlink{class_arbre}{Arbre<Celula>} aA = \hyperlink{class_organisme_af983d9bfbaf3caf00aaaf26436aab8ff}{cels};
-114     \hyperlink{class_arbre}{Arbre<Celula>} aB = o.\hyperlink{class_organisme_af983d9bfbaf3caf00aaaf26436aab8ff}{cels};
-115   \textcolor{comment}{// Variable amb la que es mirarà el tamany de l'intersecció}
-116   \textcolor{keywordtype}{int} intersec = \hyperlink{class_organisme_add0b533b80fa284326cef38f1de3420b}{intersec\_recursiu}(aA, aB);
-117   \textcolor{keywordflow}{return} intersec >= comp;
-118 \}
-\end{DoxyCode}
 \hypertarget{class_organisme_a2232a1a2596db03697e6345fff587621}{\index{Organisme@{Organisme}!consultar\-\_\-tamany@{consultar\-\_\-tamany}}
 \index{consultar\-\_\-tamany@{consultar\-\_\-tamany}!Organisme@{Organisme}}
 \subsubsection[{consultar\-\_\-tamany}]{\setlength{\rightskip}{0pt plus 5cm}int Organisme\-::consultar\-\_\-tamany (
@@ -404,16 +241,6 @@ Cert
 \begin{DoxyPostcond}{Postcondició}
 Retorna un int amb el tamany de l'organisme 
 \end{DoxyPostcond}
-
-
-Definició a la línia 138 del fitxer Organisme.\-cpp.
-
-
-\begin{DoxyCode}
-139 \{
-140   \textcolor{keywordflow}{return} \hyperlink{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{tamany};
-141 \}
-\end{DoxyCode}
 \hypertarget{class_organisme_abe3c4923cc5641e48724312bc298c8a9}{\index{Organisme@{Organisme}!es\-\_\-mort@{es\-\_\-mort}}
 \index{es\-\_\-mort@{es\-\_\-mort}!Organisme@{Organisme}}
 \subsubsection[{es\-\_\-mort}]{\setlength{\rightskip}{0pt plus 5cm}bool Organisme\-::es\-\_\-mort (
@@ -431,16 +258,6 @@ Cert
 \begin{DoxyPostcond}{Postcondició}
 Retorna un booleà que és 'true' si el paràmetre implícit és mort 
 \end{DoxyPostcond}
-
-
-Definició a la línia 143 del fitxer Organisme.\-cpp.
-
-
-\begin{DoxyCode}
-144 \{ 
-145   \textcolor{keywordflow}{return} \hyperlink{class_organisme_ae20564db8d9ba5b7547750375010ed7b}{mort}; 
-146 \}
-\end{DoxyCode}
 \hypertarget{class_organisme_a056a9402130c7081b608838ba9ef2a30}{\index{Organisme@{Organisme}!llegir\-\_\-organisme@{llegir\-\_\-organisme}}
 \index{llegir\-\_\-organisme@{llegir\-\_\-organisme}!Organisme@{Organisme}}
 \subsubsection[{llegir\-\_\-organisme}]{\setlength{\rightskip}{0pt plus 5cm}void Organisme\-::llegir\-\_\-organisme (
@@ -458,14 +275,6 @@ Cert
 \begin{DoxyPostcond}{Postcondició}
 El paràmetre implícit ha passat a ser tal i com se li han donat pel canal estàndard d'entrada. El que hi havia abans en aquest organisme ha estat eliminat. 
 \end{DoxyPostcond}
-
-
-Definició a la línia 152 del fitxer Organisme.\-cpp.
-
-
-\begin{DoxyCode}
-153 \{\}
-\end{DoxyCode}
 \hypertarget{class_organisme_ab359a3109ec7ff96018bbe08d97043cf}{\index{Organisme@{Organisme}!escriure\-\_\-organisme@{escriure\-\_\-organisme}}
 \index{escriure\-\_\-organisme@{escriure\-\_\-organisme}!Organisme@{Organisme}}
 \subsubsection[{escriure\-\_\-organisme}]{\setlength{\rightskip}{0pt plus 5cm}void Organisme\-::escriure\-\_\-organisme (
@@ -485,14 +294,6 @@ Escriu l'arbre que forma l'organisme, no s'escriu si les cèl·lules són active
 \end{DoxyPostcond}
 
 
-Definició a la línia 155 del fitxer Organisme.\-cpp.
-
-
-\begin{DoxyCode}
-156 \{\}
-\end{DoxyCode}
-
-
 \subsection{Documentació de les Dades Membre}
 \hypertarget{class_organisme_af983d9bfbaf3caf00aaaf26436aab8ff}{\index{Organisme@{Organisme}!cels@{cels}}
 \index{cels@{cels}!Organisme@{Organisme}}
@@ -503,18 +304,18 @@ Definició a la línia 155 del fitxer Organisme.\-cpp.
 
 
 
-Definició a la línia 30 del fitxer Organisme.\-hpp.
+Definició a la línia 34 del fitxer Organisme.\-hpp.
 
 \hypertarget{class_organisme_acf912225a83570cb68542dcc6709023a}{\index{Organisme@{Organisme}!retallat@{retallat}}
 \index{retallat@{retallat}!Organisme@{Organisme}}
 \subsubsection[{retallat}]{\setlength{\rightskip}{0pt plus 5cm}bool Organisme\-::retallat\hspace{0.3cm}{\ttfamily [private]}}}\label{class_organisme_acf912225a83570cb68542dcc6709023a}
 
 
-Variable que ens indica si un organisme ha estat retallat. 
+Variable que ens indica si un organisme ha estat retallat 'true' si s'ha retallat 'false' si no s'ha fet. 
 
 
 
-Definició a la línia 33 del fitxer Organisme.\-hpp.
+Definició a la línia 39 del fitxer Organisme.\-hpp.
 
 \hypertarget{class_organisme_a5d30992b5ded1a9314aff94ce9fb3932}{\index{Organisme@{Organisme}!tamany@{tamany}}
 \index{tamany@{tamany}!Organisme@{Organisme}}
@@ -525,7 +326,7 @@ Variable que indica el tamany de l'organisme.
 
 
 
-Definició a la línia 36 del fitxer Organisme.\-hpp.
+Definició a la línia 42 del fitxer Organisme.\-hpp.
 
 \hypertarget{class_organisme_ae7f51a74f01cee155cf88a5b01545f78}{\index{Organisme@{Organisme}!max\-\_\-id@{max\-\_\-id}}
 \index{max\-\_\-id@{max\-\_\-id}!Organisme@{Organisme}}
@@ -536,22 +337,21 @@ Identificador màxim de les cèl·lules de l'organisme.
 
 
 
-Definició a la línia 39 del fitxer Organisme.\-hpp.
+Definició a la línia 45 del fitxer Organisme.\-hpp.
 
 \hypertarget{class_organisme_ae20564db8d9ba5b7547750375010ed7b}{\index{Organisme@{Organisme}!mort@{mort}}
 \index{mort@{mort}!Organisme@{Organisme}}
 \subsubsection[{mort}]{\setlength{\rightskip}{0pt plus 5cm}bool Organisme\-::mort\hspace{0.3cm}{\ttfamily [private]}}}\label{class_organisme_ae20564db8d9ba5b7547750375010ed7b}
 
 
-Variable que ens diu si un organisme és viu o mort. 
+Variable que ens diu si un organisme és viu o mort ('true' si està viu 'false' si no ho està. 
 
 
 
-Definició a la línia 42 del fitxer Organisme.\-hpp.
+Definició a la línia 50 del fitxer Organisme.\-hpp.
 
 
 
-La documentació d'aquesta classe es va generar a partir dels següents fitxers\-:\begin{DoxyCompactItemize}
+La documentació d'aquesta classe es va generar a partir del següent fitxer\-:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{_organisme_8hpp}{Organisme.\-hpp}\item 
-\hyperlink{_organisme_8cpp}{Organisme.\-cpp}\end{DoxyCompactItemize}
+\hyperlink{_organisme_8hpp}{Organisme.\-hpp}\end{DoxyCompactItemize}

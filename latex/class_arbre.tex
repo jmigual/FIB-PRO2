@@ -66,9 +66,9 @@ Definició a la línia 55 del fitxer Arbre.\-hpp.
 
 
 \begin{DoxyCode}
-58   \{
-59     \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= NULL;
-60   \}
+  \{
+    \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= NULL;
+  \}
 \end{DoxyCode}
 \hypertarget{class_arbre_a8f8615c19988334f9b77dc51f44acc6d}{\index{Arbre@{Arbre}!Arbre@{Arbre}}
 \index{Arbre@{Arbre}!Arbre@{Arbre}}
@@ -83,11 +83,11 @@ Definició a la línia 62 del fitxer Arbre.\-hpp.
 
 
 \begin{DoxyCode}
-65   \{
-66     \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != &original)     
-67       \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node} = \hyperlink{class_arbre_a8562c3574c0037eae30a6d04050fb517}{copia\_node\_arbre}(original.
+  \{
+    \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != &original)     
+      \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node} = \hyperlink{class_arbre_a8562c3574c0037eae30a6d04050fb517}{copia\_node\_arbre}(original.
       \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node});
-68   \}
+  \}
 \end{DoxyCode}
 \hypertarget{class_arbre_a13cfb8184d9c43d92584d434243c7b3d}{\index{Arbre@{Arbre}!$\sim$\-Arbre@{$\sim$\-Arbre}}
 \index{$\sim$\-Arbre@{$\sim$\-Arbre}!Arbre@{Arbre}}
@@ -102,9 +102,9 @@ Definició a la línia 70 del fitxer Arbre.\-hpp.
 
 
 \begin{DoxyCode}
-70            \{
-71     \hyperlink{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{esborra\_node\_arbre}(\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node});
-72   \}
+           \{
+    \hyperlink{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{esborra\_node\_arbre}(\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node});
+  \}
 \end{DoxyCode}
 
 
@@ -122,17 +122,17 @@ Definició a la línia 20 del fitxer Arbre.\-hpp.
 
 
 \begin{DoxyCode}
-26   \{
-27     node\_arbre* n;
-28     \textcolor{keywordflow}{if} (m==NULL) n=NULL;
-29     \textcolor{keywordflow}{else} \{
-30       n = \textcolor{keyword}{new} node\_arbre;
-31       n->info = m->info;
-32       n->segE = \hyperlink{class_arbre_a8562c3574c0037eae30a6d04050fb517}{copia\_node\_arbre}(m->segE);
-33       n->segD = \hyperlink{class_arbre_a8562c3574c0037eae30a6d04050fb517}{copia\_node\_arbre}(m->segD);
-34     \}
-35     \textcolor{keywordflow}{return} n;
-36   \}
+  \{
+    node\_arbre* n;
+    \textcolor{keywordflow}{if} (m==NULL) n=NULL;
+    \textcolor{keywordflow}{else} \{
+      n = \textcolor{keyword}{new} node\_arbre;
+      n->info = m->info;
+      n->segE = \hyperlink{class_arbre_a8562c3574c0037eae30a6d04050fb517}{copia\_node\_arbre}(m->segE);
+      n->segD = \hyperlink{class_arbre_a8562c3574c0037eae30a6d04050fb517}{copia\_node\_arbre}(m->segD);
+    \}
+    \textcolor{keywordflow}{return} n;
+  \}
 \end{DoxyCode}
 \hypertarget{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{\index{Arbre@{Arbre}!esborra\-\_\-node\-\_\-arbre@{esborra\-\_\-node\-\_\-arbre}}
 \index{esborra\-\_\-node\-\_\-arbre@{esborra\-\_\-node\-\_\-arbre}!Arbre@{Arbre}}
@@ -147,13 +147,13 @@ Definició a la línia 38 del fitxer Arbre.\-hpp.
 
 
 \begin{DoxyCode}
-43   \{
-44     \textcolor{keywordflow}{if} (m != NULL) \{
-45       \hyperlink{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{esborra\_node\_arbre}(m->segE);
-46       \hyperlink{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{esborra\_node\_arbre}(m->segD);
-47       \textcolor{keyword}{delete} m;
-48     \}
-49   \}
+  \{
+    \textcolor{keywordflow}{if} (m != NULL) \{
+      \hyperlink{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{esborra\_node\_arbre}(m->segE);
+      \hyperlink{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{esborra\_node\_arbre}(m->segD);
+      \textcolor{keyword}{delete} m;
+    \}
+  \}
 \end{DoxyCode}
 \hypertarget{class_arbre_a58314b830f6f3ba0e598e352513a87c5}{\index{Arbre@{Arbre}!operator=@{operator=}}
 \index{operator=@{operator=}!Arbre@{Arbre}}
@@ -168,14 +168,14 @@ Definició a la línia 74 del fitxer Arbre.\-hpp.
 
 
 \begin{DoxyCode}
-74                                           \{
-75     \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != &original) \{
-76       \hyperlink{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{esborra\_node\_arbre}(\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node});
-77       \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node} = \hyperlink{class_arbre_a8562c3574c0037eae30a6d04050fb517}{copia\_node\_arbre}(original.
+                                          \{
+    \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != &original) \{
+      \hyperlink{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{esborra\_node\_arbre}(\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node});
+      \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node} = \hyperlink{class_arbre_a8562c3574c0037eae30a6d04050fb517}{copia\_node\_arbre}(original.
       \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node});
-78     \}
-79     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
-80   \}
+    \}
+    \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+  \}
 \end{DoxyCode}
 \hypertarget{class_arbre_aa74ec0d2b601487b822eb70100330582}{\index{Arbre@{Arbre}!a\-\_\-buit@{a\-\_\-buit}}
 \index{a\-\_\-buit@{a\-\_\-buit}!Arbre@{Arbre}}
@@ -190,10 +190,10 @@ Definició a la línia 82 del fitxer Arbre.\-hpp.
 
 
 \begin{DoxyCode}
-85   \{
-86     \hyperlink{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{esborra\_node\_arbre}(\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node});
-87     \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= NULL;
-88   \}  
+  \{
+    \hyperlink{class_arbre_ab97c98d266a5b8973fe2519c14cf362a}{esborra\_node\_arbre}(\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node});
+    \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= NULL;
+  \}  
 \end{DoxyCode}
 \hypertarget{class_arbre_a931d1c91e9fd6cbe72703a7ba7d40415}{\index{Arbre@{Arbre}!swap@{swap}}
 \index{swap@{swap}!Arbre@{Arbre}}
@@ -208,12 +208,12 @@ Definició a la línia 90 del fitxer Arbre.\-hpp.
 
 
 \begin{DoxyCode}
-93   \{
-94     node\_arbre* aux;
-95     aux = a.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node};
-96     a.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node} = \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node};
-97     \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node} = aux;
-98   \}
+  \{
+    node\_arbre* aux;
+    aux = a.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node};
+    a.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node} = \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node};
+    \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node} = aux;
+  \}
 \end{DoxyCode}
 \hypertarget{class_arbre_a806d45f6f1d3a9dd357563979186f721}{\index{Arbre@{Arbre}!plantar@{plantar}}
 \index{plantar@{plantar}!Arbre@{Arbre}}
@@ -230,26 +230,28 @@ Definició a la línia 100 del fitxer Arbre.\-hpp.
 
 
 \begin{DoxyCode}
-105   \{
-106     \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != &a1 and \textcolor{keyword}{this} != &a2) \{
-107       \textcolor{keywordflow}{if} (\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}==NULL) \{
-108         node\_arbre* aux;
-109         aux= \textcolor{keyword}{new} node\_arbre;
-110         aux->info= x;
-111         aux->segE= a1.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node};
-112         \textcolor{keywordflow}{if} (a1.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node} == a2.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}) aux->\hyperlink{struct_arbre_1_1node__arbre_a9986e206810ba9e519b5b6e590238093}{segD}= 
-      \hyperlink{class_arbre_a8562c3574c0037eae30a6d04050fb517}{copia\_node\_arbre}(a1.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node});
-113         \textcolor{keywordflow}{else}  aux->segD= a2.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node};
-114         \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= aux;
-115         a1.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= NULL;
-116         a2.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= NULL;
-117       \}
-118       \textcolor{keywordflow}{else}
-119         \textcolor{keywordflow}{throw} \hyperlink{class_p_r_o2_excepcio}{PRO2Excepcio} (\textcolor{stringliteral}{"El p.i. de plantar ha de ser buit a la crida"});
-120     \}
-121     \textcolor{keywordflow}{else}
-122       \textcolor{keywordflow}{throw} \hyperlink{class_p_r_o2_excepcio}{PRO2Excepcio} (\textcolor{stringliteral}{"El p.i. de plantar no pot coincidir amb els paràmetres"});    
-123   \}
+  \{
+    \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != &a1 and \textcolor{keyword}{this} != &a2) \{
+      \textcolor{keywordflow}{if} (\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}==NULL) \{
+        node\_arbre* aux;
+        aux= \textcolor{keyword}{new} node\_arbre;
+        aux->info= x;
+        aux->segE= a1.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node};
+        \textcolor{keywordflow}{if} (a1.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node} == a2.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}) aux->\hyperlink{struct_arbre_1_1node__arbre_a9986e206810ba9e519b5b6e590238093}{segD}
+      = \hyperlink{class_arbre_a8562c3574c0037eae30a6d04050fb517}{copia\_node\_arbre}(a1.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node});
+        \textcolor{keywordflow}{else}  aux->segD= a2.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node};
+        \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= aux;
+        a1.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= NULL;
+        a2.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= NULL;
+      \}
+      \textcolor{keywordflow}{else}
+        \textcolor{keywordflow}{throw} \hyperlink{class_p_r_o2_excepcio}{PRO2Excepcio} (\textcolor{stringliteral}{"El p.i. de plantar ha de ser buit a la
+       crida"});
+    \}
+    \textcolor{keywordflow}{else}
+      \textcolor{keywordflow}{throw} \hyperlink{class_p_r_o2_excepcio}{PRO2Excepcio} (\textcolor{stringliteral}{"El p.i. de plantar no pot coincidir amb
+       els paràmetres"});    
+  \}
 \end{DoxyCode}
 \hypertarget{class_arbre_aee75355cee7599e132de75781d26a61d}{\index{Arbre@{Arbre}!fills@{fills}}
 \index{fills@{fills}!Arbre@{Arbre}}
@@ -265,27 +267,27 @@ Definició a la línia 126 del fitxer Arbre.\-hpp.
 
 
 \begin{DoxyCode}
-130   \{
-131     \textcolor{keywordflow}{if} (\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}!=NULL and fe.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}==NULL
-132         and fd.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}==NULL) \{
-133       \textcolor{keywordflow}{if} (&fe != &fd) \{       
-134         node\_arbre* aux;
-135         aux= \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node};
-136         fe.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= aux->\hyperlink{struct_arbre_1_1node__arbre_add2e7f2ee789db9f38a3bf2d2dd36972}{segE};
-137         fd.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= aux->\hyperlink{struct_arbre_1_1node__arbre_a9986e206810ba9e519b5b6e590238093}{segD};
-138         \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= NULL;
-139         \textcolor{keyword}{delete} aux;
-140       \}
-141       \textcolor{keywordflow}{else} 
-142         \textcolor{keywordflow}{throw} \hyperlink{class_p_r_o2_excepcio}{PRO2Excepcio} 
-143               (\textcolor{stringliteral}{"Els dos paràmetres de fills no poden coincidir"});      
-144     \}
-145     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}==NULL)
-146       \textcolor{keywordflow}{throw} \hyperlink{class_p_r_o2_excepcio}{PRO2Excepcio} (\textcolor{stringliteral}{"Un arbre buit no té fills"});
-147     \textcolor{keywordflow}{else}   
-148       \textcolor{keywordflow}{throw} \hyperlink{class_p_r_o2_excepcio}{PRO2Excepcio} 
-149         (\textcolor{stringliteral}{"Els dos paràmetres de fills han de ser buits a la crida"});  
-150   \}
+  \{
+    \textcolor{keywordflow}{if} (\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}!=NULL and fe.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}==NULL
+        and fd.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}==NULL) \{
+      \textcolor{keywordflow}{if} (&fe != &fd) \{       
+        node\_arbre* aux;
+        aux= \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node};
+        fe.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= aux->\hyperlink{struct_arbre_1_1node__arbre_add2e7f2ee789db9f38a3bf2d2dd36972}{segE};
+        fd.\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= aux->\hyperlink{struct_arbre_1_1node__arbre_a9986e206810ba9e519b5b6e590238093}{segD};
+        \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}= NULL;
+        \textcolor{keyword}{delete} aux;
+      \}
+      \textcolor{keywordflow}{else} 
+        \textcolor{keywordflow}{throw} \hyperlink{class_p_r_o2_excepcio}{PRO2Excepcio} 
+              (\textcolor{stringliteral}{"Els dos paràmetres de fills no poden coincidir"});      
+    \}
+    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}==NULL)
+      \textcolor{keywordflow}{throw} \hyperlink{class_p_r_o2_excepcio}{PRO2Excepcio} (\textcolor{stringliteral}{"Un arbre buit no té fills"});
+    \textcolor{keywordflow}{else}   
+      \textcolor{keywordflow}{throw} \hyperlink{class_p_r_o2_excepcio}{PRO2Excepcio} 
+        (\textcolor{stringliteral}{"Els dos paràmetres de fills han de ser buits a la crida"});  
+  \}
 \end{DoxyCode}
 \hypertarget{class_arbre_aa6e2559ead7dfceda962cff11fb1a15c}{\index{Arbre@{Arbre}!arrel@{arrel}}
 \index{arrel@{arrel}!Arbre@{Arbre}}
@@ -300,12 +302,12 @@ Definició a la línia 152 del fitxer Arbre.\-hpp.
 
 
 \begin{DoxyCode}
-155   \{
-156     \textcolor{keywordflow}{if} (\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}!=NULL)
-157       \textcolor{keywordflow}{return} \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}->\hyperlink{struct_arbre_1_1node__arbre_a5a146e5e27a7a6c5f54bc6df864595aa}{info};    
-158     \textcolor{keywordflow}{else}
-159       \textcolor{keywordflow}{throw} \hyperlink{class_p_r_o2_excepcio}{PRO2Excepcio} (\textcolor{stringliteral}{"Un arbre buit no té arrel"});
-160   \}
+  \{
+    \textcolor{keywordflow}{if} (\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}!=NULL)
+      \textcolor{keywordflow}{return} \hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}->\hyperlink{struct_arbre_1_1node__arbre_a5a146e5e27a7a6c5f54bc6df864595aa}{info};    
+    \textcolor{keywordflow}{else}
+      \textcolor{keywordflow}{throw} \hyperlink{class_p_r_o2_excepcio}{PRO2Excepcio} (\textcolor{stringliteral}{"Un arbre buit no té arrel"});
+  \}
 \end{DoxyCode}
 \hypertarget{class_arbre_a68a51f6689f0b2889e8e1d56266fd620}{\index{Arbre@{Arbre}!es\-\_\-buit@{es\-\_\-buit}}
 \index{es\-\_\-buit@{es\-\_\-buit}!Arbre@{Arbre}}
@@ -320,9 +322,9 @@ Definició a la línia 162 del fitxer Arbre.\-hpp.
 
 
 \begin{DoxyCode}
-165   \{
-166     \textcolor{keywordflow}{return} (\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}==NULL);
-167   \}
+  \{
+    \textcolor{keywordflow}{return} (\hyperlink{class_arbre_a62818cdde6c1912a7c9a15db3b93d297}{primer\_node}==NULL);
+  \}
 \end{DoxyCode}
 
 
