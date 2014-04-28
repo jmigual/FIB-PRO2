@@ -98,9 +98,9 @@ public:
 	void estirar_organisme();
 
 	/** @brief Modificadora que elimina totes les cèl·lules que no tenen cap
-			   fill
-		\pre L'organisme ha de tenir una cèl·lula o més
-		\post Totes les cèl·lules que no tenien cap fill han estat eliminades
+	 *  fill
+	 *  \pre L'organisme ha de tenir una cèl·lula o més
+	 *  \post Totes les cèl·lules que no tenien cap fill han estat eliminades
 	*/
 	void retallar_organisme();
 

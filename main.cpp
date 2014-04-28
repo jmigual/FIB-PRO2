@@ -9,7 +9,7 @@
 	@brief Programa principal per a la pràctica
 */
 
-#include <iostream>
+#include "utils.PRO2"
 #include "Organisme.hpp"
 #include "ConjuntOrg.hpp"
 #include "Ranking.hpp"
