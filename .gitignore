@@ -68,5 +68,7 @@ Makefile*
 # QtCreator
 
 *.autosave
+*.user
+
 \latex
 \html
