@@ -29,8 +29,10 @@
 .js
 
 # Project files
-*.creator
-*.user
-*.config
-*.sublime-workspace
-*.sublime-project
+.creator
+.user
+.config
+.sublime-workspace
+.sublime-project
+\latex
+\html
