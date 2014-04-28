@@ -1,3 +1,6 @@
+# Created by http://www.gitignore.io
+
+### C++ ###
 # Compiled Object files
 *.slo
 *.lo
@@ -20,19 +23,50 @@
 *.out
 *.app
 
-# Document files
-.html
-.map
-.md5
-.png
-.css
-.js
 
-# Project files
-.creator
-.user
-.config
-.sublime-workspace
-.sublime-project
+### DotSettings ###
+*.DotSettings
+
+### SublimeText ###
+# workspace files are user-specific
+*.sublime-workspace
+
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+# *.sublime-project
+
+#sftp configuration file
+sftp-config.json
+
+
+### Qt ###
+# C++ objects and libs
+
+*.slo
+*.lo
+*.o
+*.a
+*.la
+*.lai
+*.so
+*.dll
+*.dylib
+
+# Qt-es
+
+/.qmake.cache
+/.qmake.stash
+*.pro.user
+*.pro.user.*
+*.moc
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+Makefile*
+*-build-*
+
+# QtCreator
+
+*.autosave
 \latex
 \html
