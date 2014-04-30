@@ -90,16 +90,14 @@ void Organisme::retallar_recursiu(Arbre<Celula> &a, int &tam)
 		a.fills(a1, a2);
 
 		// Si algun dels dos fills no està buit vol dir que la cèl·lula encara
-		// no s'ha d'eliminar. Si ja no té cap fill no tornem a plantar
+        // no s'ha d'eliminar. Si ja no té cap fill no tornem a plantar
         // l'arbre i haurem eliminat la cèl·lula.
 		if(not(a1.es_buit() and a2.es_buit())) {
 			retallar_recursiu(a1, tam);
 			retallar_recursiu(a2, tam);
 			a.plantar(c, a1, a2);
 		}
-		else {
-			--tam;
-		}
+		else --tam;
 	}
 }
 

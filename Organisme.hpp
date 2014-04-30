@@ -79,9 +79,24 @@ private:
     static void reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1, 
                           Arbre<Celula> &a2, int &max_id, int &tamany);
     
+    /** @brief Funció que busca si hi ha una cèl·lula activa a l'arbre 'a' i 
+     *  si la troba l'afegeix a 'cels' incrementant max_id en el procés de
+     *  fer-ho i tamany, per conectar la cèl·lula ho fa mitjançant les que 
+     *  hi hagi pel camí, siguin actives o passives.
+     *  \pre max_id i tamany són enters majors que 0
+     *  \post Les cèl·lules actives de l'arbre 'a' han estat afegides a
+     *  l'arbre 'cels' en la mateixa posició i també s'ha incrementat 'max_id'
+     *  i 'tamany'.
+     */
     static void busca_activa_gran(Arbre<Celula> &cels, Arbre<Celula> &a,
                                   int &max_id, int &tamany);
-    
+    /** @brief Funció que busca si hi ha una cèl·lula activa a l'arbre 'a' i 
+     *  si la troba l'afegeix a 'cels' conectant-la amb les cèl·lules que
+     *  siguin necessàries siguin passives o actives.
+     *  \pre Tamany és un enter major que 0
+     *  \post Si 'a' conté una cèl·lula activa, aquesta ha passat a formar
+     *  part de 'cels' en la mateixa posició en la que ho està a 'a'
+     */
     static void busca_activa_petit(Arbre<Celula> &cels, Arbre<Celula> &a,
                                    int &tamany);
 
