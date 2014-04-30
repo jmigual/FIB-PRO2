@@ -68,7 +68,16 @@ private:
 	 *  \post Retorna el nombre d'elements de l'arbre resultant de la
 	 *  intersecció dels dos arbres 'a1' i 'a2'
 	 */
-	static int intersec_recursiu(Arbre<Celula> &a1, Arbre<Celula> &a2);
+	static int tam_intersec_recursiu(Arbre<Celula> &a1, Arbre<Celula> &a2);
+    
+    /** @brief Funció que afegeix l'arbre intersecció de dos arbres de
+     *  organismes a l'àrbre 'cels'
+     *  \pre Cert
+     *  \post L'arbre cels ha passat a tenir la intersecció dels arbres dels
+     *  dos organismes
+     */
+    static void reproduir(Arbre<Celula> cels, Arbre<Celula> &a1, 
+                          Arbre<Celula> &a2, int &max_id);
 
 public: 
     /***********************
@@ -107,7 +116,8 @@ public:
     /** @brief Modificadora que modifica l'organisme implícit per tal que
      *  es converteixi en un fill dels altres dos organismes
      *  \pre 'o1' i 'o2' han de ser dos organismes que no estiguin morts i
-     *  han de ser compatibles entre ells
+     *  han de ser compatibles entre ells, l'id de 'o1' és més
+     *  petit que l'id de 'o2'
      *  \post L'organisme implícit ha passat a ser un organisme que és fill
      *  de 'o1' i 'o2'
      */

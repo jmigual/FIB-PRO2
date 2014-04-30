@@ -41,12 +41,15 @@ void Organisme::estirar_organisme()
 }
 
 void Organisme::estirar_recursiu(Arbre<Celula> &a, int &max_id, Celula c,
-int &tam) 
+                                 int &tam) 
 {
     Arbre<Celula> a1, a2;
     if (a.es_buit()) {
         ++max_id;
         ++tam;
+        
+        c.id = max_id;
+        
         a.plantar(c, a1, a2);
     }
     else {
@@ -62,9 +65,11 @@ void Organisme::retallar_organisme()
 {
 	if (not mort) {
         retallat = true;
+        
         Celula c = cels.arrel();
         Arbre<Celula> a1, a2;
         cels.fills(a1, a2);
+        
 		if(a1.es_buit() and a2.es_buit()) {
 			mort = true;
 			tamany = 0;
@@ -99,7 +104,44 @@ void Organisme::retallar_recursiu(Arbre<Celula> &a, int &tam)
 }
 
 void Organisme::reproduir_organisme(const Organisme &o1, const Organisme &o2)
-{}
+{
+    Arbre<Celula> a1 = o1.cels;
+    Arbre<Celula> a2 = o2.cels;
+    
+    max_id = o1.max_id;
+    
+    // Primer fem la intersecció
+    reproduir(cels, a1, a2, max_1, max_id);
+    
+}
+
+void Organisme::reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1,
+                          Arbre<Celula> &a2, int &max_1, int &max_id) 
+{
+    if(not(a1.es_buit()) and not(a2.es_buit())) {
+        Celula c = a1.arrel();
+        
+        if(c.activa or a2.arrel().activa) c.activa = true;
+        else c.activa = false;
+        
+        Arbre<Celula> cels_e, cels_d;
+        Arbre<Celula> a1_e, a1_d, a2_e, a2_d;
+        
+        a1.fills(a1_e, a1_d);
+        a2.fills(a2_e, a2_d);
+        
+        reproduir(cels_e, a1_e, a2_e, max_id);
+        reproduir(cels_d, a1_d, a2_d, max_id);
+        cels.plantar(c, cels_e, cels_d);
+    }
+    else if (a1.es_buit() and not(a2.es_buit())) {
+        Arbre<Celula> cels_e, cels_d;
+        Arbre<Celula> a2_e, a2_d;
+        
+        a2.fills(a2_e, a2_d);
+        if (hi_ha_activa(cels_e, a2_e, max_id))
+    }
+}
 
 
 /*********************
@@ -112,12 +154,11 @@ bool Organisme::compatibles(const Organisme &o) const
 
     Arbre<Celula> aA = cels;
     Arbre<Celula> aB = o.cels;
-	// Variable amb la que es mirarà el tamany de l'intersecció
-	int intersec = intersec_recursiu(aA, aB);
-	return intersec >= comp;
+    
+    return (tam_intersec_recursiu(aA, aB) >= comp);
 }
 
-int Organisme::intersec_recursiu(Arbre<Celula> &aA, Arbre<Celula> &aB)
+int Organisme::tam_intersec_recursiu(Arbre<Celula> &aA, Arbre<Celula> &aB)
 {
 	int res = 0;
 

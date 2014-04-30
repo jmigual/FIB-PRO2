@@ -73,8 +73,13 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
                 if(V[i].compatibles(V[j])) 
                 {
                     Organisme o;
-                    o.reproduir_organisme(V[i], V[j]);
-                    if (tamany < V.size()) 
+                    
+                    // Tenim en compte que vagi l'identificador petit primer
+                    if (i < j) o.reproduir_organisme(V[i], V[j]);
+                    else o.reproduir_organisme(V[j], V[i]);
+                    
+                    // Comprovem que hi cap el nou organisme
+                    if (tamany < int(V.size())) 
                     {
                         Rank.afegir_fill(i, j, tamany);
                         V[tamany] = o;
