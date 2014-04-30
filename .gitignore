@@ -62,7 +62,6 @@ sftp-config.json
 moc_*.cpp
 qrc_*.cpp
 ui_*.h
-Makefile*
 *-build-*
 
 # QtCreator
