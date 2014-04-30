@@ -76,8 +76,14 @@ private:
      *  \post L'arbre cels ha passat a tenir la intersecció dels arbres dels
      *  dos organismes
      */
-    static void reproduir(Arbre<Celula> cels, Arbre<Celula> &a1, 
-                          Arbre<Celula> &a2, int &max_id);
+    static void reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1, 
+                          Arbre<Celula> &a2, int &max_id, int &tamany);
+    
+    static void busca_activa_gran(Arbre<Celula> &cels, Arbre<Celula> &a,
+                                  int &max_id, int &tamany);
+    
+    static void busca_activa_petit(Arbre<Celula> &cels, Arbre<Celula> &a,
+                                   int &tamany);
 
 public: 
     /***********************

@@ -111,12 +111,13 @@ void Organisme::reproduir_organisme(const Organisme &o1, const Organisme &o2)
     max_id = o1.max_id;
     
     // Primer fem la intersecció
-    reproduir(cels, a1, a2, max_1, max_id);
+    reproduir(cels, a1, a2, max_id, tamany);
+    
     
 }
 
 void Organisme::reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1,
-                          Arbre<Celula> &a2, int &max_1, int &max_id) 
+                          Arbre<Celula> &a2, int &max_id, int &tamany) 
 {
     if(not(a1.es_buit()) and not(a2.es_buit())) {
         Celula c = a1.arrel();
@@ -130,19 +131,87 @@ void Organisme::reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1,
         a1.fills(a1_e, a1_d);
         a2.fills(a2_e, a2_d);
         
-        reproduir(cels_e, a1_e, a2_e, max_id);
-        reproduir(cels_d, a1_d, a2_d, max_id);
+        reproduir(cels_e, a1_e, a2_e, max_id, tamany);
+        reproduir(cels_d, a1_d, a2_d, max_id, tamany);
         cels.plantar(c, cels_e, cels_d);
+        ++tamany;
     }
     else if (a1.es_buit() and not(a2.es_buit())) {
-        Arbre<Celula> cels_e, cels_d;
-        Arbre<Celula> a2_e, a2_d;
-        
-        a2.fills(a2_e, a2_d);
-        if (hi_ha_activa(cels_e, a2_e, max_id))
+        ++max_id;
+        busca_activa_gran(cels, a2, max_id, tamany);
+        if (cels.es_buit()) --max_id;
+    }
+    else if (not(a1.es_buit()) and a2.es_buit()) {
+        busca_activa_petit(cels, a1, tamany);
     }
 }
 
+void Organisme::busca_activa_gran(Arbre<Celula> &cels, Arbre<Celula> &a,
+                                  int &max_id, int &tamany)
+{
+    if (not a.es_buit()) {
+        Celula c = a.arrel();
+        Arbre<Celula> a_e, a_d;
+        
+        a.fills(a_e, a_d);
+        
+        if (a_e.es_buit() and a_d.es_buit()) {
+            if (c.activa) {
+                ++tamany;
+                c.id = max_id;
+                cels.plantar(c, a_e, a_d);
+            }
+        }
+        else {
+            Arbre<Celula> cels_e, cels_d;
+            
+            ++max_id;
+            busca_activa_gran(cels_e, a_e, max_id, tamany);
+            if (cels_e.es_buit()) --max_id;
+            
+            ++max_id;
+            busca_activa_gran(cels_d, a_d, max_id, tamany);
+            if (cels_d.es_buit()) --max_id;
+            
+            if (c.activa or not(cels_e.es_buit()) or not(cels_d.es_buit())) {
+                ++tamany;
+                
+                c.id = max_id;
+                cels.plantar(c, cels_e, cels_d);
+            }
+        }
+    }
+}
+
+void Organisme::busca_activa_petit(Arbre<Celula> &cels, Arbre<Celula> &a, 
+                                   int &tamany)
+{
+    if (not(a.es_buit())) {
+        Celula c = a.arrel();
+        Arbre<Celula> a_e, a_d;
+        
+        a.fills(a_e, a_d);
+        
+        if (a_e.es_buit() and a_d.es_buit()) {
+            if (c.activa) {
+                ++tamany;
+                cels.plantar(c, a_e, a_d);
+            }
+        }
+        else {
+            Arbre<Celula> cels_e, cels_d;
+            
+            busca_activa_petit(cels_e, a_e, tamany);
+            busca_activa_petit(cels_d, a_d, tamany);
+            
+            if (c.activa or not(cels_e.es_buit()) or not(cels_d.es_buit())) {
+                ++tamany;
+                
+                cels.plantar(c, cels_e, cels_d);
+            }
+        }
+    }
+}
 
 /*********************
  *    CONSULTORES    *
@@ -158,20 +227,20 @@ bool Organisme::compatibles(const Organisme &o) const
     return (tam_intersec_recursiu(aA, aB) >= comp);
 }
 
-int Organisme::tam_intersec_recursiu(Arbre<Celula> &aA, Arbre<Celula> &aB)
+int Organisme::tam_intersec_recursiu(Arbre<Celula> &a1, Arbre<Celula> &a2)
 {
 	int res = 0;
 
     // Evaluem per cada branca de l'arbre, si hi ha una arrel sumem 1
 	// com que ho fem recursivament tots els resultats es van sumant fins
 	// a obtenir el resultat de la intersecció
-	if(not(aA.es_buit()) and not(aB.es_buit())) {
+	if(not(a1.es_buit()) and not(a1.es_buit())) {
 		++res;
-        Arbre<Celula> aA1, aA2, aB1, aB2;
-		aA.fills(aA1, aA2);
-		aB.fills(aB1, aB2);
-		res += intersec_recursiu(aA1, aB1);
-		res += intersec_recursiu(aA2, aB2);
+        Arbre<Celula> a1_e, a1_d, a2_e, a2_d;
+		a1.fills(a1_e, a1_d);
+		a2.fills(a2_e, a2_d);
+		res += tam_intersec_recursiu(a1_e, a2_e);
+		res += tam_intersec_recursiu(a1_d, a2_d);
 	}
 	return res;
 }
