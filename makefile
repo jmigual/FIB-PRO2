@@ -8,7 +8,7 @@ all: main.o Organisme.o ConjuntOrg.o Ranking.o
 	g++ -o main.exe main.o Organisme.o ConjuntOrg.o Ranking.o
 
 #Programa principal
-main.o: main.cpp Arbre.hpp Organisme.hpp ConjuntOrg.hpp
+main.o: main.cpp Arbre.hpp Organisme.hpp ConjuntOrg.hpp Ranking.hpp
 	g++ $(flags) main.cpp
 
 #Classes necesàries
@@ -21,6 +21,17 @@ ConjuntOrg.o: ConjuntOrg.hpp ConjuntOrg.cpp Organisme.hpp
 Ranking.o: Ranking.hpp Ranking.cpp
 	g++ $(flags) Ranking.cpp
 
+##################################
+#Versió per provar coses
+
+prova: prova.o Organisme.o ConjuntOrg.o Ranking.o
+	g++ -o prova.exe prova.o Organisme.o ConjuntOrg.o Ranking.o
+
+prova.o: prova.cpp Arbre.hpp Organisme.hpp ConjuntOrg.hpp Ranking.hpp
+	g++ $(flags) prova.cpp
+
+##################################
+#Netejem tots els arxius creats
 clean:
 	rm *.o
 	rm *.exe
