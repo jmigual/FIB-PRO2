@@ -99,6 +99,23 @@ private:
      */
     static void busca_activa_petit(Arbre<Celula> &cels, Arbre<Celula> &a,
                                    int &tamany);
+    
+    /** @brief Funció recursiva que ens permetrà llegir l'arbre de cèl·lules
+     *  d'un organisme.
+     *  \pre A marca hi ha un enter que ens dona una marca per saber quan
+     *  s'acaba la introducció de dades. Al canal estàndard d'entrada hi ha
+     *  totes les cèl·lules que es volen introduir a l'arbre en preordre.
+     *  \post 'cels' ha passat a estar tal i com s'ha especificat pel canal
+     *  estàndard d'entrada.
+     */
+    static void llegir_rec(Arbre<Celula> &cels, int marca, int &max_id);
+    
+    /** @brief Funció recursiva que escriurà un arbre de forma recursiva
+     *  \pre Cert
+     *  \post L'arbre 'cels' s'ha escrit pel canal estàndard de sortida en 
+     *  preordre
+     */
+    static void escriure_rec(Arbre<Celula> &cels);
 
 public: 
     /***********************
@@ -174,12 +191,13 @@ public:
      ***************************/
 
     /**	@brief Funció per llegir un organisme
-     *  \pre Cert
+     *  \pre A la variable 'marca' es passa la marca que s'utilitzarà per
+     *  saber el final de l'entrada
      *  \post El paràmetre implícit ha passat a ser tal i com se li han donat
      *  pel canal estàndard d'entrada. El que hi havia abans en aquest
      *  organisme ha estat eliminat.
      */
-	void llegir_organisme();
+	void llegir_organisme(int marca);
 
     /** @brief Funció per escriure un organisme
      *  \pre L'organisme no ha d'estar mort

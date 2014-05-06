@@ -257,8 +257,55 @@ bool Organisme::es_mort() const
  *    ENTRADA / SORTIDA    *
  ***************************/
 
-void Organisme::llegir_organisme()
-{}
+void Organisme::llegir_organisme(int marca)
+{
+    cels.a_buit();
+    llegir_rec(cels, marca, max_id);
+}
+
+void Organisme::llegir_rec(Arbre<Celula> &cels, int marca, int &max_id)
+{
+    int x = readint();
+    bool activa = true;//readbool();
+    
+    if (x != marca) {
+        if (x > max_id) max_id = x;
+        
+        Arbre<Celula> a_e, a_d;
+        
+        llegir_rec(a_e, marca, max_id);
+        llegir_rec(a_d, marca, max_id);
+        
+        Celula c;
+        c.id = x;
+        c.activa = activa;
+        
+        cels.plantar(c, a_e, a_d);
+    }
+    
+}
 
 void Organisme::escriure_organisme() const
-{}
+{
+    Arbre<Celula> a = cels;
+    escriure_rec(a);
+}
+
+void Organisme::escriure_rec(Arbre<Celula> &cels)
+{
+    if (not cels.es_buit()) {
+        Celula c = cels.arrel();
+        
+        cout << c.id << " ";
+        if (c.activa) cout << "true";
+        else cout << "false";
+        cout << endl;
+        
+        Arbre<Celula> a_e, a_d;
+        
+        cels.fills(a_e, a_d);
+        cout << "------------" << endl;
+        escriure_rec(a_e);
+        escriure_rec(a_d);
+    }    
+}
