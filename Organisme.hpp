@@ -44,11 +44,6 @@ private:
 	/**	@brief Identificador màxim de les cèl·lules de l'organisme */
 	int max_id;
 
-	/**	@brief Variable que ens diu si un organisme és viu o mort ('true' si
-	 *  està viu 'false' si no ho està.
-     */
-	bool mort;
-
     /**	@brief Funció recursiva per estirar un organisme
      *  \pre 'c' és una cèl·lula vàlida, max_id està inicialitzat i no
      *  \post Totes les cèl·lules que no s'havien dividit s'han dividit
@@ -108,10 +103,11 @@ private:
      *  \post 'cels' ha passat a estar tal i com s'ha especificat pel canal
      *  estàndard d'entrada.
      */
-    static void llegir_rec(Arbre<Celula> &cels, int marca, int &max_id);
+    static void llegir_rec(Arbre<Celula> &cels, int marca, int &max_id,
+                           int &tamany);
     
     /** @brief Funció recursiva que escriurà un arbre de forma recursiva
-     *  \pre Cert
+     *  \pre 'cels' no és un arbre buit.
      *  \post L'arbre 'cels' s'ha escrit pel canal estàndard de sortida en 
      *  preordre
      */

@@ -9,16 +9,10 @@
 
 Organisme::Organisme() 
 {
-    Arbre<Celula> a1, a2;
-    Celula c;
-    c.id = 1;
-    c.activa = true;
-    tamany = 1;
-    max_id = 1;
-	mort = false;
+    tamany = 0;
+    max_id = 0;
     retallat = false;
-
-    cels.plantar(c, a1, a2);
+    cels.a_buit();
 }
 
 Organisme::~Organisme() {}
@@ -63,17 +57,14 @@ void Organisme::estirar_recursiu(Arbre<Celula> &a, int &max_id, Celula c,
 
 void Organisme::retallar_organisme() 
 {
-	if (not mort) {
+	if (tamany != 0) {
         retallat = true;
         
         Celula c = cels.arrel();
         Arbre<Celula> a1, a2;
         cels.fills(a1, a2);
         
-		if(a1.es_buit() and a2.es_buit()) {
-			mort = true;
-			tamany = 0;
-		}
+		if(a1.es_buit() and a2.es_buit()) tamany = 0;
 		else {
 			retallar_recursiu(a1, tamany);
 			retallar_recursiu(a2, tamany);
@@ -250,7 +241,7 @@ int Organisme::consultar_tamany() const
 
 bool Organisme::es_mort() const 
 { 
-	return mort; 
+	return (tamany == 0); 
 }
 
 /***************************
@@ -260,21 +251,24 @@ bool Organisme::es_mort() const
 void Organisme::llegir_organisme(int marca)
 {
     cels.a_buit();
-    llegir_rec(cels, marca, max_id);
+    llegir_rec(cels, marca, max_id, tamany);
 }
 
-void Organisme::llegir_rec(Arbre<Celula> &cels, int marca, int &max_id)
+void Organisme::llegir_rec(Arbre<Celula> &cels, int marca, int &max_id,
+                           int &tamany)
 {
     int x = readint();
-    bool activa = true;//readbool();
     
     if (x != marca) {
+        bool activa = readbool();
+        
+        ++tamany;
         if (x > max_id) max_id = x;
         
         Arbre<Celula> a_e, a_d;
         
-        llegir_rec(a_e, marca, max_id);
-        llegir_rec(a_d, marca, max_id);
+        llegir_rec(a_e, marca, max_id, tamany);
+        llegir_rec(a_d, marca, max_id, tamany);
         
         Celula c;
         c.id = x;
@@ -287,25 +281,26 @@ void Organisme::llegir_rec(Arbre<Celula> &cels, int marca, int &max_id)
 
 void Organisme::escriure_organisme() const
 {
-    Arbre<Celula> a = cels;
-    escriure_rec(a);
+    if (cels.es_buit()) cout << "L'organisme és mort" << endl;
+    else {
+        Arbre<Celula> a = cels;
+        escriure_rec(a);
+    }
 }
 
 void Organisme::escriure_rec(Arbre<Celula> &cels)
 {
-    if (not cels.es_buit()) {
-        Celula c = cels.arrel();
+    Celula c = cels.arrel();
         
-        cout << c.id << " ";
-        if (c.activa) cout << "true";
-        else cout << "false";
-        cout << endl;
-        
-        Arbre<Celula> a_e, a_d;
-        
-        cels.fills(a_e, a_d);
-        cout << "------------" << endl;
-        escriure_rec(a_e);
-        escriure_rec(a_d);
-    }    
+    cout << c.id << " ";
+    if (c.activa) cout << "true";
+    else cout << "false";
+    cout << endl;
+    
+    Arbre<Celula> a_e, a_d;
+    
+    cels.fills(a_e, a_d);
+    
+    if (not a_e.es_buit()) escriure_rec(a_e);
+    if (not a_d.es_buit()) escriure_rec(a_d);   
 }
