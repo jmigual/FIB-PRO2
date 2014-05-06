@@ -250,8 +250,8 @@ bool Organisme::es_mort() const
 
 void Organisme::llegir_organisme(int marca)
 {
-    cels.a_buit();
-    llegir_rec(cels, marca, max_id, tamany);
+    if (not cels.es_buit()) cout << "L'organisme no és buit!" << endl;
+    else llegir_rec(cels, marca, max_id, tamany);
 }
 
 void Organisme::llegir_rec(Arbre<Celula> &cels, int marca, int &max_id,
