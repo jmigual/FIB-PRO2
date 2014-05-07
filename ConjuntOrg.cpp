@@ -120,8 +120,12 @@ void ConjuntOrg::escriure_ultims(int n)
     }
 }
 
-void ConjuntOrg::llegir()
-{}
+void ConjuntOrg::llegir(int N, int marca)
+{
+    for (int i = 0; i< N; ++i) {
+        V[i].llegir_organisme(marca);
+    }
+}
 
 void ConjuntOrg::estat(int p) const
 {

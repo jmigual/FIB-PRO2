@@ -15,10 +15,13 @@
 #include "Ranking.hpp"
 using namespace std;
 
-/** @brief Marca que utilitzarem per saber quan s'acaba la introducció de 
- *  dades, de moment utilitzem '-1' perquè no sabem exàctament com serà
+/** @brief Marca que utilitzarem per saber quan s'acaba l'experiment */
+#define MARCA -6
+
+/** @brief Marca que s'utilitzarà per saber quan acaba un arbre a l'hora
+ *  d'introduir l'arbre d'un organisme
  */
-#define MARCA -1
+#define MARCA_ORG 0
 
 /**	@brief Programa principal de la <em>Pràctica de PRO2</em>.
 */
@@ -35,7 +38,7 @@ int main()
 
     // Cridem la funicó per llegir un conjunt d'organismes de la classe
     // ConjuntOrg
-    Conj.llegir();
+    Conj.llegir(N, MARCA_ORG);
 
 	// Variable per seleccionar la opció d'entrada
 	int x;
@@ -44,69 +47,85 @@ int main()
 		acabar l'experiment, un número diferent de 0 indicarà el motiu pel
 		qual s'acaba l'experiment:
 		- 1 => Tots els organismes han mort
-		- 2 => S'ha arribat al límit d'organismes
-		- 3 => S'ha donat per finalitzat l'experiment manualment  */
+		- 2 => S'ha arribat al límit d'organismes  */
 	int fi = 0;
     cin >> x;
 	while (x != MARCA and fi == 0) {
 		// Opció per estirar un conjunt d'organismes
-        if (x == 1) {
+        if (x == -1) {
             int a;
-
+            
             cin >> a;
-			while(a != MARCA) {
-                Conj.estirar(a);
-				cin >> a;
+            for (int i = 0; i < a; ++i) {
+                int b;
+                cin >> b;
+                Conj.estirar(b);
             }
 		}
 
 		// Opció per retallar un conjunt d'organismes
-        else if (x == 2) {
+        else if (x == -2) {
             int a;
-
+            
             cin >> a;
-			while(a != MARCA) {
-                Conj.retallar(a);
-				cin >> a;
+            for (int i = 0; i < a; ++i) {
+                int b;
+                cin >> b;
+                Conj.retallar(b);
             }
             if (Conj.morts()) fi = 1;
 		}
 
 		// Aplicar una ronda de reproducció a TOTS els organismes, actualitzar
 		// el rànking i imprimir els fills nascuts a la ronda
-		else if (x == 3) {
+		else if (x == -3) {
+            cout << "RONDA DE EMPAREJAMIENTOS" << endl;
+            
             int fills;
             if (not Conj.reproduir(Rank, fills)) {
             	fi = 2;
             	x = fills;
             }
-            cout << fills << endl;
+            cout << "Nuevos organismos : " << fills << endl;
 		}
 
 		// Obtenir el rànking de reproducció dels organismes 
-		else if (x == 4) {
+		else if (x == -4) {
+            cout << "RANKING" << endl;
             Rank.ranking();
 		}
 
 		// Consultar l'estat d'un subconjunt d'organismes 
-        else if (x == 5) {
+        else if (x == -5) {
             int a;
-
             cin >> a;
-            while(a != MARCA) {
-                Conj.estat(a);
-                cin >> a;
+            
+            cout << "ORGANISMOS" << endl;
+            
+            for (int i = 0; i < a; ++i) {
+                int b;
+                cin >> b;
+                Conj.estat(b);
             }
 		}
         cin >> x;
 	}
-
+    cout << "FIN" << endl;
+    cout << endl;
+    cout << "Tamaño experimento : " << M << endl;
+    cout << "Organismos vivos : " << Conj.vius(); << endl;
+    
     // Instruccions per a la fi del programa
     if (fi == 1) {
         cout << "FI: Tots els organismes han mort" << endl;
     }
     else if (fi == 2) {
-        Rank.ranking();
+        cout << "ORGANISMOS" << endl;
         Conj.escriure_ultims(x);
+        
+        cout << endl;
+        
+        cout << "RANKING" << endl;
+        Rank.ranking();
     }
 }

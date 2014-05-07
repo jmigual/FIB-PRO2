@@ -290,17 +290,22 @@ void Organisme::escriure_organisme() const
 
 void Organisme::escriure_rec(Arbre<Celula> &cels)
 {
-    Celula c = cels.arrel();
-        
-    cout << c.id << " ";
-    if (c.activa) cout << "true";
-    else cout << "false";
-    cout << endl;
-    
+    Celula c = cels.arrel();   
     Arbre<Celula> a_e, a_d;
     
     cels.fills(a_e, a_d);
     
+    // Escrivim a la branca esquerra si no està buida
     if (not a_e.es_buit()) escriure_rec(a_e);
+    else cout << " 0" << endl;
+    
+    // Escrivim l'arrel
+    cout << c.id << " ";
+    if (c.activa) cout << "1";
+    else cout << "-1";
+    cout << endl;
+    
+    // Escrivim la branca dreta si no està buida
     if (not a_d.es_buit()) escriure_rec(a_d);   
+    else cout << " 0" << endl;
 }
