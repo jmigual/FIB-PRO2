@@ -61,6 +61,11 @@ private:
      *  que hi ha als vectors
      */
     int tamany;
+    
+    /** @brief Funció booleana que ens dona les condicions per ordenar el 
+     *  rànking
+     */
+    static bool comp_rank(const OrganRank &a, const OrganRank &b);
 
 public:
 
@@ -73,6 +78,12 @@ public:
      *  \post Es crea un rànking de tamany 'M'
      */
     Ranking(int M);
+    
+    /** @brief Constructora que afegeix un nombre d'organismes per defecte
+     *  \pre 0 <= n < M
+     *  \post Al rànking s'hi contemplen 'n' organismes
+     */
+    Ranking(int M, int n);
 
     /***********************
      *    MODIFICADORES    *
@@ -84,6 +95,13 @@ public:
      *  \post S'han afegit l'ID dels pares i del fill que han tingut al P.I.
      */
     void afegir_fill(int pare1, int pare2, int fill);
+    
+    /** @brief Genera de nou el vector Rank i l'ordena
+     *  \pre Cert
+     *  \post Rànking ha estat regenerat
+     */
+    void actualitzar();
+    
 
     /***************************
      *    ENTRADA / SORTIDA    *

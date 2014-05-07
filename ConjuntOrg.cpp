@@ -47,41 +47,45 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
     // aparellant en aquesta ronda
     vector<bool> Escollit(tamany, false);
     
+    // Ens indicarà el número d'organismes que hi ha que es poden reproduir
+    int num = tamany;
+    
     // Posem a '0' la variable fills per si de cas té algun altre valor
     fills = 0;
     
     // Variable que ens servirà per saber si la reproducció s'ha pogut fer
     // correctament, en cas contrari la variable serà 'false'
     bool hi_cap = true;
-    
-    for (int i = 0; i < tamany and hi_cap; ++i)
+
+    for (int i = 0; i < num and hi_cap; ++i)
     {
         if (not Escollit[i]) 
         {
             bool candidat = false;
-            int j = 0;
-            while (j < tamany and not candidat)
+            int j = i + 1;
+            while (j < num and not candidat)
             {
-                if (not Aparellat[i][j]) candidat = true;
+                if (not Aparellat[i][j] and not Escollit[j]) candidat = true;
                 else ++j;
             }
             if (candidat)
             {
                 Escollit[i] = Escollit[j] = true;
                 Aparellat[i][j] = Aparellat[j][i] = true;
-                
                 if(V[i].compatibles(V[j])) 
                 {
                     Organisme o;
                     
-                    // Tenim en compte que vagi l'identificador petit primer
-                    if (i < j) o.reproduir_organisme(V[i], V[j]);
-                    else o.reproduir_organisme(V[j], V[i]);
-                    
-                    // Comprovem que hi cap el nou organisme
-                    if (tamany < int(V.size())) 
+                    // Comprovem que hi cap l'organisme que volem generar
+                    if (tamany < int(V.size()))
                     {
+                        // Sabem que l'identificador 'i' serà sempre més petit 
+                        // que l'id 'j' ja que és una de les condicions
+                        // d'inicialització
+                        o.reproduir_organisme(V[i], V[j]);
+                        
                         Rank.afegir_fill(i, j, tamany);
+                        
                         V[tamany] = o;
                         ++tamany;
                         ++fills;
@@ -91,6 +95,7 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
             }            
         }
     }
+    Rank.actualitzar();
     return hi_cap;
 }
 
@@ -102,7 +107,8 @@ int ConjuntOrg::vius() const
 { 
     int cont = 0;
     
-    for (int i = 0; i < tamany; ++i) {
+    for (int i = 0; i < tamany; ++i) 
+    {
         if (not V[i].es_mort()) ++cont;
     } 
     
@@ -122,7 +128,8 @@ bool ConjuntOrg::morts() const
 
 void ConjuntOrg::llegir(int N, int marca)
 {
-    for (int i = 0; i< N; ++i) {
+    for (int i = 0; i< N; ++i) 
+    {
         V[i].llegir_organisme(marca);
     }
     tamany = N;
@@ -138,7 +145,8 @@ void ConjuntOrg::escriure_ultims(int n)
 
 void ConjuntOrg::estat(int p) const
 {
-    if (p <= tamany) {
+    if (p <= tamany) 
+    {
         cout << p << " :";
         V[p - 1].escriure_organisme();    
     }

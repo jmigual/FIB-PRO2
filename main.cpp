@@ -34,7 +34,7 @@ int main()
 
 	// Conjunt que ens permetrà guardar tots els organismes existents
 	ConjuntOrg Conj(M);
-    Ranking Rank(M);
+    Ranking Rank(M, N);
 
     // Cridem la funicó per llegir un conjunt d'organismes de la classe
     // ConjuntOrg
@@ -87,12 +87,14 @@ int main()
             	x = fills;
             }
             cout << "Nuevos organismos : " << fills << endl;
+            cout << endl;
 		}
 
 		// Obtenir el rànking de reproducció dels organismes 
 		else if (x == -4) {
             cout << "RANKING" << endl;
             Rank.ranking();
+            cout << endl;
 		}
 
 		// Consultar l'estat d'un subconjunt d'organismes 
@@ -107,6 +109,7 @@ int main()
                 cin >> b;
                 Conj.estat(b);
             }
+            cout << endl;
 		}
         cin >> x;
 	}
