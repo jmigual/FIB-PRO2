@@ -27,6 +27,7 @@ private:
 	 */
 	int tamany;
     
+    
 public:
     /***********************
      *    CONSTRUCTORES    *
@@ -82,12 +83,11 @@ public:
      *    CONSULTORES    *
      *********************/
 
-	/** @brief Consultora que retorna el nombre d'organismes del conjunt
+	/** @brief Consultora que retorna el nombre d'organismes vius del conjunt
 	 *  \pre Cert
-	 *  \post Es retorna el nombre d'organismes (vius o morts) que hi ha al
-	 *  conjunt
+	 *  \post Es retorna el nombre d'organismes vius que hi ha al conjunt
 	 */
-	int consultar_tamany() const;
+	int vius() const;
 
 	/** @brief Consultora que ens diu si els organismes estan morts
 	 *  <p>Si tots els organismes del Conjunt estan morts es retorna <em>

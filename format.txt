@@ -148,8 +148,7 @@ Entrada comentada:
 1 false 2 false 3 true 0 0 4 true 0 0 5 false 6 true 0 0 7 true 0 0
 
 // Organismo 4:
-1 false 0 2 false 0 3 true 4 false 5 false 0 0 6 false 0 0 7 false 8 false 0 0 
-9 false 0 0 
+1 false 0 2 false 0 3 true 4 false 5 false 0 0 6 false 0 0 7 false 8 false 0 0 9 false 0 0 
 
 -5 5 1 2 3 4 5  // Escribimos la estructura de cinco organismos: el de id 1,
                 // el de id 2, etc.; nótese que el organismo 5 todavía no existe

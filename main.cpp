@@ -113,7 +113,7 @@ int main()
     cout << "FIN" << endl;
     cout << endl;
     cout << "Tamaño experimento : " << M << endl;
-    cout << "Organismos vivos : " << Conj.vius(); << endl;
+    cout << "Organismos vivos : " << Conj.vius() << endl;
     
     // Instruccions per a la fi del programa
     if (fi == 1) {

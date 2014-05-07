@@ -98,8 +98,16 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
  *    CONSULTORES    *
  *********************/
 
-int ConjuntOrg::consultar_tamany() const
-{ return tamany; }
+int ConjuntOrg::vius() const
+{ 
+    int cont = 0;
+    
+    for (int i = 0; i < tamany; ++i) {
+        if (not V[i].es_mort()) ++cont;
+    } 
+    
+    return cont;
+}
 
 bool ConjuntOrg::morts() const
 {
@@ -112,6 +120,14 @@ bool ConjuntOrg::morts() const
  *    ENTRADA / SORTIDA    *
  ***************************/
 
+void ConjuntOrg::llegir(int N, int marca)
+{
+    for (int i = 0; i< N; ++i) {
+        V[i].llegir_organisme(marca);
+    }
+    tamany = N;
+}
+
 void ConjuntOrg::escriure_ultims(int n)
 {
     for (int i = tamany - 1; i < tamany + n - 1; ++i)
@@ -120,14 +136,10 @@ void ConjuntOrg::escriure_ultims(int n)
     }
 }
 
-void ConjuntOrg::llegir(int N, int marca)
-{
-    for (int i = 0; i< N; ++i) {
-        V[i].llegir_organisme(marca);
-    }
-}
-
 void ConjuntOrg::estat(int p) const
 {
-    V[p - 1].escriure_organisme();
+    if (p <= tamany) {
+        cout << p << " :";
+        V[p - 1].escriure_organisme();    
+    }
 }

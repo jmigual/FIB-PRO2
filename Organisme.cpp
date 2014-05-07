@@ -281,10 +281,11 @@ void Organisme::llegir_rec(Arbre<Celula> &cels, int marca, int &max_id,
 
 void Organisme::escriure_organisme() const
 {
-    if (cels.es_buit()) cout << "L'organisme és mort" << endl;
+    if (cels.es_buit()) cout << " 0" << endl;
     else {
         Arbre<Celula> a = cels;
         escriure_rec(a);
+        cout << endl;
     }
 }
 
@@ -297,15 +298,14 @@ void Organisme::escriure_rec(Arbre<Celula> &cels)
     
     // Escrivim a la branca esquerra si no està buida
     if (not a_e.es_buit()) escriure_rec(a_e);
-    else cout << " 0" << endl;
+    else cout << " 0";
     
     // Escrivim l'arrel
-    cout << c.id << " ";
-    if (c.activa) cout << "1";
-    else cout << "-1";
-    cout << endl;
+    cout << " " << c.id;
+    if (c.activa) cout << " 1";
+    else cout << " -1";
     
     // Escrivim la branca dreta si no està buida
     if (not a_d.es_buit()) escriure_rec(a_d);   
-    else cout << " 0" << endl;
+    else cout << " 0";
 }
