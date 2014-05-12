@@ -71,7 +71,7 @@ void Ranking::ranking() const
 {
     for (int i = 0; i < tamany; ++i)
     {
-        cout << i + 1 << " :";
+        cout << Rank[i].id + 1 << " :";
         
         list<ParFill>::const_iterator it = Rel[Rank[i].id].begin();
         while (it != Rel[Rank[i].id].end()) 

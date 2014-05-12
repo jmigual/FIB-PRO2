@@ -67,18 +67,21 @@ void Organisme::retallar_organisme()
         Celula c = cels.arrel();
         Arbre<Celula> a1, a2;
         cels.fills(a1, a2);
+        int max = 0;
         
 		if(a1.es_buit() and a2.es_buit()) tamany = 0;
 		else 
         {
-			retallar_recursiu(a1, tamany);
-			retallar_recursiu(a2, tamany);
+            retallar_recursiu(a1, tamany, max);
+            retallar_recursiu(a2, tamany, max);
             cels.plantar(c, a1, a2);
+            max = max_id;
 		}
+
 	}
 }
 
-void Organisme::retallar_recursiu(Arbre<Celula> &a, int &tam)
+void Organisme::retallar_recursiu(Arbre<Celula> &a, int &tam, int &max_id)
 {
 	if(not a.es_buit()) 
     {
@@ -91,8 +94,9 @@ void Organisme::retallar_recursiu(Arbre<Celula> &a, int &tam)
         // l'arbre i haurem eliminat la cèl·lula.
 		if(not(a1.es_buit() and a2.es_buit())) 
         {
-			retallar_recursiu(a1, tam);
-			retallar_recursiu(a2, tam);
+            if (max_id < c.id) max_id = c.id;
+            retallar_recursiu(a1, tam, max_id);
+            retallar_recursiu(a2, tam, max_id);
 			a.plantar(c, a1, a2);
 		}
 		else --tam;

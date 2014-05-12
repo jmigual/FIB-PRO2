@@ -55,7 +55,7 @@ private:
 	 *  \pre L'organisme no està mort
 	 *  \post Totes les cèl·lules que no tenen cap filla han estat eliminades
 	 */
-	static void retallar_recursiu(Arbre<Celula> &a, int &tamany);
+    static void retallar_recursiu(Arbre<Celula> &a, int &tamany, int &max_id);
 
 	/** @brief Funció per calcular el tamany de la intersecció de dos arbres
 	 *  de manera recursiva
