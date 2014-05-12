@@ -60,7 +60,7 @@ void Organisme::estirar_recursiu(Arbre<Celula> &a, int &max_id, Celula c,
 
 void Organisme::retallar_organisme() 
 {
-	if (tamany != 0) 
+    if (tamany != 0)
     {
         retallat = true;
         
@@ -75,7 +75,7 @@ void Organisme::retallar_organisme()
             retallar_recursiu(a1, tamany, max);
             retallar_recursiu(a2, tamany, max);
             cels.plantar(c, a1, a2);
-            max = max_id;
+            max_id = max;
 		}
 
 	}
