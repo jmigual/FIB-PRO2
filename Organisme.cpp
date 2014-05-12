@@ -78,7 +78,7 @@ void Organisme::retallar_organisme()
             max_id = max;
 		}
 
-	}
+    }
 }
 
 void Organisme::retallar_recursiu(Arbre<Celula> &a, int &tam, int &max_id)
@@ -158,7 +158,7 @@ void Organisme::busca_activa_gran(Arbre<Celula> &cels, Arbre<Celula> &a,
         Arbre<Celula> a_e, a_d;
         
         a.fills(a_e, a_d);
-        
+
         if (a_e.es_buit() and a_d.es_buit()) 
         {
             if (c.activa) 
@@ -168,8 +168,11 @@ void Organisme::busca_activa_gran(Arbre<Celula> &cels, Arbre<Celula> &a,
                 cels.plantar(c, a_e, a_d);
             }
         }
-        else 
+        else
         {
+            ++tamany;
+            c.id = max_id;
+
             Arbre<Celula> cels_e, cels_d;
             
             ++max_id;
@@ -182,9 +185,6 @@ void Organisme::busca_activa_gran(Arbre<Celula> &cels, Arbre<Celula> &a,
             
             if (c.activa or not(cels_e.es_buit()) or not(cels_d.es_buit())) 
             {
-                ++tamany;
-                
-                c.id = max_id;
                 cels.plantar(c, cels_e, cels_d);
             }
         }
@@ -322,7 +322,18 @@ void Organisme::escriure_rec(Arbre<Celula> &cels)
     Arbre<Celula> a_e, a_d;
     
     cels.fills(a_e, a_d);
-    
+
+    /* ESCRITURA EN PREORDRE
+    cout << " " << c.id;
+    if (c.activa) cout << " 1";
+    else cout << " -1";
+    if (not a_e.es_buit()) escriure_rec(a_e);
+    else cout << " 0";
+    if (not a_d.es_buit()) escriure_rec(a_d);
+    else cout << " 0";
+    */
+
+
     // Escrivim a la branca esquerra si no està buida
     if (not a_e.es_buit()) escriure_rec(a_e);
     else cout << " 0";
