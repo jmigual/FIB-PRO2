@@ -137,7 +137,7 @@ void ConjuntOrg::llegir(int N, int marca)
 
 void ConjuntOrg::escriure_ultims(int n)
 {
-    for (int i = tamany - 1; i < tamany + n - 1; ++i)
+    for (int i = tamany - n; i < tamany; ++i)
     {
         cout << i + 1 << " : ";
         V[i].escriure_organisme();
