@@ -139,6 +139,7 @@ void ConjuntOrg::escriure_ultims(int n)
 {
     for (int i = tamany - 1; i < tamany + n - 1; ++i)
     {
+        cout << i + 1 << " : ";
         V[i].escriure_organisme();
     }
 }
@@ -147,7 +148,7 @@ void ConjuntOrg::estat(int p) const
 {
     if (p <= tamany) 
     {
-        cout << p << " :";
+        cout << p << " : ";
         V[p - 1].escriure_organisme();    
     }
 }

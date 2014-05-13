@@ -49,6 +49,7 @@ int main()
 		- 1 => Tots els organismes han mort
 		- 2 => S'ha arribat al límit d'organismes  */
 	int fi = 0;
+    int fills;
     cin >> x;
 	while (x != MARCA and fi == 0) {
 		// Opció per estirar un conjunt d'organismes
@@ -81,10 +82,8 @@ int main()
 		else if (x == -3) {
             cout << "RONDA DE EMPAREJAMIENTOS" << endl;
             
-            int fills;
             if (not Conj.reproduir(Rank, fills)) {
             	fi = 2;
-            	x = fills;
             }
             cout << "Nuevos organismos : " << fills << endl;
             cout << endl;
@@ -117,6 +116,7 @@ int main()
     cout << endl;
     cout << "Tamaño experimento : " << M << endl;
     cout << "Organismos vivos : " << Conj.vius() << endl;
+    cout << endl;
     
     // Instruccions per a la fi del programa
     if (fi == 1) {
@@ -124,7 +124,7 @@ int main()
     }
     else if (fi == 2) {
         cout << "ORGANISMOS" << endl;
-        Conj.escriure_ultims(x);
+        Conj.escriure_ultims(fills);
         
         cout << endl;
         
