@@ -117,19 +117,7 @@ private:
     // DIBUIXAR ARBRE
     
     static int tamany_arbre(Arbre<Celula> &a);
-    
-    static void conv_matriu(Arbre<Celula> &a, 
-                                       vector< vector<Celula> > &m, 
-                                       int h, vector<int> &ultimpos, 
-                                       int hmax);
-    
     static void escriure_bonic_rec(const vector< vector<Celula> > &m);
-    static void espais(int n);
-    static void escriu_elem(const Celula &c);
-    static bool es_buida(const Celula &c);
-    static bool es_activa(const Celula &c);
-    static int id(const Celula &c);
-    static int ndigits(bool es_activa, int n);
 
 public: 
     /***********************
