@@ -2,6 +2,7 @@
 	@brief Implementació de la classe Organisme
 */
 #include "Organisme.hpp"
+#include <cmath>
 
 /***********************
  *    CONSTRUCTORES    *
@@ -348,6 +349,8 @@ void Organisme::escriure_rec(Arbre<Celula> &cels)
     else cout << "0 ";
 }
 
+// DIBUIXAR L'ARBRE
+
 void Organisme::escriure_bonic() const
 {
     cout << endl << "----Arbre de celules----" << endl << endl;
@@ -358,19 +361,22 @@ void Organisme::escriure_bonic() const
     int pot = 1;
     for (int i = 0; i <= h; ++i) 
     {
-        m[i] = vector<Celula> (pot);
+        Celula c;
+        c.id = 0;
+        m[i] = vector<Celula> (pot, c);
         pot *= 2;
     }
     
     vector<int> ultimpos(h + 1, 0);
     int haux = 0;
     conv_matriu(a, m, haux, ultimpos, h);
-    escriure_bonic_rec(tamany_arbre(a), a);
+    escriure_bonic_rec(m);
     cout << "------------------------" << endl;
 }
 
 int Organisme::tamany_arbre(Arbre<Celula> &a)
 {
+    int h = 1;
     if (a.es_buit()) return 0;
     else {
         Celula c = a.arrel();
@@ -381,15 +387,14 @@ int Organisme::tamany_arbre(Arbre<Celula> &a)
         
         a.plantar(c, a1, a2);
         
-        int h = 1;
         if (h1 > h2) h += h1;
         else h += h2;
     }
     return h;
 }
 
-void Organisme::conv_matriu(Arbre<Celula>&a, vector< vector<Celula> >&m, 
-                              int h, vector<int>&ultimpos, int hmax) 
+void Organisme::conv_matriu(Arbre<Celula> &a, vector< vector<Celula> > &m, 
+                              int h, vector<int> &ultimpos, int hmax) 
 {
     if (not a.es_buit()) {
         Celula c = a.arrel();
@@ -397,8 +402,8 @@ void Organisme::conv_matriu(Arbre<Celula>&a, vector< vector<Celula> >&m,
         ++ultimpos[h];
         Arbre<Celula> a1, a2;
         a.fills(a1, a2);
-        conv_a_matriu(a1, m, h+1, ultimpos, hmax);
-        conv_a_matriu(a2, m, h+1, ultimpos, hmax);
+        conv_matriu(a1, m, h+1, ultimpos, hmax);
+        conv_matriu(a2, m, h+1, ultimpos, hmax);
         a.plantar(c, a1, a2);
     }
     else {
@@ -412,6 +417,94 @@ void Organisme::conv_matriu(Arbre<Celula>&a, vector< vector<Celula> >&m,
         }
     }
 }
+
+void Organisme::escriure_bonic_rec(const vector< vector<Celula> > &m)
+{
+    int n = m.size() - 1;
+    int espaientreelements = 3*pow(2, n - 1);
+    int espaiinicial = espaientreelements/2;
+    int espaientrebarres = espaiinicial/2;
+    int espaientrebranques =  3*espaientrebarres;
+    int strideespaiinicial = espaientrebarres/2;
+    for (int i = 0; i < n; ++i) {
+        if (n - i == 3) espaiinicial = 6;
+        else if (n - i == 2) espaiinicial = 3;
+        else if (n - i == 1) espaiinicial = 1;
+        espais(espaiinicial - 1);
+        espaiinicial -= strideespaiinicial;
+        for (int j = 0; j < int(m[i].size()); ++j) {
+            escriu_elem(m[i][j]);
+            int sumadigits = 0;
+            if (j%2 == 0 and not es_buida(m[i][j])) {
+                sumadigits += ndigits(es_activa(m[i][j]), id(m[i][j])) - 1;
+                if (j+1 < int(m[i].size())) {
+                    sumadigits += ndigits(es_activa(m[i][j+1]), id(m[i][j+1])) - 1;
+                }
+            }
+            if (n - i == 1) {
+                if (j%2 == 0) espaientreelements = 4;
+                else espaientreelements = 2;
+            }
+            espais(espaientreelements - 1 - sumadigits);
+        }
+        cout << endl;
+        if (n - i == 3) espaiinicial = 4;
+        else if (n - i == 2) espaiinicial = 2;
+        espais(espaiinicial - 1);
+        espaiinicial -= strideespaiinicial;
+        int j = 0;
+        for (int k = 0; k < int(m[i].size()); ++k) {
+            if (not es_buida(m[i + 1][j])) cout << '/';
+            else cout << ' ';
+            ++j;
+            if (n - i == 2) espaientrebarres = 2;
+            else if (n - i == 3) espaientrebarres = 4;
+            espais(espaientrebarres - 1);
+            if (not es_buida(m[i + 1][j])) cout << '\\';
+            else cout << ' ';
+            ++j;
+            if (n - i == 3) espaientrebranques = 8;
+            else if (n - i == 2) espaientrebranques = 4;
+            espais(espaientrebranques - 1);
+        }
+        cout << endl;
+        strideespaiinicial /= 2;
+        espaientrebarres /= 2;
+        espaientrebranques /= 2;
+        espaientreelements /= 2;
+    }
+}
+
+void Organisme::espais(int n)
+{
+    for (int i = 0; i < n; ++i) cout << " ";
+}
+
+void Organisme::escriu_elem(const Celula &c)
+{
+    if (c.activa) cout << "!";
+    cout << c.id;
+}
+
+bool Organisme::es_buida(const Celula &c)
+{
+    return c.id == 0;
+}
+bool Organisme::es_activa(const Celula &c)
+{
+    return c.activa;
+}
+int Organisme::id(const Celula &c)
+{
+    return c.id;
+}
+int Organisme::ndigits(bool es_activa, int n) {
+    if (n < 10 and es_activa) return 1;
+    else if (n < 10) return 2;
+    else return 1 + ndigits(es_activa, n/10);
+}
+
+
 /*
 
 

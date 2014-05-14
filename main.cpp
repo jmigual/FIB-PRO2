@@ -35,7 +35,7 @@ int main()
 	// Conjunt que ens permetrà guardar tots els organismes existents
 	ConjuntOrg Conj(M);
     Ranking Rank(M, N);
-
+    
     // Cridem la funicó per llegir un conjunt d'organismes de la classe
     // ConjuntOrg
     Conj.llegir(N, MARCA_ORG);

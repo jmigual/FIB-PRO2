@@ -5,6 +5,7 @@
 #define ORGANISME_HPP
 
 #include "Arbre.hpp"
+#include <vector>
 
 /**	@class Organisme
 	@brief És un conjunt de cèl·lules posades en un arbre
@@ -113,11 +114,22 @@ private:
      */
     static void escriure_rec(Arbre<Celula> &cels);
     
+    // DIBUIXAR ARBRE
+    
     static int tamany_arbre(Arbre<Celula> &a);
     
-    static void Organisme::conv_matriu(Arbre<Celula>&a, 
-                                       vector< vector<Celula> >&m, 
-                                       int h, vector<int>&ultimpos, int hmax)
+    static void conv_matriu(Arbre<Celula> &a, 
+                                       vector< vector<Celula> > &m, 
+                                       int h, vector<int> &ultimpos, 
+                                       int hmax);
+    
+    static void escriure_bonic_rec(const vector< vector<Celula> > &m);
+    static void espais(int n);
+    static void escriu_elem(const Celula &c);
+    static bool es_buida(const Celula &c);
+    static bool es_activa(const Celula &c);
+    static int id(const Celula &c);
+    static int ndigits(bool es_activa, int n);
 
 public: 
     /***********************
