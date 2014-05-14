@@ -1,0 +1,37 @@
+Llista de condicions:
+
+• Cèl·lules:
+	- Es representen mitjançant arbres binaris
+	- Cada cèl·lula té:
+		~ Un número identificador
+		~ Un booleà que diu si és activa o passiva
+
+• Organismes:
+	- Són conjunts de cèl·lules, organitzats a través d'un arbre
+	- Tenen un identificador
+	- Tenen 3 accions:
+		~ Reproducció: Donats dos organismes x1 i x2
+			+ La reproducció només té lloc amb un organisme amb el que no s'ha
+			  reproduit abans amb un organisme COMPATIBLE
+			+ Dos organismes són COMPATIBLES si el número de cèl·lules de la 
+			  intersecció és major o igual a int((tam(x1) + tam(x2))/4)
+			+ Intersecció, estructura formada per una cèl·lula en cada posició
+			  on hi ha cè·lules tan a x1 com a x2
+			+ L'organisme resultat 
+
+		~ Creixement (estirar)
+			+ Es fisionen totes les cèl·lules de l'organisme que no s'hagin 
+			  fisionat fins ara
+			+ Cada cèl·lula obté com a identificador el número següent al més
+			  gran que hi hagi actualment, d'esquerra a dreta
+		~ Decreixement i mort (retallar)
+			+ S'eliminen totes les cèl·lules que no tinguin cap filla
+			+ Un cop s'ha fet decréixer un organisme ja no pot tornar a
+			  créixer mai més.
+			+ Un organisme es mor quan perd la seva cèl·lula original
+			+ Els organismes obtinguts per reproducció poden reproduir les
+			  cèl·lules del final tot i que les dels pares no es poguessin
+• Ranking:
+	- En tot moment s'ha de poder obtenir un rànking ordenat decreixentment
+	  pel nombre de fills produits per un organisme.
+	- En cas d'empat s'ordena per l'identificador més baix primer
