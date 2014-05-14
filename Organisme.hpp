@@ -6,6 +6,7 @@
 
 #include "Arbre.hpp"
 #include <vector>
+#include <queue>
 
 /**	@class Organisme
 	@brief És un conjunt de cèl·lules posades en un arbre
@@ -118,6 +119,7 @@ private:
     
     static int tamany_arbre(Arbre<Celula> &a);
     static void escriure_bonic_rec(const vector< vector<Celula> > &m);
+    static void matriu(vector< queue<Celula> > &V, Arbre<Celula> &a, int h);
 
 public: 
     /***********************

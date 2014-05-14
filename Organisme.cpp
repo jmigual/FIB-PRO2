@@ -356,13 +356,29 @@ void Organisme::escriure_bonic() const
     cout << endl << "----Arbre de celules----" << endl << endl;
     Arbre<Celula> a = cels;
     int h = tamany_arbre(a);
+    cout << "Altura: " << h << endl;
+    vector< queue<Celula> > V(h + 1);
+    matriu(V, a, 0);
+    
+    for (int i = 0; i <= h; ++i) 
+    {
+        while(not V[i].empty())
+        {
+            if (V[i].front().activa) cout << "!";
+            cout << V[i].front().id << " ";
+            V[i].pop();
+        }
+        cout << endl;
+    }
+    cout << endl << "-------------------------" << endl << endl;
 }
 
 int Organisme::tamany_arbre(Arbre<Celula> &a)
 {
     int h = 1;
     if (a.es_buit()) return 0;
-    else {
+    else 
+    {
         Celula c = a.arrel();
         Arbre<Celula> a1, a2;
         a.fills(a1, a2);
@@ -377,15 +393,35 @@ int Organisme::tamany_arbre(Arbre<Celula> &a)
     return h;
 }
 
+void Organisme::matriu(vector< queue<Celula> > &V, Arbre<Celula> &a, int h)
+{
+    if (a.es_buit())
+    {
+        Celula c = { 0, true };
+        V[h].push(c);
+    }
+    else 
+    {
+        Celula c = a.arrel();
+        V[h].push(c);
+        
+        Arbre<Celula> a_e, a_d;
+        a.fills(a_e, a_d);
+        matriu(V, a_e, h + 1);
+        matriu(V, a_d, h + 1);
+        a.plantar(c, a_e, a_d);
+    }
+}
+
 
 /*
 
                      !8
-                /           \
-         !8                       !8
-       /    \                   /    \
+                /          \
+         !8                      !8
+      /      \                /      \
    !8          !8          !8          !8
-  /  \        /  \        /  \        /  \
+ /    \      /    \      /    \      /    \
 !8    !8    !8    !8    !8    !8    !8    !8
 
 
