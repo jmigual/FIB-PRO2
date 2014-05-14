@@ -347,3 +347,70 @@ void Organisme::escriure_rec(Arbre<Celula> &cels)
     if (not a_d.es_buit()) escriure_rec(a_d);   
     else cout << "0 ";
 }
+
+void Organisme::escriure_bonic() const
+{
+    cout << endl << "----Arbre de celules----" << endl << endl;
+    Arbre<Celula> a = cels;
+    int h = tamany_arbre(a);
+    vector< vector<Celula> > m(h + 1, vector<Celula> ());
+    
+    int pot = 1;
+    for (int i = 0; i <= h; ++i) 
+    {
+        m[i] = vector<Celula> (pot);
+        pot *= 2;
+    }
+    
+    vector<int> ultimpos(h + 1, 0);
+    int haux = 0;
+    conv_matriu(a, m, haux, ultimpos, h);
+    escriure_bonic_rec(tamany_arbre(a), a);
+    cout << "------------------------" << endl;
+}
+
+int Organisme::tamany_arbre(Arbre<Celula> &a)
+{
+    if (a.es_buit()) return 0;
+    else {
+        Celula c = a.arrel();
+        Arbre<Celula> a1, a2;
+        a.fills(a1, a2);
+        int h1 = tamany_arbre(a1);
+        int h2 = tamany_arbre(a2);
+        
+        a.plantar(c, a1, a2);
+        
+        int h = 1;
+        if (h1 > h2) h += h1;
+        else h += h2;
+    }
+    return h;
+}
+
+void Organisme::conv_matriu(Arbre<Celula>&a, vector< vector<Celula> >&m, 
+                              int h, vector<int>&ultimpos, int hmax) 
+{
+    if (not a.es_buit()) {
+        Celula c = a.arrel();
+        m[h][ultimpos[h]] = c;
+        ++ultimpos[h];
+        Arbre<Celula> a1, a2;
+        a.fills(a1, a2);
+        conv_a_matriu(a1, m, h+1, ultimpos, hmax);
+        conv_a_matriu(a2, m, h+1, ultimpos, hmax);
+        a.plantar(c, a1, a2);
+    }
+    else {
+        ++ultimpos[h];
+        ++h;
+        int espais = 2;
+        while (h < hmax) {
+            ultimpos[h] += espais;
+            espais *= 2;
+            ++h;
+        }
+    }
+}
+
+

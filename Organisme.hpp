@@ -112,6 +112,12 @@ private:
      *  preordre
      */
     static void escriure_rec(Arbre<Celula> &cels);
+    
+    static int tamany_arbre(Arbre<Celula> &a);
+    
+    static void Organisme::conv_matriu(Arbre<Celula>&a, 
+                                       vector< vector<Celula> >&m, 
+                                       int h, vector<int>&ultimpos, int hmax)
 
 public: 
     /***********************
@@ -201,6 +207,8 @@ public:
      *  cèl·lules són actives o passives
      */
 	void escriure_organisme() const;
+
+    void escriure_bonic() const;
 };
 
 #endif
