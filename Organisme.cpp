@@ -412,5 +412,15 @@ void Organisme::conv_matriu(Arbre<Celula>&a, vector< vector<Celula> >&m,
         }
     }
 }
+/*
 
 
+
+
+
+   !8
+  /  \
+ 8    !8 8 8 8 8 8 8
+
+
+*/
