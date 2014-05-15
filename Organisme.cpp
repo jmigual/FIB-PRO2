@@ -357,10 +357,10 @@ void Organisme::escriure_bonic() const
     Arbre<Celula> a = cels;
     int h = tamany_arbre(a);
     cout << "Altura: " << h << endl;
-    vector< queue<Celula> > V(h + 1);
+    vector< queue<Celula> > V(h);
     matriu(V, a, 0);
     
-    for (int i = 0; i <= h; ++i) 
+    for (int i = 0; i < h; ++i) 
     {
         while(not V[i].empty())
         {
@@ -399,6 +399,11 @@ void Organisme::matriu(vector< queue<Celula> > &V, Arbre<Celula> &a, int h)
     {
         Celula c = { 0, true };
         V[h].push(c);
+        if (h < int(V.size()) - 1) 
+        {
+            matriu(V, a, h + 1);
+            matriu(V, a, h + 1);
+        }
     }
     else 
     {
@@ -407,8 +412,11 @@ void Organisme::matriu(vector< queue<Celula> > &V, Arbre<Celula> &a, int h)
         
         Arbre<Celula> a_e, a_d;
         a.fills(a_e, a_d);
-        matriu(V, a_e, h + 1);
-        matriu(V, a_d, h + 1);
+        if (h < int(V.size()) - 1)
+        {
+            matriu(V, a_e, h + 1);
+            matriu(V, a_d, h + 1);
+        }
         a.plantar(c, a_e, a_d);
     }
 }
