@@ -359,15 +359,21 @@ void Organisme::escriure_bonic() const
     cout << "Altura: " << h << endl;
     vector< queue<Celula> > V(h);
     matriu(V, a, 0);
-    
+    int pot = 1;
+    for (int i = 0; i < h - 1; ++i) pot *= 2;
     for (int i = 0; i < h; ++i) 
     {
         while(not V[i].empty())
+        
         {
+            if (V[i].front().id < 10) cout << " ";
+            cout << V[i].front().id;
             if (V[i].front().activa) cout << "!";
-            cout << V[i].front().id << " ";
+            else cout << " ";
+            cout << " ";
             V[i].pop();
         }
+        pot /= 2;
         cout << endl;
     }
     cout << endl << "-------------------------" << endl << endl;
@@ -397,7 +403,7 @@ void Organisme::matriu(vector< queue<Celula> > &V, Arbre<Celula> &a, int h)
 {
     if (a.es_buit())
     {
-        Celula c = { 0, true };
+        Celula c = { 0, false };
         V[h].push(c);
         if (h < int(V.size()) - 1) 
         {
@@ -424,13 +430,14 @@ void Organisme::matriu(vector< queue<Celula> > &V, Arbre<Celula> &a, int h)
 
 /*
 
-                     !8
-                /          \
-         !8                      !8
-      /      \                /      \
-   !8          !8          !8          !8
- /    \      /    \      /    \      /    \
-!8    !8    !8    !8    !8    !8    !8    !8
+                     !x8   
+                 /         \                   
+         !x8                     !x8           
+       /     \                 /     \         
+   !x8         !x8         !x8         !x8     
+  /   \       /   \       /   \       /   \    
+!x8   !x8   !x8   !x8   !x8   !x8   !x8   !x8  
 
-
+/\ = 1 + 2^profunditat
+\/ = 2*2^(profunditat - 1) + 1
 */
