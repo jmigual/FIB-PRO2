@@ -1,18 +1,18 @@
 
-                        REPRODUCCI”N EN EL LABORATORIO
+                        REPRODUCCI√ìN EN EL LABORATORIO
 
-Los cientÌficos de un laboratorio de investigaciÛn biolÛgica desean llevar a
+Los cient√≠ficos de un laboratorio de investigaci√≥n biol√≥gica desean llevar a
 cabo una serie de experimentos para estudiar el ciclo de vida de una especie de
 organismos celulares sencillos.
 
-Un organismo est· formado por un cierto n˙mero de cÈlulas, procedentes de la
-biparticiÛn (o fisiÛn) de una cÈlula original.  Cada cÈlula tendr· un
-identificador entero mayor que 0. Las cÈlulas de un mismo organismo no pueden
+Un organismo est√° formado por un cierto n√∫mero de c√©lulas, procedentes de la
+bipartici√≥n (o fisi√≥n) de una c√©lula original.  Cada c√©lula tendr√° un
+identificador entero mayor que 0. Las c√©lulas de un mismo organismo no pueden
 tener identificadores repetidos. Durante el resto del enunciado iremos viendo
-otras caracterÌsticas relevantes de las cÈlulas.
+otras caracter√≠sticas relevantes de las c√©lulas.
 
-La morfologÌa de tales organismos puede representarse mediante ·rboles
-binarios.  Por ejemplo el ·rbol
+La morfolog√≠a de tales organismos puede representarse mediante √°rboles
+binarios.  Por ejemplo el √°rbol
 
 
                                  7 
@@ -24,27 +24,27 @@ binarios.  Por ejemplo el ·rbol
                      17  10 8  13 11 14 9  12
 
 
-representa un organismo cuya cÈlula 7 es la original, la 1 y la 3 son el
-resultado de la biparticiÛn de Èsta (podemos decir que son sus "hijas" o que la
+representa un organismo cuya c√©lula 7 es la original, la 1 y la 3 son el
+resultado de la bipartici√≥n de √©sta (podemos decir que son sus "hijas" o que la
 7 es la "madre" de estas), la 2 y la 5 son las hijas de la 1, etc.
 
-Consideramos que cada cÈlula puede fisionarse, como m·ximo, una vez en su vida.
+Consideramos que cada c√©lula puede fisionarse, como m√°ximo, una vez en su vida.
 
 Por otra parte, puede ocurrir el proceso inverso, que un organismo pierda
-cÈlulas progresivamente. Si se queda sin ninguna, diremos que ha muerto.
+c√©lulas progresivamente. Si se queda sin ninguna, diremos que ha muerto.
 
-Por ˙ltimo, los organismos pueden reproducirse de manera sexual, es decir,
+Por √∫ltimo, los organismos pueden reproducirse de manera sexual, es decir,
 pueden aparecer organismos nuevos a partir de parejas de organismos ya
 existentes.
 
-Un experimento tÌpico se organiza de la siguiente manera.  Se dispone de una
-poblaciÛn inicial de N organismos, numerados correlativamente desde 1 en
-adelante (N es un natural mayor o igual que 2).  Seg˙n avanza el experimento,
-dicha poblaciÛn va evolucionando mediante los procesos que acabamos de exponer.
-A continuaciÛn, mostramos en detalle dichos procesos.
+Un experimento t√≠pico se organiza de la siguiente manera.  Se dispone de una
+poblaci√≥n inicial de N organismos, numerados correlativamente desde 1 en
+adelante (N es un natural mayor o igual que 2).  Seg√∫n avanza el experimento,
+dicha poblaci√≥n va evolucionando mediante los procesos que acabamos de exponer.
+A continuaci√≥n, mostramos en detalle dichos procesos.
 
 
-REPRODUCCI”N SEXUAL
+REPRODUCCI√ìN SEXUAL
 -------------------
 
 Durante el experimento se pueden producir rondas de emparejamientos, en cada
@@ -52,8 +52,8 @@ una de las cuales cada organismo vivo elige un candidato vivo (o es elegido
 como tal) para reproducirse.  Nunca se repiten los emparejamientos a lo largo
 de las sucesivas rondas y cuando un organismo ya no tenga candidatos sin
 repetir simplemente deja de reproducirse. En cada ronda, tienen prioridad de
-elecciÛn los organismos de menor identificador y cada organismo elige al de
-menor identificador que a˙n no se haya reproducido con Èl.
+elecci√≥n los organismos de menor identificador y cada organismo elige al de
+menor identificador que a√∫n no se haya reproducido con √©l.
 
 Por ejemplo, supongamos que los 6 organismos vivos con menores identificadores
 en una determinada ronda son, en orden, x1..x6. Si los siguientes
@@ -65,58 +65,58 @@ emparejamientos ya han ocurrido:
 
 - x3 ya se han reproducido ya con x5
 
-entonces los nuevos emparejamientos ser·n: x1-x4, x2-x3 y x5-x6.
+entonces los nuevos emparejamientos ser√°n: x1-x4, x2-x3 y x5-x6.
 
 
-Dados dos organismos compatibles (m·s adelante diremos en quÈ consiste esta
-propiedad), supondremos que su reproducciÛn dar· lugar a un nuevo organismo,
-que tambiÈn podr· crecer, decrecer y reproducirse. El identificador del nuevo
-organismo ser· el primero que no haya sido usado con anterioridad. Seg˙n el
-ejemplo anterior, si antes de la ronda el m·ximo de los identificadores
-asignados era xM, entonces los nuevos organismos ser·n respectivamente xM+1,
+Dados dos organismos compatibles (m√°s adelante diremos en qu√© consiste esta
+propiedad), supondremos que su reproducci√≥n dar√° lugar a un nuevo organismo,
+que tambi√©n podr√° crecer, decrecer y reproducirse. El identificador del nuevo
+organismo ser√° el primero que no haya sido usado con anterioridad. Seg√∫n el
+ejemplo anterior, si antes de la ronda el m√°ximo de los identificadores
+asignados era xM, entonces los nuevos organismos ser√°n respectivamente xM+1,
 xM+2 y xM+3.
 
-De cara a la reproducciÛn, cada cÈlula de un organismo puede ser activa o
-pasiva (obviamente esto es otra informaciÛn relevante para una cÈlula).  Las
-cÈlulas nacidas de una fisiÛn heredan esta propiedad de sus madres.
+De cara a la reproducci√≥n, cada c√©lula de un organismo puede ser activa o
+pasiva (obviamente esto es otra informaci√≥n relevante para una c√©lula).  Las
+c√©lulas nacidas de una fisi√≥n heredan esta propiedad de sus madres.
 
-Por otra parte, definimos la "intersecciÛn" de dos organismos x1 y x2 como una
-estructura formada por una cÈlula en cada posiciÛn donde hubiera cÈlulas tanto
-en x1 como en x2. TambiÈn definimos que x1 y x2 son "compatibles" si el n˙mero
-de cÈlulas de su intersecciÛn es mayor o igual que int((tam(x1) + tam(x2))/4).
+Por otra parte, definimos la "intersecci√≥n" de dos organismos x1 y x2 como una
+estructura formada por una c√©lula en cada posici√≥n donde hubiera c√©lulas tanto
+en x1 como en x2. Tambi√©n definimos que x1 y x2 son "compatibles" si el n√∫mero
+de c√©lulas de su intersecci√≥n es mayor o igual que int((tam(x1) + tam(x2))/4).
 
-Por ˙ltimo, decimos que el organismo resultante de la reproducciÛn de dos
-organismos compatibles x1 y x2 (nos referiremos a Èl como el "hijo" de estos)
-ser· el formado por una estructura igual a la intersecciÛn de x1 y x2, m·s un
-clon de cada una de las cÈlulas activas de ambos que no estÈn en la
-intersecciÛn (cada clon ha de quedar en la misma posiciÛn en el nuevo organismo
-que su original), m·s el mÌnimo numero de cÈlulas pasivas necesarias para que
-dichas cÈlulas activas conserven su posiciÛn sin quedar desconectadas.
+Por √∫ltimo, decimos que el organismo resultante de la reproducci√≥n de dos
+organismos compatibles x1 y x2 (nos referiremos a √©l como el "hijo" de estos)
+ser√° el formado por una estructura igual a la intersecci√≥n de x1 y x2, m√°s un
+clon de cada una de las c√©lulas activas de ambos que no est√©n en la
+intersecci√≥n (cada clon ha de quedar en la misma posici√≥n en el nuevo organismo
+que su original), m√°s el m√≠nimo numero de c√©lulas pasivas necesarias para que
+dichas c√©lulas activas conserven su posici√≥n sin quedar desconectadas.
 
-Las cÈlulas del nuevo organismo heredan la propiedad de ser activas o pasivas
+Las c√©lulas del nuevo organismo heredan la propiedad de ser activas o pasivas
 mediante las siguientes reglas:
 
-- las que proceden de una intersecciÛn: ser·n pasivas si las dos cÈlulas
+- las que proceden de una intersecci√≥n: ser√°n pasivas si las dos c√©lulas
   originales en las posiciones correspondientes son pasivas; en caso contrario
-  (es decir, si alguna es activa) ser·n activas
+  (es decir, si alguna es activa) ser√°n activas
 
-- las que no proceden de una intersecciÛn: ser·n activas si proceden de
-  cÈlulas activas de los organismos originales; el resto ser·n pasivas (como
+- las que no proceden de una intersecci√≥n: ser√°n activas si proceden de
+  c√©lulas activas de los organismos originales; el resto ser√°n pasivas (como
   ya hemos dicho)
 
 
-Los identificadores de las nuevas cÈlulas procedentes de la reproducciÛn de dos
+Los identificadores de las nuevas c√©lulas procedentes de la reproducci√≥n de dos
 organismos x1 y x2, con x1<x2, se asignan con arreglo a los siguientes
 criterios:
 
-- las que procedan de una intersecciÛn heredar·n el id de las correspondientes
+- las que procedan de una intersecci√≥n heredar√°n el id de las correspondientes
   en x1;
 
-- del resto, las que procedan de x1 tambiÈn heredar·n su id; 
+- del resto, las que procedan de x1 tambi√©n heredar√°n su id; 
 
-- las que procedan de x2 tomar·n, con la prioridad marcada por su recorrido en
-  preorden, valores correlativos a partir del valor siguiente al m·ximo de los
-  identificadores de las cÈlulas de x1
+- las que procedan de x2 tomar√°n, con la prioridad marcada por su recorrido en
+  preorden, valores correlativos a partir del valor siguiente al m√°ximo de los
+  identificadores de las c√©lulas de x1
 
 
 Ejemplo: si tenemos dos organismos compatibles x1 y x2 
@@ -131,8 +131,8 @@ Ejemplo: si tenemos dos organismos compatibles x1 y x2
                    17   12                             1   10
 
 
-(comprobad que int((tam(x1) + tam(x2))/4) = 4; tam(intersecciÛn) = 5), donde
-las cÈlulas activas de x1 son 3 y 12 y las de x2 son 7, 9 y 10, su hijo ser·
+(comprobad que int((tam(x1) + tam(x2))/4) = 4; tam(intersecci√≥n) = 5), donde
+las c√©lulas activas de x1 son 3 y 12 y las de x2 son 7, 9 y 10, su hijo ser√°
 
                         3                 
                     /       \       
@@ -142,39 +142,39 @@ las cÈlulas activas de x1 son 3 y 12 y las de x2 son 7, 9 y 10, su hijo ser·
                       \     \
                        12    18
 
-JustificaciÛn:
+Justificaci√≥n:
 
-- las cÈlulas 3, 6, 4, 7 y 13 proceden de la intersecciÛn (3, 6, y 13 son
+- las c√©lulas 3, 6, 4, 7 y 13 proceden de la intersecci√≥n (3, 6, y 13 son
   activas; 4 y 7 son pasivas),
 
-- la cÈlula 12 es activa y procede de la 12 de x1 (activa que no est· en la
-  intersecciÛn),
+- la c√©lula 12 es activa y procede de la 12 de x1 (activa que no est√° en la
+  intersecci√≥n),
 
-- la cÈlula 8 es pasiva, procede de x1 y es necesaria para que 12 no quede
+- la c√©lula 8 es pasiva, procede de x1 y es necesaria para que 12 no quede
   desconectada
 
-- la cÈlula 18 es activa y procede de la 10 de x2 (activa que no est· en la
-  intersecciÛn); 18 es el siguiente al m·ximo de los identificadores de cÈlula
+- la c√©lula 18 es activa y procede de la 10 de x2 (activa que no est√° en la
+  intersecci√≥n); 18 es el siguiente al m√°ximo de los identificadores de c√©lula
   en x1 (17)
 
 
 CRECIMIENTO DE UN ORGANISMO
 ---------------------------
 
-Durante el experimento, un organismo puede sufrir un "estirÛn" (por condiciones
-ambientales, de alimentaciÛn, etc. que no necesitamos conocer para esta
-pr·ctica).  Cada estirÛn viene dado por la fisiÛn de todas las cÈlulas del
-organismo que no se hayan fisionado hasta el momento del estirÛn. Respecto a la
-poblaciÛn inicial, supondremos que las cÈlulas que tienen hijas ya se han
+Durante el experimento, un organismo puede sufrir un "estir√≥n" (por condiciones
+ambientales, de alimentaci√≥n, etc. que no necesitamos conocer para esta
+pr√°ctica).  Cada estir√≥n viene dado por la fisi√≥n de todas las c√©lulas del
+organismo que no se hayan fisionado hasta el momento del estir√≥n. Respecto a la
+poblaci√≥n inicial, supondremos que las c√©lulas que tienen hijas ya se han
 fisionado y el resto no.
 
-Cada cÈlula nueva procedente de una fisiÛn tomar· como identificador el valor
-siguiente al m·ximo de los identificadores de las cÈlulas del organismo
-correspondiente. Si varias cÈlulas de un mismo organismo nacen en el mismo
-estirÛn, la asignaciÛn de identificadores se realiza ordenadamente de izquierda
-a derecha seg˙n su posiciÛn en el ·rbol.
+Cada c√©lula nueva procedente de una fisi√≥n tomar√° como identificador el valor
+siguiente al m√°ximo de los identificadores de las c√©lulas del organismo
+correspondiente. Si varias c√©lulas de un mismo organismo nacen en el mismo
+estir√≥n, la asignaci√≥n de identificadores se realiza ordenadamente de izquierda
+a derecha seg√∫n su posici√≥n en el √°rbol.
 
-Por ejemplo, el estirÛn del siguiente organismo 
+Por ejemplo, el estir√≥n del siguiente organismo 
 
                             3
                            /      
@@ -193,24 +193,24 @@ da lugar a
 DECRECIMIENTO Y MUERTE DE UN ORGANISMO
 --------------------------------------
 
-Durante el experimento, un organismo puede sufrir un "recorte" (tambiÈn por
-condiciones ambientales, de alimentaciÛn, etc.) . Cada recorte viene dado por
-la pÈrdida de todas las cÈlulas del organismo que no tengan ninguna hija.
+Durante el experimento, un organismo puede sufrir un "recorte" (tambi√©n por
+condiciones ambientales, de alimentaci√≥n, etc.) . Cada recorte viene dado por
+la p√©rdida de todas las c√©lulas del organismo que no tengan ninguna hija.
 
-Como cada cÈlula solo se puede fisionar una vez como m·ximo, el proceso de
+Como cada c√©lula solo se puede fisionar una vez como m√°ximo, el proceso de
 decrecimiento de un organismo es irreversible.  Decimos que un organismo muere
-si pierde su cÈlula original.
+si pierde su c√©lula original.
 
-NÛtese que Èsta la ˙nica forma que permite disminuir el n˙mero de organismos
-del experimento. De la misma forma, la reproducciÛn sexual es la ˙nica manera
-que permite aumentar el n˙mero de organismos del experimento.
+N√≥tese que √©sta la √∫nica forma que permite disminuir el n√∫mero de organismos
+del experimento. De la misma forma, la reproducci√≥n sexual es la √∫nica manera
+que permite aumentar el n√∫mero de organismos del experimento.
 
 
 De cara a futuros crecimientos o decrecimientos, trataremos a los organismos
-obtenidos mediante reproducciÛn sexual como a los de la poblaciÛn inicial del
+obtenidos mediante reproducci√≥n sexual como a los de la poblaci√≥n inicial del
 experimento, independientemente de la historia de sus progenitores. Es decir,
-un organismo "reciÈn nacido" podr· crecer hasta que sufra su primer recorte.
-TambiÈn supondremos que aquellas de sus cÈlulas que tengan hijas ya se han
+un organismo "reci√©n nacido" podr√° crecer hasta que sufra su primer recorte.
+Tambi√©n supondremos que aquellas de sus c√©lulas que tengan hijas ya se han
 fisionado y el resto no, etc.
 
 
@@ -219,9 +219,9 @@ RANKING
 
 Como resumen del experimento, se ha de poder obtener en todo momento un ranking
 de los organismos que hayan existido (vivos o muertos) basado en la
-reproducciÛn de los mismos. El ranking estar· ordenado decrecientemente por el
-n˙mero de hijos producidos; en caso de empate, aparecer· primero el organismo
-de identificador m·s pequeÒo.
+reproducci√≥n de los mismos. El ranking estar√° ordenado decrecientemente por el
+n√∫mero de hijos producidos; en caso de empate, aparecer√° primero el organismo
+de identificador m√°s peque√±o.
 
 
 FIN DEL EXPERIMENTO
@@ -231,9 +231,9 @@ El experimento termina si se cumple alguna de las siguientes condiciones:
 
 - se mueren todos los organismos 
 
-- la poblaciÛn "histÛrica" (contando organismos vivos y muertos) llega a un
-  cierto valor m·ximo fijado de antemano; si esto ocurre durante una ronda de
-  reproducciÛn, Èsta no se completa
+- la poblaci√≥n "hist√≥rica" (contando organismos vivos y muertos) llega a un
+  cierto valor m√°ximo fijado de antemano; si esto ocurre durante una ronda de
+  reproducci√≥n, √©sta no se completa
 
 - los supervisores del experimento lo finalizan manualmente
 
@@ -241,64 +241,64 @@ El experimento termina si se cumple alguna de las siguientes condiciones:
 SE PIDE
 -------
 
-DiseÒar un programa modular razonablemente eficiente para gestionar
+Dise√±ar un programa modular razonablemente eficiente para gestionar
 experimentos como los descritos.
 
-En primer lugar, debe leer los valores enteros N (poblaciÛn inicial del
-experimento, mayor que 1) y M (m·ximo permitido de poblaciÛn histÛrica, mayor
+En primer lugar, debe leer los valores enteros N (poblaci√≥n inicial del
+experimento, mayor que 1) y M (m√°ximo permitido de poblaci√≥n hist√≥rica, mayor
 que N).
 
-Seguidamente leer· los N organismos iniciales. Cada organismo ha de tener al
-menos una cÈlula (es decir, ha de estar vivo).
+Seguidamente leer√° los N organismos iniciales. Cada organismo ha de tener al
+menos una c√©lula (es decir, ha de estar vivo).
 
-DespuÈs tendr· que ir procesando las diversas tareas que se le pidan. …stas
-podr·n ser las siguientes:
+Despu√©s tendr√° que ir procesando las diversas tareas que se le pidan. √âstas
+podr√°n ser las siguientes:
 
-1) Aplicar un estirÛn a un subconjunto de organismos. Se proporciona una
-   secuencia de enteros no repetidos entre 1 y M.  Los organismos que estÈn
+1) Aplicar un estir√≥n a un subconjunto de organismos. Se proporciona una
+   secuencia de enteros no repetidos entre 1 y M.  Los organismos que est√©n
    vivos (y no hayan empezado a sufrir recortes) en el momento de realizar la
-   tarea, cuyos identificadores estÈn en la secuencia, sufrir·n el
-   correspondiente estirÛn.
+   tarea, cuyos identificadores est√©n en la secuencia, sufrir√°n el
+   correspondiente estir√≥n.
 
 2) Aplicar un recorte a un subconjunto de organismos. Se proporciona una
-   secuencia de enteros no repetidos entre 1 y M.  Los organismos que estÈn
-   vivos en el momento de realizar la tarea, cuyos identificadores estÈn en la
-   secuencia, sufrir·n el correspondiente recorte.
+   secuencia de enteros no repetidos entre 1 y M.  Los organismos que est√©n
+   vivos en el momento de realizar la tarea, cuyos identificadores est√©n en la
+   secuencia, sufrir√°n el correspondiente recorte.
 
-3) Aplicar una ronda de reproducciÛn a todos los organismos. Actualizar el
-   ranking consecuentemente. Escribir el n˙mero de hijos nacidos en la ronda.
+3) Aplicar una ronda de reproducci√≥n a todos los organismos. Actualizar el
+   ranking consecuentemente. Escribir el n√∫mero de hijos nacidos en la ronda.
 
-4) Obtener el ranking de reproducciÛn de los organismos. Para cada organismo,
+4) Obtener el ranking de reproducci√≥n de los organismos. Para cada organismo,
    vivo o muerto, que haya existido hasta el momento de la consulta se ha de
    obtener un listado de sus emparejamientos que hayan producido hijos.  Cada
-   emparejamiento estar· representado por el identificador de su compaÒero y el
-   del hijo. El listado vendr· ordenado por el identificador de los hijos.
+   emparejamiento estar√° representado por el identificador de su compa√±ero y el
+   del hijo. El listado vendr√° ordenado por el identificador de los hijos.
 
 5) Consultar el estado de un subconjunto de organismos. Se proporciona una
-   secuencia de enteros no repetidos entre 1 y M.  Se escribir· la estructura
-   celular de los organismos que estÈn vivos en el momento de realizar la tarea
-   cuyos identificadores estÈn en la secuencia.
+   secuencia de enteros no repetidos entre 1 y M.  Se escribir√° la estructura
+   celular de los organismos que est√©n vivos en el momento de realizar la tarea
+   cuyos identificadores est√©n en la secuencia.
 
-Tras el fin del proceso, se ha de indicar la causa (ver secciÛn "FIN DEL
-EXPERIMENTO"). Si ha sido porque la poblaciÛn ha llegado a M organismos (m·ximo
+Tras el fin del proceso, se ha de indicar la causa (ver secci√≥n "FIN DEL
+EXPERIMENTO"). Si ha sido porque la poblaci√≥n ha llegado a M organismos (m√°ximo
 permitido), se han de realizar dos consultas adicionales:
 
 - Obtener el ranking
 
-- Consultar el estado de los organismos nacidos en la ˙ltima ronda de
-  reproducciÛn (atenciÛn: Èsta ha podido ser incompleta)
+- Consultar el estado de los organismos nacidos en la √∫ltima ronda de
+  reproducci√≥n (atenci√≥n: √©sta ha podido ser incompleta)
   
 
-La forma de comunicarnos con el programa para que realice dichas tareas ser·
-parecida a la del caso de estudio "Cubeta" que aparece en la sesiÛn 8 de
-laboratorio. PodÈis diseÒar un esquema provisional que ya refinarÈis cuando
-conozc·is el juego de pruebas p˙blico.
+La forma de comunicarnos con el programa para que realice dichas tareas ser√°
+parecida a la del caso de estudio "Cubeta" que aparece en la sesi√≥n 8 de
+laboratorio. Pod√©is dise√±ar un esquema provisional que ya refinar√©is cuando
+conozc√°is el juego de pruebas p√∫blico.
 
-En dÌas sucesivos se completar·n los detalles que se hayan podido pasar por
-alto en este enunciado y se publicar·n las aclaraciones oportunas.
+En d√≠as sucesivos se completar√°n los detalles que se hayan podido pasar por
+alto en este enunciado y se publicar√°n las aclaraciones oportunas.
 
-La sintaxis *exacta* de los datos y resultados, acompaÒada del juego de pruebas
-p˙blico, se conocer· tres semanas antes del dÌa de entrega de la pr·ctica.
-Hasta entonces no podrÈis implementar de forma definitiva las operaciones de
-lectura y escritura necesarias para los tipos que utilicÈis, aunque sÌ podrÈis
+La sintaxis *exacta* de los datos y resultados, acompa√±ada del juego de pruebas
+p√∫blico, se conocer√° tres semanas antes del d√≠a de entrega de la pr√°ctica.
+Hasta entonces no podr√©is implementar de forma definitiva las operaciones de
+lectura y escritura necesarias para los tipos que utilic√©is, aunque s√≠ podr√©is
 especificarlas.

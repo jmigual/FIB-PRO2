@@ -5,17 +5,17 @@ flags = -c -Wall -Wextra -D_GLIBCXX_DEBUG
 
 #Lincat final 
 all: main.o Organisme.o ConjuntOrg.o Ranking.o
-	g++ -o main.exe main.o Organisme.o ConjuntOrg.o Ranking.o
+	g++ -o pro2.exe *.o
 
 #Programa principal
 main.o: main.cpp Arbre.hpp Organisme.hpp ConjuntOrg.hpp Ranking.hpp
 	g++ $(flags) main.cpp
 
 #Classes necesàries
-Organisme.o: Organisme.hpp Organisme.cpp Arbre.hpp
+Organisme.o: Organisme.hpp Organisme.cpp
 	g++ $(flags) Organisme.cpp
 
-ConjuntOrg.o: ConjuntOrg.hpp ConjuntOrg.cpp Organisme.hpp
+ConjuntOrg.o: ConjuntOrg.hpp ConjuntOrg.cpp
 	g++ $(flags) ConjuntOrg.cpp
 
 Ranking.o: Ranking.hpp Ranking.cpp

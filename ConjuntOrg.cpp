@@ -74,23 +74,18 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
                 Aparellat[i][j] = Aparellat[j][i] = true;
                 if(V[i].compatibles(V[j])) 
                 {
-                    Organisme o;
                     
-                    // Comprovem que hi cap l'organisme que volem generar
-                    if (tamany < int(V.size()))
-                    {
-                        // Sabem que l'identificador 'i' serà sempre més petit 
-                        // que l'id 'j' ja que és una de les condicions
-                        // d'inicialització
-                        o.reproduir_organisme(V[i], V[j]);
-                        
-                        Rank.afegir_fill(i, j, tamany);
-                        
-                        V[tamany] = o;
-                        ++tamany;
-                        ++fills;
-                    }
-                    else hi_cap = false;
+                    // Sabem que l'identificador 'i' serà sempre més petit 
+                    // que l'id 'j' ja que és una de les condicions
+                    // d'inicialització
+                    V[tamany].reproduir_organisme(V[i], V[j]);
+                    
+                    Rank.afegir_fill(i, j, tamany);
+                    ++tamany;
+                    ++fills;
+                    // Si després de la ronda de reproducció ja no hi cap cap
+                    // més organisme posem 'hi_cap' a 'false'
+                    if (tamany == int(V.size())) hi_cap = false;
                 }
             }            
         }
@@ -140,8 +135,8 @@ void ConjuntOrg::escriure_ultims(int n)
     for (int i = tamany - n; i < tamany; ++i)
     {
         cout << i + 1 << " : ";
-        V[i].escriure_bonic();
         V[i].escriure_organisme();
+        V[i].escriure_bonic();
     }
 }
 
@@ -150,7 +145,7 @@ void ConjuntOrg::estat(int p) const
     if (p <= tamany) 
     {
         cout << p << " : ";
-        V[p - 1].escriure_bonic();
-        V[p - 1].escriure_organisme();    
+        V[p - 1].escriure_organisme(); 
+        V[p - 1].escriure_bonic();   
     }
 }

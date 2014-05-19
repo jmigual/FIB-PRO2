@@ -114,15 +114,13 @@ int main()
 	}
     cout << "FIN" << endl;
     cout << endl;
-    cout << "Tamaño experimento : " << M << endl;
+    cout << "Organismos en total : " << M << endl;
     cout << "Organismos vivos : " << Conj.vius() << endl;
     cout << endl;
     
-    // Instruccions per a la fi del programa
-    if (fi == 1) {
-        cout << "FI: Tots els organismes han mort" << endl;
-    }
-    else if (fi == 2) {
+    // Instruccions per a la fi del programa quan s'ha arribat al límit del
+    // conjunt
+    if (fi == 2) {
         cout << "ORGANISMOS" << endl;
         Conj.escriure_ultims(fills);
         

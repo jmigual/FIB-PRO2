@@ -47,7 +47,8 @@ private:
 	int max_id;
 
     /**	@brief Funció recursiva per estirar un organisme
-     *  \pre 'c' és una cèl·lula vàlida, max_id està inicialitzat i no
+     *  \pre 'c' és una cèl·lula vàlida, max_id està inicialitzat i no és
+     *  negatiu i 'a' és un arbre no buit.
      *  \post Totes les cèl·lules que no s'havien dividit s'han dividit
 	 */
 	static void estirar_recursiu(Arbre<Celula> &a, int &max_id, Celula c,

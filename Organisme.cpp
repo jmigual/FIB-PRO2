@@ -30,8 +30,38 @@ void Organisme::estirar_organisme()
         Celula c = cels.arrel();
         Arbre<Celula> a1, a2;
         cels.fills(a1, a2);
-		estirar_recursiu(a1, max_id, c, tamany);
-		estirar_recursiu(a2, max_id, c, tamany);
+        if (a1.es_buit() and a2.es_buit())
+        {
+            tamany += 2;
+            Celula aux = c;
+            Arbre<Celula> buit;
+            
+            // Plantem els dos arbres i ens estalviem cridar la funció
+            // recursiva per poder duplicar només la cèl·lula arrel
+            aux.id = max_id;
+            ++max_id;
+            
+            a1.plantar(aux, buit, buit);
+            
+            aux.id = max_id;
+            ++max_id;
+            
+            a2.plantar(aux, buit, buit);
+            
+        }
+        else if (not a1.es_buit() and not a2.es_buit())
+        {
+            estirar_recursiu(a1, max_id, c, tamany);
+            estirar_recursiu(a2, max_id, c, tamany);
+        }
+        else if (a1.es_buit() and not a2.es_buit())
+        {
+            estirar_recursiu(a2, max_id, c, tamany);
+        }
+        else 
+        {
+            estirar_recursiu(a1, max_id, c, tamany);
+        }
         cels.plantar(c, a1, a2);
 	}
 }
@@ -40,23 +70,41 @@ void Organisme::estirar_recursiu(Arbre<Celula> &a, int &max_id, Celula c,
                                  int &tam) 
 {
     Arbre<Celula> a1, a2;
-    if (a.es_buit()) 
+    c = a.arrel();
+    a.fills(a1, a2);
+    if (a1.es_buit() and a2.es_buit())
     {
+        tam += 2;
+        Celula aux = c;
+        Arbre<Celula> buit;
+        
+        // Plantem els dos arbres i ens estalviem cridar la funció
+        // recursiva per poder duplicar només la cèl·lula arrel
         ++max_id;
-        ++tam;
+        aux.id = max_id;
         
-        c.id = max_id;
+        a1.plantar(aux, buit, buit);
         
-        a.plantar(c, a1, a2);
+        ++max_id;
+        aux.id = max_id;
+        
+        a2.plantar(aux, buit, buit);
+        
+    }
+    else if (not a1.es_buit() and not a2.es_buit())
+    {
+        estirar_recursiu(a1, max_id, c, tam);
+        estirar_recursiu(a2, max_id, c, tam);
+    }
+    else if (a1.es_buit() and not a2.es_buit())
+    {
+        estirar_recursiu(a2, max_id, c, tam);
     }
     else 
     {
-        c = a.arrel();
-        a.fills(a1, a2);
         estirar_recursiu(a1, max_id, c, tam);
-        estirar_recursiu(a2, max_id, c, tam);
-        a.plantar(c, a1, a2);
     }
+    a.plantar(c, a1, a2);
 }
 
 void Organisme::retallar_organisme() 
@@ -353,30 +401,33 @@ void Organisme::escriure_rec(Arbre<Celula> &cels)
 
 void Organisme::escriure_bonic() const
 {
-    cout << endl << "----Arbre de celules----" << endl << endl;
-    Arbre<Celula> a = cels;
-    int h = tamany_arbre(a);
-    cout << "Altura: " << h << endl;
-    vector< queue<Celula> > V(h);
-    matriu(V, a, 0);
-    int pot = 1;
-    for (int i = 0; i < h - 1; ++i) pot *= 2;
-    for (int i = 0; i < h; ++i) 
-    {
-        while(not V[i].empty())
+    if(tamany != 0) {
+        cout << endl << "----Arbre de celules----" << endl << endl;
+        Arbre<Celula> a = cels;
+        int h = tamany_arbre(a);
         
+        vector< queue<Celula> > V(h);
+        matriu(V, a, 0);
+        int pot = 1;
+        for (int i = 0; i < h - 1; ++i) pot *= 2;
+        for (int i = 0; i < h; ++i) 
         {
-            if (V[i].front().id < 10) cout << " ";
-            cout << V[i].front().id;
-            if (V[i].front().activa) cout << "!";
-            else cout << " ";
-            cout << " ";
-            V[i].pop();
+            while(not V[i].empty())
+            
+            {
+                if (V[i].front().id < 10) cout << " ";
+                cout << V[i].front().id;
+                if (V[i].front().activa) cout << "!";
+                else cout << " ";
+                cout << " ";
+                V[i].pop();
+            }
+            pot /= 2;
+            cout << endl;
         }
-        pot /= 2;
-        cout << endl;
+        cout << endl << "-------------------------" << endl << endl;
     }
-    cout << endl << "-------------------------" << endl << endl;
+    else cout << "Arbre buit" << endl;
 }
 
 int Organisme::tamany_arbre(Arbre<Celula> &a)
