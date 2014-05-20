@@ -136,7 +136,7 @@ void ConjuntOrg::escriure_ultims(int n)
     {
         cout << i + 1 << " : ";
         V[i].escriure_organisme();
-        V[i].escriure_bonic();
+        //V[i].escriure_bonic();
     }
 }
 
@@ -146,6 +146,6 @@ void ConjuntOrg::estat(int p) const
     {
         cout << p << " : ";
         V[p - 1].escriure_organisme(); 
-        V[p - 1].escriure_bonic();   
+        //V[p - 1].escriure_bonic();   
     }
 }

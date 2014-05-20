@@ -38,13 +38,14 @@ void Organisme::estirar_organisme()
             
             // Plantem els dos arbres i ens estalviem cridar la funció
             // recursiva per poder duplicar només la cèl·lula arrel
-            aux.id = max_id;
             ++max_id;
+            aux.id = max_id;
             
             a1.plantar(aux, buit, buit);
             
-            aux.id = max_id;
+		    
             ++max_id;
+            aux.id = max_id;
             
             a2.plantar(aux, buit, buit);
             
