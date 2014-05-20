@@ -117,6 +117,11 @@ bool ConjuntOrg::morts() const
 	return mort;
 }
 
+int ConjuntOrg::consultar_tamany() const
+{
+    return tamany;
+}
+
 /***************************
  *    ENTRADA / SORTIDA    *
  ***************************/

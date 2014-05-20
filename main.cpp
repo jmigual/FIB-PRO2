@@ -114,13 +114,13 @@ int main()
 	}
     cout << "FIN" << endl;
     cout << endl;
-    cout << "Organismos en total : " << M << endl;
+    cout << "Organismos en total : " << Conj.consultar_tamany() << endl;
     cout << "Organismos vivos : " << Conj.vius() << endl;
-    cout << endl;
     
     // Instruccions per a la fi del programa quan s'ha arribat al límit del
     // conjunt
     if (fi == 2) {
+        cout << endl;
         cout << "ORGANISMOS" << endl;
         Conj.escriure_ultims(fills);
         

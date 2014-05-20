@@ -96,6 +96,12 @@ public:
 	 *  \post Es retorna un booleà amb l'estat dels organismes
 	 */
 	bool morts() const;
+    
+    /** @brief Consultora que ens retorna el tamany del conjunt
+     *  \pre Cert
+     *  \post Es retorna un enter amb el tamany del conjunt
+     */
+    int consultar_tamany() const;
 
     /***************************
      *    ENTRADA / SORTIDA    *
