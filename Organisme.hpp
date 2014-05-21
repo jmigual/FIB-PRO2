@@ -59,22 +59,15 @@ private:
 	 *  \post Totes les cèl·lules que no tenen cap filla han estat eliminades
 	 */
     static void retallar_recursiu(Arbre<Celula> &a, int &tamany, int &max_id);
-
-	/** @brief Funció per calcular el tamany de la intersecció de dos arbres
-	 *  de manera recursiva
-	 *  \pre Cert
-	 *  \post Retorna el nombre d'elements de l'arbre resultant de la
-	 *  intersecció dels dos arbres 'a1' i 'a2'
-	 */
-	static int tam_intersec_recursiu(Arbre<Celula> &a1, Arbre<Celula> &a2);
     
     /** @brief Funció que afegeix l'arbre intersecció de dos arbres de
      *  organismes a l'àrbre 'cels'
      *  \pre Cert
      *  \post L'arbre cels ha passat a tenir la intersecció dels arbres dels
-     *  dos organismes
+     *  dos organismes i es retorna el tamany de la intersecció dels arbres
+     *  dels dos organismes
      */
-    static void reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1, 
+    static int reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1, 
                           Arbre<Celula> &a2, int &max_id, int &tamany);
     
     /** @brief Funció que busca si hi ha una cèl·lula activa a l'arbre 'a' i 
@@ -116,6 +109,7 @@ private:
      */
     static void escriure_rec(Arbre<Celula> &cels);
     
+    //////////////////////////////////////
     // DIBUIXAR ARBRE
     
     static int tamany_arbre(Arbre<Celula> &a);
@@ -162,9 +156,10 @@ public:
      *  han de ser compatibles entre ells, l'id de 'o1' és més
      *  petit que l'id de 'o2'
      *  \post L'organisme implícit ha passat a ser un organisme que és fill
-     *  de 'o1' i 'o2'
+     *  de 'o1' i 'o2' només si la reproducció ha estat possible en aquest cas
+     *  es retorna 'true', si no ha estat possible es retorna 'false'
      */
-    void reproduir_organisme(const Organisme &o1, const Organisme &o2);
+    bool reproduir_organisme(const Organisme &o1, const Organisme &o2);
 
 
     /*********************
@@ -176,7 +171,7 @@ public:
      *  \post Retorna un booleà que és 'true' si són compatibles i 'false' si
      *  no ho són
      */
-	bool compatibles(const Organisme &o) const;
+	/*bool compatibles(const Organisme &o) const;*/
 
     /** @brief Consultora que retorna el tamany de l'organisme
      *  \pre Cert

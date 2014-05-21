@@ -153,22 +153,34 @@ void Organisme::retallar_recursiu(Arbre<Celula> &a, int &tam, int &max_id)
 	}
 }
 
-void Organisme::reproduir_organisme(const Organisme &o1, const Organisme &o2)
+bool Organisme::reproduir_organisme(const Organisme &o1, const Organisme &o2)
 {
     Arbre<Celula> a1 = o1.cels;
     Arbre<Celula> a2 = o2.cels;
     
     max_id = o1.max_id;
     
-    // Primer fem la intersecció
-    reproduir(cels, a1, a2, max_id, tamany);
+    
+    int tam_int = reproduir(cels, a1, a2, max_id, tamany);
+    
+    int comp = (o1.tamany + o2.tamany)/4;
+    
+    if(tam_int >= comp) return true;
+    else 
+    {
+        cels.a_buit();
+        return false;
+    }
+    
+    
     
     
 }
 
-void Organisme::reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1,
+int Organisme::reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1,
                           Arbre<Celula> &a2, int &max_id, int &tamany) 
 {
+    int res = 0;
     if(not(a1.es_buit()) and not(a2.es_buit())) 
     {
         Celula c = a1.arrel();
@@ -182,10 +194,12 @@ void Organisme::reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1,
         a1.fills(a1_e, a1_d);
         a2.fills(a2_e, a2_d);
         
-        reproduir(cels_e, a1_e, a2_e, max_id, tamany);
-        reproduir(cels_d, a1_d, a2_d, max_id, tamany);
+        ++res;
+        res += reproduir(cels_e, a1_e, a2_e, max_id, tamany);
+        res += reproduir(cels_d, a1_d, a2_d, max_id, tamany);
         cels.plantar(c, cels_e, cels_d);
         ++tamany;
+        
     }
     else if (a1.es_buit() and not(a2.es_buit())) 
     {
@@ -197,6 +211,8 @@ void Organisme::reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1,
     {
         busca_activa_petit(cels, a1, tamany);
     }
+    else res = 1;
+    return res;
 }
 
 void Organisme::busca_activa_gran(Arbre<Celula> &cels, Arbre<Celula> &a,
@@ -279,7 +295,7 @@ void Organisme::busca_activa_petit(Arbre<Celula> &cels, Arbre<Celula> &a,
 /*********************
  *    CONSULTORES    *
  *********************/
-
+/*
 bool Organisme::compatibles(const Organisme &o) const 
 {
 	int comp = (tamany + o.tamany)/4;
@@ -313,6 +329,8 @@ int Organisme::consultar_tamany() const
 {
 	return tamany;
 }
+
+*/
 
 bool Organisme::es_mort() const 
 { 

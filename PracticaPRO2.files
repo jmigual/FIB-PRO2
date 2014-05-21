@@ -40,9 +40,7 @@ Organisme.hpp
 prova.cpp
 Ranking.cpp
 Ranking.hpp
-Jocs proves/main.txt
 Jocs proves/1.txt
-Jocs proves/001.in
 Arbre.hpp
 ConjuntOrg.cpp
 ConjuntOrg.hpp
@@ -52,9 +50,8 @@ Organisme.hpp
 prova.cpp
 Ranking.cpp
 Ranking.hpp
-Informació/enun.txt
-Informació/format.txt
-Informació/in.txt
-Informació/Llista de condicions.txt
-Informació/out.txt
-Jocs proves/002.in
+Informaci/enun.txt
+Informaci/format.txt
+Informaci/in.txt
+Informaci/Llista de condicions.txt
+Informaci/out.txt

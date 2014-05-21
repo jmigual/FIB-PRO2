@@ -72,17 +72,16 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
             {
                 Escollit[i] = Escollit[j] = true;
                 Aparellat[i][j] = Aparellat[j][i] = true;
-                if(V[i].compatibles(V[j])) 
+                
+                // Sabem que l'identificador 'i' serà sempre més petit 
+                // que l'id 'j' ja que és una de les condicions
+                // d'inicialització
+                if(V[tamany].reproduir_organisme(V[i], V[j])) 
                 {
-                    
-                    // Sabem que l'identificador 'i' serà sempre més petit 
-                    // que l'id 'j' ja que és una de les condicions
-                    // d'inicialització
-                    V[tamany].reproduir_organisme(V[i], V[j]);
-                    
                     Rank.afegir_fill(i, j, tamany);
                     ++tamany;
                     ++fills;
+                    
                     // Si després de la ronda de reproducció ja no hi cap cap
                     // més organisme posem 'hi_cap' a 'false'
                     if (tamany == int(V.size())) hi_cap = false;
