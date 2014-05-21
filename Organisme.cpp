@@ -158,23 +158,23 @@ bool Organisme::reproduir_organisme(const Organisme &o1, const Organisme &o2)
     Arbre<Celula> a1 = o1.cels;
     Arbre<Celula> a2 = o2.cels;
     
-    max_id = o1.max_id;
+    bool res = false;
     
+    max_id = o1.max_id;
+    tamany = 0;
     
     int tam_int = reproduir(cels, a1, a2, max_id, tamany);
     
     int comp = (o1.tamany + o2.tamany)/4;
     
-    if(tam_int >= comp) return true;
+    if(tam_int >= comp) res = true;
     else 
     {
         cels.a_buit();
-        return false;
+        res = false;
+        max_id = 0;
     }
-    
-    
-    
-    
+    return res;
 }
 
 int Organisme::reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1,
@@ -188,17 +188,19 @@ int Organisme::reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1,
         if(c.activa or a2.arrel().activa) c.activa = true;
         else c.activa = false;
         
+        ++res;
+        
         Arbre<Celula> cels_e, cels_d;
         Arbre<Celula> a1_e, a1_d, a2_e, a2_d;
         
         a1.fills(a1_e, a1_d);
         a2.fills(a2_e, a2_d);
         
-        ++res;
         res += reproduir(cels_e, a1_e, a2_e, max_id, tamany);
         res += reproduir(cels_d, a1_d, a2_d, max_id, tamany);
         cels.plantar(c, cels_e, cels_d);
         ++tamany;
+        
         
     }
     else if (a1.es_buit() and not(a2.es_buit())) 
@@ -211,7 +213,6 @@ int Organisme::reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1,
     {
         busca_activa_petit(cels, a1, tamany);
     }
-    else res = 1;
     return res;
 }
 
@@ -231,12 +232,12 @@ void Organisme::busca_activa_gran(Arbre<Celula> &cels, Arbre<Celula> &a,
             {
                 ++tamany;
                 c.id = max_id;
+                
                 cels.plantar(c, a_e, a_d);
             }
         }
         else
         {
-            ++tamany;
             c.id = max_id;
 
             Arbre<Celula> cels_e, cels_d;
@@ -251,6 +252,8 @@ void Organisme::busca_activa_gran(Arbre<Celula> &cels, Arbre<Celula> &a,
             
             if (c.activa or not(cels_e.es_buit()) or not(cels_d.es_buit())) 
             {
+                ++tamany;
+                
                 cels.plantar(c, cels_e, cels_d);
             }
         }
@@ -285,7 +288,6 @@ void Organisme::busca_activa_petit(Arbre<Celula> &cels, Arbre<Celula> &a,
             if (c.activa or not(cels_e.es_buit()) or not(cels_d.es_buit())) 
             {
                 ++tamany;
-                
                 cels.plantar(c, cels_e, cels_d);
             }
         }
@@ -497,17 +499,3 @@ void Organisme::matriu(vector< queue<Celula> > &V, Arbre<Celula> &a, int h)
     }
 }
 
-
-/*
-
-                     !x8   
-                 /         \                   
-         !x8                     !x8           
-       /     \                 /     \         
-   !x8         !x8         !x8         !x8     
-  /   \       /   \       /   \       /   \    
-!x8   !x8   !x8   !x8   !x8   !x8   !x8   !x8  
-
-/\ = 1 + 2^profunditat
-\/ = 2*2^(profunditat - 1) + 1
-*/
