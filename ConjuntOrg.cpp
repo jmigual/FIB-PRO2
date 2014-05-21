@@ -59,13 +59,14 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
 
     for (int i = 0; i < num and hi_cap; ++i)
     {
-        if (not Escollit[i]) 
+        if (not Escollit[i] and not V[i].es_mort()) 
         {
             bool candidat = false;
             int j = i + 1;
             while (j < num and not candidat)
             {
-                if (not Aparellat[i][j] and not Escollit[j]) candidat = true;
+                if (not Aparellat[i][j] and not Escollit[j] and
+                        not V[j].es_mort()) candidat = true;
                 else ++j;
             }
             if (candidat)
