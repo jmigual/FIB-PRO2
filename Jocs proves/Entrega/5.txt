@@ -1,0 +1,10 @@
+Entrada comentada:
+------------------
+
+2	// N : Número inicial d'organismes
+3
+
+1 false 2 false 3 false 0 0 0 0
+1 false 0 2 false 0 0
+-3
+-6
