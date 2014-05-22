@@ -56,8 +56,9 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
     // Variable que ens servirà per saber si la reproducció s'ha pogut fer
     // correctament, en cas contrari la variable serà 'false'
     bool hi_cap = true;
-
-    for (int i = 0; i < num and hi_cap; ++i)
+    
+    int i = 0;
+    while (i < num and hi_cap)
     {
         if (not Escollit[i] and not V[i].es_mort()) 
         {
@@ -90,6 +91,7 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
                 }
             }            
         }
+        ++i;
     }
     Rank.actualitzar();
     return hi_cap;
