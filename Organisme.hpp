@@ -109,6 +109,13 @@ private:
      */
     static void escriure_rec(Arbre<Celula> &cels);
     
+    /** @brief Funció recursiva que retorna el valor del màxim ID de totes les
+     *  cèl·lules de l'organisme
+     *  \pre ---
+     *  \post Retorna un enter amb el màxim ID de les cèl·lules de l'organisme
+     */
+    static int busca_max(Arbre<Celula> &cels);
+    
     //////////////////////////////////////
     // DIBUIXAR ARBRE
     

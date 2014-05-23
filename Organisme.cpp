@@ -167,7 +167,12 @@ bool Organisme::reproduir_organisme(const Organisme &o1, const Organisme &o2)
     
     int comp = (o1.tamany + o2.tamany)/4;
     
-    if(tam_int >= comp) res = true;
+    if(tam_int >= comp) 
+    {
+        res = true;
+        max_id = busca_max(cels);
+        
+    }
     else 
     {
         cels.a_buit();
@@ -294,45 +299,37 @@ void Organisme::busca_activa_petit(Arbre<Celula> &cels, Arbre<Celula> &a,
     }
 }
 
+int Organisme::busca_max(Arbre<Celula> &cels)
+{
+    Celula c = cels.arrel();
+    Arbre a_e, a_d;
+    cels.fills(a_e, a_d);
+    
+    int max, max_e, max_d;
+    int max = max_e = max_d = 0;
+    
+    if (not a_e.es_buit())
+    {
+        max_e = busca_max(a_e);
+    }
+    if (not a_d.es_buit())
+    {
+        max_d = busca_max(a_d);
+    }
+    
+    // Busquem el màxim d'aquest subarbre, ha de ser l'ID de l'arrel o un dels
+    // dos màxims dels fills
+    if (max_e > max_d) max = max_e;
+    else max = max_d;
+    if (c.id > max) max = c.id;
+    
+    cels.plantar(c, a_e, a_d);
+    return max;
+}
+
 /*********************
  *    CONSULTORES    *
  *********************/
-/*
-bool Organisme::compatibles(const Organisme &o) const 
-{
-	int comp = (tamany + o.tamany)/4;
-
-    Arbre<Celula> a_a = cels;
-    Arbre<Celula> a_b = o.cels;
-    
-    return (tam_intersec_recursiu(a_a, a_b) >= comp);
-}
-
-int Organisme::tam_intersec_recursiu(Arbre<Celula> &a1, Arbre<Celula> &a2)
-{
-	int res = 0;
-
-    // Evaluem per cada branca de l'arbre, si hi ha una arrel sumem 1
-	// com que ho fem recursivament tots els resultats es van sumant fins
-	// a obtenir el resultat de la intersecció
-	if(not(a1.es_buit()) and not(a2.es_buit())) 
-    {
-		++res;
-        Arbre<Celula> a1_e, a1_d, a2_e, a2_d;
-		a1.fills(a1_e, a1_d);
-		a2.fills(a2_e, a2_d);
-		res += tam_intersec_recursiu(a1_e, a2_e);
-		res += tam_intersec_recursiu(a1_d, a2_d);
-	}
-	return res;
-}
-
-int Organisme::consultar_tamany() const 
-{
-	return tamany;
-}
-
-*/
 
 bool Organisme::es_mort() const 
 { 
