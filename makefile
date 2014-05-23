@@ -1,11 +1,11 @@
 #Opcions que passem al compilador
-flags = -c -Wall -Wextra -D_GLIBCXX_DEBUG
+flags = -c -Wall -Wextra -D_GLIBCXX_DEBUG -m32
 
 
 
 #Lincat final 
 all: main.o Organisme.o ConjuntOrg.o Ranking.o
-	g++ -o pro2.exe *.o
+	g++ -o pro2.exe *.o -m32
 
 #Programa principal
 main.o: main.cpp Arbre.hpp Organisme.hpp ConjuntOrg.hpp Ranking.hpp
