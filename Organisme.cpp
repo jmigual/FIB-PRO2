@@ -26,13 +26,19 @@ Organisme::~Organisme()
 
 void Organisme::estirar_organisme() 
 {
-	if (not retallat and not cels.es_buit()) {
-        Celula c = cels.arrel();
+    if (not retallat) estirar_recursiu(cels, max_id, tamany);
+}
+
+void Organisme::estirar_recursiu(Arbre<Celula> &a, int &max_id, int &tam) 
+{
+    if (not a.es_buit())
+    {
         Arbre<Celula> a1, a2;
-        cels.fills(a1, a2);
+        Celula c = a.arrel();
+        a.fills(a1, a2);
         if (a1.es_buit() and a2.es_buit())
         {
-            tamany += 2;
+            tam += 2;
             Celula aux = c;
             Arbre<Celula> buit;
             
@@ -43,69 +49,19 @@ void Organisme::estirar_organisme()
             
             a1.plantar(aux, buit, buit);
             
-		    
             ++max_id;
             aux.id = max_id;
             
             a2.plantar(aux, buit, buit);
             
         }
-        else if (not a1.es_buit() and not a2.es_buit())
-        {
-            estirar_recursiu(a1, max_id, c, tamany);
-            estirar_recursiu(a2, max_id, c, tamany);
-        }
-        else if (a1.es_buit() and not a2.es_buit())
-        {
-            estirar_recursiu(a2, max_id, c, tamany);
-        }
         else 
         {
-            estirar_recursiu(a1, max_id, c, tamany);
+            estirar_recursiu(a1, max_id, tam);
+            estirar_recursiu(a2, max_id, tam);
         }
-        cels.plantar(c, a1, a2);
-	}
-}
-
-void Organisme::estirar_recursiu(Arbre<Celula> &a, int &max_id, Celula c,
-                                 int &tam) 
-{
-    Arbre<Celula> a1, a2;
-    c = a.arrel();
-    a.fills(a1, a2);
-    if (a1.es_buit() and a2.es_buit())
-    {
-        tam += 2;
-        Celula aux = c;
-        Arbre<Celula> buit;
-        
-        // Plantem els dos arbres i ens estalviem cridar la funció
-        // recursiva per poder duplicar només la cèl·lula arrel
-        ++max_id;
-        aux.id = max_id;
-        
-        a1.plantar(aux, buit, buit);
-        
-        ++max_id;
-        aux.id = max_id;
-        
-        a2.plantar(aux, buit, buit);
-        
+        a.plantar(c, a1, a2);
     }
-    else if (not a1.es_buit() and not a2.es_buit())
-    {
-        estirar_recursiu(a1, max_id, c, tam);
-        estirar_recursiu(a2, max_id, c, tam);
-    }
-    else if (a1.es_buit() and not a2.es_buit())
-    {
-        estirar_recursiu(a2, max_id, c, tam);
-    }
-    else 
-    {
-        estirar_recursiu(a1, max_id, c, tam);
-    }
-    a.plantar(c, a1, a2);
 }
 
 void Organisme::retallar_organisme() 
@@ -117,15 +73,20 @@ void Organisme::retallar_organisme()
         Celula c = cels.arrel();
         Arbre<Celula> a1, a2;
         cels.fills(a1, a2);
-        int max = 0;
         
-		if(a1.es_buit() and a2.es_buit()) tamany = 0;
+		if(a1.es_buit() and a2.es_buit()) 
+        {
+            tamany = 0;
+            max_id = 0;
+        }
 		else 
         {
+            int max = c.id;
             retallar_recursiu(a1, tamany, max);
             retallar_recursiu(a2, tamany, max);
             cels.plantar(c, a1, a2);
             max_id = max;
+            
 		}
 
     }
@@ -142,9 +103,9 @@ void Organisme::retallar_recursiu(Arbre<Celula> &a, int &tam, int &max_id)
 		// Si algun dels dos fills no està buit vol dir que la cèl·lula encara
         // no s'ha d'eliminar. Si ja no té cap fill no tornem a plantar
         // l'arbre i haurem eliminat la cèl·lula.
-		if(not(a1.es_buit() and a2.es_buit())) 
+		if(not(a1.es_buit()) or not(a2.es_buit())) 
         {
-            if (max_id < c.id) max_id = c.id;
+            if (c.id > max_id) max_id = c.id;
             retallar_recursiu(a1, tam, max_id);
             retallar_recursiu(a2, tam, max_id);
 			a.plantar(c, a1, a2);
@@ -176,25 +137,22 @@ bool Organisme::reproduir_organisme(const Organisme &o1, const Organisme &o2)
     else 
     {
         cels.a_buit();
-        res = false;
         max_id = 0;
+        res = false;
     }
     return res;
 }
 
 int Organisme::reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1,
-                          Arbre<Celula> &a2, int &max_id, int &tamany) 
+                         Arbre<Celula> &a2, int &max_id, int &tamany) 
 {
     int res = 0;
     if(not(a1.es_buit()) and not(a2.es_buit())) 
     {
         Celula c = a1.arrel();
         
-        if(c.activa or a2.arrel().activa) c.activa = true;
-        else c.activa = false;
-        
-        ++res;
-        
+        if(a2.arrel().activa) c.activa = true;
+
         Arbre<Celula> cels_e, cels_d;
         Arbre<Celula> a1_e, a1_d, a2_e, a2_d;
         
@@ -203,10 +161,10 @@ int Organisme::reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1,
         
         res += reproduir(cels_e, a1_e, a2_e, max_id, tamany);
         res += reproduir(cels_d, a1_d, a2_d, max_id, tamany);
-        cels.plantar(c, cels_e, cels_d);
+        ++res;
         ++tamany;
         
-        
+        cels.plantar(c, cels_e, cels_d);
     }
     else if (a1.es_buit() and not(a2.es_buit())) 
     {
@@ -237,14 +195,12 @@ void Organisme::busca_activa_gran(Arbre<Celula> &cels, Arbre<Celula> &a,
             {
                 ++tamany;
                 c.id = max_id;
-                
                 cels.plantar(c, a_e, a_d);
             }
         }
         else
         {
             c.id = max_id;
-
             Arbre<Celula> cels_e, cels_d;
             
             ++max_id;
@@ -258,7 +214,6 @@ void Organisme::busca_activa_gran(Arbre<Celula> &cels, Arbre<Celula> &a,
             if (c.activa or not(cels_e.es_buit()) or not(cels_d.es_buit())) 
             {
                 ++tamany;
-                
                 cels.plantar(c, cels_e, cels_d);
             }
         }
@@ -302,11 +257,11 @@ void Organisme::busca_activa_petit(Arbre<Celula> &cels, Arbre<Celula> &a,
 int Organisme::busca_max(Arbre<Celula> &cels)
 {
     Celula c = cels.arrel();
-    Arbre a_e, a_d;
+    Arbre<Celula> a_e, a_d;
     cels.fills(a_e, a_d);
     
     int max, max_e, max_d;
-    int max = max_e = max_d = 0;
+    max = max_e = max_d = 0;
     
     if (not a_e.es_buit())
     {

@@ -40,12 +40,6 @@ public:
 	 */
 	ConjuntOrg(int M);
 
-	/** @brief Constructora per còpia
-	 *  \pre Cert
-	 *  \post El paràmetre implícit passa a ser igual al afegit a la funció
-	 */
-	ConjuntOrg(const ConjuntOrg &C);
-
 	/** @brief Destructora per defecte
 	 *  <p>Esborra automàticament l'objecte al sortir d'un àmbit de
 	 *  visibilitat</p>

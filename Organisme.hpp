@@ -27,7 +27,7 @@ private:
         int id;
         /** @var activa
          *  @brief Booleà que indica si la cèl·lula és activa o no ('true' si 
-         *  és activa i 'false' si no ho és
+         *  és activa i 'false' si no ho és).
          */
         bool activa;
     };
@@ -36,7 +36,7 @@ private:
     Arbre<Celula> cels;
 
 	/** @brief Variable que ens indica si un organisme ha estat retallat
-	 *  'true' si s'ha retallat 'false' si no s'ha fet.
+	 *  ('true' si s'ha retallat 'false' si no).
 	 */
     bool retallat;
 
@@ -46,13 +46,13 @@ private:
 	/**	@brief Identificador màxim de les cèl·lules de l'organisme */
 	int max_id;
 
-    /**	@brief Funció recursiva per estirar un organisme
-     *  \pre 'c' és una cèl·lula vàlida, max_id està inicialitzat i no és
-     *  negatiu i 'a' és un arbre no buit.
-     *  \post Totes les cèl·lules que no s'havien dividit s'han dividit
+    /**	@brief Funció recursiva per estirar un organisme.
+     *  \pre 'c' és una cèl·lula amb 'id' i 'activa' assigants, max_id està 
+     *  inicialitzat, no és negatiu i 'a' és un arbre no buit.
+     *  \post Totes les cèl·lules que no s'havien dividit abans han passat a
+     *  estar dividides.
 	 */
-	static void estirar_recursiu(Arbre<Celula> &a, int &max_id, Celula c,
-    int &tamany);
+	static void estirar_recursiu(Arbre<Celula> &a, int &max_id, int &tamany);
 
 	/** @brief Funció per retallar l'arbre d'un organisme
 	 *  \pre L'organisme no està mort
@@ -62,22 +62,23 @@ private:
     
     /** @brief Funció que afegeix l'arbre intersecció de dos arbres de
      *  organismes a l'àrbre 'cels'
-     *  \pre Cert
+     *  \pre Max_id conté el màxim ID de les cèl·lules de l'arbre 'a1'
      *  \post L'arbre cels ha passat a tenir la intersecció dels arbres dels
      *  dos organismes i es retorna el tamany de la intersecció dels arbres
      *  dels dos organismes
      */
     static int reproduir(Arbre<Celula> &cels, Arbre<Celula> &a1, 
-                          Arbre<Celula> &a2, int &max_id, int &tamany);
+                         Arbre<Celula> &a2, int &max_id, int &tamany);
     
     /** @brief Funció que busca si hi ha una cèl·lula activa a l'arbre 'a' i 
      *  si la troba l'afegeix a 'cels' incrementant max_id en el procés de
      *  fer-ho i tamany, per conectar la cèl·lula ho fa mitjançant les que 
      *  hi hagi pel camí, siguin actives o passives.
-     *  \pre max_id i tamany són enters majors que 0
+     *  \pre max_id-1 indica el màxim ID assignat. Tamany i max_id són enters 
+     *  majors que 0
      *  \post Les cèl·lules actives de l'arbre 'a' han estat afegides a
-     *  l'arbre 'cels' en la mateixa posició i també s'ha incrementat 'max_id'
-     *  i 'tamany'.
+     *  l'arbre 'cels' en la mateixa posició i s'hi s'han trobat cèl·lules
+     *  actives s'ha incrementat 'tamany'.
      */
     static void busca_activa_gran(Arbre<Celula> &cels, Arbre<Celula> &a,
                                   int &max_id, int &tamany);

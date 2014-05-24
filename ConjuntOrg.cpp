@@ -12,16 +12,9 @@ ConjuntOrg::ConjuntOrg(int M) {
 	V = vector<Organisme> (M);
 	Aparellat = vector< vector<bool> > (M, vector<bool> (M));  
 	tamany = 0;
-
+    
     //Posem true a la diagonal per tal que no s'aparelli mai am si mateix
     for (int i = 0; i < M; ++i) Aparellat[i][i] = true;
-}
-
-ConjuntOrg::ConjuntOrg(const ConjuntOrg &c) 
-{
-	V = c.V;
-    Aparellat = c.Aparellat;
-	tamany = c.tamany;
 }
 
 ConjuntOrg::~ConjuntOrg() {}
@@ -66,19 +59,21 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
             int j = i + 1;
             while (j < num and not candidat)
             {
-                if (not Aparellat[i][j] and not Escollit[j] and
-                        not V[j].es_mort()) candidat = true;
+                if (not Escollit[j] and not V[j].es_mort() and
+                    not Aparellat[i][j]) 
+                {
+                    candidat = true;
+                    Escollit[i] = Escollit[j] = true;
+                    Aparellat[i][j] = Aparellat[j][i] = true;
+                }
                 else ++j;
             }
             if (candidat)
             {
-                Escollit[i] = Escollit[j] = true;
-                Aparellat[i][j] = Aparellat[j][i] = true;
                 
                 // Sabem que l'identificador 'i' serà sempre més petit 
                 // que l'id 'j' ja que és una de les condicions
                 // d'inicialització
-                // cout << "i: " << i+1 << " j: " << j+1 << endl;
                 if(V[tamany].reproduir_organisme(V[i], V[j])) 
                 {
                     Rank.afegir_fill(i, j, tamany);
@@ -93,7 +88,7 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
         }
         ++i;
     }
-    Rank.actualitzar();
+    //Rank.actualitzar();
     return hi_cap;
 }
 
@@ -144,7 +139,7 @@ void ConjuntOrg::escriure_ultims(int n)
     {
         cout << i + 1 << " : ";
         V[i].escriure_organisme();
-        V[i].escriure_bonic();
+        //V[i].escriure_bonic();
     }
 }
 
@@ -154,6 +149,6 @@ void ConjuntOrg::estat(int p) const
     {
         cout << p << " : ";
         V[p - 1].escriure_organisme(); 
-        V[p - 1].escriure_bonic();   
+        //V[p - 1].escriure_bonic();   
     }
 }

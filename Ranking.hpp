@@ -62,6 +62,11 @@ private:
      */
     int tamany;
     
+    /** @brief Variable que ens indica si el rànking ha estat modificat i
+     *  necessitarem tornar a generar-lo.
+     */
+    bool modificat;
+    
     /** @brief Funció booleana que ens dona les condicions per ordenar el 
      *  rànking
      */
@@ -72,12 +77,6 @@ public:
     /***********************
      *    CONSTRUCTORES    *
      ***********************/
-
-    /** @brief Constructora per defecte
-     *  \pre Cert
-     *  \post Es crea un rànking de tamany 'M'
-     */
-    Ranking(int M);
     
     /** @brief Constructora que afegeix un nombre d'organismes per defecte
      *  \pre 0 <= n < M
@@ -91,16 +90,17 @@ public:
 
     /** @brief Modificadora que afegeix els pares de un organisme per poder
      *  fer el rànking
-     *  \pre Cert
-     *  \post S'han afegit l'ID dels pares i del fill que han tingut al P.I.
+     *  \pre Cert.
+     *  \post S'han afegit l'ID dels pares i del fill que han tingut al P.I. i
+     *  al rànking s'hi contempla un organisme més.
      */
     void afegir_fill(int pare1, int pare2, int fill);
     
     /** @brief Genera de nou el vector Rank i l'ordena
      *  \pre Cert
-     *  \post Rànking ha estat regenerat
+     *  \post Rànking ha estat regenerat.
      */
-    void actualitzar();
+    //void actualitzar();
     
 
     /***************************
@@ -112,7 +112,7 @@ public:
      *  \post Pel canal estàndard de sortida s'ha imprés el rànking de
      *  reproducció dels organismes
      */
-    void ranking() const;
+    void ranking();
 };
 
 #endif // RANKING_HPP
