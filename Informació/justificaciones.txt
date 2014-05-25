@@ -1,0 +1,13 @@
+                ENTREGA DE JUSTIFICACIONES DE LA PRACTICA
+
+Como complemento a la documentación de la práctica, deberéis entregar un
+fichero pdf con las justificaciones de los siguientes elementos:
+
+* Todas las operaciones recursivas necesarias para aplicar el crecimiento a un
+  organismo (opción -1).
+  
+* Todos los procesos iterativos que intervengan en la aplicación de una ronda
+  de reproducción (opción -3), salvo la actualización del Ranking.
+
+Usad el formato del ejemplo "Experimentos inmunológicos" que aparece en la web
+de PRO2

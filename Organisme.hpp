@@ -146,13 +146,13 @@ public:
 
     /**	@brief Modificadora que fa créixer l'organisme
      *  \pre L'organisme ha de tenir una cèl·lula o més
-     *  \post Fisiona totes les cèl·lules de l'organisme que no s'hagin
-     *  fisionat
+     *  \post Totes les cèl·lules de l'organisme que no s'han dividit han
+     *  passat a tenir dues cèl·lules filles a l'àrbre de cèl·lules de
+     *  l'organisme.
      */
 	void estirar_organisme();
 
-	/** @brief Modificadora que elimina totes les cèl·lules que no tenen cap
-	 *  fill
+	/** @brief Modificadora que retalla un organisme
 	 *  \pre L'organisme ha de tenir una cèl·lula o més
 	 *  \post Totes les cèl·lules que no tenien cap fill han estat eliminades
 	*/

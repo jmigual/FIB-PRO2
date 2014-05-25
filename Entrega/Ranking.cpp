@@ -9,18 +9,12 @@
  *    CONSTRUCTORES    *
  ***********************/
 
-Ranking::Ranking(int M)
-{
-    Rank = vector<OrganRank> (M);
-    Rel = vector< list<ParFill> > (M);
-    tamany = 0;
-}
-
 Ranking::Ranking(int M, int tam)
 {
     Rank = vector<OrganRank> (M);
     Rel = vector< list<ParFill> > (M);
     tamany = tam;
+    for (int i = 0; i < tam; ++i) Rank[i].id = i;
 }
 
 /***********************
@@ -43,17 +37,8 @@ void Ranking::afegir_fill(int pare1, int pare2, int fill)
     it = Rel[pare2].end();
     Rel[pare2].insert(it, aux);
     
+    modificat = true;
     ++tamany;
-}
-
-void Ranking::actualitzar()
-{
-    for (int i = 0; i < tamany; ++i)
-    {
-        Rank[i].id = i;
-        Rank[i].fills = Rel[i].size();
-    }
-    sort(Rank.begin(), Rank.begin() + tamany, comp_rank);
 }
 
 bool Ranking::comp_rank(const OrganRank &a, const OrganRank &b)
@@ -67,8 +52,18 @@ bool Ranking::comp_rank(const OrganRank &a, const OrganRank &b)
  *    ENTRADA / SORTIDA    *
  ***************************/
 
-void Ranking::ranking() const
+void Ranking::ranking()
 {
+    if (modificat)
+    {
+        modificat = false;
+        for (int i = 0; i < tamany; ++i)
+        {
+            Rank[i].id = i;
+            Rank[i].fills = Rel[i].size();
+        }
+        sort(Rank.begin(), Rank.begin() + tamany, comp_rank); 
+    }
     for (int i = 0; i < tamany; ++i)
     {
         cout << Rank[i].id + 1 << " :";

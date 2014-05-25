@@ -12,16 +12,9 @@ ConjuntOrg::ConjuntOrg(int M) {
 	V = vector<Organisme> (M);
 	Aparellat = vector< vector<bool> > (M, vector<bool> (M));  
 	tamany = 0;
-
+    
     //Posem true a la diagonal per tal que no s'aparelli mai am si mateix
     for (int i = 0; i < M; ++i) Aparellat[i][i] = true;
-}
-
-ConjuntOrg::ConjuntOrg(const ConjuntOrg &c) 
-{
-	V = c.V;
-    Aparellat = c.Aparellat;
-	tamany = c.tamany;
 }
 
 ConjuntOrg::~ConjuntOrg() {}
@@ -56,41 +49,46 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
     // Variable que ens servirà per saber si la reproducció s'ha pogut fer
     // correctament, en cas contrari la variable serà 'false'
     bool hi_cap = true;
-
-    for (int i = 0; i < num and hi_cap; ++i)
+    
+    int i = 0;
+    while (i < num and hi_cap)
     {
-        if (not Escollit[i]) 
+        if (not Escollit[i] and not V[i].es_mort()) 
         {
             bool candidat = false;
             int j = i + 1;
             while (j < num and not candidat)
             {
-                if (not Aparellat[i][j] and not Escollit[j]) candidat = true;
+                if (not Escollit[j] and not V[j].es_mort() and
+                    not Aparellat[i][j]) 
+                {
+                    candidat = true;
+                    Escollit[i] = Escollit[j] = true;
+                    Aparellat[i][j] = Aparellat[j][i] = true;
+                }
                 else ++j;
             }
             if (candidat)
             {
-                Escollit[i] = Escollit[j] = true;
-                Aparellat[i][j] = Aparellat[j][i] = true;
-                if(V[i].compatibles(V[j])) 
+                
+                // Sabem que l'identificador 'i' serà sempre més petit 
+                // que l'id 'j' ja que és una de les condicions
+                // d'inicialització
+                if(V[tamany].reproduir_organisme(V[i], V[j])) 
                 {
-                    
-                    // Sabem que l'identificador 'i' serà sempre més petit 
-                    // que l'id 'j' ja que és una de les condicions
-                    // d'inicialització
-                    V[tamany].reproduir_organisme(V[i], V[j]);
-                    
                     Rank.afegir_fill(i, j, tamany);
                     ++tamany;
                     ++fills;
+                    
                     // Si després de la ronda de reproducció ja no hi cap cap
                     // més organisme posem 'hi_cap' a 'false'
                     if (tamany == int(V.size())) hi_cap = false;
                 }
             }            
         }
+        ++i;
     }
-    Rank.actualitzar();
+    //Rank.actualitzar();
     return hi_cap;
 }
 
