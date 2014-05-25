@@ -46,17 +46,21 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
     // Posem a '0' la variable fills per si de cas té algun altre valor
     fills = 0;
     
-    // Variable que ens servirà per saber si la reproducció s'ha pogut fer
-    // correctament, en cas contrari la variable serà 'false'
-    bool hi_cap = true;
-    
     int i = 0;
-    while (i < num and hi_cap)
+    
+    /* INV: 0 <= i <= num, hi_cap = "hi ha espai per com a mínim un organisme
+       més al vector 'V' que és on es guarden tots els organismes."
+     */
+    while (i < num and tamany != int(V.size()))
     {
         if (not Escollit[i] and not V[i].es_mort()) 
         {
             bool candidat = false;
             int j = i + 1;
+            
+            /* INV: i+1 <= j <= num, candidat = "s'ha trobat una parella V[j] 
+               per a l'organisme V[i], tamany != V.size()"
+             */
             while (j < num and not candidat)
             {
                 if (not Escollit[j] and not V[j].es_mort() and
@@ -79,17 +83,12 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
                     Rank.afegir_fill(i, j, tamany);
                     ++tamany;
                     ++fills;
-                    
-                    // Si després de la ronda de reproducció ja no hi cap cap
-                    // més organisme posem 'hi_cap' a 'false'
-                    if (tamany == int(V.size())) hi_cap = false;
                 }
             }            
         }
         ++i;
     }
-    //Rank.actualitzar();
-    return hi_cap;
+    return tamany != int(V.size());
 }
 
 /*********************

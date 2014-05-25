@@ -69,7 +69,8 @@ public:
 	 *  un booleà 'false', en cas contrari retorna 'true'</p>
 	 *  \pre Cert
 	 *  \post Tots els organismes que poden s'han reproduit un cop com a màxim
-	 *  a més a més s'imprimeixen els fills nous de la ronda
+	 *  a més a més es retornen els fills nous de la ronda a la variable
+	 *  'fills'.
 	 */
     bool reproduir(Ranking &rank, int &fills);
 

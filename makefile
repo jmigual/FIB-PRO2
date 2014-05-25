@@ -1,5 +1,5 @@
 #Opcions que passem al compilador
-flags = -c -Wall -Wextra -D_GLIBCXX_DEBUG -m32
+flags = -c -Wall -D_GLIBCXX_DEBUG -m32
 
 
 

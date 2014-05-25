@@ -47,8 +47,7 @@ private:
 	int max_id;
 
     /**	@brief Funció recursiva per estirar un organisme.
-     *  \pre max_id i tamany estan inicialitzats i no són negatius i 'a' és un
-     *  arbre no buit.
+     *  \pre 'a' és un arbre no buit.
      *  \post Totes les cèl·lules que no s'havien dividit abans han passat a
      *  estar dividides.
 	 */
