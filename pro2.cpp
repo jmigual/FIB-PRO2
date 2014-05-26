@@ -5,7 +5,7 @@
     reproduir-se i morir especificat per l'usuari del programa. S'utilitza les
     classes <em>Organisme</em>, <em>ConjuntOrg</em> i <em>Ranking</em>.
 */
-/**	@file main.cpp
+/**	@file pro2.cpp
 	@brief Programa principal per a la pràctica
 */
 

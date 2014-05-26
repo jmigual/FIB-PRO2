@@ -51,7 +51,7 @@ bool ConjuntOrg::reproduir(Ranking &Rank, int &fills)
     /* INV: 0 <= i <= num, hi_cap = "hi ha espai per com a mínim un organisme
        més al vector 'V' que és on es guarden tots els organismes."
      */
-    while (i < num and tamany != int(V.size()))
+    while (i < num and tamany < int(V.size()))
     {
         if (not Escollit[i] and not V[i].es_mort()) 
         {
