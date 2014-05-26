@@ -4,12 +4,12 @@ flags = -c -Wall -D_GLIBCXX_DEBUG -m32
 
 
 #Lincat final 
-all: main.o Organisme.o ConjuntOrg.o Ranking.o
+all: pro2.o Organisme.o ConjuntOrg.o Ranking.o
 	g++ -o pro2.exe *.o -m32
 
 #Programa principal
-main.o: main.cpp Arbre.hpp Organisme.hpp ConjuntOrg.hpp Ranking.hpp
-	g++ $(flags) main.cpp
+main.o: pro2.cpp Arbre.hpp Organisme.hpp ConjuntOrg.hpp Ranking.hpp
+	g++ $(flags) pro2.cpp
 
 #Classes necesàries
 Organisme.o: Organisme.hpp Organisme.cpp

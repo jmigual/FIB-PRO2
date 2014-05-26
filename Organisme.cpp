@@ -112,7 +112,6 @@ bool Organisme::reproduir_organisme(const Organisme &o1, const Organisme &o2)
     {
         res = true;
         max_id = busca_max(cels);
-        
     }
     else 
     {
