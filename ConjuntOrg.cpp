@@ -2,7 +2,6 @@
 	@brief Implementació de la classe ConjuntOrg
 */
 #include "ConjuntOrg.hpp"
-#include <algorithm>
 
 /***********************
  *    CONSTRUCTORES    *

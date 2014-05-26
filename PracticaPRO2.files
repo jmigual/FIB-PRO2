@@ -1,7 +1,6 @@
 Arbre.hpp
 ConjuntOrg.cpp
 ConjuntOrg.hpp
-main.cpp
 Organisme.cpp
 Organisme.hpp
 Ranking.cpp
@@ -16,7 +15,6 @@ out.txt
 Arbre.hpp
 ConjuntOrg.cpp
 ConjuntOrg.hpp
-main.cpp
 Organisme.cpp
 Organisme.hpp
 prova.cpp
@@ -25,7 +23,6 @@ Ranking.hpp
 Arbre.hpp
 ConjuntOrg.cpp
 ConjuntOrg.hpp
-main.cpp
 Organisme.cpp
 Organisme.hpp
 prova.cpp

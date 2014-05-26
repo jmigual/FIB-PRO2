@@ -96,8 +96,6 @@ WARN_LOGFILE           =
 INPUT                  = "."
 INPUT_ENCODING         = utf-8
 FILE_PATTERNS          = *.hpp \
-                         main.cpp \
-                         *.PRO2 \
                          *.cpp \
 RECURSIVE              = YES
 EXCLUDE                = *~
