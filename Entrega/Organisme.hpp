@@ -47,8 +47,7 @@ private:
 	int max_id;
 
     /**	@brief Funció recursiva per estirar un organisme.
-     *  \pre 'c' és una cèl·lula amb 'id' i 'activa' assigants, max_id està 
-     *  inicialitzat, no és negatiu i 'a' és un arbre no buit.
+     *  \pre 'a' és un arbre no buit.
      *  \post Totes les cèl·lules que no s'havien dividit abans han passat a
      *  estar dividides.
 	 */
@@ -116,13 +115,6 @@ private:
      *  \post Retorna un enter amb el màxim ID de les cèl·lules de l'organisme
      */
     static int busca_max(Arbre<Celula> &cels);
-    
-    //////////////////////////////////////
-    // DIBUIXAR ARBRE
-    
-    static int tamany_arbre(Arbre<Celula> &a);
-    static void escriure_bonic_rec(const vector< vector<Celula> > &m);
-    static void matriu(vector< queue<Celula> > &V, Arbre<Celula> &a, int h);
 
 public: 
     /***********************
@@ -213,8 +205,6 @@ public:
      *  cèl·lules són actives o passives
      */
 	void escriure_organisme() const;
-
-    void escriure_bonic() const;
 };
 
 #endif

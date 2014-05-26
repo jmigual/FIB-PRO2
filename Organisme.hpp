@@ -115,13 +115,6 @@ private:
      *  \post Retorna un enter amb el màxim ID de les cèl·lules de l'organisme
      */
     static int busca_max(Arbre<Celula> &cels);
-    
-    //////////////////////////////////////
-    // DIBUIXAR ARBRE
-    
-    static int tamany_arbre(Arbre<Celula> &a);
-    static void escriure_bonic_rec(const vector< vector<Celula> > &m);
-    static void matriu(vector< queue<Celula> > &V, Arbre<Celula> &a, int h);
 
 public: 
     /***********************
@@ -212,8 +205,6 @@ public:
      *  cèl·lules són actives o passives
      */
 	void escriure_organisme() const;
-
-    void escriure_bonic() const;
 };
 
 #endif

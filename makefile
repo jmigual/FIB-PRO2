@@ -8,7 +8,7 @@ all: pro2.o Organisme.o ConjuntOrg.o Ranking.o
 	g++ -o pro2.exe *.o -m32
 
 #Programa principal
-main.o: pro2.cpp Arbre.hpp Organisme.hpp ConjuntOrg.hpp Ranking.hpp
+pro2.o: pro2.cpp Arbre.hpp Organisme.hpp ConjuntOrg.hpp Ranking.hpp
 	g++ $(flags) pro2.cpp
 
 #Classes necesàries
